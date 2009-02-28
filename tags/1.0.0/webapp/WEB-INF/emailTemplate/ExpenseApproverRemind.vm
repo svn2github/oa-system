@@ -1,0 +1,40 @@
+Title: 
+Expense Approval Reminder!
+
+Body:
+<table width="95%" height="347" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="347"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to remind you that the following Expense need your online approval.</p>
+	  <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">Expense No.</div></td>
+          <td align="center" class="bold"><div align="left">Expense Title</div></td>
+          <td align="center" class="bold"><div align="left">Expense Category</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Expense Currency</div></td>
+          <td align="center" class="bold"><div align="left"><span class="textblack">Expense Amount</span></div></td>
+          <td align="center" class="bold">Requestor</td>
+          <td height="13" align="center" class="bold">Request Date</td>
+         
+        #foreach( $expense in $targetList)
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left">${expense.id}</div></td>
+          <td><div align="left">${expense.title}</div></td>
+          <td><div align="left">${expense.expenseCategory.description} </div></td>
+          <td><div align="left">${expense.expenseCurrency.name}</div></td>
+          <td><div align="left">${expense.amount}</div></td>
+          <td><span class="textblack"> ${expense.requestor.name}</span></td>
+          <td><span class="textblack"> $dateTool.format('yyyy/MM/dd', $expense.requestDate)</span></td>
+        </tr>
+      #end
+      </table>  
+
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+    <p></p></td>
+  </tr>
+</table>

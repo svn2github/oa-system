@@ -1,0 +1,11 @@
+--2006-06-15
+update supplier set IS_AIR_TKT_SUPP = 0 where supp_cd ='01033' 
+update supplier set IS_AIR_TKT_SUPP = 0 where supp_cd ='02041' 
+update supplier set supp_city = 2 where supp_cd ='02041' 
+update supplier set SUPP_CNFM_STA=1
+update supplier set export_status=2 
+
+--update expense category set travelling =0 and others =1
+
+--2006-12-25
+update expense set EXP_STATUS = 6 where EXP_STATUS = 5

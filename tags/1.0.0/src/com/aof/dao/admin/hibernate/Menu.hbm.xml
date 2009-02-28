@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Sep 22 17:05:58 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Menu" table="menu">
+        <id name="id" column="menu_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="name" column="menu_nm" type="string"  not-null="true" />
+        <property name="description" column="menu_desc" type="string" />
+        <property name="secondName" column="sec_menu_nm" type="string"  not-null="true" />
+        <property name="secondDescription" column="sec_menu_desc" type="string" />
+        <property name="url" column="url" type="string" />
+        <property name="onClick" column="onclick" type="string" />
+        <property name="onmouseOver" column="onmouse_over" type="string" />
+        <property name="onmouseDown" column="onmouse_down" type="string" />
+ 
+		<many-to-one name="parentMenu" column="parent_id" class="Menu" />
+		
+        <many-to-one name="function" column="func_id" class="Function" />
+    </class>
+    
+</hibernate-mapping>

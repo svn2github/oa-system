@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 10:14:37 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Country" table="country">
+        <id name="id" column="country_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="shortName" column="short_name" type="string"  not-null="true" />
+        <property name="engName" column="eng_name" type="string" />
+        <property name="chnName" column="sec_name" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 		<many-to-one name="site" column="maint_site" class="Site"/>
+        
+    </class>
+
+    <class name="Province" table="province">
+        <id name="id" column="province_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="engName" column="eng_name" type="string" />
+        <property name="chnName" column="sec_name" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="country" column="country_id" class="Country"  not-null="true" />
+        <many-to-one name="site" column="maint_site" class="Site"/>
+    </class>
+    
+    <class name="City" table="city">
+        <id name="id" column="city_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="engName" column="eng_name" type="string" />
+        <property name="chnName" column="sec_name" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="province" column="province_id" class="Province" />
+        <many-to-one name="site" column="maint_site" class="Site"/>
+    </class>
+
+</hibernate-mapping>

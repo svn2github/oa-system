@@ -1,0 +1,46 @@
+Title: 
+TA Approval Reminder!
+
+Body:
+<table width="95%" height="492" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="492"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to remind you that the following TA need your online approve.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">Urgent Level</div></td>
+          <td align="center" class="bold"><div align="left">TA No.</div></td>
+          <td align="center" class="bold"><div align="left">TA Title</div></td>
+          <td align="center" class="bold"><div align="left">From City</div></td>
+          <td align="center" class="bold"><div align="left">To City</div></td>
+          <td align="center" class="bold"><div align="left">Travel Mode</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Date From</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Date To</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Requestor</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Request Date</div></td>
+          
+        #foreach( $ta in $targetList)      
+        <tr bgcolor="#FFFFFF"> 
+          <td class="textblack"><div align="left">${ta.urgent.engShortDescription}</div></td>
+          <td class="textblack"><div align="left">${ta.id}</div></td>
+          <td class="textblack"><div align="left">${ta.title}</div></td>
+          <td class="textblack"><div align="left">${ta.fromCity.engName}</div></td>
+          <td class="textblack"><div align="left">${ta.toCity.engName}</div></td>
+          <td class="textblack"> <div align="left">${ta.travellingMode.engShortDescription}</div></td>
+          <td class="textblack"> <div align="left">$dateTool.format('yyyy/MM/dd',$ta.fromDate)</div></td>
+          <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd',$ta.toDate)</div></td>
+          <td class="textblack"><div align="left">${ta.requestor.name}</div></td>
+          <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd',$ta.requestDate)</div></td>
+        </tr> 
+       #end
+      </table>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p>&nbsp;</p>
+      <p></p></td>
+  </tr>
+</table>

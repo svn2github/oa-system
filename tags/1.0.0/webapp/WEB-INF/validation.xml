@@ -1,0 +1,611 @@
+
+
+<form-validation>
+
+<!--
+     This is a blank Validator form file with a commented examples.
+-->
+
+    <global>
+
+		<constant>
+            <constant-name>yearPattern</constant-name>
+            <constant-value>yyyy</constant-value>
+        </constant>
+
+        <constant>
+            <constant-name>defaultDatePattern</constant-name>
+            <constant-value>yyyy/MM/dd</constant-value>
+        </constant>
+        
+        <constant>
+            <constant-name>defaultTimePattern</constant-name>
+            <constant-value>HH:mm</constant-value>
+        </constant>
+        
+        <constant>
+            <constant-name>defaultDateTimePattern</constant-name>
+            <constant-value>yyyy/MM/dd HH:mm</constant-value>
+        </constant>
+
+    </global>
+
+ 	<formset>
+ 	
+ 		<form name="airTicketBookForm">
+	 		<field property="departTime" depends="date">
+				<msg key="errros.dateTime" name="date"/>
+				<arg0 key="airTicket.departTime"/>
+				<arg1 key="${defaultDateTimePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDateTimePattern}</var-value>
+				</var>
+            </field>
+			<field property="arriveTime" depends="date">
+				<msg key="errros.dateTime" name="date"/>	
+				<arg0 key="airTicket.arriveTime"/>		
+				<arg1 key="${defaultDateTimePattern}" resource="false"/> 
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDateTimePattern}</var-value>
+				</var>
+            </field>
+        </form>    
+ 		
+ 		<form name="travelApplicationQueryForm">
+ 			<field property="fromDate1" depends="date">
+				<arg0 key="travelApplication.query.fromDate1"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+ 			<field property="fromDate2" depends="date">
+				<arg0 key="travelApplication.query.fromDate2"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+ 			<field property="toDate1" depends="date">
+				<arg0 key="travelApplication.query.toDate1"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+ 			<field property="toDate2" depends="date">
+				<arg0 key="travelApplication.query.toDate2"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+ 			<field property="createDate1" depends="date">
+				<arg0 key="travelApplication.createDate"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+ 			<field property="createDate2" depends="date">
+				<arg0 key="travelApplication.createDate"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            
+        </form>
+ 		
+ 		
+ 		<form name="expenseCategoryQueryForm">
+ 			<field property="id" depends="integer">
+				<arg0 key="expenseCategory.search.id"/>
+            </field>
+        </form>
+ 		<form name="loginForm">
+ 			<field property="loginName" depends="required">
+				<arg0 key="user.loginName"/>
+            </field>
+ 			<field property="password" depends="required">
+				<arg0 key="user.password"/>
+            </field>
+        </form>
+ 		<form name="mailForm">
+ 			<field property="server" depends="required">
+				<arg0 key="mailsetup.server"/>
+            </field>
+ 			<field property="username" depends="required">
+				<arg0 key="mailsetup.username"/>
+            </field>
+ 			<field property="password" depends="required">
+				<arg0 key="mailsetup.password"/>
+            </field>
+        </form>     
+ 		<form name="paraForm">
+ 			<field property="suppday" depends="required,integer">
+				<arg0 key="para.days"/>
+            </field>
+ 			<field property="hotelday" depends="required,integer">
+				<arg0 key="para.days"/>
+            </field>
+        </form> 
+ 		<form name="userForm">
+ 			<field property="email" depends="email"/>
+        </form> 
+        <form name="currencyForm">
+        </form>                 
+        <form name="exchangeRateForm">
+        </form>
+	
+		<form name="expenseCategoryForm">
+        </form>
+
+
+
+		<form name="expenseSubCategoryForm">
+        </form>
+
+
+		<form name="travelGroupForm">
+        </form>
+        
+        <form name="travelGroupQueryForm">
+			<field property="id" depends="integer">
+				<arg0 key="travelGroup.id"/>
+            </field>
+        </form>
+
+
+
+		<form name="countryForm">
+        </form>
+
+		<form name="provinceForm">
+        </form>
+
+		<form name="cityForm">
+        </form>
+
+
+		<form name="purchaseCategoryForm">
+			<field property="description" depends="required">
+				<arg0 key="purchaseCategory.description"/>
+            </field>
+        </form>
+
+
+		<form name="hotelForm">
+        </form>
+
+
+		<form name="purchaseSubCategoryForm">
+			<field property="description" depends="required">
+				<arg0 key="purchaseSubCategory.description"/>
+            </field>
+        </form>
+
+
+		<form name="supplierForm">
+			<field property="name" depends="required">
+				<arg0 key="supplier.description"/>
+            </field>
+			<field property="contractStartDate" depends="date">
+				<arg0 key="supplier.contractStartDate"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="contractExpireDate" depends="date">
+				<arg0 key="supplier.contractExpireDate"/>
+				<arg1 key="all.datePattern"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+        </form>
+
+		<form name="supplierContractForm">
+			<field property="id" depends="">
+				<arg0 key="supplierContract.id"/>
+            </field>
+			<field property="supplier_id" depends="required">
+				<arg0 key="supplierContract.supplier.id"/>
+            </field>
+			<field property="description" depends="required">
+				<arg0 key="supplierContract.title"/>
+            </field>
+            <field property="fileContent" depends="required">
+				<arg0 key="supplierContract.fileContent"/>
+            </field>
+        </form>
+		<form name="hotelContractForm">
+            <field property="fileContent" depends="required">
+				<arg0 key="hotelContract.fileContent"/>
+            </field>
+        </form>
+
+		<form name="priceForm">
+        </form>
+
+
+		<form name="travelApplicationPurchaseForm">
+        </form>
+
+		<form name="travelApplicationForm">
+			<field property="fromTime" depends="date">
+				<arg1 key="${defaultTimePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultTimePattern}</var-value>
+				</var>
+            </field>
+			<field property="toTime" depends="date">
+				<arg1 key="${defaultTimePattern}" resource="false"/> 
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultTimePattern}</var-value>
+				</var>
+            </field>
+        </form>
+
+		<form name="supplierItemForm">
+        </form>
+
+		<form name="approverDelegateForm">
+        </form>
+        
+        <form name="approverDelegateQueryForm">
+        	<field property="fromDate1" depends="date">
+				<arg0 key="approverDelegate.fromDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="fromDate2" depends="date">
+				<arg0 key="approverDelegate.fromDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            
+            <field property="toDate1" depends="date">
+				<arg0 key="approverDelegate.toDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="toDate2" depends="date">
+				<arg0 key="approverDelegate.toDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+        </form>
+
+		<form name="expenseForm">
+        </form>
+
+		<form name="airTicketForm">
+        </form>
+
+		<form name="expenseAttachmentForm">
+			<field property="description" depends="required">
+				<arg0 key="expenseAttachment.title"/>
+            </field>
+			<field property="fileContent" depends="required">
+				<arg0 key="expenseAttachment.fileContent"/>
+            </field>
+        </form>
+
+		<form name="expenseApproveRequestQueryForm">
+			<field property="submitDateFrom" depends="date">
+				<arg0 key="expenseApproveRequest.search.submitDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="submitDateTo" depends="date">
+				<arg0 key="expenseApproveRequest.search.submitDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/> 
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="amountFrom" depends="float">
+				<arg0 key="expense.amount"/>
+            </field>
+			<field property="amountTo" depends="float">
+				<arg0 key="expense.amount"/>
+            </field>
+        </form>
+
+		<form name="yearlyBudgetForm">
+			<field property="amount" depends="floatGreaterEqual">
+				<arg1 name="floatGreaterEqual" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>		
+        </form>
+        
+        <form name="capexRequestForm">
+			<field property="capex_department_id" depends="required">
+				<arg0 key="capex.department.id"/> 
+            </field>
+        </form>
+
+        <form name="capexRequestQueryForm">
+			<field property="capex_yearlyBudget_year" depends="intGreaterThan">
+				<arg0 key="capexRequest.capex.yearlyBudget.year"/>
+				<arg1 name="intGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>2000</var-value>
+				</var>
+            </field>
+			<field property="amountFrom" depends="float">
+				<arg0 key="capexRequest.amount"/>
+            </field>
+			<field property="amountTo" depends="float">
+				<arg0 key="capexRequest.amount"/>
+            </field>
+			<field property="capex_remainAmountFrom" depends="float">
+				<arg0 key="capexRequest.capex.remainAmount"/>
+            </field>
+			<field property="capex_remainAmountTo" depends="float">
+				<arg0 key="capexRequest.capex.remainAmount"/>
+            </field>
+        </form>
+
+		<form name="capexRequestItemForm">
+			<field property="price" depends="floatGreaterThan">
+				<arg1 name="floatGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>
+			<field property="quantity" depends="intGreaterThan">
+				<arg1 name="intGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>
+        </form>
+        
+		<form name="capexRequestAttachmentForm">
+			<field property="fileContent" depends="required">
+				<arg0 key="capexRequestAttachment.fileContent"/> 
+            </field>
+        </form>
+
+        <form name="yearlyBudgetQueryForm">
+        	<field property="amountFrom" depends="float">
+				<arg0 key="yearlyBudget.query.amountFrom"/> 
+            </field>
+            <field property="amountTo" depends="float">
+				<arg0 key="yearlyBudget.query.amountTo"/> 
+            </field>
+            <field property="year" depends="integer">
+				<arg0 key="yearlyBudget.year"/>
+	        </field>
+        </form>
+        
+        <form name="yearlyBudgetEditForm">
+			<field property="amount" depends="floatGreaterEqual">
+				<arg1 name="floatGreaterEqual" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>		
+        </form>
+        
+        
+
+		<form name="purchaseRequestForm">
+        </form>
+		<form name="purchaseRequestEditForm">  
+        </form>
+        <form name="purchaseRequestQueryForm">
+        	 <field property="amount1" depends="float">
+				<arg0 key="purchaseRequest.amount"/> 
+            </field>
+        	 <field property="amount2" depends="float">
+				<arg0 key="purchaseRequest.amount"/> 
+            </field>
+            <field property="createDate1" depends="date">
+				<arg0 key="purchaseRequest.createDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            <field property="createDate2" depends="date">
+				<arg0 key="purchaseRequest.createDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+        </form>
+        <form name="purchaseRequestItemForm">
+        	<field property="quantity" depends="intGreaterThan">
+				<arg1 name="intGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>
+        </form>
+        <form name="purchaseOrderForm">
+		</form>
+        <form name="purchaseOrderItemForm">
+        	<field property="quantity" depends="intGreaterThan">
+				<arg1 name="intGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>
+        </form>
+        <form name="travelApplicationAssignForm">
+        </form>
+        
+        <form name="purchaseOrderQueryForm">
+        	 <field property="amount1" depends="float">
+				<arg0 key="purchaseOrder.amount"/> 
+            </field>
+        	 <field property="amount2" depends="float">
+				<arg0 key="purchaseOrder.amount"/> 
+            </field>
+            <field property="createDate1" depends="date">
+				<arg0 key="purchaseOrder.createDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            <field property="createDate2" depends="date">
+				<arg0 key="purchaseOrder.createDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            <field property="confirmDate1" depends="date">
+				<arg0 key="purchaseOrder.confirmDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+            <field property="confirmDate2" depends="date">
+				<arg0 key="purchaseOrder.confirmDate"/> 
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+        </form>
+        
+        <form name="purchaseOrderItemConfirmForm">
+        </form>
+        
+		<form name="purchaseOrderApproveRequestQueryForm">
+			<field property="submitDateFrom" depends="date">
+				<arg0 key="purchaseOrderApproveRequest.search.submitDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="submitDateTo" depends="date">
+				<arg0 key="purchaseOrderApproveRequest.search.submitDate"/>
+				<arg1 key="${defaultDatePattern}" resource="false"/> 
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultDatePattern}</var-value>
+				</var>
+            </field>
+			<field property="amountFrom" depends="float">
+				<arg0 key="purchaseOrderApproveRequest.search.amount"/>
+            </field>
+			<field property="amountTo" depends="float">
+				<arg0 key="purchaseOrderApproveRequest.search.amount"/>
+            </field>
+        </form>
+        
+
+		<form name="globalParameterForm">
+        </form>
+		<form name="siteParameterForm">
+			<field property="startTime" depends="date">
+				<arg1 key="${defaultTimePattern}" resource="false"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>${defaultTimePattern}</var-value>
+				</var>
+            </field>
+            <field property="interval" depends="integer">
+				<arg0 key="dataTransferParameter.interval"/>
+            </field>
+    	    <field property="succEmail" depends="email"/>
+	        <field property="failEmail" depends="email"/>
+        </form>
+        
+        
+        <form name="purchaseRequestPurchaseForm">
+        </form>
+
+		<form name="purchaseOrderItemCancelQuantityForm">
+			<field property="cancelQuantity" depends="required,intGreaterThan">
+				<arg0 key="purchaseOrderItem.cancelQuantity"/>
+				<arg1 name="intGreaterThan" key="${var:value}" resource="false" /> 
+				<var>
+					<var-name>value</var-name>
+					<var-value>0</var-value>
+				</var>
+            </field>
+		</form>
+
+		<form name="purchaseOrderItemReceiptForm">
+        </form>
+        
+		<form name="purchaseRequestAttachmentForm">
+			<field property="fileContent" depends="required">
+				<arg0 key="purchaseRequestAttachment.fileContent"/>
+            </field>
+		</form>
+
+		<form name="purchaseRequestItemAttachmentForm">
+			<field property="fileContent" depends="required">
+				<arg0 key="purchaseRequestItemAttachment.fileContent"/>
+            </field>
+		</form>
+
+		<form name="purchaseOrderAttachmentForm">
+			<field property="fileContent" depends="required">
+				<arg0 key="purchaseOrderAttachment.fileContent"/>
+            </field>
+		</form>
+
+		<form name="purchaseOrderItemAttachmentForm">
+			<field property="fileContent" depends="required">
+				<arg0 key="purchaseOrderItemAttachment.fileContent"/>
+            </field>
+		</form>
+</formset>
+</form-validation>

@@ -1,0 +1,12 @@
+<tr bgcolor="#FFFFFF">
+  <td><div align="left"><span class="textblack">${ta.urgent.engShortDescription}</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.id}</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.title}</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.fromCity.engName}</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.toCity.engName}</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.travellingMode.engShortDescription}</span></div></td>
+  <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.fromDate)</span></div></td>
+  <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.toDate)</span></div></td>
+  <td><div align="left"><span class="textblack">${ta.requestor.name}</span></div></td>
+  <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.requestDate)</span></div></td>
+</tr>

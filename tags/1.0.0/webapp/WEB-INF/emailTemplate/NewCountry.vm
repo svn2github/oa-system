@@ -1,0 +1,37 @@
+Title: 
+Notification for New Country Creation
+
+Body:
+
+<table width="95%" height="357" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="357"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to notify you that the following new city need to be promoted as global city for the business needs.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="152" class="bold">Country English Name :</td>
+          <td width="433" class="textblack"><span class="bold">Country Chinese Name</span></td>
+          <td width="433" class="textblack"><span class="bold">Province English Name</span></td>
+          <td width="433" class="textblack"><span class="bold">Province Chinese Name</span></td>
+          <td width="433" class="textblack"><span class="bold">City English Name</span></td>
+          <td width="433" class="textblack"><span class="bold">City Chinese Name</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack">${province.country.engName}</td>
+          <td class="textblack">${province.country.chnName}</td>
+          <td class="textblack">${province.engName}</td>
+          <td class="textblack">${province.chnName}</td>
+          <td class="textblack">${city.engName}</td>
+          <td class="textblack">${city.chnName}</td>
+        </tr>
+      </table>      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

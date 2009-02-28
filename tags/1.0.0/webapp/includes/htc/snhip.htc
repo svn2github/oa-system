@@ -1,0 +1,77 @@
+<PUBLIC:COMPONENT>
+	<PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="snInit()" />		
+	<public:attach event="onclick" onevent="closeHip()" />
+	<PUBLIC:PROPERTY NAME="interval" />
+	<PUBLIC:METHOD NAME="showHip" />
+	<PUBLIC:METHOD NAME="closeHip" />
+<script>
+/**
+  * 右下角提示信息用
+  * @author shennan
+  * @date 20060426
+  * @lastModify 20080111
+  */
+var interval="20000";
+var isShow=false;
+var oldTimeout=null;
+
+function snInit(){
+	element.style.position="absolute";
+	element.style.backgroundColor="#3243ff";
+	element.style.padding="5px";
+	element.style.visibility="hidden";
+	element.style.overflow="visible";
+	element.style.zIndex="20000";
+	if(element.interval!=null&&!isNaN(parseInt(element.interval)))interval=parseInt(element.interval);
+	isShow=false;
+	window.attachEvent("onscroll",scrolls);
+	element.innerHTML="<table border=0></table>";
+}
+
+function showHip(text){
+	var top,left;
+	var tr,td,tab;
+	var glowColor=new Array("#D5D9FF","#B4BBFF","#98A1FF","#8690FF","#8690FF","#7782FF","#7782FF","#6D78FF","#606DFF","#4857FF","#4857FF");
+	tab=element.children[0];
+	tr=tab.insertRow(0);
+	td=tr.insertCell(0);
+	td.noWrap="true";
+	td.style.fontSize="14px";
+	td.style.color="white";
+//	td.style.borderBottom="solid 1px #7799FF";
+	td.style.margin="5px";
+	td.innerHTML=text;
+	//change the old color
+	for(var i=1;i<tab.rows.length;i++)
+		tab.rows[i].cells[0].style.color=glowColor[i];
+	//CUT DOWN MORE THAN TEN ROWS
+	while(tab.rows.length>10)
+		tab.deleteRow(10);
+	top=window.document.body.clientHeight+window.document.body.scrollTop-element.offsetHeight-1;
+	left=window.document.body.clientWidth+window.document.body.scrollLeft-element.offsetWidth-1;	
+	element.style.top=top;
+	element.style.left=left;
+	element.style.visibility="visible";
+	if(isShow)clearInterval(oldTimeout);
+	if(interval>0)oldTimeout=setTimeout(""+element.id+".closeHip()",interval);
+	isShow=true;
+}
+function closeHip(){
+	//element.innerHTML="<table border=0></table>";
+	element.style.visibility="hidden";
+	if(event)event.cancelBubble=true;
+	isShow=false;
+	oldTimeout=null;	
+}
+
+function scrolls(){
+	if(!isShow)return;
+	var top,left;
+	top=window.document.body.clientHeight+window.document.body.scrollTop-element.offsetHeight-1;
+	left=window.document.body.clientWidth+window.document.body.scrollLeft-element.offsetWidth-1;	
+	element.style.top=top;
+	element.style.left=left;
+}
+
+</script>
+</PUBLIC:COMPONENT>

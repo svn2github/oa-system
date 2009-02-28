@@ -1,0 +1,45 @@
+Title: 
+Pending PR Reminder!
+
+Body:
+<table width="95%" height="400" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="400"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_user.name} (${role}),
+      <p>This is to remind you that the following Pending PR need PO.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">PR No.</div></td>
+          <td align="center" class="bold"><div align="left">PR Title</div></td>
+          <td align="center" class="bold"><div align="left">PR Category</div></td>
+          <td align="center" class="bold"><div align="left">Budget No.</div></td>
+          <td align="center" class="bold"><div align="left">PR Amount</div></td>
+          <td align="center" class="bold"><div align="left">Requestor</div></td>
+          <td align="center" class="bold"><div align="left">Request Date</div></td>
+          #foreach( $x_pr in $x_prList)     
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack"><div align="left">${x_pr.id}</div></td>
+          <td class="textblack"><div align="left">${x_pr.title}</div></td>
+          <td class="textblack"><div align="left">${x_pr.purchaseSubCategory.description}</div></td>
+          <td class="textblack">
+          	<div align="left">#if($x_pr.capex)
+          		${x_pr.capex.id}
+          	#end #if($x_pr.yearlyBudget)
+          		${x_pr.yearlyBudget.code}
+          	#end
+          </div></td>
+          <td class="textblack"> <div align="left">${x_pr.amount}</div></td>
+          <td class="textblack"> <div align="left">${x_pr.requestor.name}</div></td>
+          <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd',$x_pr.requestDate)</div></td>
+        </tr>
+     #end
+     </table>
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

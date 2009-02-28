@@ -1,0 +1,30 @@
+Title:
+Welcome to OA!
+
+Body:
+<table width="95%" height="316" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="316"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name},
+      <p>Welcome to OA system! Your account has been activated. </p>
+      <p>Please keep this email for your records. Your account information is as follows:</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="263" class="bold">Your login name</td>
+          <td width="322" class="textblack"><span class="bold">Your password</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack">${user.loginName}</td>
+          <td class="textblack">${password}</td>
+        </tr>
+      </table>      
+      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p><br>
+    </p></td>
+  </tr>
+</table>

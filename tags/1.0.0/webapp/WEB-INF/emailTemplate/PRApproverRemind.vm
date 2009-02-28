@@ -1,0 +1,48 @@
+Title: 
+PR Approve Reminder!
+
+Body:
+<table width="95%" height="406" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="406"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),<br>
+      <p>This is to remind you that the following PR need your online approve .</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">PR No.</div></td>
+          <td align="center" class="bold"><div align="left">PR Title</div></td>
+          <td align="center" class="bold"><div align="left">PR Category</div></td>
+          <td align="center" class="bold"><div align="left">Budget No.</div></td>
+          <td align="center" class="bold"><div align="left">PR Amount</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Requestor</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Request Date</div></td>
+         
+        #foreach( $pr in $targetList)      
+        <tr bgcolor="#FFFFFF">
+        	<td class="textblack"><div align="left">${pr.id}</div></td>          
+          <td class="textblack"><div align="left">${pr.title}</div></td>
+          <td class="textblack"><div align="left">${pr.purchaseSubCategory.description}</div></td>
+          <td class="textblack">
+            <div align="left">#if($pr.capex)
+          	  ${pr.capex.id}
+            #end 
+            #if($pr.yearlyBudget)
+          	  ${pr.yearlyBudget.code}
+            #end
+          </div></td>
+          <td class="textblack"> <div align="left">${pr.amount}</div></td>
+          <td class="textblack"> <div align="left">${pr.requestor.name}</div></td>
+          <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd', $pr.requestDate)</div></td>
+        </tr>
+	  #end 
+	  </table>    
+	  <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p>&nbsp;</p>
+      <p></p>
+    </td>
+  </tr>
+</table>

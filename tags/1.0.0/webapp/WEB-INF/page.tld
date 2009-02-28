@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>page</shortname>
+	<uri>http://www.zknic.com/struts/page-taglib</uri>
+	<info>for paging with struts form</info>
+	<tag>
+		<name>form</name>
+		<tagclass>com.shcnc.struts.taglib.page.FormTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form</info>
+		<attribute>
+			<name>action</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>enctype</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>method</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>target</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>select</name>
+		<tagclass>com.shcnc.struts.taglib.page.SelectTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>paging form: select control</info>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>format</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>resource</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>first</name>
+		<tagclass>com.shcnc.struts.taglib.page.FirstTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: first page</info>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>last</name>
+		<tagclass>com.shcnc.struts.taglib.page.LastTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: last page</info>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>next</name>
+		<tagclass>com.shcnc.struts.taglib.page.NextTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: next page</info>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>export</name>
+		<tagclass>com.shcnc.struts.taglib.page.ExportTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: export</info>
+		<attribute>
+			<name>type</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>noNext</name>
+		<tagclass>com.shcnc.struts.taglib.page.NoNextTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: no next page</info>
+	</tag>
+	<tag>
+		<name>noFirst</name>
+		<tagclass>com.shcnc.struts.taglib.page.NoFirstTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: no first page</info>
+	</tag>
+	<tag>
+		<name>noLast</name>
+		<tagclass>com.shcnc.struts.taglib.page.NoLastTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: no last page</info>
+	</tag>
+	<tag>
+		<name>noPrevious</name>
+		<tagclass>com.shcnc.struts.taglib.page.NoPreviousTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: no previous page</info>
+	</tag>
+	
+	<tag>
+		<name>previous</name>
+		<tagclass>com.shcnc.struts.taglib.page.PreviousTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: previous page</info>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>count</name>
+		<tagclass>com.shcnc.struts.taglib.page.CountTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>paging form: item count</info>
+	</tag>
+	<tag>
+		<name>currentPage</name>
+		<tagclass>com.shcnc.struts.taglib.page.CurrentPageTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>paging form: current page no</info>
+	</tag>
+	<tag>
+		<name>pageCount</name>
+		<tagclass>com.shcnc.struts.taglib.page.PageCountTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>paging form: page count</info>
+	</tag>
+	<tag>
+		<name>order</name>
+		<tagclass>com.shcnc.struts.taglib.page.OrderTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: order</info>
+		<attribute>
+			<name>order</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>asc</name>
+		<tagclass>com.shcnc.struts.taglib.page.OrderAscTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: order asc</info>
+	</tag>
+	<tag>
+		<name>desc</name>
+		<tagclass>com.shcnc.struts.taglib.page.OrderDescTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>paging form: order desc</info>
+	</tag>
+</taglib>

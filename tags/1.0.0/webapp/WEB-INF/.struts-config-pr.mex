@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/listYearlyBudget.do" />
+  <StrutsActivity path="/listYearlyBudget_history.do" />
+  <StrutsActivity path="/listYearlyBudget_freeze.do" />
+  <StrutsActivity path="/freezeYearlyBudget.do" />
+  <StrutsActivity path="/newYearlyBudget.do" />
+  <StrutsActivity path="/insertYearlyBudget.do" />
+  <StrutsActivity path="/editYearlyBudget.do" />
+  <StrutsActivity path="/updateYearlyBudget.do" />
+  <StrutsActivity path="/viewYearlyBudgetAmount.do" />
+  <StrutsActivity path="/listCapexRequest.do" />
+  <StrutsActivity path="/reportCapexRequest.do" />
+  <StrutsActivity path="/newCapexRequest.do" />
+  <StrutsActivity path="/insertCapexRequest.do" />
+  <StrutsActivity path="/editCapexRequest.do" />
+  <StrutsActivity path="/updateCapexRequest.do" />
+  <StrutsActivity path="/updateCapexRequest_viewApprover.do" />
+  <StrutsActivity path="/viewCapexRequest.do" />
+  <StrutsActivity path="/exportCapexRequest.do" />
+  <StrutsActivity path="/deleteCapexRequest.do" />
+  <StrutsActivity path="/createIncreaseCapexRequest.do" />
+  <StrutsActivity path="/withdrawCapexRequest.do" />
+  <StrutsActivity path="/selectYearlyBudget.do" />
+  <StrutsActivity path="/viewCapexAmount.do" />
+  <StrutsActivity path="/editCapexRequestItem.do" />
+  <StrutsActivity path="/updateCapexRequestItem.do" />
+  <StrutsActivity path="/newCapexRequestAttachment.do" />
+  <StrutsActivity path="/insertCapexRequestAttachment.do" />
+  <StrutsActivity path="/deleteCapexRequestAttachment.do" />
+  <StrutsActivity path="/downloadCapexRequestAttachment.do" />
+  <StrutsActivity path="/listCapexRequestApproveRequest.do" />
+  <StrutsActivity path="/viewCapexRequestApproveRequest.do" />
+  <StrutsActivity path="/approveCapexRequestApproveRequest.do" />
+  <StrutsActivity path="/updateAndApproveCapexRequestApproveRequest.do" />
+  <StrutsActivity path="/rejectCapexRequestApproveRequest.do" />
+  <StrutsActivity path="/listPurchaseRequest_self.do" />
+  <StrutsActivity path="/reportPurchaseRequest.do" />
+  <StrutsActivity path="/listPurchaseRequest_other.do" />
+  <StrutsActivity path="/newPurchaseRequest_self.do" />
+  <StrutsActivity path="/newPurchaseRequest_other.do" />
+  <StrutsActivity path="/viewPurchaseRequest_dialog.do" />
+  <StrutsActivity path="/viewPurchaseRequestItem.do" />
+  <StrutsActivity path="/viewPurchaseRequest_report.do" />
+  <StrutsActivity path="/viewPurchaseRequest_self.do" />
+  <StrutsActivity path="/viewPurchaseRequest_other.do" />
+  <StrutsActivity path="/exportPurchaseRequestDetailPDF_self.do" />
+  <StrutsActivity path="/exportPurchaseRequestDetailPDF_other.do" />
+  <StrutsActivity path="/newPurchaseRequest_self_selectYearlyBudget.do" />
+  <StrutsActivity path="/newPurchaseRequest_other_selectYearlyBudget.do" />
+  <StrutsActivity path="/newPurchaseRequest_self_selectCapex.do" />
+  <StrutsActivity path="/newPurchaseRequest_other_selectCapex.do" />
+  <StrutsActivity path="/insertPurchaseRequest_self.do" />
+  <StrutsActivity path="/insertPurchaseRequest_other.do" />
+  <StrutsActivity path="/updatePurchaseRequest_self_viewApprover.do" />
+  <StrutsActivity path="/updatePurchaseRequest_other_viewApprover.do" />
+  <StrutsActivity path="/editPurchaseRequest_self.do" />
+  <StrutsActivity path="/editPurchaseRequest_other.do" />
+  <StrutsActivity path="/updatePurchaseRequest_self.do" />
+  <StrutsActivity path="/updatePurchaseRequest_other.do" />
+  <StrutsActivity path="/deletePurchaseRequest_self.do" />
+  <StrutsActivity path="/deletePurchaseRequest_other.do" />
+  <StrutsActivity path="/withdrawPurchaseRequest_self.do" />
+  <StrutsActivity path="/withdrawPurchaseRequest_other.do" />
+  <StrutsActivity path="/copyPurchaseRequest_self.do" />
+  <StrutsActivity path="/copyPurchaseRequest_other.do" />
+  <StrutsActivity path="/viewPurchaseRequestItem_self.do" />
+  <StrutsActivity path="/viewPurchaseRequestItem_other.do" />
+  <StrutsActivity path="/editPurchaseRequestItem_self.do" />
+  <StrutsActivity path="/editPurchaseRequestItem_other.do" />
+  <StrutsActivity path="/updatePurchaseRequestItem_other.do" />
+  <StrutsActivity path="/deletePurchaseRequestItem_self.do" />
+  <StrutsActivity path="/deletePurchaseRequestItem_other.do" />
+  <StrutsActivity path="/newPurchaseRequestItem_self.do" />
+  <StrutsActivity path="/newPurchaseRequestItem_other.do" />
+  <StrutsActivity path="/insertPurchaseRequestItem_self.do" />
+  <StrutsActivity path="/insertPurchaseRequestItem_other.do" />
+  <StrutsActivity path="/selectPurchaseRequestItemRechargeCustomer.do" />
+  <StrutsActivity path="/selectPurchaseRequestItemRechargeEntity.do" />
+  <StrutsActivity path="/selectPurchaseRequestItemRechargePerson.do" />
+  <StrutsActivity path="/newPurchaseRequestAttachment_self.do" />
+  <StrutsActivity path="/newPurchaseRequestAttachment_other.do" />
+  <StrutsActivity path="/insertPurchaseRequestAttachment_self.do" />
+  <StrutsActivity path="/insertPurchaseRequestAttachment_other.do" />
+  <StrutsActivity path="/downloadPurchaseRequestAttachment_self.do" />
+  <StrutsActivity path="/downloadPurchaseRequestAttachment_other.do" />
+  <StrutsActivity path="/newPurchaseRequestItemAttachment_self.do" />
+  <StrutsActivity path="/newPurchaseRequestItemAttachment_other.do" />
+  <StrutsActivity path="/insertPurchaseRequestItemAttachment_self.do" />
+  <StrutsActivity path="/insertPurchaseRequestItemAttachment_other.do" />
+  <StrutsActivity path="/downloadPurchaseRequestItemAttachment_self.do" />
+  <StrutsActivity path="/downloadPurchaseRequestAttachment.do" />
+  <StrutsActivity path="/downloadPurchaseRequestItemAttachment_other.do" />
+  <StrutsActivity path="/listPurchaseRequestApproveRequest.do" />
+  <StrutsActivity path="/viewPurchaseRequestApproveRequest.do" />
+  <StrutsActivity path="/approvePurchaseRequestApproveRequest.do" />
+  <StrutsActivity path="/updateAndApprovePurchaseRequestApproveRequest.do" />
+  <StrutsActivity path="/rejectPurchaseRequestApproveRequest.do" />
+  <StrutsActivity path="/listPurchaseRequest_assign.do" />
+  <StrutsActivity path="/assignPurchaseRequest.do" />
+  <StrutsActivity path="/assignPurchaseRequest_result.do" />
+  <StrutsActivity path="/listPurchaseRequest_purchase.do" />
+  <StrutsActivity path="/rejectPurchaseRequest_purchase.do" />
+  <StrutsActivity path="/viewPurchaseRequest_purchase.do" />
+  <StrutsActivity path="/purchasePurchaseRequest.do" />
+  <StrutsActivity path="/purchasePurchaseRequest_result.do" />
+  <StrutsActivity path="/viewPurchaseOrderItem_purchaseRequest.do" />
+  <StrutsActivity path="/editPurchaseOrderItem_purchaseRequest.do" />
+  <StrutsActivity path="/updatePurchaseOrderItem_purchaseRequest.do" />
+  <StrutsActivity path="/splitPurchaseOrderItem.do" />
+  <StrutsActivity path="/splitPurchaseOrderItem_result.do" />
+  <StrutsActivity path="site.yearlyBudget.list" />
+  <StrutsActivity path="site.yearlyBudget.history" />
+  <StrutsActivity path="site.yearlyBudget.freeze.list" />
+  <StrutsActivity path="site.yearlyBudget.new" />
+  <StrutsActivity path="site.yearlyBudget.edit" />
+  <StrutsActivity path="/WEB-INF/jsp/rowSaveOK.jsp" />
+  <StrutsActivity path="site.capexRequest.list" />
+  <StrutsActivity path="site.capexRequest.report" />
+  <StrutsActivity path="site.capexRequest.new" />
+  <StrutsActivity path="site.capexRequest.edit" />
+  <StrutsActivity path="site.approve.viewApprover" />
+  <StrutsActivity path="site.capexRequest.viewDialog" />
+  <StrutsActivity path="site.capexRequest.view" />
+  <StrutsActivity path="site.yearlyBudget.select" />
+  <StrutsActivity path="site.capexRequest.editItem" />
+  <StrutsActivity path="site.capexRequestAttachment.new" />
+  <StrutsActivity path="/WEB-INF/jsp/operationSuccess.jsp" />
+  <StrutsActivity path="site.capexRequestApproveRequest.list" />
+  <StrutsActivity path="site.capexRequestApproveRequest.edit" />
+  <StrutsActivity path="site.capexRequestApproveRequest.view" />
+  <StrutsActivity path="site.purchaseRequest.list.self" />
+  <StrutsActivity path="site.purchaseRequest.report" />
+  <StrutsActivity path="site.purchaseRequest.list.other" />
+  <StrutsActivity path="site.purchaseRequest.new.self" />
+  <StrutsActivity path="site.purchaseRequest.new.other" />
+  <StrutsActivity path="site.purchaseRequest.view.dialog" />
+  <StrutsActivity path="site.purchaseRequest.viewItem" />
+  <StrutsActivity path="site.purchaseRequest.view.other" />
+  <StrutsActivity path="site.purchaseRequest.view.self" />
+  <StrutsActivity path="site.yearlyBudget.select2" />
+  <StrutsActivity path="site.capex.select" />
+  <StrutsActivity path="site.purchaseRequest.edit.self" />
+  <StrutsActivity path="site.purchaseRequest.edit.other" />
+  <StrutsActivity path="site.purchaseRequest.editItem" />
+  <StrutsActivity path="site.recharge.listCustomer" />
+  <StrutsActivity path="site.recharge.listPerson" />
+  <StrutsActivity path="site.purchaseRequestAttachment.new" />
+  <StrutsActivity path="site.purchaseRequestItemAttachment.new" />
+  <StrutsActivity path="site.purchaseRequestApproveRequest.list" />
+  <StrutsActivity path="site.purchaseRequestApproveRequest.edit" />
+  <StrutsActivity path="site.purchaseRequestApproveRequest.view" />
+  <StrutsActivity path="site.purchaseRequest.assign.list" />
+  <StrutsActivity path="site.purchaseRequest.assign" />
+  <StrutsActivity path="site.purchaseRequest.purchase.list" />
+  <StrutsActivity path="site.purchaseRequest.purchase.view" />
+  <StrutsActivity path="site.purchaseRequest.purchase" />
+  <StrutsActivity path="/purchasePurchaseRequest" />
+  <StrutsActivity path="site.purchaseRequest.purchase.viewItem" />
+  <StrutsActivity path="site.purchaseRequest.purchase.editItem" />
+  <StrutsActivity path="/updatePurchaseRequestItem_self.do" />
+  <StrutsTransition id="/splitPurchaseOrderItem.do,page,site.purchaseRequest.purchase.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newCapexRequestAttachment.do,page,site.capexRequestAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequest_report.do,page,site.purchaseRequest.view.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_other.do,null,/insertPurchaseRequest_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertCapexRequestAttachment.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequest_other.do,page,site.purchaseRequest.edit.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequestItem_other.do,page,site.purchaseRequest.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequestItem_other.do,null,/updatePurchaseRequestItem_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestAttachment_other.do,page,site.purchaseRequestAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePurchaseRequestItem_other.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editCapexRequest.do,null,/updateCapexRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequestItem_self.do,null,/updatePurchaseRequestItem_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrderItem_purchaseRequest.do,page,site.purchaseRequest.purchase.viewItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequest_self.do,null,/updatePurchaseRequest_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseRequestItemRechargePerson.do,page,site.recharge.listPerson,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItem_other.do,page,site.purchaseRequest.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_other_selectYearlyBudget.do,page,site.yearlyBudget.select2,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listYearlyBudget_freeze.do,null,/freezeYearlyBudget.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItem_other.do,null,/insertPurchaseRequestItem_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePurchaseRequestItem_self.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseRequestApproveRequest.do,page,site.purchaseRequestApproveRequest.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestApproveRequest.do,editPage,site.purchaseRequestApproveRequest.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItemAttachment_self.do,page,site.purchaseRequestItemAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseRequest_self.do,page,site.purchaseRequest.list.self,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItem_self.do,page,site.purchaseRequest.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewCapexRequestApproveRequest.do,null,/updateAndApproveCapexRequestApproveRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewCapexRequest.do,pageDialog,site.capexRequest.viewDialog,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewCapexRequestApproveRequest.do,viewPage,site.capexRequestApproveRequest.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestItem_other.do,page,site.purchaseRequest.viewItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/reportPurchaseRequest.do,page,site.purchaseRequest.report,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listCapexRequest.do,page,site.capexRequest.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseRequest_self_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/splitPurchaseOrderItem.do,null,/splitPurchaseOrderItem_result.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/reportCapexRequest.do,page,site.capexRequest.report,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_self.do,page,site.purchaseRequest.new.self,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editCapexRequestItem.do,null,/updateCapexRequestItem.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editYearlyBudget.do,page,site.yearlyBudget.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestAttachment_self.do,null,/insertPurchaseRequestAttachment_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectYearlyBudget.do,page,site.yearlyBudget.select,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequestItem_self.do,page,site.purchaseRequest.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestAttachment_other.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequest_dialog.do,page,site.purchaseRequest.view.dialog,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseRequestItemRechargeEntity.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestAttachment_self.do,page,site.purchaseRequestAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItemAttachment_other.do,page,site.purchaseRequestItemAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseRequestItem_self.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequest_self.do,page,site.purchaseRequest.view.self,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_self.do,null,/insertPurchaseRequest_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_other_selectCapex.do,page,site.capex.select,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestItem.do,page,site.purchaseRequest.viewItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateCapexRequestItem.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editCapexRequestItem.do,page,site.capexRequest.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editYearlyBudget.do,null,/updateYearlyBudget.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/purchasePurchaseRequest.do,page,site.purchaseRequest.purchase,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_self_selectCapex.do,page,site.capex.select,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequest_self.do,page,site.purchaseRequest.edit.self,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseRequest_other_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseRequestItemRechargeCustomer.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newCapexRequestAttachment.do,null,/insertCapexRequestAttachment.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateCapexRequest_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_self_selectYearlyBudget.do,page,site.yearlyBudget.select2,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseRequest_other.do,null,/updatePurchaseRequest_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestItem_self.do,page,site.purchaseRequest.viewItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listYearlyBudget_freeze.do,page,site.yearlyBudget.freeze.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestItemAttachment_other.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem_purchaseRequest.do,page,site.purchaseRequest.purchase.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newYearlyBudget.do,null,/insertYearlyBudget.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestItem_other.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listYearlyBudget.do,page,site.yearlyBudget.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequest_other.do,page,site.purchaseRequest.new.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseRequest_other.do,page,site.purchaseRequest.list.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseRequest_purchase.do,page,site.purchaseRequest.purchase.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/splitPurchaseOrderItem_result.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editCapexRequest.do,page,site.capexRequest.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteCapexRequestAttachment.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItemAttachment_self.do,null,/insertPurchaseRequestItemAttachment_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItem_self.do,null,/insertPurchaseRequestItem_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseRequestItem_other.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/assignPurchaseRequest.do,page,site.purchaseRequest.assign,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestApproveRequest.do,null,/updateAndApprovePurchaseRequestApproveRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listCapexRequestApproveRequest.do,page,site.capexRequestApproveRequest.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/purchasePurchaseRequest,null,/purchasePurchaseRequest_result.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewCapexRequestApproveRequest.do,editPage,site.capexRequestApproveRequest.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newCapexRequest.do,null,/insertCapexRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequest_purchase.do,page,site.purchaseRequest.purchase.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequest_other.do,page,site.purchaseRequest.view.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestItem_self.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newCapexRequest.do,page,site.capexRequest.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestAttachment_self.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateYearlyBudget.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem_purchaseRequest.do,null,/updatePurchaseOrderItem_purchaseRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewCapexRequest.do,page,site.capexRequest.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseOrderItem_purchaseRequest.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestAttachment_other.do,null,/insertPurchaseRequestAttachment_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newYearlyBudget.do,page,site.yearlyBudget.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseRequestItemAttachment_self.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseRequestItemAttachment_other.do,null,/insertPurchaseRequestItemAttachment_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseRequest_assign.do,page,site.purchaseRequest.assign.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listYearlyBudget_history.do,page,site.yearlyBudget.history,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseRequestApproveRequest.do,viewPage,site.purchaseRequestApproveRequest.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
