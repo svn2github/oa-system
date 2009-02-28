@@ -1,0 +1,101 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+
+	<!-- expense -->
+	<definition name="site.expense.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/list.jsp"/>
+		<put name="pageMainTitle" 	value="expense.list.title"/>
+	</definition>
+	<definition name="site.expense.list.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/list.jsp"/>
+		<put name="pageMainTitle" 	value="expense.list.title.other"/>
+	</definition>
+	<definition name="site.expense.finalConfirm.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/listFinalConfirm.jsp"/>
+		<put name="pageMainTitle" 	value="expense.finalConfirm.list.title"/>
+	</definition>
+	<definition name="site.expense.finalConfirm" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/finalConfirm.jsp"/>
+		<put name="pageMainTitle" 	value="expense.finalConfirm.title"/>
+	</definition>
+	<definition name="site.expense.finalClaim.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/listFinalClaim.jsp"/>
+		<put name="pageMainTitle" 	value="expense.finalClaim.list.title"/>
+	</definition>
+	<definition name="site.expense.finalClaim" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/finalClaim.jsp"/>
+		<put name="pageMainTitle" 	value="expense.finalClaim.title"/>
+	</definition>
+	
+	<definition name="site.expense.listMyTA" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/listMyTA.jsp"/>
+		<put name="pageMainTitle" 	value="expense.list.title"/>
+	</definition>
+	<definition name="site.expense.new" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/new.jsp"/>
+		<put name="pageMainTitle" 	value="expense.new.title"/>
+	</definition>
+	<definition name="site.expense.new.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/newOther.jsp"/>
+		<put name="pageMainTitle" 	value="expense.new.title.other"/>
+	</definition>
+	<definition name="site.expense.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/edit.jsp"/>
+		<put name="pageMainTitle" 	value="expense.edit.title"/>
+	</definition>
+	<definition name="site.expense.edit.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/edit.jsp"/>
+		<put name="pageMainTitle" 	value="expense.edit.title.other"/>
+	</definition>			
+	<definition name="site.expense.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/view.jsp"/>
+		<put name="pageMainTitle" 	value="expense.view.title"/>
+	</definition>		
+	<definition name="site.expense.view.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/view.jsp"/>
+		<put name="pageMainTitle" 	value="expense.view.title.other"/>
+	</definition>		
+	<!-- end of expense -->
+	
+	<!-- expenseAttachment -->
+	<definition name="site.expenseAttachment.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseAttachment/list.jsp"/>
+		<put name="pageMainTitle" 	value="expenseAttachment.list.title"/>
+	</definition>
+	<definition name="site.expenseAttachment.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseAttachment/new.jsp"/>
+	</definition>
+	<definition name="site.expenseAttachment.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseAttachment/edit.jsp"/>
+	</definition>
+	<definition name="site.expenseAttachment.delete" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseAttachment/delete.jsp"/>
+	</definition>
+	<definition name="site.expenseAttachment.deleteOk" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseAttachment/rowDeleteOk.jsp"/>
+	</definition>
+	<!-- end of expenseAttachment -->
+
+	<!-- expenseApproveRequest -->
+	<definition name="site.expenseApproveRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseApproveRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="expenseApproveRequest.list.title"/>
+	</definition>
+	<definition name="site.expenseApproveRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseApproveRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="expenseApproveRequest.view.title"/>
+	</definition>		
+	<definition name="site.expenseApproveRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expenseApproveRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="expenseApproveRequest.edit.title"/>
+	</definition>		
+	<!-- end of expenseApproveRequest -->
+	
+	<!-- report -->
+	<definition name="site.expense.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/expense/report.jsp"/>
+		<put name="pageMainTitle" 	value="expense.report.title"/>
+	</definition>
+	<!-- end of report -->
+</tiles-definitions>

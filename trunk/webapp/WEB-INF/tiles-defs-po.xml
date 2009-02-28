@@ -1,0 +1,147 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+
+	<!-- purchaseOrder -->
+	<definition name="site.purchaseOrder.view.dialog" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/viewDialog.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrder.view" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.view.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.edit" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/edit.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.edit.title"/>
+	</definition>
+	
+	<definition name="site.purchaseOrder.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrder/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.list.title"/>
+	</definition>
+	
+	<definition name="site.purchaseOrder.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrder/report.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.report.title"/>
+	</definition>
+	
+	<!-- end of purchaseOrder -->			
+	
+	<!-- purchaseOrderItem -->
+	<definition name="site.purchaseOrder.editItem" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/editItem.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrder.confirm.editItem" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrderConfirm/editItem.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrder.viewItem" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/viewItem.jsp"/>
+	</definition>
+	<!-- end of purchaseOrderItem -->			
+	
+	<!-- purchaseOrderAttachment -->
+	<definition name="site.purchaseOrderAttachment.new" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/newAttachment.jsp"/>
+	</definition>
+	<!-- end of purchaseOrderAttachment -->
+	
+	<!-- purchaseOrderItemAttachment -->
+	<definition name="site.purchaseOrderItemAttachment.new" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/newItemAttachment.jsp"/>
+	</definition>
+	<!-- end of purchaseOrderItemAttachment -->
+	
+	<!-- begin of PaymentScheduleDetail-->	
+	<definition name="site.paymentScheduleDetail.edit" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseOrder/editPaymentScheduleDetail.jsp"/>
+	</definition>
+	<!-- end of PaymentScheduleDetail -->
+
+	<!-- purchaseOrderApproveRequest -->
+	<definition name="site.purchaseOrderApproveRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderApproveRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrderApproveRequest.list.title"/>
+	</definition>
+	<definition name="site.purchaseOrderApproveRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderApproveRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrderApproveRequest.view.title"/>
+	</definition>		
+	<definition name="site.purchaseOrderApproveRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderApproveRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrderApproveRequest.edit.title"/>
+	</definition>		
+	<!-- end of purchaseOrderApproveRequest -->
+	
+	<!-- begin of PurchaseOrder Confirm -->
+	<definition name="site.purchaseOrder.confirm.selectInspecor" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderConfirm/selectInspector.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrder.confirm.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderConfirm/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.confirm.list.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.confirm" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderConfirm/confirm.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.confirm.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.editConfirm" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderConfirm/editConfirm.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.editConfirm.title"/>
+	</definition>
+	
+	<definition name="site.purchaseOrder.confirmSupplier.confirmNew" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/supplier/edit.jsp"/>
+		<put name="pageMainTitle" 	value="supplier.confirm.title"/>
+		<put name="pageSubTitle" 	value="supplier.confirm.subTitleNew"/>
+	</definition>
+	<definition name="site.purchaseOrder.confirmSupplier.confirmModify" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/supplier/edit.jsp"/>
+		<put name="pageMainTitle" 	value="supplier.confirm.title"/>
+		<put name="pageSubTitle" 	value="supplier.confirm.subTitleModify"/>
+	</definition>
+	
+	<!-- end of PurchaseOrder Confirm -->	
+	
+	<!-- begin of PurchaseOrder Cancel -->
+	<definition name="site.purchaseOrder.cancel.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderCancel/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.cancel.list.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.cancel.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderCancel/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.cancel.view.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.cancel.cancel" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderCancel/cancel.jsp"/>
+	</definition>
+	 
+	<!-- end of PurchaseOrder Confirm -->	
+
+	<!-- purchaseOrder assign -->
+	<definition name="site.purchaseOrder.assign.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderAssign/listAssign.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.assign.title"/>
+	</definition>
+	<definition name="site.purchaseOrder.assign" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderAssign/assign.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrder.assign.title"/>
+	</definition>
+	<!-- end of purchaseOrder assign -->
+	<!-- purchaseOrder Receipt -->
+	<definition name="site.purchaseOrderItemReceipt.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderItemReceipt/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrderItemReceipt.list.title"/>
+	</definition>
+	<definition name="site.purchaseOrderItemReceipt.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderItemReceipt/edit.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrderItemReceipt.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderItemReceipt/edit.jsp"/>
+	</definition>
+	<definition name="site.purchaseOrderItem.receipt.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseOrderItem/listReceipt.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseOrderItem.receipt.title"/>
+	</definition>
+
+
+</tiles-definitions>

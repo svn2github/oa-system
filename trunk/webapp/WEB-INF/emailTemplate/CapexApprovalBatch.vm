@@ -1,0 +1,23 @@
+<tr bgcolor="#FFFFFF">
+  <td height="47"><span class="textblack">${capexRequest.capex.id}</span></td>
+  <td><span class="textblack">${capexRequest.title}</span></td>		  
+  <td>
+  	<span class="textblack">
+      #if($capexRequest.capex.purchaseCategory)
+      	${capexRequest.capex.purchaseCategory.description}
+	  #else
+      	All category
+      #end
+    </span>
+  </td>
+  <td>
+  	<span class="textblack">		  
+	  #if($capexRequest.capex.purchaseSubCategory)
+      	${capexRequest.capex.purchaseSubCategory.description}
+	  #else
+      	All subcategory
+	  #end
+  	</span>
+  </td>
+  <td><span class="textblack">${capexRequest.amount} </span></td>
+</tr>

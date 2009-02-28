@@ -1,0 +1,9 @@
+<tr bgcolor="#FFFFFF">
+  <td><span class="textblack">${expense.id}</span></td>
+  <td><span class="textblack">${expense.title}</span></td>
+  <td><span class="textblack">${expense.expenseCategory.description} </span></td>
+  <td><span class="textblack">${expense.expenseCurrency.name}</span></td>
+  <td><span class="textblack">$numberTool.format('currency', $expense.amount)</span></td>
+  <td><span class="textblack">${expense.requestor.name}</span></td>
+  <td><span class="textblack">$dateTool.format('yyyy/MM/dd', $expense.requestDate)</span></td>
+</tr>

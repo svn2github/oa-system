@@ -1,0 +1,69 @@
+Title: 
+ERP Data Transfering finished!
+
+Body:
+
+<table width="95%" height="530" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="530"><span class="textblack"><br>
+      <br>
+      </span>This is to notify you that the following ERP Data Transfering is completed .<br>
+      #macro( tablerows $type $startTime $errorMessage )
+      <p>ERP Data Type: $type<br>
+        #if($startTime)
+        Start Time : ${startTime}<br>
+        #end
+        #if($errorMessage)
+        Status : failed<br>
+        Error Message: ${errorMessage}<br>
+        #else
+        Status : successful<br>
+        #end</p>
+      <p>#end</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack">#tablerows( "Export Department" $startTimeDepartment $errorMessageDepartment )</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="20" class="textblack">#tablerows( "Export Expense" $startTimeExpense $errorMessageExpense )</td>
+        </tr>
+
+  <tr bgcolor="#FFFFFF">
+    <td class="textblack">#tablerows( "Export Country" $startTimeCountry $errorMessageCountry )</td>
+    </tr>
+
+  <tr bgcolor="#FFFFFF">
+    <td class="textblack">#tablerows( "Export Supplier" $startTimeSupplier $errorMessageSupplier )</td>
+    </tr>
+
+  <tr bgcolor="#FFFFFF">
+    <td class="textblack"><span class="textblack"> #tablerows( "Export Purchase Order" $startTimePO $errorMessagePO )</span></td>
+    </tr>
+
+  <tr bgcolor="#FFFFFF">
+    <td class="textblack">#tablerows( "Export Purchase Order Receipt" $startTimePOReceipt $errorMessagePOReceipt )</td>
+    </tr>
+
+  <tr bgcolor="#FFFFFF">
+    <td height="13" class="textblack">#tablerows( "Import Purchase Type" $startTimePurchaseType $errorMessagePurchaseType )</td>
+    </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="13" class="textblack">#tablerows( "Import Customer" $startTimeCustomer $errorMessageCustomer )</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="6" class="textblack">#tablerows( "Import Exchange Rate" $startTimeExchangeRate $errorMessageExchangeRate )</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="6" class="textblack">#tablerows( "Import Expense Category" $startTimeExpenseCategory $errorMessageExpenseCategory )</td>
+  </tr>
+      </table>      
+      <p>  <br>
+  <br>
+  Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,12 @@
+<tr bgcolor="#FFFFFF">
+  <td><div align="left"><span class="textblack">${po.id}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.title}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.supplier.name}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.subCategory.description}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.exchangeRate.currency.name}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.amount}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.baseCurrency.name}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.baseCurrencyAmount}</span></div></td>
+  <td><div align="left"><span class="textblack">${po.purchaser.name}</span></div></td>
+  <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd', $po.createDate)</span></div></td>
+</tr>

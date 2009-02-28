@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- mysql -->
+	<!-- 
+	<bean id="dataSource" 
+	    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+	    <property name="url"><value>jdbc:mysql://localhost/oa?characterEncoding=utf8</value></property>
+	    <property name="username"><value>OA</value></property>
+	    <property name="password"><value>OA</value></property>
+	</bean>
+	-->
+	
+	<!-- db2 -->
+	<!-- 	
+	<bean id="dataSource" 
+	    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName"><value>COM.ibm.db2.jdbc.net.DB2Driver</value></property>
+	    <property name="url"><value>jdbc:db2://10.86.249.62:5000/OA</value></property>
+	    <property name="username"><value>db2inst1</value></property>
+	    <property name="password"><value>pwddb2inst1</value></property>
+	    <property name="maxActive"><value>20</value></property>
+	    <property name="maxIdle"><value>2</value></property>
+	    <property name="minIdle"><value>0</value></property>
+	    <property name="maxWait"><value>5000</value></property>
+	</bean>
+	-->
+	
+	<!-- sql server -->
+	<bean id="dataSource" 
+	    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+	    <property name="url"><value>jdbc:mysql://localhost/oa?characterEncoding=utf8</value></property>
+	    <property name="username"><value>OA</value></property>
+	    <property name="password"><value>OA</value></property>
+	</bean>
+</beans>

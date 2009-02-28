@@ -1,0 +1,132 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+
+	<!-- travelApplication -->
+	
+	<definition name="site.travelApplication.select" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/select.jsp"/>
+	</definition>
+	
+	<definition name="site.travelApplication.list.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/list.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.list.self.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.list.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/list.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.list.other.title"/>
+	</definition>
+
+	
+	<definition name="site.travelApplication.new.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/new.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.new.self.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.new.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/newOther.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.new.other.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.edit.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/edit.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.edit.self.title"/>
+	</definition>	
+	
+	<definition name="site.travelApplication.edit.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/editOther.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.edit.other.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.view.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/view.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.view.self.title"/>
+	</definition>	
+	
+	<definition name="site.travelApplication.view.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/view.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.view.other.title"/>
+	</definition>	
+	
+	<definition name="site.travelApplication.purchase" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/purchase.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.purchase.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.purchase.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/editPurchase.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.purchase.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.purchase.view.requestor" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/requestorViewPurchase.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.list.self.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.purchase.airTicket.cancel" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/cancelAirTicket.jsp"/>
+	</definition>
+	
+	<definition name="site.travelApplication.purchase.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/listPurchase.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.purchase.list.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.assign.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/listAssign.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.assign.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.assign" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/assign.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.assign.title"/>
+	</definition>
+	
+	<definition name="site.travelApplication.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/report.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.report.title"/>
+	</definition>
+
+	<definition name="site.travelApplication.view.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplication/view.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplication.view.report.title"/>
+	</definition>	
+	
+	<!-- end of travelApplication -->
+
+	<!-- travelApplicationApproveRequest -->
+	<definition name="site.travelApplicationApproveRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplicationApproveRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplicationApproveRequest.list.title"/>
+	</definition>
+	<definition name="site.travelApplicationApproveRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplicationApproveRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplicationApproveRequest.view.title"/>
+	</definition>		
+	<definition name="site.travelApplicationApproveRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/travelApplicationApproveRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="travelApplicationApproveRequest.edit.title"/>
+	</definition>		
+	<!-- end of travelApplicationApproveRequest -->
+	
+	<!-- air ticket-->
+	<definition name="site.airTicket.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/airTicket/list.jsp"/>
+		<put name="pageMainTitle" 	value="airTicket.list.title"/>
+	</definition>
+	<definition name="site.airTicket.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/airTicket/edit.jsp"/>
+	</definition>		
+	<definition name="site.airTicket.book" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/airTicket/book.jsp"/>
+	</definition>	
+	<definition name="site.airTicket.book.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/airTicket/editBook.jsp"/>
+	</definition>	
+	<definition name="site.airTicket.view" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/airTicket/view.jsp"/> 
+	</definition>
+	<!-- end of air ticket-->
+
+</tiles-definitions>

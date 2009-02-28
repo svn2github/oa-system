@@ -1,0 +1,46 @@
+Title: 
+PO Approve Reminder!
+
+Body:
+<table width="95%" height="488" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="488"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),<br>
+      <p>This is to remind you that the following PO need your online approve .</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">PO No.</div></td>
+          <td align="center" class="bold"><div align="left">PO Title</div></td>
+          <td align="center" class="bold"><div align="left">Supplier Name</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Category</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Currency</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Amount</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Base Currency</div></td>
+          <td height="21" align="center" class="bold"><div align="left">Base Amount</div></td>
+          <td height="13" align="center" class="bold"><div align="left">Creator</div></td>
+          <td height="13" align="center" class="bold"><div align="left">Create Date</div></td>
+          #foreach( $po in $targetList)
+        <tr bgcolor="#FFFFFF">
+            <td class="textblack"><div align="left">${po.id}</div></td>
+            <td class="textblack"><div align="left">${po.title}</div></td>
+            <td class="textblack"><div align="left">${po.supplier.name}</div></td>
+            <td class="textblack"><div align="left">${po.subCategory.description}</div></td>
+            <td class="textblack"><div align="left">${po.exchangeRate.currency.name}</div></td>
+            <td class="textblack"><div align="left">${po.amount}</div></td>
+            <td class="textblack"><div align="left">${po.baseCurrency.name}</div></td>
+            <td class="textblack"><div align="left">${po.baseCurrencyAmount}</div></td>
+            <td class="textblack"><div align="left">${po.purchaser.name}</div></td>
+            <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd', $po.createDate)</div></td>
+        </tr>
+  #end
+      </table>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p>
+      <p></p>
+    <p></p></td>
+  </tr>
+</table>

@@ -1,0 +1,49 @@
+Title: 
+TA Rejected!
+
+Body:
+
+<table width="95%" height="541" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="541"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to notify you that the following TA has been rejected.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="bold">Urgent Level</span></div></td>
+          <td><div align="left"><span class="bold">TA No.</span></div></td>
+          <td><div align="left"><span class="bold">TA Title</span></div></td>
+          <td><div align="left"><span class="bold">From City</span></div></td>
+          <td><div align="left"><span class="bold">To City</span></div></td>
+          <td><div align="left"><span class="bold">Travel Mode </span></div></td>
+          <td><div align="left"><span class="bold">Date From</span></div></td>
+          <td><div align="left"><span class="bold">Date To</span></div></td>
+          <td><div align="left"><span class="bold">Requestor</span></div></td>
+          <td><div align="left"><span class="bold">Request Date</span></div></td>
+        <td><span class="bold">Rejected By</span></td>
+          <td><span class="bold">Comment is</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="textblack">${ta.urgent.engShortDescription}</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.id}</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.title}</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.fromCity.engName}</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.toCity.engName}</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.travellingMode.engShortDescription}</span></div></td>
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.fromDate)</span></div></td>
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.toDate)</span></div></td>
+          <td><div align="left"><span class="textblack">${ta.requestor.name}</span></div></td>
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$ta.requestDate)</span></div></td>
+        <td><span class="textblack">${rejecterName}</span></td>
+          <td><span class="textblack">${comment}</span></td>
+        </tr>
+      </table>      <p>&nbsp;</p>
+      <p> Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,46 @@
+Title: 
+PR ready for Payment!
+
+Body:
+<table width="95%" height="376" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="376"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_user.name} (${role}),
+      <p>This is to notify you the following PO item has been received and verified, and ready for payment.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><span class="bold">PO No.</span></td>
+          <td><span class="bold">Referenced PR No.</span></td>
+          <td><span class="bold">Item Description</span></td>
+          <td><span class="bold"><span class="textblack">Received Quantity</span></span></td>
+          <td><span class="bold">Received Date1</span></td>
+          <td><span class="bold">Receiver1</span></td>
+          <td><span class="bold">Received Date2</span></td>
+          <td><span class="bold">Receiver2</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td><span class="textblack">${x_poir.purchaseOrderItem.purchaseOrder.id}</span></td>
+          <td><span class="textblack">${x_poir.purchaseOrderItem.purchaseRequestItem.purchaseRequest.id}</span></td>           
+		  <td><span class="textblack">
+			  #if(${x_poir.purchaseOrderItem.item})
+			  	${x_poir.purchaseOrderItem.item.sepc}
+			  #else
+	          	${x_poir.purchaseOrderItem.itemSpec}
+			  #end
+		  </span></td>
+          <td><span class="textblack">${x_poir.purchaseOrderItem.receivedQuantity}</span></td>
+          <td><span class="textblack">${x_poir.receiveDate1}</span></td>
+          <td><span class="textblack">${x_poir.receiver1.name}</span></td>
+          <td><span class="textblack">${x_poir.receiveDate2}</span></td>
+          <td><span class="textblack">${x_poir.receiver2.name}</span></td>
+        </tr>
+      </table>      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p><br>
+      </p></td>
+  </tr>
+</table>

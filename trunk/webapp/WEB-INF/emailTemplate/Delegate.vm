@@ -1,0 +1,32 @@
+Title: 
+Notification for Approval Delegate
+
+Body:
+<table width="95%" height="301" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_ad.delegateApprover.name},
+      <p>This is to notify you that you have been delegated the following Approval.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="29%" class="bold">Approval Permission:</td>
+          <td width="45%" class="textblack"><span class="bold">Original Approver </span></td>
+        <td width="14%" class="textblack"><span class="bold">Delegate From </span></td>
+          <td width="12%" class="textblack"><span class="bold">Delegate To</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="20" class="textblack">${x_ad.type.engShortDescription}</td>
+          <td class="textblack">${x_ad.originalApprover.name}</td>
+        <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ad.fromDate)</td>
+          <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ad.toDate)</td>
+        </tr>
+      </table>      
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p>
+</td>
+  </tr>
+</table>

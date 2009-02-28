@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Sep 22 15:04:40 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Site" table="site">
+        <id name="id" column="site_id" type="integer">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="site_nm" type="string" />
+        <property name="activity" column="site_activity" type="string" />
+        <property name="canRecharge" column="can_recharge" type="com.aof.model.metadata.YesNo" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="baseCurrency" column="site_curr" class="Currency"  not-null="true" />
+ 
+        <many-to-one name="manager" column="site_mgr" class="User" />
+        
+        <many-to-one name="city" column="site_city" class="City" />
+ 
+    </class>
+    
+	<class name="SiteLogo" table="site">
+		<id name="id" column="site_id" type="integer">
+			<generator class="assigned"/>
+		</id>
+		<property name="logo" column="site_logo" type="blob"/>
+	</class>
+
+    <class name="SiteMailReminder" table="site_mail_rmd">
+        <composite-id>
+        	<key-many-to-one name="site" column="site_id" class="Site"/>
+        	<key-property name="type" column="md_det_id" type="com.aof.model.metadata.SiteMailReminderType"/>
+        </composite-id>
+        
+        <property name="dueDay" column="due_day" type="integer"  not-null="true" />
+        <property name="intervalDay" column="interval_day" type="integer"  not-null="true" />
+        <property name="maxTime" column="max_time" type="integer"  not-null="true" />
+    </class>
+    
+    <class name="DataTransferParameter" table="erp_tran">
+        <id name="id" column="site_id" type="integer">
+            <generator class="foreign">
+            	<param name="property">site</param>
+			</generator>
+        </id>
+		<one-to-one name="site" class="Site" constrained="true" />
+		<property name="startTime" column="start_time" type="time" />
+		<property name="timePerDay" column="time_per_day" type="integer" />
+		<property name="intervalMin" column="interval_min" type="integer" />
+		<property name="succEmail" column="succ_mail_to" type="string" />
+		<property name="failEmail" column="fail_mail_to" type="string" />
+		<property name="exportFileType" column="export_file_type" type="com.aof.model.metadata.ExportFileType" not-null="true" />
+		<property name="serverAddress" column="serv_addr" type="string" />
+        <property name="serverPort" column="serv_port" type="integer" />
+        <property name="serverUserName" column="serv_user" type="string" />
+        <property name="serverPassword" column="serv_pwd" type="string" />
+        <property name="serverDir" column="serv_dir" type="string" />
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="com.aof.model.business.pr">
+
+    <class name="PurchaseRequest" table="purchase_request">
+        <id name="id" column="pr_no" type="string">
+            <generator class="assigned"/>
+        </id>
+        
+        <version name="rowVersion" column="row_version" type="integer" />
+ 
+ 		<property name="title" column="pr_title" type="string" not-null="true" />
+ 		<property name="description" column="pr_desc" type="string" />
+        <many-to-one name="purchaseSubCategory" column="pur_subctgy_id" class="com.aof.model.admin.PurchaseSubCategory" not-null="true" />
+ 		<many-to-one name="department" column="pr_dep_id" class="com.aof.model.admin.Department" not-null="true" />
+ 		<property name="status" column="pr_status" type="com.aof.model.metadata.PurchaseRequestStatus" not-null="true" />
+ 		<many-to-one name="capex" column="pr_capex_no" class="Capex" />
+ 		<many-to-one name="yearlyBudget" column="pr_budget_id" class="YearlyBudget" />
+ 		<property name="amount" column="base_amt" type="big_decimal" not-null="true" />
+ 		<many-to-one name="currency" column="base_curr_cd" class="com.aof.model.admin.Currency" not-null="true" />
+ 		<many-to-one name="requestor" column="requestor" class="com.aof.model.admin.User" />
+ 		<property name="requestDate" column="req_date" type="date" />
+ 		<many-to-one name="creator" column="creator" class="com.aof.model.admin.User" not-null="true" />
+ 		<property name="createDate" column="create_date" type="date" not-null="true" />
+ 		<many-to-one name="purchaser" column="pr_purchaser" class="com.aof.model.admin.User" />
+        <property name="approveRequestId" column="list_id" type="string" />
+        <property name="approveDate" column="approve_date" type="timestamp" />
+        <property name="emailDate" column="email_date" type="timestamp" />    
+        <property name="emailTimes" column="email_times" type="integer" />    
+ 		<property name="isDelegate" column="is_delegate" type="com.aof.model.metadata.YesNo" not-null="true" />
+    </class>
+    
+    <class name="PurchaseRequestApproveRequest" table="pr_approver">
+        <composite-id>
+            <key-property name="approveRequestId" column="list_id" type="string"/>
+            <key-many-to-one name="approver" column="approver_id" class="com.aof.model.admin.User"/>
+        </composite-id>
+ 
+ 		<many-to-one name="actualApprover" column="actual_approver" class="com.aof.model.admin.User" />
+        <property name="seq" column="approve_seq" type="integer" not-null="true" />
+        <property name="status" column="approve_status" type="com.aof.model.metadata.ApproveStatus" not-null="true" />
+        <property name="approveDate" column="approve_date" type="date" />
+        <property name="comment" column="approve_comment" type="string" />
+        <property name="canModify" column="can_modify" type="com.aof.model.metadata.YesNo" not-null="true" />
+ 		<property name="yourTurnDate" column="your_turn_date" type="timestamp" />
+ 		<property name="lastEmailDate" column="email_date" type="timestamp" />
+ 		<property name="sentEmailTimes" column="email_times" type="integer" not-null="true" />
+    </class>
+
+    <class name="PurchaseRequestAttachment" table="pr_attach">
+        <id name="id" column="pr_attach_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="purchaseRequest" column="pr_no" class="PurchaseRequest"/>
+ 		<property name="fileSize" column="cont_file_size" type="integer" not-null="true" />
+        <property name="fileName" column="file_name" type="string" not-null="true" />
+        <property name="description" column="file_title" type="string" not-null="true" />
+        <property name="uploadDate" column="upload_date" type="date"  not-null="true" />
+    </class>
+
+    <class name="PurchaseRequestAttachmentContent" table="pr_attach">
+        <id name="id" column="pr_attach_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="fileContent" column="file_content" type="blob" not-null="true" />
+    </class>
+    
+    <class name="PurchaseRequestPurchaser" table="pr_authorized_purchaser">
+        <id name="id" column="pr_auth_pur_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="purchaseRequest" column="pr_no" class="PurchaseRequest" not-null="true" />
+ 		<many-to-one name="purchaser" column="purchaser" class="com.aof.model.admin.User" not-null="true" />
+    </class>
+
+    <class name="PurchaseRequestItem" table="pr_item">
+        <id name="id" column="pr_item_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<many-to-one name="purchaseRequest" column="pr_no" class="PurchaseRequest" not-null="true" />
+ 		<many-to-one name="supplier" column="supp_id" class="com.aof.model.admin.Supplier" />
+ 		<property name="supplierName" column="supp_nm" type="string" />
+ 		<many-to-one name="supplierItem" column="item_id" class="com.aof.model.admin.SupplierItem" />
+ 		<property name="supplierItemSepc" column="item_sepc" type="string" not-null="true" />
+ 		<many-to-one name="exchangeRate" column="exch_rate_id" class="com.aof.model.admin.ExchangeRate" not-null="true" />
+ 		<property name="exchangeRateValue" column="exchange_rate" type="big_decimal" not-null="true" />
+ 		<property name="unitPrice" column="unit_price" type="big_decimal" not-null="true" />
+ 		<property name="quantity" column="quantity" type="integer" not-null="true" />
+ 		<property name="dueDate" column="due_date" type="date" />
+        <many-to-one name="buyForUser" column="buy_for_user" class="com.aof.model.admin.User" />
+        <many-to-one name="buyForDepartment" column="buy_for_dep" class="com.aof.model.admin.Department" />
+        <property name="isRecharge" column="is_recharge" type="com.aof.model.metadata.YesNo" not-null="true" />
+        <many-to-one name="purchaseOrderItem" column="po_item_id" class="com.aof.model.business.po.PurchaseOrderItem" />
+        <many-to-one name="projectCode" column="proj_id" class="com.aof.model.admin.ProjectCode" not-null="false" />
+    </class>
+
+
+    <class name="PurchaseRequestItemAttachment" table="pr_item_attach">
+        <id name="id" column="pr_item_att_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="purchaseRequestItem" column="pr_item_id" class="PurchaseRequestItem" />
+ 		<property name="fileSize" column="cont_file_size" type="integer" not-null="true" />
+        <property name="fileName" column="file_name" type="string" not-null="true" />
+        <property name="description" column="file_title" type="string" not-null="true" />
+        <property name="uploadDate" column="upload_date" type="date"  not-null="true" />
+    </class>
+
+    <class name="PurchaseRequestItemAttachmentContent" table="pr_item_attach">
+        <id name="id" column="pr_item_att_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="fileContent" column="file_content" type="blob" not-null="true" />
+    </class>
+    
+    <class name="PurchaseRequestItemRecharge" table="pr_item_recharge">
+        <id name="id" column="pr_itm_rechrgid" type="integer">
+            <generator class="native"/>
+        </id>
+
+        <many-to-one name="purchaseRequestItem" column="pr_item_id" class="PurchaseRequestItem" not-null="true" />
+        <many-to-one name="customer" column="cust_cd" class="com.aof.model.admin.Customer" />
+        <many-to-one name="personDepartment" column="person_dep_id" class="com.aof.model.admin.Department" />
+        <many-to-one name="person" column="person_id" class="com.aof.model.admin.User" />
+        <property name="amount" column="amount" type="big_decimal" not-null="true" />
+
+    </class>
+
+    <class name="PurchaseRequestHistory" table="pr_history">
+        <id name="id" column="pr_hist_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="purchaseRequest" column="pr_no" class="PurchaseRequest" not-null="true" />
+ 		<property name="status" column="pr_status" type="com.aof.model.metadata.PurchaseRequestStatus" not-null="true" />
+        <property name="approveRequestId" column="list_id" type="string" not-null="true" />
+    </class>
+
+    <class name="PurchaseRequestHistoryItem" table="pr_item_history">
+        <id name="id" column="pr_item_hist_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<many-to-one name="purchaseRequestHistory" column="pr_hist_id" class="PurchaseRequestHistory" not-null="true" />
+ 		<many-to-one name="supplier" column="supp_id" class="com.aof.model.admin.Supplier" />
+ 		<property name="supplierName" column="supp_nm" type="string" />
+ 		<many-to-one name="supplierItem" column="item_id" class="com.aof.model.admin.SupplierItem" />
+ 		<property name="supplierItemSepc" column="item_sepc" type="string" not-null="true" />
+ 		<many-to-one name="exchangeRate" column="exch_rate_id" class="com.aof.model.admin.ExchangeRate" not-null="true" />
+ 		<property name="exchangeRateValue" column="exchange_rate" type="big_decimal" not-null="true" />
+ 		<property name="unitPrice" column="unit_price" type="big_decimal" not-null="true" />
+ 		<property name="quantity" column="quantity" type="integer" not-null="true" />
+ 		<property name="dueDate" column="due_date" type="date" />
+        <many-to-one name="buyForUser" column="buy_for_user" class="com.aof.model.admin.User" />
+        <many-to-one name="buyForDepartment" column="buy_for_dep" class="com.aof.model.admin.Department" />
+        <property name="isRecharge" column="is_recharge" type="com.aof.model.metadata.YesNo" not-null="true" />
+        <many-to-one name="projectCode" column="proj_id" class="com.aof.model.admin.ProjectCode" not-null="false" />
+    </class>
+
+</hibernate-mapping>

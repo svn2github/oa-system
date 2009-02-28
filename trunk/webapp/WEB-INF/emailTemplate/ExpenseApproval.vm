@@ -1,0 +1,31 @@
+Title: 
+Notification For Expense Approval!
+
+Body:
+<table width="95%" height="423" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="423"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (Approver),
+      <p>This is to notify you that the following Expense need your online approval.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF" class="bold">
+          <td><span class="bold">Expense No.</span></td>
+          <td><span class="bold">Expense Title </span></td>
+          <td><span class="bold">Expense Category</span></td>
+          <td><span class="bold">Expense Currency</span></td>
+          <td><span class="bold"><span class="textblack">Expense Amount</span></span></td>
+          <td><span class="bold">Requestor </span></td>
+          <td><span class="bold">Request Date</span></td>
+        </tr>
+        ${batchEmailContext}
+      </table>      <p>&nbsp;</p>
+            
+      <p><br>
+        Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+    <p></p></td>
+  </tr>
+</table>

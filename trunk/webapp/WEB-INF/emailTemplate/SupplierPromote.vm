@@ -1,0 +1,30 @@
+Title:
+Global Supplier Promotion!
+
+Body:
+<table width="95%" height="294" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="294"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to notify you that supplier of your site is going to be promoted as the global supplier, please be advised.<br>
+      The supplier information is as following.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="34%" class="bold">Supplier Code</td>
+          <td width="30%" class="textblack"><span class="bold">Supplier Name</span></td>
+        <td width="36%" class="textblack"><span class="bold">Supplier Country</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="20" class="textblack">${supplier.code}</td>
+          <td class="textblack">${supplier.name}</td>
+        <td class="textblack">${supplier.country.engName}</td>
+        </tr>
+      </table>      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

@@ -1,0 +1,126 @@
+Title: 
+TA Booked!
+
+Body:
+
+<table width="95%" height="778" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="778"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_userName} (${role}),
+      <p>This is to notify you that the following TA has been booked.</p>
+      <table width="600" border="0" cellpadding="3" cellspacing="1" bgcolor="#DFE2FF">
+        <tr bgcolor="#FFFFFF">
+          <td class="bold">Urgent Level:</td>
+          <td class="textblack">${x_ta.urgent.engShortDescription}</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="bold">TA No. :</td>
+          <td class="textblack">${x_ta.id}</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="bold">TA Title :</td>
+          <td class="textblack">${x_ta.title}</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="bold">From City :</td>
+          <td class="textblack">${x_ta.fromCity.engName}</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="bold"> To City :</td>
+          <td class="textblack">${x_ta.toCity.engName}</td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="bold">Travel Mode :</td>
+          <td class="textblack"> ${x_ta.travellingMode.engShortDescription}</td>
+        </tr>
+  #if($x_ta.fromDate)
+  <tr bgcolor="#FFFFFF">
+    <td height="10" class="bold">Date From :</td>
+    <td class="textblack"> $dateTool.format('yyyy/MM/dd',$x_ta.fromDate)</td>
+  </tr>
+  #else
+  <tr bgcolor="#FFFFFF">
+    <td height="10" class="bold">Date From :</td>
+    <td class="textblack">&nbsp;</td>
+  </tr>
+  #end #if($x_ta.toDate)
+  <tr bgcolor="#FFFFFF">
+    <td height="10" class="bold">Date To :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.toDate)</td>
+  </tr>
+  #else
+  <tr bgcolor="#FFFFFF">
+    <td height="10" class="bold">Date To :</td>
+    <td class="textblack">&nbsp;</td>
+  </tr>
+  #end
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Requestor :</td>
+    <td class="textblack">${x_ta.requestor.name}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Request Date: </td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.requestDate)</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Hotel Name :</td>
+    <td class="textblack">${x_hotelName}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Room :</td>
+    <td class="textblack">${x_roomDesc}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Check-In Date :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.checkInDate)</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Check-Out Date :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.checkOutDate)</td>
+  </tr>
+  #if($x_at)
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold"> Leave Filght No. :</td>
+    <td class="textblack">${x_at.leaveFlightNo}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Filght Class:</td>
+    <td class="textblack">${x_at.leaveFlightClass.engShortDescription}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Depart Time :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd HH:mm',$x_at.leaveDepartTime)</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Arrive Time :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd HH:mm',$x_at.leaveArriveTime)</td>
+  </tr>
+  #if($x_return)
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Return Filght No. :</td>
+    <td class="textblack">${x_at.returnFilghtNo}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Filght Class:</td>
+    <td class="textblack">${x_at.returnFilghtClass.engShortDescription}</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Depart Time :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd HH:mm',$x_at.returnDepartTime)</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="21" class="bold">Arrive Time :</td>
+    <td class="textblack">$dateTool.format('yyyy/MM/dd HH:mm',$x_at.returnArriveTime)</td>
+  </tr>
+  #end
+  #end
+  </table>  
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

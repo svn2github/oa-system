@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/withdrawPurchaseOrder.do" />
+  <StrutsActivity path="/editPurchaseOrder.do" />
+  <StrutsActivity path="/cancelPurchaseOrder.do" />
+  <StrutsActivity path="/updatePurchaseOrder.do" />
+  <StrutsActivity path="/updatePurchaseOrder_viewApprover.do" />
+  <StrutsActivity path="/viewPurchaseOrder_dialog.do" />
+  <StrutsActivity path="/viewPurchaseOrder.do" />
+  <StrutsActivity path="/exportPurchaseOrderPDF.do" />
+  <StrutsActivity path="/listPurchaseOrder.do" />
+  <StrutsActivity path="/updatePurchaseOrderErpNo.do" />
+  <StrutsActivity path="/consolidatePurchaseOrder.do" />
+  <StrutsActivity path="/reportPurchaseOrder.do" />
+  <StrutsActivity path="/viewPurchaseOrder_report.do" />
+  <StrutsActivity path="/newPurchaseOrderAttachment.do" />
+  <StrutsActivity path="/insertPurchaseOrderAttachment.do" />
+  <StrutsActivity path="/downloadPurchaseOrderAttachment.do" />
+  <StrutsActivity path="/newPurchaseOrderItemAttachment.do" />
+  <StrutsActivity path="/insertPurchaseOrderItemAttachment.do" />
+  <StrutsActivity path="/downloadPurchaseOrderItemAttachment.do" />
+  <StrutsActivity path="/selectPurchaseOrderItemRechargeCustomer.do" />
+  <StrutsActivity path="/selectPurchaseOrderItemRechargeEntity.do" />
+  <StrutsActivity path="/selectPurchaseOrderItemRechargePerson.do" />
+  <StrutsActivity path="/viewPurchaseOrderItem.do" />
+  <StrutsActivity path="/editPurchaseOrderItem.do" />
+  <StrutsActivity path="/updatePurchaseOrderItem.do" />
+  <StrutsActivity path="/cancelPurchaseOrderItem.do" />
+  <StrutsActivity path="/editPaymentScheduleDetail.do" />
+  <StrutsActivity path="/newPaymentScheduleDetail.do" />
+  <StrutsActivity path="/updatePaymentScheduleDetail.do" />
+  <StrutsActivity path="/insertPaymentScheduleDetail.do" />
+  <StrutsActivity path="/deletePaymentScheduleDetail.do" />
+  <StrutsActivity path="/listPurchaseOrderApproveRequest.do" />
+  <StrutsActivity path="/viewPurchaseOrderApproveRequest.do" />
+  <StrutsActivity path="/approvePurchaseOrderApproveRequest.do" />
+  <StrutsActivity path="/updateAndApprovePurchaseOrderApproveRequest.do" />
+  <StrutsActivity path="/rejectPurchaseOrderApproveRequest.do" />
+  <StrutsActivity path="/selectInspector_purchaseOrderConfirm.do" />
+  <StrutsActivity path="/listPurchaseOrder_confirm.do" />
+  <StrutsActivity path="/confirmPurchaseOrder.do" />
+  <StrutsActivity path="/editConfirmedPurchaseOrder.do" />
+  <StrutsActivity path="/updateConfirmedPurchaseOrder.do" />
+  <StrutsActivity path="/viewPurchaseOrder_confirm.do" />
+  <StrutsActivity path="/rejectPurchaseOrder.do" />
+  <StrutsActivity path="/confirmPurchaseOrder_result.do" />
+  <StrutsActivity path="/editPurchaseOrderItem_confirm.do" />
+  <StrutsActivity path="/updatePurchaseOrderItem_confirm.do" />
+  <StrutsActivity path="/confirmSupplier_purchaseOrder.do" />
+  <StrutsActivity path="/confirmSupplierResult_purchaseOrder.do" />
+  <StrutsActivity path="/exportPurchaseOrderPDF_confirm.do" />
+  <StrutsActivity path="/listPurchaseOrder_cancel.do" />
+  <StrutsActivity path="/viewPurchaseOrder_cancel.do" />
+  <StrutsActivity path="/cancelPurchaseOrderItemQuantity.do" />
+  <StrutsActivity path="/cancelPurchaseOrderItemQuantityResult.do" />
+  <StrutsActivity path="/listPurchaseOrder_assign.do" />
+  <StrutsActivity path="/assignPurchaseOrder.do" />
+  <StrutsActivity path="/assignPurchaseOrder_result.do" />
+  <StrutsActivity path="/listPurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/newPurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/insertPurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/editPurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/deletePurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/updatePurchaseOrderItemReceipt.do" />
+  <StrutsActivity path="/listPurchaseOrderItem_receipt.do" />
+  <StrutsActivity path="site.purchaseOrder.edit" />
+  <StrutsActivity path="site.approve.viewApprover" />
+  <StrutsActivity path="site.purchaseOrder.view.dialog" />
+  <StrutsActivity path="site.purchaseOrder.view" />
+  <StrutsActivity path="site.purchaseOrder.list" />
+  <StrutsActivity path="site.purchaseOrder.report" />
+  <StrutsActivity path="site.purchaseOrderAttachment.new" />
+  <StrutsActivity path="/WEB-INF/jsp/rowSaveOK.jsp" />
+  <StrutsActivity path="site.purchaseOrderItemAttachment.new" />
+  <StrutsActivity path="site.recharge.listCustomer" />
+  <StrutsActivity path="site.recharge.listPerson" />
+  <StrutsActivity path="site.purchaseOrder.viewItem" />
+  <StrutsActivity path="site.purchaseOrder.editItem" />
+  <StrutsActivity path="/editPurchaseOrderItem" />
+  <StrutsActivity path="/WEB-INF/jsp/operationSuccess.jsp" />
+  <StrutsActivity path="site.paymentScheduleDetail.edit" />
+  <StrutsActivity path="/editPaymentScheduleDetail" />
+  <StrutsActivity path="/newPaymentScheduleDetail" />
+  <StrutsActivity path="site.purchaseOrderApproveRequest.list" />
+  <StrutsActivity path="site.purchaseOrderApproveRequest.edit" />
+  <StrutsActivity path="site.purchaseOrderApproveRequest.view" />
+  <StrutsActivity path="site.purchaseOrder.confirm.selectInspecor" />
+  <StrutsActivity path="site.purchaseOrder.confirm.list" />
+  <StrutsActivity path="site.purchaseOrder.confirm" />
+  <StrutsActivity path="site.purchaseOrder.editConfirm" />
+  <StrutsActivity path="site.purchaseOrder.confirm.editItem" />
+  <StrutsActivity path="site.purchaseOrder.confirmSupplier.confirmModify" />
+  <StrutsActivity path="site.purchaseOrder.confirmSupplier.confirmNew" />
+  <StrutsActivity path="/WEB-INF/jsp/selectOK.jsp" />
+  <StrutsActivity path="site.purchaseOrder.cancel.list" />
+  <StrutsActivity path="site.purchaseOrder.cancel.view" />
+  <StrutsActivity path="site.purchaseOrder.cancel.cancel" />
+  <StrutsActivity path="site.purchaseOrder.assign.list" />
+  <StrutsActivity path="site.purchaseOrder.assign" />
+  <StrutsActivity path="site.purchaseOrderItemReceipt.list" />
+  <StrutsActivity path="site.purchaseOrderItemReceipt.new" />
+  <StrutsActivity path="site.purchaseOrderItemReceipt.edit" />
+  <StrutsActivity path="site.purchaseOrderItem.receipt.list" />
+  <StrutsTransition id="/selectInspector_purchaseOrderConfirm.do,page,site.purchaseOrder.confirm.selectInspecor,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmSupplier_purchaseOrder.do,null,/confirmSupplierResult_purchaseOrder.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmSupplierResult_purchaseOrder.do,success,/WEB-INF/jsp/selectOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPaymentScheduleDetail.do,page,site.paymentScheduleDetail.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrder_report.do,page,site.purchaseOrder.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem_confirm.do,page,site.purchaseOrder.confirm.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelPurchaseOrderItemQuantity.do,page,site.purchaseOrder.cancel.cancel,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrder.do,page,site.purchaseOrder.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderItemReceipt.do,page,site.purchaseOrderItemReceipt.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseOrderItem.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrderItemReceipt.do,page,site.purchaseOrderItemReceipt.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/reportPurchaseOrder.do,page,site.purchaseOrder.report,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseOrderItemAttachment.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrderApproveRequest.do,viewPage,site.purchaseOrderApproveRequest.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrderApproveRequest.do,page,site.purchaseOrderApproveRequest.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrder_cancel.do,page,site.purchaseOrder.cancel.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPaymentScheduleDetail,null,/updatePaymentScheduleDetail.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseOrderItemReceipt.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseOrderAttachment.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editConfirmedPurchaseOrder.do,page,site.purchaseOrder.editConfirm,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItemReceipt.do,page,site.purchaseOrderItemReceipt.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrderItem_receipt.do,page,site.purchaseOrderItem.receipt.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderItemAttachment.do,page,site.purchaseOrderItemAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmSupplier_purchaseOrder.do,pageConfirmModify,site.purchaseOrder.confirmSupplier.confirmModify,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItemReceipt.do,null,/updatePurchaseOrderItemReceipt.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseOrderItemRechargeEntity.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrder.do,null,/updatePurchaseOrder.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePaymentScheduleDetail.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePurchaseOrderItemReceipt.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrder_assign.do,page,site.purchaseOrder.assign.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseOrder_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrder.do,page,site.purchaseOrder.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelPurchaseOrderItemQuantity.do,null,/cancelPurchaseOrderItemQuantityResult.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelPurchaseOrderItem.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmSupplier_purchaseOrder.do,pageConfirmNew,site.purchaseOrder.confirmSupplier.confirmNew,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPaymentScheduleDetail.do,page,site.paymentScheduleDetail.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cancelPurchaseOrderItemQuantityResult.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrder.do,page,site.purchaseOrder.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem_confirm.do,null,/updatePurchaseOrderItem_confirm.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrderItem.do,page,site.purchaseOrder.viewItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmPurchaseOrder.do,null,/confirmPurchaseOrder_result.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseOrderItemRechargePerson.do,page,site.recharge.listPerson,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderAttachment.do,page,site.purchaseOrderAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/assignPurchaseOrder.do,page,site.purchaseOrder.assign,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrder_dialog.do,page,site.purchaseOrder.view.dialog,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrder_cancel.do,page,site.purchaseOrder.cancel.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem,null,/updatePurchaseOrderItem.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listPurchaseOrder_confirm.do,page,site.purchaseOrder.confirm.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePurchaseOrderItem_confirm.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPaymentScheduleDetail.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertPurchaseOrderItemReceipt.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPaymentScheduleDetail,null,/insertPaymentScheduleDetail.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrderApproveRequest.do,editPage,site.purchaseOrderApproveRequest.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrder_confirm.do,page,site.purchaseOrder.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editPurchaseOrderItem.do,page,site.purchaseOrder.editItem,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderAttachment.do,null,/insertPurchaseOrderAttachment.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/confirmPurchaseOrder.do,page,site.purchaseOrder.confirm,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderItemReceipt.do,null,/insertPurchaseOrderItemReceipt.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editConfirmedPurchaseOrder.do,null,/updateConfirmedPurchaseOrder.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectPurchaseOrderItemRechargeCustomer.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewPurchaseOrderApproveRequest.do,null,/updateAndApprovePurchaseOrderApproveRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatePaymentScheduleDetail.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPurchaseOrderItemAttachment.do,null,/insertPurchaseOrderItemAttachment.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

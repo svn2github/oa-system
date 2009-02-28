@@ -1,0 +1,46 @@
+Title: 
+You've Got a New PO Assignment!
+
+Body:
+<table width="95%" height="421" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="421"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_po.purchaser.name} (${role}),
+      <p>This is to notify you that you have been assigned to the following PO as needed.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><span class="bold">PO No.</span></td>
+          <td><span class="bold">PO Title</span></td>
+          <td><span class="bold">Supplier Name</span></td>
+          <td><span class="bold"><span class="textblack">Purchase Category</span></span></td>
+          <td><span class="bold"><span class="textblack">Purchase Currency</span></span></td>
+          <td><span class="bold">Purchase Amount</span></td>
+          <td><span class="bold">Base Currency</span></td>
+          <td><span class="bold">Base Amount</span></td>
+          <td><span class="bold">Creator</span></td>
+          <td><span class="bold">Create Date</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="textblack">${x_po.id}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.title}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.supplier.name}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.subCategory.description}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.exchangeRate.currency.code}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.amount}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.baseCurrency.code}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.baseCurrencyAmount}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_po.createUser.name}</span></div></td>
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$x_po.createDate)</span></div></td>
+        </tr>
+      </table>      <p>&nbsp;</p>
+      <p>        <br>
+        Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+      <p></p>
+    <p></p></td>
+  </tr>
+</table>

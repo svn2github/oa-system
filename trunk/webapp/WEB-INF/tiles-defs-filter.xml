@@ -1,0 +1,46 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+	<!-- Yearly Budget Filter -->
+	<definition name="site.rule.listYearlyBudgetFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.yearlyBudgetFilter.list"/>
+	</definition>
+	<!-- End of Yearly Budget Filter -->
+
+	<!-- Capex Filter -->
+	<definition name="site.rule.listCapexFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.capexFilter.list"/>
+	</definition>
+	<!-- End of Capex Filter -->
+
+	<!-- Purchase Request Filter -->
+	<definition name="site.rule.listPurchaseRequestFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.purchaseRequestFilter.list"/>
+	</definition>
+	<!-- End of Purchase Request Filter -->
+
+	<!-- Purchase Order Filter -->
+	<definition name="site.rule.listPurchaseOrderFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.purchaseOrderFilter.list"/>
+	</definition>
+	<!-- End of Purchase Order Filter -->
+
+	<!-- Expense Filter -->
+	<definition name="site.rule.listExpenseFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.expenseFilter.list"/>
+	</definition>
+	<!-- End of Expense Filter -->
+
+	<!-- Travel Application Filter -->
+	<definition name="site.rule.listTravelApplicationFilter" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.travelApplicationFilter.list"/>
+	</definition>
+	<!-- End of Travel Application Filter -->
+
+</tiles-definitions>

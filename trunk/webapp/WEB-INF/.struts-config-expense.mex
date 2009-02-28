@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/listExpense_self.do" />
+  <StrutsActivity path="/listExpense_finalConfirm.do" />
+  <StrutsActivity path="/listExpense_finalClaim.do" />
+  <StrutsActivity path="/listExpense_other.do" />
+  <StrutsActivity path="/listMyTravelApplicationForExpense.do" />
+  <StrutsActivity path="/newExpense_self.do" />
+  <StrutsActivity path="/newExpense_other.do" />
+  <StrutsActivity path="/insertExpense_self.do" />
+  <StrutsActivity path="/insertExpense_other.do" />
+  <StrutsActivity path="/deleteExpense_self.do" />
+  <StrutsActivity path="/deleteExpense_other.do" />
+  <StrutsActivity path="/viewExpense_self.do" />
+  <StrutsActivity path="/exportExpenseDetailPDF_self.do" />
+  <StrutsActivity path="/viewExpense_other.do" />
+  <StrutsActivity path="/exportExpenseDetailPDF_other.do" />
+  <StrutsActivity path="/viewExpense_finalConfirm.do" />
+  <StrutsActivity path="/exportExpenseDetailPDF_finalConfirm.do" />
+  <StrutsActivity path="/viewExpense_finalClaim.do" />
+  <StrutsActivity path="/exportExpenseDetailPDF_finalClaim.do" />
+  <StrutsActivity path="/editExpense_self.do" />
+  <StrutsActivity path="/editExpense_other.do" />
+  <StrutsActivity path="/updateExpense_self.do" />
+  <StrutsActivity path="/updateExpense_other.do" />
+  <StrutsActivity path="/updateExpense_self_viewApprover.do" />
+  <StrutsActivity path="/updateExpense_other_viewApprover.do" />
+  <StrutsActivity path="/selectExpenseRechargeCustomer.do" />
+  <StrutsActivity path="/selectExpenseRechargeEntity.do" />
+  <StrutsActivity path="/selectExpenseRechargePerson.do" />
+  <StrutsActivity path="/finalConfirmExpense.do" />
+  <StrutsActivity path="/finalConfirmExpense_result.do" />
+  <StrutsActivity path="/finalClaimExpense.do" />
+  <StrutsActivity path="/finalClaimExpense_result.do" />
+  <StrutsActivity path="/withdrawExpense_self.do" />
+  <StrutsActivity path="/withdrawExpense_other.do" />
+  <StrutsActivity path="/copyExpense_self.do" />
+  <StrutsActivity path="/copyExpense_other.do" />
+  <StrutsActivity path="/newExpenseAttachment_self.do" />
+  <StrutsActivity path="/insertExpenseAttachment_self.do" />
+  <StrutsActivity path="/newExpenseAttachment_other.do" />
+  <StrutsActivity path="/insertExpenseAttachment_other.do" />
+  <StrutsActivity path="/deleteExpenseAttachment_self.do" />
+  <StrutsActivity path="/deleteExpenseAttachment_other.do" />
+  <StrutsActivity path="/downloadExpenseAttachment_self.do" />
+  <StrutsActivity path="/downloadExpenseAttachment.do" />
+  <StrutsActivity path="/downloadExpenseAttachment_other.do" />
+  <StrutsActivity path="/listExpenseApproveRequest.do" />
+  <StrutsActivity path="/viewExpenseApproveRequest.do" />
+  <StrutsActivity path="/approveExpenseApproveRequest.do" />
+  <StrutsActivity path="/updateAndApproveExpenseApproveRequest.do" />
+  <StrutsActivity path="/rejectExpenseApproveRequest.do" />
+  <StrutsActivity path="/reportExpense.do" />
+  <StrutsActivity path="/viewExpense.do" />
+  <StrutsActivity path="site.expense.list" />
+  <StrutsActivity path="site.expense.finalConfirm.list" />
+  <StrutsActivity path="site.expense.finalClaim.list" />
+  <StrutsActivity path="site.expense.list.other" />
+  <StrutsActivity path="site.expense.listMyTA" />
+  <StrutsActivity path="site.expense.new" />
+  <StrutsActivity path="site.expense.new.other" />
+  <StrutsActivity path="site.expense.view" />
+  <StrutsActivity path="site.expense.view.other" />
+  <StrutsActivity path="site.expense.edit" />
+  <StrutsActivity path="site.expense.edit.other" />
+  <StrutsActivity path="site.approve.viewApprover" />
+  <StrutsActivity path="site.recharge.listCustomer" />
+  <StrutsActivity path="site.recharge.listPerson" />
+  <StrutsActivity path="site.expense.finalConfirm" />
+  <StrutsActivity path="/finalConfirm.do" />
+  <StrutsActivity path="site.expense.finalClaim" />
+  <StrutsActivity path="/finalClaim.do" />
+  <StrutsActivity path="site.expenseAttachment.new" />
+  <StrutsActivity path="/WEB-INF/jsp/rowSaveOK.jsp" />
+  <StrutsActivity path="/newExpenseAttachment.do" />
+  <StrutsActivity path="/WEB-INF/jsp/operationSuccess.jsp" />
+  <StrutsActivity path="site.expenseApproveRequest.list" />
+  <StrutsActivity path="site.expenseApproveRequest.edit" />
+  <StrutsActivity path="site.expenseApproveRequest.view" />
+  <StrutsActivity path="site.expense.report" />
+  <StrutsTransition id="/reportExpense.do,page,site.expense.report,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpense_self.do,page,site.expense.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpense_other.do,page,site.expense.new.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateExpense_self_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteExpenseAttachment_other.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editExpense_other.do,page,site.expense.edit.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listMyTravelApplicationForExpense.do,page,site.expense.listMyTA,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editExpense_other.do,null,/updateExpense_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/finalConfirmExpense.do,page,site.expense.finalConfirm,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpenseApproveRequest.do,viewPage,site.expenseApproveRequest.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listExpense_other.do,page,site.expense.list.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updateExpense_other_viewApprover.do,page,site.approve.viewApprover,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectExpenseRechargeEntity.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listExpense_finalClaim.do,page,site.expense.finalClaim.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectExpenseRechargeCustomer.do,page,site.recharge.listCustomer,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/finalClaimExpense.do,page,site.expense.finalClaim,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpense_finalClaim.do,page,site.expense.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listExpenseApproveRequest.do,page,site.expenseApproveRequest.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listExpense_finalConfirm.do,page,site.expense.finalConfirm.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/finalConfirm.do,null,/finalConfirmExpense_result.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editExpense_self.do,page,site.expense.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteExpenseAttachment_self.do,success,/WEB-INF/jsp/operationSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpenseAttachment.do,null,/insertExpenseAttachment_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpense_other.do,page,site.expense.view.other,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpense_self.do,page,site.expense.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpense_self.do,null,/insertExpense_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpense_finalConfirm.do,page,site.expense.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/editExpense_self.do,null,/updateExpense_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpense_other.do,null,/insertExpense_other.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpenseAttachment_self.do,page,site.expenseAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/selectExpenseRechargePerson.do,page,site.recharge.listPerson,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertExpenseAttachment_other.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/finalClaim.do,null,/finalClaimExpense_result.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpenseAttachment.do,null,/insertExpenseAttachment_self.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/insertExpenseAttachment_self.do,success,/WEB-INF/jsp/rowSaveOK.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newExpenseAttachment_other.do,page,site.expenseAttachment.new,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpenseApproveRequest.do,null,/updateAndApproveExpenseApproveRequest.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteExpense_self.do,page,site.expense.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deleteExpense_other.do,page,site.expense.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/listExpense_self.do,page,site.expense.list,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpenseApproveRequest.do,editPage,site.expenseApproveRequest.edit,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/viewExpense.do,page,site.expense.view,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
