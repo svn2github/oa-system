@@ -19,7 +19,20 @@
 		};
 	}
 	
-
+	function selectBudget()
+	{
+		with(document.expenseForm)
+		{
+			var url="newExpenseSelectBudget.do?expenseCategory_id="+
+				expenseCategory_id.value+"&department_id="+department_id.value + "&requestDate="+requestDate.value;
+			alert(url);
+			var v=dialogAction(url,"purchaseRequest.selectYearlyBudget",400,300);
+			if(v)
+			{
+				document.getElementById("yearlyBudgetContentDIV").innerHTML=v;
+			}
+		}	
+	}
 	
 //-->
 </script>	
@@ -93,23 +106,15 @@
 				<html:select property="department_id" >
 				</html:select><span class="required">*</span>
 			</td>
-		</tr>	
+		</tr>
 		<tr>
 			<td class="bluetext" width="20%"><bean:message key="expense.requestor.id" />:</td>
 			<td width="30%">
 				${sessionScope.LOGIN_USER.name}
 			</td>
-			<td class="bluetext" width="20%"><bean:message key="expense.requestdate" />:</td>
-			<td width="30%">
-			</td>
-		</tr>	
-		<tr>
-			<td class="bluetext" width="20%"><bean:message key="expense.creator.id" />:</td>
-			<td width="30%">
-				${x_newExpense.creator.name}
-			</td>
 			<td class="bluetext" width="20%"><bean:message key="expense.creatDate" />:</td>
 			<td width="30%">
+				${x_currentDate}
 			</td>
 		</tr>	
 	</table>
@@ -144,6 +149,16 @@
 				</span>
 			</td>
 		</tr>	
+		<tr>
+		<td class="bluetext" width="20%"><bean:message key="expense.requestdate" />:</td>
+		<td width="30%"><html:text property="requestDate" size="8" value="${x_currentDate}"/><a onclick="event.cancelBubble=true;" href="javascript:showCalendar('dimg',false,'requestDate',null,null,'expenseForm')"><IMG align="absMiddle" border="0" id="dimg" src="images/datebtn.gif" ></A><span class="required">*</span></td>
+		<td class="bluetext" width="20%"><bean:message key="expense.budget" />:</td>
+			<td width="30%">
+				<html:hidden property="yearlyBudget_id"/>
+				<a href="javascript:selectBudget();"><img src="images/select.gif" border="0"/></a>
+			</td>
+		</tr>	
+		
 		<tr>
 			
 			<td class="bluetext"><bean:message key="expense.amount" />:</td>

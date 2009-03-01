@@ -6,8 +6,8 @@
 	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig">
 		<form-bean name="expenseForm"
 				type="com.aof.model.business.expense.Expense">
-			<set-property property="requires" value="title,department.id,expenseCategory.id,requestor.id" />
-			<set-property property="includes" value="*,department.site.id,travelApplication.id,baseCurrency.code,expenseCurrency.code" />
+			<set-property property="requires" value="title,department.id,expenseCategory.id,requestor.id,requestDate" />
+			<set-property property="includes" value="*,department.site.id,travelApplication.id,baseCurrency.code,expenseCurrency.code,yearlyBudget.id" />
 			<set-property property="excludes" value="claimAmount,differenceBetweenClaimAmountAndAmount,differencePercentageBetweenClaimAmountAndAmount,notifyFlowName" />
 			<set-property property="toForms" value="baseCurrency.name" />
 			<!-- 下面这个property是为了Recharge画面而加的 -->
@@ -293,6 +293,14 @@
 			parameter="copy" path="/copyExpense_other" scope="request"
 			type="com.aof.web.struts.action.business.expense.ExpenseAction">
 			<set-property property="functionId" value="32230030"/>
+		</action>
+		
+		<action     
+			parameter="selectBudget" path="/newExpenseSelectBudget" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.yearlyBudget.selectExpenseBudget" />
 		</action>
 		<!-- end of Expense -->
 

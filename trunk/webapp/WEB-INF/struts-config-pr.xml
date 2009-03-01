@@ -20,6 +20,8 @@
 					name,
 					type,
 					year,
+					durationFrom,
+					durationTo,
 					amount,
 					status,
 				" />
@@ -28,6 +30,7 @@
 					id,
 					purchaseCategory.id,
 					purchaseSubCategory.id,
+					expenseCategory.id,
 					status,
 				" />
 			<form-property name="departments" type="java.lang.String[]">	

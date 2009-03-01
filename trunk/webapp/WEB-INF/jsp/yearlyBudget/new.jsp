@@ -9,12 +9,12 @@
 
 <xml id="data">
 <data>
-	<pc id="" name="all">
-		<psc id="" name="all"></psc>
+	<pc id="" name="<bean:message key="yearlyBudget.dropdownlistvalue.all"/>">
+		<psc id="" name="<bean:message key="yearlyBudget.dropdownlistvalue.all"/>"></psc>
 	</pc>
 <logic:iterate id="x_pc" name="x_purchaseCategoryList">
 	<pc id="${x_pc.id}" name="<bean:write name="x_pc" property="description"/>">
-		<psc id="" name="all"></psc>
+		<psc id="" name="<bean:message key="yearlyBudget.dropdownlistvalue.all"/>"></psc>
 		<logic:iterate id="x_psc" name="x_pc" property="enabledPurchaseSubCategoryList">
 			<psc id="${x_psc.id}" name="<bean:write name="x_psc" property="description"/>">
 			</psc>
@@ -96,6 +96,37 @@
 		return true;
 	}
 	
+	function initPurchaseCategory() 
+	{
+		var mapping=new Map();
+		mapping.put("purchaseCategory_id","pc");
+		mapping.put("purchaseSubCategory_id","psc");
+		initCascadeSelect("config","data","yearlyBudgetForm",mapping,true);
+	}
+		
+	function onchangeBudgetType()
+	{
+		if(yearlyBudgetForm.type.options[yearlyBudgetForm.type.selectedIndex].value == "<%=com.aof.model.metadata.BudgetType.Expense.getEnumCode()%>")
+		{
+			document.getElementById("yearTr").style.display = "none";
+			document.getElementById("durationFromTr").style.display = "inline";
+			document.getElementById("durationToTr").style.display = "inline";
+			document.getElementById("purchaseCategoryTr").style.display = "none";
+			document.getElementById("purchaseSubCategoryTr").style.display = "none";
+			document.getElementById("expenseCategoryTr").style.display = "inline";
+			
+			yearlyBudgetForm.expenseCategory_id.selectedIndex = 0;
+		} else {
+			document.getElementById("yearTr").style.display = "inline";
+			document.getElementById("durationFromTr").style.display = "none";
+			document.getElementById("durationToTr").style.display = "none";
+			document.getElementById("purchaseCategoryTr").style.display = "inline";
+			document.getElementById("purchaseSubCategoryTr").style.display = "inline";
+			document.getElementById("expenseCategoryTr").style.display = "none";
+			
+			initPurchaseCategory();
+		}
+	}
 </script>
 <html:javascript formName="yearlyBudgetForm" staticJavascript="false"/>
 <html:form action="/insertYearlyBudget" onsubmit="return validateForm(this)">
@@ -159,13 +190,13 @@
 		<tr>
 			<td><bean:message key="yearlyBudget.type"/>:</td>
 			<td>
-				<html:select property="type">
+				<html:select property="type" onchange="javascript:onchangeBudgetType();">
 					<html:options collection="x_typeList"
 						property="enumCode" labelProperty="${x_lang}ShortDescription" />
 				</html:select><span class="required">*</span>
 			</td>
 		</tr>
-		<tr>
+		<tr id="yearTr">
 			<td><bean:message key="yearlyBudget.year"/>:</td>
 			<td><html:select property="year">
 				<logic:iterate name="x_yearList" id="x_year">
@@ -173,24 +204,42 @@
 				</logic:iterate>
 			</html:select><span class="required">*</span></td>
 		</tr>
+		<tr id="durationFromTr" style="display:none">
+			<td><bean:message key="yearlyBudget.durationFrom"/>:</td>
+			<td><html:text property="durationFrom" size="8" value="${x_currentDate}"/><a onclick="event.cancelBubble=true;" href="javascript:showCalendar('dimgFrom',false,'durationFrom',null,null,'yearlyBudgetForm')"><IMG align="absMiddle" border="0" id="dimgFrom" src="images/datebtn.gif" ></A><span class="required">*</span></td>
+		</tr>
+		<tr id="durationToTr" style="display:none">
+			<td><bean:message key="yearlyBudget.durationTo"/>:</td>
+			<td><html:text property="durationTo" size="8" value="${x_currentDate}"/><a onclick="event.cancelBubble=true;" href="javascript:showCalendar('dimgTo',false,'durationTo',null,null,'yearlyBudgetForm')"><IMG align="absMiddle" border="0" id="dimgTo" src="images/datebtn.gif" ></A><span class="required">*</span></td>
+		</tr>
 		<tr>
 			<td><bean:message key="yearlyBudget.amount"/>:</td>
 			<td><html:text property="amount" size="10"/><span class="required">*</span></td>
 		</tr>
-		<tr>
+		<tr id="purchaseCategoryTr">
 			<td><bean:message key="yearlyBudget.purchaseCategory.id"/>:</td>
 			<td align="left">
 				<html:select property="purchaseCategory_id">
 				</html:select>
 			</td>
 		</tr>
-		<tr>
+		<tr id="purchaseSubCategoryTr">
 			<td><bean:message key="yearlyBudget.purchaseSubCategory.id"/>:</td>
 			<td align="left">
 				<html:select property="purchaseSubCategory_id">
 				</html:select>
 			</td>
 		</tr>
+		<tr id="expenseCategoryTr" style="display:none">
+			<td><bean:message key="yearlyBudget.expenseCategory.id"/>:</td>
+			<td align="left">
+				<html:select property="expenseCategory_id">
+					<html:option value= ""><bean:message key="yearlyBudget.dropdownlistvalue.all"/></html:option>
+					<html:options collection="x_expenseCategoryList"
+						property="id" labelProperty="description" />
+				</html:select>
+			</td>
+		</tr>		
 		<tr>
 			<td><bean:message key="yearlyBudget.baseCurrency"/>:</td>
 			<td>${x_site.baseCurrency.name}</td>
@@ -220,8 +269,5 @@
 </html:form>
 
 <script type="text/javascript">
-    var mapping=new Map();
-	mapping.put("purchaseCategory_id","pc");
-	mapping.put("purchaseSubCategory_id","psc");
-    initCascadeSelect("config","data","yearlyBudgetForm",mapping,true);
+    initPurchaseCategory();
 </script>

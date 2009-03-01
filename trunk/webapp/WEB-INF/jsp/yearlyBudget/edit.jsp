@@ -100,26 +100,58 @@
 				<bean:write name="x_yearlyBudget" property="type.${x_lang}ShortDescription"/>
 			</td>
 		</tr>
-		<tr>
+		<c:set var="x_budgettype_expense" value="<%=com.aof.model.metadata.BudgetType.Expense.getEnumCode()%>" scope="request" />
+		<c:choose>
+			<c:when
+				test="${x_yearlyBudget.type.enumCode == x_budgettype_expense}">
+				<c:set var="x_expensedisplay" value=""
+					scope="request" />
+				<c:set var="x_purchasedisplay" value="style='display:none'" scope="request" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="x_expensedisplay" value="style='display:none'" scope="request" />
+				<c:set var="x_purchasedisplay" value=""
+					scope="request" />
+			</c:otherwise>
+		</c:choose>
+		<tr ${x_purchasedisplay}>
 			<td><bean:message key="yearlyBudget.year"/>:</td>
 			<td>
 				${x_yearlyBudget.year}
+			</td>
+		</tr>
+		<tr ${x_expensedisplay}>
+			<td><bean:message key="yearlyBudget.durationFrom"/>:</td>
+			<td>
+				${x_yearlyBudget.durationFrom}
+			</td>
+		</tr>
+		<tr ${x_expensedisplay}>
+			<td><bean:message key="yearlyBudget.durationTo"/>:</td>
+			<td>
+				${x_yearlyBudget.durationTo}
 			</td>
 		</tr>
 		<tr>
 			<td><bean:message key="yearlyBudget.amount"/>:</td>
 			<td><html:text property="amount" size="10"/><span class="required">*</span></td>
 		</tr>
-		<tr>
+		<tr ${x_purchasedisplay}>
 			<td><bean:message key="yearlyBudget.purchaseCategory.id"/>:</td>
 			<td align="left">
 				${x_yearlyBudget.purchaseCategory.description}
 			</td>
 		</tr>
-		<tr>
+		<tr ${x_purchasedisplay}>
 			<td><bean:message key="yearlyBudget.purchaseSubCategory.id"/>:</td>
 			<td align="left">
 				${x_yearlyBudget.purchaseSubCategory.description}
+			</td>
+		</tr>
+		<tr ${x_expensedisplay}>
+			<td><bean:message key="yearlyBudget.expenseCategory.id"/>:</td>
+			<td align="left">
+				${x_yearlyBudget.expenseCategory.description}
 			</td>
 		</tr>
 		<tr>
