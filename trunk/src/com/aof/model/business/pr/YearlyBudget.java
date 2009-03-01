@@ -45,7 +45,7 @@ public class YearlyBudget extends AbstractYearlyBudget implements Serializable, 
      * @param id
      */
     public YearlyBudget(Integer id) {
-        super(id);
+        super(id);        
     }
 
     public BigDecimal getRemainAmount() {

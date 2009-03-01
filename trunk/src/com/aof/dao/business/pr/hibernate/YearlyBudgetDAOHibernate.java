@@ -9,6 +9,7 @@ package com.aof.dao.business.pr.hibernate;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ import com.aof.dao.BaseDAOHibernate;
 import com.aof.dao.business.pr.YearlyBudgetDAO;
 import com.aof.dao.convert.LikeConvert;
 import com.aof.model.admin.Department;
+import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.PurchaseCategory;
 import com.aof.model.admin.PurchaseSubCategory;
 import com.aof.model.admin.Site;
@@ -188,6 +190,55 @@ public class YearlyBudgetDAOHibernate extends BaseDAOHibernate implements Yearly
             
         });
         
+    }
+    
+    public List getSuitableYearlyBudget(final Site site, final ExpenseCategory ec, final List departmentList,final BudgetType budgetType, final Date effectiveDate) {
+        return getHibernateTemplate().executeFind(new HibernateCallback() {
+
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                CompositeQuery query = new CompositeQuery("from YearlyBudget yb", "yb.code", session);
+                if (ec == null) {
+                    if (site != null) { 
+                        QueryCondition qc = query.createQueryCondition("yb.site.id = ?");
+                        qc.appendParameter(site.getId());
+                    }
+                    query.createQueryCondition("yb.expenseCategory.id is null");
+                } else {
+                        QueryCondition qc = query.createQueryCondition("yb.expenseCategory.id = ?");
+                        qc.appendParameter(ec.getId());
+                }
+                if (effectiveDate != null) {
+                    QueryCondition qc = query.createQueryCondition("yb.durationFrom <= ? and yb.durationTo >= ?");
+                    qc.appendParameter(effectiveDate);
+                    qc.appendParameter(effectiveDate);
+                }
+                QueryCondition qc = query.createQueryCondition("yb.status = ? and yb.type = ?");
+                qc.appendParameter(BudgetStatus.OPEN.getEnumCode());
+                qc.appendParameter(budgetType.getEnumCode());
+                List yearlyBudegtList = query.list();
+
+                List needIdList = new ArrayList();
+                for (Iterator itor = departmentList.iterator(); itor.hasNext();) {
+                    Department d = (Department) itor.next();
+                    needIdList.add(d.getId());
+                }
+                List idList1 = new ArrayList();
+                for (Iterator itor = yearlyBudegtList.iterator(); itor.hasNext();) {
+                    YearlyBudget yb = (YearlyBudget) itor.next();
+                    List idList2 = session.find("select ybd.department.id from YearlyBudgetDepartment ybd where ybd.yearlyBudget.id = ? order by ybd.department.id", yb.getId(), Hibernate.INTEGER);
+                    idList1.addAll(needIdList);
+                    idList1.removeAll(idList2);
+                    if (idList1.isEmpty()) {
+                        yb.setDepartmentIdString(convertIdCollectinToIdString(idList2));
+                    } else {
+                        itor.remove();
+                    }
+                }
+                
+                return yearlyBudegtList;
+            }
+            
+        });
     }
 
     private String convertIdCollectinToIdString(Collection idList) {

@@ -86,7 +86,7 @@ public class DataTransferDAOHibernate extends BaseDAOHibernate implements DataTr
 //            claim.setEnterAmount(getSumEnterAmount(claim.getExpenseSubCategory(), sumCellList));
 //        }
 //        return claimList;
-        return getHibernateTemplate().find("from ExpenseCell c where c.row.expense.id = ? and e.amount <> 0", expense.getId(), Hibernate.STRING);
+        return getHibernateTemplate().find("from ExpenseCell c where c.row.expense.id = ? and c.amount <> 0", expense.getId(), Hibernate.STRING);
     }
     
     private BigDecimal getSumEnterAmount(ExpenseSubCategory expenseSubCategory,List sumCellList) {

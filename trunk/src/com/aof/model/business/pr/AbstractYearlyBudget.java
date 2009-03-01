@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.aof.model.admin.ExpenseCategory;
+import com.aof.model.admin.ExpenseSubCategory;
 import com.aof.model.admin.PurchaseCategory;
 import com.aof.model.admin.PurchaseSubCategory;
 import com.aof.model.admin.Site;
@@ -85,6 +87,18 @@ public abstract class AbstractYearlyBudget implements Serializable {
 
     /** persistent field */
     private int rowVersion;
+    
+    /** nullable persistent field */
+    private ExpenseCategory expenseCategory;
+
+    /** nullable persistent field */
+    private ExpenseSubCategory expenseSubCategory;
+    
+    /** nullable persistent field */
+    private Date durationFrom;
+    
+    /** nullable persistent field */
+    private Date durationTo;
 
     /** default constructor */
     public AbstractYearlyBudget() {
@@ -356,6 +370,62 @@ public abstract class AbstractYearlyBudget implements Serializable {
 
     public void setRowVersion(int rowVersion) {
         this.rowVersion = rowVersion;
+    }
+
+    /**
+     * @return Returns the expenseCategory.
+     */
+    public ExpenseCategory getExpenseCategory() {
+        return expenseCategory;
+    }
+
+    /**
+     * @param expenseCategory The expenseCategory to set.
+     */
+    public void setExpenseCategory(ExpenseCategory expenseCategory) {
+        this.expenseCategory = expenseCategory;
+    }
+
+    /**
+     * @return Returns the expenseSubCategory.
+     */
+    public ExpenseSubCategory getExpenseSubCategory() {
+        return expenseSubCategory;
+    }
+
+    /**
+     * @param expenseSubCategory The expenseSubCategory to set.
+     */
+    public void setExpenseSubCategory(ExpenseSubCategory expenseSubCategory) {
+        this.expenseSubCategory = expenseSubCategory;
+    }
+
+    /**
+     * @return Returns the durationFrom.
+     */
+    public Date getDurationFrom() {
+        return durationFrom;
+    }
+
+    /**
+     * @param durationFrom The durationFrom to set.
+     */
+    public void setDurationFrom(Date durationFrom) {
+        this.durationFrom = durationFrom;
+    }
+
+    /**
+     * @return Returns the durationTo.
+     */
+    public Date getDurationTo() {
+        return durationTo;
+    }
+
+    /**
+     * @param durationTo The durationTo to set.
+     */
+    public void setDurationTo(Date durationTo) {
+        this.durationTo = durationTo;
     }
 
     /**

@@ -184,12 +184,14 @@ public class ExportExpenseManagerImpl extends BaseExportManager {
         writer.write(EXPENSE_DETAIL);
         writer.write(getFormatString(getValue(cell, "row.expense.id"), 16));
         writer.write(getFormatString(getValue(cell, "expenseSubCategory.referenceErpId"), 8));
-        writer.write(getFormatString(getValue(cell, "amount"), 10));
+        writer.write(getFormatString(getValue(cell, "amount"), 10));    //entered amount
+        writer.write(getFormatString(getValue(cell, "amount"), 10));    //confirmed amount
         writer.write(isRecharge.equalsYesNo(YesNo.YES) ? RECHARGE_YES : RECHARGE_NO);
         writer.write(getFormatString(getValue(cell, "row.expense.department.id"), 8));
         writer.write(getFormatString(getValue(cell, "row.expense.requestor.id"), 10));
         writer.write(getFormatString(getValue(cell, "description"), 3000));
         writer.write(getFormatString(getValue(cell, "row.projectCode.code"), 8));
+        writer.write(EOL);
     }
 
     private void writeExpense(OutputStreamWriter writer, Expense expense, boolean recharge) throws IOException {

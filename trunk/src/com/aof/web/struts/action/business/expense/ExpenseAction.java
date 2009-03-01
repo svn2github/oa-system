@@ -11,7 +11,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -35,7 +37,9 @@ import org.apache.struts.util.MessageResources;
 import com.aof.model.admin.Department;
 import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.ExpenseSubCategory;
+import com.aof.model.admin.PurchaseSubCategory;
 import com.aof.model.admin.Site;
+import com.aof.model.admin.User;
 import com.aof.model.business.expense.Expense;
 import com.aof.model.business.expense.ExpenseApproveRequest;
 import com.aof.model.business.expense.ExpenseCell;
@@ -47,6 +51,7 @@ import com.aof.model.business.ta.TravelApplication;
 import com.aof.model.business.ta.query.TravelApplicationQueryCondition;
 import com.aof.model.business.ta.query.TravelApplicationQueryOrder;
 import com.aof.model.metadata.ApproveStatus;
+import com.aof.model.metadata.BudgetType;
 import com.aof.model.metadata.ExpenseStatus;
 import com.aof.model.metadata.ExpenseType;
 import com.aof.model.metadata.ExportStatus;
@@ -54,10 +59,13 @@ import com.aof.model.metadata.TravelApplicationStatus;
 import com.aof.model.metadata.YesNo;
 import com.aof.service.admin.DepartmentManager;
 import com.aof.service.admin.EmailManager;
+import com.aof.service.admin.ExpenseCategoryManager;
 import com.aof.service.admin.ExpenseSubCategoryManager;
+import com.aof.service.admin.PurchaseSubCategoryManager;
 import com.aof.service.admin.UserManager;
 import com.aof.service.business.expense.ExpenseApproveRequestManager;
 import com.aof.service.business.expense.ExpenseManager;
+import com.aof.service.business.pr.YearlyBudgetManager;
 import com.aof.service.business.rule.ExecuteFlowEmptyResultException;
 import com.aof.service.business.rule.FlowManager;
 import com.aof.service.business.rule.NoAvailableFlowToExecuteException;
@@ -1027,7 +1035,8 @@ public class ExpenseAction extends BaseExpenseAction {
         }
         request.setAttribute("x_newExpense", expense);
         putEnabledUserSiteListToRequest(request);
-
+        putCurrentDateToRequest(request);
+        
         return mapping.findForward("page");
     }
 
@@ -1055,6 +1064,7 @@ public class ExpenseAction extends BaseExpenseAction {
         em.process();
 
         request.setAttribute("x_newExpense", expense);
+        putCurrentDateToRequest(request);
         return mapping.findForward("page");
     }
 
@@ -1114,6 +1124,11 @@ public class ExpenseAction extends BaseExpenseAction {
         UserManager um = ServiceLocator.getUserManager(request);
         List userSiteList = um.getEnabledUserSiteListWithDepartmentsAndExpenseCategory(this.getCurrentUser(request));
         request.setAttribute("x_userSiteList", userSiteList);
+    }
+    
+    private void putCurrentDateToRequest(HttpServletRequest request) {
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        request.setAttribute("x_currentDate", format.format(new Date()));
     }
 
     private boolean isDraft(HttpServletRequest request) {
@@ -1784,5 +1799,48 @@ public class ExpenseAction extends BaseExpenseAction {
                 throw new ActionException("expense.error.cannotWithdraw");
             }
         }
+    }
+    
+    public ActionForward selectBudget(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ExpenseCategory ec = this.getExpenseCategoryFromRequest(request);
+        Department department = this.getDepartmentFromRequest(request);
+        Date effectiveDate = this.getEffectiveDateFromRequest(request);
+        
+        YearlyBudgetManager ym = ServiceLocator.getYearlyBudgetManager(request);
+
+        List departmentList = new ArrayList();
+        departmentList.add(department);
+        User currentUser = getCurrentUser(request);
+        List result = ym.getSuitableYearlyBudget(department.getSite(), ec, departmentList,BudgetType.Expense, effectiveDate, currentUser);
+        request.setAttribute("X_RESULTLIST", result);
+        
+        return mapping.findForward("page");
+    }
+    
+    private ExpenseCategory getExpenseCategoryFromRequest(HttpServletRequest request) {
+        Integer id = ActionUtils.parseInt(request.getParameter("expenseCategory_id"));
+        if (id == null)
+            throw new ActionException("expenseCategory.idNotSet");
+        ExpenseCategoryManager ecm = ServiceLocator.getExpenseCategoryManager(request);
+        ExpenseCategory psc = ecm.getExpenseCategory(id);
+        if (psc == null)
+            throw new ActionException("expenseCategory..notFound", id);
+        return psc;
+    }
+
+    private Department getDepartmentFromRequest(HttpServletRequest request) {
+        Integer id = ActionUtils.parseInt(request.getParameter("department_id"));
+        if (id == null)
+            throw new ActionException("department.idNotSet");
+        DepartmentManager dm = ServiceLocator.getDepartmentManager(request);
+        Department d = dm.getDepartment(id);
+        if (d == null)
+            throw new ActionException("department.notFound", id);
+        return d;
+    }
+    
+    private Date getEffectiveDateFromRequest(HttpServletRequest request) {
+        Date date = ActionUtils.getDateFromDisplayDate(request.getParameter("requestDate"));
+        return date;
     }
 }

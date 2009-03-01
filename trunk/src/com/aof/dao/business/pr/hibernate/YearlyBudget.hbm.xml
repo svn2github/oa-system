@@ -28,7 +28,10 @@
         <property name="createDate" column="create_date" type="date" not-null="true" />
         <many-to-one name="modifier" column="modify_user" class="com.aof.model.admin.User" />
         <property name="modifyDate" column="modify_date" type="date" />
-        
+        <many-to-one name="expenseCategory" column="exp_ctgy_id" class="com.aof.model.admin.ExpenseCategory" />
+        <many-to-one name="expenseSubCategory" column="exp_subctgy_id" class="com.aof.model.admin.ExpenseSubCategory" />
+        <property name="durationFrom" column="budget_duration_from" type="date" />
+        <property name="durationTo" column="budget_duration_to" type="date" />
         <!-- <set name="departments" table="yearly_budget_department" lazy="true" >
 		    <key column="budget_id"/>
 		    <many-to-many

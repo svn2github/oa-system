@@ -15,6 +15,7 @@ import com.aof.model.admin.Currency;
 import com.aof.model.admin.Department;
 import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.User;
+import com.aof.model.business.pr.YearlyBudget;
 import com.aof.model.business.ta.TravelApplication;
 import com.aof.model.metadata.ExpenseStatus;
 import com.aof.model.metadata.ExportStatus;
@@ -98,7 +99,7 @@ public abstract class AbstractExpense implements Serializable {
     
     private Date confirmDate;
     
-    
+    private YearlyBudget yearlyBudget;
     
     /**
      * @return Returns the emailDate.
@@ -455,6 +456,20 @@ public abstract class AbstractExpense implements Serializable {
 
     public void setConfirmDate(Date confirmDate) {
         this.confirmDate = confirmDate;
+    }
+
+    /**
+     * @return Returns the yearlyBudget.
+     */
+    public YearlyBudget getYearlyBudget() {
+        return yearlyBudget;
+    }
+
+    /**
+     * @param yearlyBudget The yearlyBudget to set.
+     */
+    public void setYearlyBudget(YearlyBudget yearlyBudget) {
+        this.yearlyBudget = yearlyBudget;
     }
 
     /**

@@ -182,7 +182,7 @@ public class PurchaseRequestAction extends BasePurchaseRequestAction {
         PurchaseSubCategoryManager pscm = ServiceLocator.getPurchaseSubCategoryManager(request);
         PurchaseSubCategory psc = pscm.getPurchaseSubCategory(id);
         if (psc == null)
-            throw new ActionException("purchaseRequest.purchaseSubCategory.notFound");
+            throw new ActionException("purchaseRequest.purchaseSubCategory.notFound", id);
         return psc;
     }
 
@@ -193,7 +193,7 @@ public class PurchaseRequestAction extends BasePurchaseRequestAction {
         DepartmentManager dm = ServiceLocator.getDepartmentManager(request);
         Department d = dm.getDepartment(id);
         if (d == null)
-            throw new ActionException("purchaseRequest.department.notFound");
+            throw new ActionException("purchaseRequest.department.notFound", id);
         return d;
     }
     
@@ -251,7 +251,7 @@ public class PurchaseRequestAction extends BasePurchaseRequestAction {
             departmentList.add(department);
             User currentUser = getCurrentUser(request);
             List result = ym.getSuitableYearlyBudget
-            (department.getSite(), psc.getPurchaseCategory(), psc, departmentList,BudgetType.OTHER, currentUser);
+            (department.getSite(), psc.getPurchaseCategory(), psc, departmentList,BudgetType.PR, currentUser);
             request.setAttribute("X_RESULTLIST", result);
             
             return mapping.findForward("page");

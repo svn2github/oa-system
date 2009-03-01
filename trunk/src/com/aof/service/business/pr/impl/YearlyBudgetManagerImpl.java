@@ -21,6 +21,7 @@ import com.aof.dao.business.pr.YearlyBudgetDAO;
 import com.aof.dao.business.pr.YearlyBudgetDepartmentDAO;
 import com.aof.dao.business.pr.YearlyBudgetHistoryDAO;
 import com.aof.model.admin.Department;
+import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.Function;
 import com.aof.model.admin.PurchaseCategory;
 import com.aof.model.admin.PurchaseSubCategory;
@@ -307,6 +308,22 @@ public class YearlyBudgetManagerImpl extends BaseManager implements YearlyBudget
 
     public List getSuitableYearlyBudget(Site s, PurchaseCategory pc, PurchaseSubCategory psc, List departmentList, BudgetType budgetType, User user) {
         List list = dao.getSuitableYearlyBudget(s, pc, psc, departmentList, budgetType);
+        if (list != null) {
+            for (int i= 0; i < list.size(); i++) {
+                YearlyBudget yb = (YearlyBudget)list.get(i);
+                boolean b = canViewYearlyBudgetAmount(yb, user);
+                if (!b) {
+                    yb.setAmount(null);
+                    yb.setActualAmount(null);                    
+                }
+            }
+        }
+        
+        return list;
+    }
+    
+    public List getSuitableYearlyBudget(Site s, ExpenseCategory ec, List departmentList,BudgetType budgetType, Date effectiveDate, User user) {
+        List list = dao.getSuitableYearlyBudget(s, ec, departmentList, budgetType, effectiveDate);
         if (list != null) {
             for (int i= 0; i < list.size(); i++) {
                 YearlyBudget yb = (YearlyBudget)list.get(i);

@@ -6,10 +6,12 @@
  */
 package com.aof.service.business.pr;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import com.aof.model.admin.Department;
+import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.PurchaseCategory;
 import com.aof.model.admin.PurchaseSubCategory;
 import com.aof.model.admin.Site;
@@ -139,6 +141,8 @@ public interface YearlyBudgetManager {
      * @return 合适的YearlyBudget列表
      */
     public List getSuitableYearlyBudget(Site s, PurchaseCategory pc, PurchaseSubCategory psc, List departmentList,BudgetType budgetType, User user);
+    
+    public List getSuitableYearlyBudget(Site s, ExpenseCategory ec, List departmentList,BudgetType budgetType, Date effectiveDate, User user);
     
     /**
      * 为执行Flow填写额外的信息 (Department、PurchaseCategory、PurchaseSubCategory)

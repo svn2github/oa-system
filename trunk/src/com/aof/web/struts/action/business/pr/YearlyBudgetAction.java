@@ -9,6 +9,8 @@ package com.aof.web.struts.action.business.pr;
 import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -39,6 +41,7 @@ import com.aof.model.metadata.BudgetStatus;
 import com.aof.model.metadata.BudgetType;
 import com.aof.model.metadata.YesNo;
 import com.aof.service.admin.DepartmentManager;
+import com.aof.service.admin.ExpenseCategoryManager;
 import com.aof.service.admin.PurchaseCategoryManager;
 import com.aof.service.business.pr.YearlyBudgetManager;
 import com.aof.utils.SessionTempFile;
@@ -644,15 +647,18 @@ public class YearlyBudgetAction extends BaseAction {
         this.putDepartmentIdSetToRequest(yearlyBudgetForm, request);
 
         this.putYearListToRequest(request);
-        this.putPurchaseCategoryListToRequest(yearlyBudget.getSite(),request);
+        this.putPurchaseCategoryListToRequest(yearlyBudget.getSite(), request);
+        this.putExpenseCategoryListToRequest(yearlyBudget.getSite(), request);      
         this.putEnumListToRequest(request);
 
         return mapping.findForward("page");
     }
 
     private void putYearListToRequest(HttpServletRequest request) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd"); 
         List retVal = new ArrayList();
         Calendar c = Calendar.getInstance();
+        request.setAttribute("x_currentDate", dateFormat.format(c.getTime()));  
         String thisYear = String.valueOf(c.get(Calendar.YEAR));
         c.add(Calendar.YEAR, 1);
         String nextYear = String.valueOf(c.get(Calendar.YEAR));
@@ -664,6 +670,11 @@ public class YearlyBudgetAction extends BaseAction {
     private void putPurchaseCategoryListToRequest(Site site,HttpServletRequest request) {
         PurchaseCategoryManager pm = ServiceLocator.getPurchaseCategoryManager(request);
         request.setAttribute("x_purchaseCategoryList", pm.getEnabledPurchaseCategorySubCategoryOfSiteIncludeGlobal(site));
+    }
+    
+    private void putExpenseCategoryListToRequest(Site site,HttpServletRequest request) {
+        ExpenseCategoryManager pm = ServiceLocator.getExpenseCategoryManager(request);
+        request.setAttribute("x_expenseCategoryList", pm.getEnabledExpenseCategoryOfSite(site));
     }
 
     public ActionForward newObject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -684,6 +695,7 @@ public class YearlyBudgetAction extends BaseAction {
 
         this.putYearListToRequest(request);
         this.putPurchaseCategoryListToRequest(site,request);
+        this.putExpenseCategoryListToRequest(site,request);
         this.putEnumListToRequest(request);
 
         return mapping.findForward("page");

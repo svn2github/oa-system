@@ -6,12 +6,15 @@
  */
 package com.aof.dao.business.pr;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.aof.model.admin.ExpenseCategory;
 import com.aof.model.admin.PurchaseCategory;
 import com.aof.model.admin.PurchaseSubCategory;
 import com.aof.model.admin.Site;
+import com.aof.model.admin.User;
 import com.aof.model.business.pr.YearlyBudget;
 import com.aof.model.business.pr.YearlyBudgetHistory;
 import com.aof.model.business.pr.YearlyBudgetHistoryDepartment;
@@ -105,5 +108,5 @@ public interface YearlyBudgetDAO {
             List departmentList,BudgetType budgetType);
 
 
-
+    public List getSuitableYearlyBudget(Site s, ExpenseCategory ec, List departmentList,BudgetType budgetType, Date effectiveDate);
 }

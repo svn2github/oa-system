@@ -32,6 +32,7 @@
         <property name="emailDate" column="email_date" type="timestamp" />
         <property name="emailTimes" column="email_times" type="integer" />
         <property name="confirmDate" column="confirm_date" type="timestamp" />    
+        <many-to-one name="yearlyBudget" column="exp_budget_id" class="com.aof.model.business.pr.YearlyBudget" />
     </class>
     
     <class name="ExpenseApproveRequest" table="expense_approver">
