@@ -1,0 +1,60 @@
+Title: 
+You've Got a New TA Assignment!
+
+Body:
+
+<table width="95%" height="290" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_ta.booker.name} (${role}),
+      <p>This is to notify you that you have been assigned to the following TA as needed.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="bold">Urgent Level</span></div></td>
+          <td><div align="left"><span class="bold">TA No.</span></div></td>
+          <td><div align="left"><span class="bold">TA Title</span></div></td>
+          <td><div align="left"><span class="bold">From City</span></div></td>
+          <td><div align="left"><span class="bold">To City</span></div></td>
+          <td><div align="left"><span class="bold">Travel Mode </span></div></td>
+		  #if($x_ta.fromDate)
+          <td><div align="left"><span class="bold">Date From</span></div></td>
+		  #else
+          <td><div align="left"><span class="bold">Date From</span></div></td>
+		  #end
+		   #if($x_ta.toDate)
+          <td><div align="left"><span class="bold">Date To</span></div></td>
+		  #else
+          <td><div align="left"><span class="bold">Date To</span></div></td>
+		  #end
+        <td><div align="left"><span class="bold">Requestor</span></div></td>
+          <td><div align="left"><span class="bold">Request Date</span></div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="textblack">${x_ta.urgent.engShortDescription}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_ta.id}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_ta.title}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_ta.fromCity.engName}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_ta.toCity.engName}</span></div></td>
+          <td><div align="left"><span class="textblack">${x_ta.travellingMode.engShortDescription}</span></div></td>
+		   #if($x_ta.fromDate)
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.fromDate)</span></div></td>
+		  #else
+          <td><div align="left"></div></td>
+		  #end
+		   #if($x_ta.toDate)		   
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.toDate)</span></div></td>
+		  #else
+          <td><div align="left"></div></td>
+		  #end
+        <td><div align="left"><span class="textblack">${x_ta.requestor.name}</span></div></td>
+          <td><div align="left"><span class="textblack">$dateTool.format('yyyy/MM/dd',$x_ta.requestDate)</span></div></td>
+        </tr>
+      </table>      <p>        <br>
+        Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p></p></td>
+  </tr>
+</table>

@@ -1,0 +1,30 @@
+Title:
+New user ${user.name} has been created in OA system!
+
+Body:
+<table width="95%" height="293" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="293"><span class="textblack"><br>
+      <br>
+      </span>Dear ${finance.name} (${role}),
+      <p>We inform you that user ${user.name} has been created in OA system. <br>
+      Please also create his cost center in ERP system.</p>
+      <p>His information is as follows:</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="250" class="bold">User id </td>
+          <td width="382" class="textblack"><span class="bold">User name</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack">${user.id}</td>
+          <td class="textblack">${user.name}</td>
+        </tr>
+      </table>      
+      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>

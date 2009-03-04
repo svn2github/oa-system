@@ -1,0 +1,16 @@
+<tr bgcolor="#FFFFFF">
+  <td><span class="textblack">${pr.id}</span></td>
+  <td><span class="textblack">${pr.title}</span></td>
+  <td><span class="textblack">${pr.purchaseSubCategory.description}</span></td>
+  <td><span class="textblack">
+    #if($pr.capex)
+        ${pr.capex.id}
+    #end 
+    #if($pr.yearlyBudget)
+        ${pr.yearlyBudget.code}
+    #end
+  </span></td>
+  <td><span class="textblack">${pr.amount}</span></td>
+  <td><span class="textblack">${pr.requestor.name}</span></td>
+  <td><span class="textblack">$dateTool.format('yyyy/MM/dd', $pr.requestDate)</span></td>
+</tr>

@@ -1,0 +1,122 @@
+v\:*{behavior:url(#default#VML);}
+body{
+	margin:0px;
+	background:url(../image/body_bg.jpg);
+}
+
+img.mid{
+	position:absolute;
+	border:solid 1px #000000;
+	width:5px;
+	height:5px;
+	background-color:#CCCCCC;
+	margin-right:100px;	
+	}
+div.linetext{
+		font-size:12px;
+		position:absolute;
+		overflow:visible;
+	}
+
+/* for every node type */
+div.node{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#ffffff;
+	background:url(../image/node_bg.jpg) no-repeat;
+}
+div.beginNode{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#ADEDB4;
+	background:url(../image/beginNode.png) no-repeat;
+	padding-left:15px;
+}
+div.endNode{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#F8B1A3;
+	background:url(../image/endNode.png) no-repeat;
+	padding-left:15px;
+}
+div.forkNode{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#ffffff;
+	background:url(../image/forkNode.png) no-repeat;
+	padding-left:15px;
+}
+div.joinNode{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#ffffff;
+	background:url(../image/joinNode.png) no-repeat;
+	padding-left:15px;
+}
+div.generalNode{
+	position:absolute;
+	width:100px;
+	height:30px;
+	border:solid 1px #000000;
+	background-color:#E7E7E7;
+	background:url(../image/generalNode.png) no-repeat;
+	padding-left:15px;
+}
+/* end for every node type */
+div.panel{
+	z-index:10000;
+	width:100px;
+	height:200px;
+	top:0;
+	left:0;
+	position:absolute;
+	border:solid 1px #003366;
+	background:#FFFFFF;
+	padding-top:20px;
+	text-align:center;
+}
+
+div.main{
+	z-index:1;
+	width:500px;
+	top:0;
+	left:110px;
+	position:absolute;
+	border:solid 1px #003366;
+	background:#FFFFFF;
+	padding-top:20px;
+	text-align:center;
+}
+div.panel button{
+	border:solid 1px #333399;
+	background:url(../image/node.png);
+	width:90px;
+	margin:2px;
+}
+div.panel image{
+	border:0px;
+	margin-right:2px;
+}
+div.panelDrag{
+	z-index:10002;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100px;
+	height:15px;
+	background:#3333CC;
+	border:solid 1px black;
+	font-size:12px;
+	color:white;
+	behavior:url(../htc/sndrag.htc);
+}

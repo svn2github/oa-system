@@ -1,0 +1,21 @@
+1 1 * * * sh /home/db2inst1/OA-System/db-script/dailybackup.sh
+
+
+source /home/db2inst1/.bash_profile
+echo "-------------------------------------------" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+echo "Start to backup db STAGE at $(date +"%y-%m-%d %H:%M:%S")" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+echo "CONNECT TO STAGE" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 CONNECT TO STAGE
+echo "QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 QUIESCE DATABASE IMMEDIATE FORCE CONNECTIONS
+echo "CONNECT RESET" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 CONNECT RESET
+echo "BACKUP DB STAGE TO /home/db2inst1/OA-System/db-backup/stage" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 BACKUP DB STAGE TO /home/db2inst1/OA-System/db-backup/stage
+echo "CONNECT TO STAGE" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 CONNECT TO STAGE
+echo "UNQUIESCE DATABASE" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 UNQUIESCE DATABASE
+echo "CONNECT RESET" >> /home/db2inst1/OA-System/db-backup/dbbackup.log
+db2 CONNECT RESET
+echo "Backup db STAGE successful at $(date +"%y-%m-%d %H:%M:%S")" >> /home/db2inst1/OA-System/db-backup/dbbackup.log

@@ -1,0 +1,11 @@
+#
+#Wed Oct 12 13:44:12 CST 2005
+configFile=/OA-Spring/src/hibernate.cfg.xml
+libInstallFolder=/webapp/WEB-INF/lib
+addLibs2Classpath=true
+addLibs2Project=true
+createConfigFile=true
+keyGenerator=native
+version=2.1
+basePersistenceClass=
+useJavaTypes=true

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Metadata" table="metadata_mst">
+        <id name="id" column="md_mst_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="description" column="md_mst_desc" type="string" />
+        
+    </class>
+    
+    <class name="MetadataDetail" table="metadata_det">
+    	<composite-id>
+    		<key-property name="id" column="md_det_id" type="integer"/>
+    		<key-many-to-one name="type" column="md_mst_id" class="Metadata" />
+    	</composite-id>
+ 
+ 		<property name="engDescription" column="eng_full_desc" type="string" />
+ 		<property name="chnDescription" column="sec_full_desc" type="string" />
+ 		<property name="engShortDescription" column="eng_short_desc" type="string" />
+ 		<property name="chnShortDescription" column="sec_short_desc" type="string" />
+        <property name="color" column="color" type="string" />
+    </class>
+</hibernate-mapping>

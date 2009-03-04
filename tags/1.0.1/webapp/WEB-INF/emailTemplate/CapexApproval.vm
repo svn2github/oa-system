@@ -1,0 +1,27 @@
+Title:
+Notification For Capex Approval!
+
+Body:
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><span class="textblack"><br>
+      <br>
+      Dear ${user.name} (Approver),      </span>
+      <p class="textblack">This is to notify you that the following Capex need your online approval.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="129"><span class="bold">Capex No. </span></td>
+          <td width="104"><span class="bold"><span class="textblack">Capex title</span></span></td>
+          <td width="59"><span class="bold"><span class="textblack">Purchase category</span></span></td>
+          <td width="76"><span class="bold"><span class="textblack">Purchase subcategory</span></span></td>
+          <td width="28"><span class="bold"><span class="textblack">Capex amount </span></span></td>
+        </tr>
+        ${batchEmailContext}
+      </table>      <p class="textblack">&nbsp;</p>
+      <p class="textblack">Please use your web browser to go to:<br>
+  ${visitUrl} visit our system.</p>
+      <p class="textblack">${regardWords}<br>
+  ${signature}</p>
+    <p></p></td>
+  </tr>
+</table>

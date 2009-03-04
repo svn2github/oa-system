@@ -1,0 +1,7 @@
+1 2 * * * sh /home/jboss-4.0.3SP1/bin/dailyrestart.sh
+
+source /root/.bash_profile
+echo "-------------------------------------------" >> /home/jboss-4.0.3SP1/bin/dailyrestart.log
+echo "Start to restart jboss at $(date +"%y-%m-%d %H:%M:%S")" >> /home/jboss-4.0.3SP1/bin/dailyrestart.log
+sh /home/jboss-4.0.3SP1/bin/jboss_init_redhat.sh restart
+echo "Restart jboss successful at $(date +"%y-%m-%d %H:%M:%S")" >> /home/jboss-4.0.3SP1/bin/dailyrestart.log

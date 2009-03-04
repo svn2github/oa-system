@@ -1,0 +1,32 @@
+Title:
+Global Supplier Promotion Reminder!
+
+Body:
+
+<table width="95%" height="290" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_user.name} (${role}),
+      <p>This is to remind you that you haven't responsed for your global supplier promotion yet, please respond.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">Supplier Code:</div></td>
+          <td align="center" class="bold"><div align="left">Supplier Name:</div></td>
+          <td align="center" class="bold"><div align="left">Supplier Country:</div></td>
+         
+        #foreach( $supplier in $x_supplierList )
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack"><div align="left">${supplier.code}</div></td>
+          <td class="textblack"><div align="left">${supplier.name}</div></td>
+          <td class="textblack"> <div align="left">${supplier.country.engName}</div></td>
+        </tr>
+      #end
+      </table>
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p></p></td>
+  </tr>
+</table>

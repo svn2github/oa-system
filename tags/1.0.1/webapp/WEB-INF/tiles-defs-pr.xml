@@ -1,0 +1,221 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+
+	<!-- yearlyBudget -->
+	<definition name="site.yearlyBudget.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/list.jsp"/>
+		<put name="pageMainTitle" 	value="yearlyBudget.list.title"/>
+	</definition>
+	<definition name="site.yearlyBudget.new" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/new.jsp"/>
+		<put name="pageMainTitle" 	value="yearlyBudget.new.title"/>
+	</definition>
+	<definition name="site.yearlyBudget.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/edit.jsp"/>
+		<put name="pageMainTitle" 	value="yearlyBudget.edit.title"/>
+	</definition>		
+	<definition name="site.yearlyBudget.freeze.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/list_freeze.jsp"/>
+		<put name="pageMainTitle" 	value="yearlyBudget.freeze.list.title"/>
+	</definition>
+	
+	<definition name="site.yearlyBudget.history" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/history.jsp"/>
+	</definition>
+	
+	<definition name="site.yearlyBudget.select" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/select.jsp"/>
+	</definition>
+	
+	<definition name="site.yearlyBudget.select2" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/select2.jsp"/>
+	</definition>
+	
+	<definition name="site.yearlyBudget.selectExpenseBudget" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/selectExpenseBudget.jsp"/>
+	</definition>
+	<!-- end of yearlyBudget -->	
+	
+	<!-- capex -->
+	<definition name="site.capex.select" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/capex/select.jsp"/>
+	</definition>
+	<!-- end of capex -->	
+
+	<!-- capexRequest -->
+	<definition name="site.capexRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.list.title"/>
+	</definition>
+	<definition name="site.capexRequest.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/report.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.report.title"/>
+	</definition>
+	<definition name="site.capexRequest.new" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/new.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.new.title"/>
+	</definition>
+	<definition name="site.capexRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.edit.title"/>
+	</definition>		
+	<definition name="site.capexRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.view.title"/>
+	</definition>		
+	<definition name="site.capexRequest.viewDialog" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/viewDialog.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequest.view.title"/>
+	</definition>		
+	<!-- end of capexRequest -->
+	
+	<!-- capexRequestItem -->
+	<definition name="site.capexRequest.editItem" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/editItem.jsp"/>
+	</definition>
+	<!-- end of capexRequestItem -->
+		
+	<!-- capexRequestAttachment -->
+	<definition name="site.capexRequestAttachment.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequest/newAttachment.jsp"/>
+	</definition>
+	<!-- end of capexRequestAttachment -->
+	
+	<!-- capexRequestApproveRequest -->
+	<definition name="site.capexRequestApproveRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequestApproveRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequestApproveRequest.list.title"/>
+	</definition>
+	<definition name="site.capexRequestApproveRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequestApproveRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequestApproveRequest.view.title"/>
+	</definition>		
+	<definition name="site.capexRequestApproveRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/capexRequestApproveRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="capexRequestApproveRequest.edit.title"/>
+	</definition>		
+	<!-- end of capexRequestApproveRequest -->
+
+	<!-- purchaseRequest -->
+	<definition name="site.purchaseRequest.report" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequest/report.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.report.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.list.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.list.self.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.list.other" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.list.other.title"/>
+	</definition>
+	
+	<definition name="site.purchaseRequest.new.self" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequest/new.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.new.self.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.new.other" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/new.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.new.other.title"/>
+	</definition>
+	
+	<definition name="site.purchaseRequest.edit.self" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.edit.self.title"/>
+	</definition>		
+	<definition name="site.purchaseRequest.edit.other" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.edit.other.title"/>
+	</definition>		
+	
+	<definition name="site.purchaseRequest.view.self" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.view.self.title"/>
+	</definition>		
+	<definition name="site.purchaseRequest.view.other" extends="site.mainFrameLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.view.other.title"/>
+	</definition>		
+	<definition name="site.purchaseRequest.view.dialog" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/viewDialog.jsp"/>
+	</definition>		
+	
+
+	
+	
+	<!-- end of purchaseRequest -->	
+	
+	<!-- purchaseRequestItem -->
+	<definition name="site.purchaseRequest.editItem" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/editItem.jsp"/>
+	</definition>
+	<definition name="site.purchaseRequest.viewItem" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/viewItem.jsp"/>
+	</definition>
+	<!-- end of purchaseRequestItem -->			
+	
+	<!-- purchaseRequestAttachment -->
+	<definition name="site.purchaseRequestAttachment.new" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/newAttachment.jsp"/>
+	</definition>
+	<!-- end of purchaseRequestAttachment -->
+	
+	<!-- purchaseRequestItemAttachment -->
+	<definition name="site.purchaseRequestItemAttachment.new" extends="dialog.mainLayout">
+		<put name="body" value="/WEB-INF/jsp/purchaseRequest/newItemAttachment.jsp"/>
+	</definition>
+	<!-- end of purchaseRequestItemAttachment -->
+	
+	<!-- purchaseRequestApproveRequest -->
+	<definition name="site.purchaseRequestApproveRequest.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestApproveRequest/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequestApproveRequest.list.title"/>
+	</definition>
+	<definition name="site.purchaseRequestApproveRequest.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestApproveRequest/view.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequestApproveRequest.view.title"/>
+	</definition>		
+	<definition name="site.purchaseRequestApproveRequest.edit" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestApproveRequest/edit.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequestApproveRequest.edit.title"/>
+	</definition>		
+	<!-- end of purchaseRequestApproveRequest -->
+	
+	<!-- purchaseRequest assign -->
+	<definition name="site.purchaseRequest.assign.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/listAssign.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.assign.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.assign" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/assign.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.assign.title"/>
+	</definition>
+	<!-- end of purchaseRequest assign -->
+
+	<!-- purchaseRequest purchase -->
+	<definition name="site.purchaseRequest.purchase" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/purchase.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.purchase.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.purchase.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/list.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.purchase.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.purchase.view" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/purchase.jsp"/>
+		<put name="pageMainTitle" 	value="purchaseRequest.purchase.title"/>
+	</definition>
+	<definition name="site.purchaseRequest.purchase.editItem" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/editItem.jsp"/>
+	</definition>
+	<definition name="site.purchaseRequest.purchase.viewItem" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/purchaseRequestPurchase/viewItem.jsp"/>
+	</definition>
+	
+	
+	<!-- purchaseRequest purchase -->
+	
+	
+
+</tiles-definitions>

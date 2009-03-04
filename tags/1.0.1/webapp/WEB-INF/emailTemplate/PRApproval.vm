@@ -1,0 +1,30 @@
+Title: 
+Notification For PR Approval!
+
+Body:
+<table width="95%" height="425" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="425"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (Approver),
+      <p>This is to notify you that the following PR need your online approval.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><span class="bold">PR No.</span></td>
+          <td><span class="bold">PR Title</span></td>
+          <td><span class="bold">PR Category</span></td>
+          <td><span class="bold">Budget No.</span></td>
+          <td><span class="bold">PR Amount</span></td>
+          <td><span class="bold">Requestor </span></td>
+          <td><span class="bold">Request Date</span></td>
+        </tr>
+        ${batchEmailContext}        
+      </table>      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p>
+    </td>
+  </tr>
+</table>

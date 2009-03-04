@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig">
+		<form-bean name="expenseForm"
+				type="com.aof.model.business.expense.Expense">
+			<set-property property="requires" value="title,department.id,expenseCategory.id,requestor.id,requestDate" />
+			<set-property property="includes" value="*,department.site.id,travelApplication.id,baseCurrency.code,expenseCurrency.code,yearlyBudget.id" />
+			<set-property property="excludes" value="claimAmount,differenceBetweenClaimAmountAndAmount,differencePercentageBetweenClaimAmountAndAmount,notifyFlowName" />
+			<set-property property="toForms" value="baseCurrency.name" />
+			<!-- 下面这个property是为了Recharge画面而加的 -->
+			<form-property name="rechargeType" type="java.lang.String"/>
+		</form-bean>
+		<form-bean name="expenseQueryForm" type="com.aof.web.struts.form.business.expense.ExpenseQueryForm" />
+
+		<form-bean name="expenseAttachmentForm"
+			type="com.aof.model.business.expense.ExpenseAttachment">
+			<set-property property="requires" value="description" />
+			<set-property property="includes" value="expense.id" />
+			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
+			</form-property>
+		</form-bean>		
+		<form-bean name="expenseAttachmentQueryForm" type="com.aof.web.struts.form.business.expense.ExpenseAttachmentQueryForm" />
+		
+		<form-bean name="expenseFinalConfirmForm"
+			type="com.aof.model.business.expense.Expense">
+			<set-property property="requires" value="" />
+			<set-property property="toForms" value="id" />
+			<set-property property="includes" value="isRecharge,expenseCurrency.code,exchangeRate"/>
+			<form-property name="amounts" type="java.util.HashMap"/>
+			<form-property name="descriptions" type="java.util.HashMap"/>
+			<!-- 下面这个property是为了Recharge画面而加的 -->
+			<form-property name="rechargeType" type="java.lang.String"/>
+		</form-bean>		
+
+		<form-bean name="expenseFinalClaimForm"
+			type="com.aof.model.business.expense.Expense">
+			<set-property property="includes" value=""/>
+		</form-bean>		
+
+		<form-bean name="expenseApproveRequestQueryForm" type="com.aof.web.struts.form.business.expense.ExpenseApproveRequestQueryForm" />
+		
+	</form-beans>		
+
+	<action-mappings type="com.aof.web.struts.action.SecureActionMapping">
+
+		<!-- Expense -->
+		<action     
+			parameter="list" path="/listExpense_self" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230020"/>
+			<set-property property="functionDescription" value="list my expense"/>
+			<forward name="page" path="site.expense.list" />
+		</action>
+		<action     
+			parameter="listFinalConfirm" path="/listExpense_finalConfirm" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230010"/>
+			<set-property property="functionDescription" value="final confirm expense"/>
+			<set-property property="functionType" value="finalConfirmExpense" />
+			<forward name="page" path="site.expense.finalConfirm.list" />
+		</action>
+		<action     
+			parameter="listFinalClaim" path="/listExpense_finalClaim" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230011"/>
+			<set-property property="functionDescription" value="final claim expense"/>
+			<set-property property="functionType" value="finalClaimExpense" />
+			<forward name="page" path="site.expense.finalClaim.list" />
+		</action>
+		
+		<action     
+			parameter="list" path="/listExpense_other" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230020"/>
+			<set-property property="functionDescription" value="list delegate expense"/>
+			<forward name="page" path="site.expense.list.other" />
+		</action>
+		<action     
+			parameter="listMyTA" path="/listMyTravelApplicationForExpense" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+			<forward name="page" path="site.expense.listMyTA" />
+		</action>
+		<action     
+			parameter="newObject_self" path="/newExpense_self" scope="request"
+			name="expenseForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+			<set-property property="functionDescription" value="create my expense"/>
+			<forward name="page" path="site.expense.new" />
+		</action>
+		<action     
+			parameter="newObject_other" path="/newExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			name="expenseForm" validate="false">
+			<set-property property="functionId" value="32230030"/>
+			<set-property property="functionDescription" value="create delegate expense"/>
+			<forward name="page" path="site.expense.new.other" />
+		</action>
+		<action     
+			parameter="insert_self" path="/insertExpense_self" scope="request" name="expenseForm" input="/newExpense_self.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+		</action>
+		<action     
+			parameter="insert_other" path="/insertExpense_other" scope="request" name="expenseForm" input="/newExpense_other.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230030"/>
+		</action>
+		
+		<action     
+			parameter="delete" path="/deleteExpense_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230050"/>
+			<set-property property="functionDescription" value="delete my expense"/>
+			<forward name="page" path="site.expense.list" />
+		</action>
+		<action     
+			parameter="delete" path="/deleteExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230050"/>
+			<set-property property="functionDescription" value="delete delegate expense"/>
+			<forward name="page" path="site.expense.list" />
+		</action>
+		<action 
+			parameter="view_self" path="/viewExpense_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			validate="false">
+			<set-property property="functionId" value="12230060"/>
+			<set-property property="functionDescription" value="view my expense"/>
+			<forward name="page" path="site.expense.view" />
+		</action>
+		<action     
+			parameter="exportDetailPDF_self" path="/exportExpenseDetailPDF_self" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230060"/>
+		</action>
+		<action 
+			parameter="view_other" path="/viewExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			validate="false">
+			<set-property property="functionId" value="32230060"/>
+			<set-property property="functionDescription" value="view delegate expense"/>
+			<forward name="page" path="site.expense.view.other" />
+		</action>
+		<action     
+			parameter="exportDetailPDF_other" path="/exportExpenseDetailPDF_other" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230060"/>
+		</action>
+		<action 
+			parameter="view_finalConfirm" path="/viewExpense_finalConfirm" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			validate="false">
+			<set-property property="functionId" value="22230010"/>
+			<forward name="page" path="site.expense.view" />
+		</action>
+		<action     
+			parameter="exportDetailPDF_finalConfirm" path="/exportExpenseDetailPDF_finalConfirm" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230010"/>
+		</action>
+		<action 
+			parameter="view_finalClaim" path="/viewExpense_finalClaim" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			validate="false">
+			<set-property property="functionId" value="22230011"/>
+			<forward name="page" path="site.expense.view" />
+		</action>
+		<action     
+			parameter="exportDetailPDF_finalClaim" path="/exportExpenseDetailPDF_finalClaim" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230011"/>
+		</action>
+		<action     
+			parameter="edit" path="/editExpense_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			name="expenseForm" validate="false">
+			<set-property property="functionId" value="12230040"/>
+			<set-property property="functionDescription" value="edit my expense"/>
+			<forward name="page" path="site.expense.edit" />
+		</action>
+		<action     
+			parameter="edit" path="/editExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			name="expenseForm" validate="false">
+			<set-property property="functionId" value="32230040"/>
+			<set-property property="functionDescription" value="edit delegate expense"/>
+			<forward name="page" path="site.expense.edit.other" />
+		</action>
+		<action     
+			parameter="update" path="/updateExpense_self" scope="request" name="expenseForm" input="/editExpense_self.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230040"/>
+		</action>
+		<action     
+			parameter="update" path="/updateExpense_other" scope="request" name="expenseForm" input="/editExpense_other.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230040"/>
+		</action>
+		<action parameter="viewapprover"
+			path="/updateExpense_self_viewApprover" scope="request"
+			name="expenseForm"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230040"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.approve.viewApprover" />
+		</action>
+		<action parameter="viewapprover"
+			path="/updateExpense_other_viewApprover" scope="request"
+			name="expenseForm"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230040"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.approve.viewApprover" />
+		</action>
+		<action     
+			parameter="selectRechargeCustomer" path="/selectExpenseRechargeCustomer" scope="session" name="rechargeCustomerQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230041"/>
+			<set-property property="functionDescription" value="edit expense recharge"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listCustomer" />
+		</action>
+		<action     
+			parameter="selectRechargeEntity" path="/selectExpenseRechargeEntity" scope="session" name="rechargeCustomerQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listCustomer" />
+		</action>
+		<action     
+			parameter="selectRechargePerson" path="/selectExpenseRechargePerson" scope="session" name="rechargePersonQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listPerson" />
+		</action>
+		
+		<action
+			parameter="finalConfirm" path="/finalConfirmExpense"
+			scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230010"/>
+			<forward name="page" path="site.expense.finalConfirm" />
+		</action>
+		
+		<action
+			parameter="finalConfirmResult" path="/finalConfirmExpense_result"
+			scope="request"
+			name="expenseFinalConfirmForm" input="/finalConfirm.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230010"/>
+		</action>
+
+		<action
+			parameter="finalClaim" path="/finalClaimExpense"
+			scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230011"/>
+			<forward name="page" path="site.expense.finalClaim" />
+		</action>
+		
+		<action
+			parameter="finalClaimResult" path="/finalClaimExpense_result"
+			scope="request"
+			name="expenseFinalClaimForm" input="/finalClaim.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="22230011"/>
+		</action>
+
+		<action     
+			parameter="withdraw" path="/withdrawExpense_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230070"/>
+			<set-property property="functionDescription" value="withdraw my expense"/>
+		</action>
+		<action     
+			parameter="withdraw" path="/withdrawExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230070"/>
+			<set-property property="functionDescription" value="withdraw delegate expense"/>
+		</action>
+		<action     
+			parameter="copy" path="/copyExpense_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+		</action>
+		<action     
+			parameter="copy" path="/copyExpense_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32230030"/>
+		</action>
+		
+		<action     
+			parameter="selectBudget" path="/newExpenseSelectBudget" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="12230030"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.yearlyBudget.selectExpenseBudget" />
+		</action>
+		<action     
+			parameter="viewAmount" path="/viewExpenseBudgetAmount"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="32240011"/>
+			<set-property property="functionDescription" value="view expense budget amount"/>
+			<set-property property="functionType" value="ViewExpenseBudgetAmount"/>
+		</action>
+		<!-- end of Expense -->
+
+		<!-- ExpenseAttachment -->
+		<action     
+			parameter="newObject" path="/newExpenseAttachment_self" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="12230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.expenseAttachment.new" />
+		</action>
+		<action     
+			parameter="insert" path="/insertExpenseAttachment_self" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="12230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		
+		<action     
+			parameter="newObject" path="/newExpenseAttachment_other" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="32230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.expenseAttachment.new" />
+		</action>
+		<action     
+			parameter="insert" path="/insertExpenseAttachment_other" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="32230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<action     
+			parameter="delete" path="/deleteExpenseAttachment_self" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="12230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
+		</action>
+		<action     
+			parameter="delete" path="/deleteExpenseAttachment_other" scope="request" 
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="32230040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
+		</action>
+		<action
+			parameter="download" path="/downloadExpenseAttachment_self" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="12230060"/>
+		</action>
+		<action
+			parameter="download" path="/downloadExpenseAttachment" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="22230010"/>
+		</action>
+		<action
+			parameter="download" path="/downloadExpenseAttachment_other"
+			scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAttachmentAction">
+			<set-property property="functionId" value="32230060"/>
+		</action>
+		<!-- end of ExpenseAttachment -->
+
+		<!-- ExpenseApproveRequest -->
+		<action
+			parameter="list" path="/listExpenseApproveRequest"
+			scope="session" name="expenseApproveRequestQueryForm"
+			validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseApproveRequestAction">
+			<set-property property="functionId" value="12231010" />
+			<set-property property="functionDescription" value="expense approval" />
+			<set-property property="functionType" value="ExpenseApproval" />
+			<forward name="page" path="site.expenseApproveRequest.list" />
+		</action>
+		<action
+			parameter="view" path="/viewExpenseApproveRequest"
+			type="com.aof.web.struts.action.business.expense.ExpenseApproveRequestAction">
+			<set-property property="functionId" value="12231010" />
+			<forward name="viewPage" path="site.expenseApproveRequest.view" />
+			<forward name="editPage" path="site.expenseApproveRequest.edit" />
+		</action>
+		<action
+			parameter="approve" path="/approveExpenseApproveRequest"
+			type="com.aof.web.struts.action.business.expense.ExpenseApproveRequestAction">
+			<set-property property="functionId" value="12231010" />
+		</action>
+		<action parameter="updateAndApprove"
+			path="/updateAndApproveExpenseApproveRequest" scope="request"
+			name="expenseForm" input="/viewExpenseApproveRequest.do"
+			type="com.aof.web.struts.action.business.expense.ExpenseApproveRequestAction">
+			<set-property property="functionId" value="12231010" />
+		</action>
+		<action
+			parameter="reject" path="/rejectExpenseApproveRequest"
+			type="com.aof.web.struts.action.business.expense.ExpenseApproveRequestAction">
+			<set-property property="functionId" value="12231010" />
+		</action>
+		<!-- end of ExpenseApproveRequest -->
+
+		<!-- begin of expense report -->
+		<action     
+			parameter="report" path="/reportExpense" scope="session" name="expenseQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction">
+			<set-property property="functionId" value="32232010" />
+			<set-property property="functionDescription" value="expense report" />
+			<forward name="page" path="site.expense.report" />
+		</action>
+		<action 
+			parameter="reportView" path="/viewExpense" scope="request"
+			type="com.aof.web.struts.action.business.expense.ExpenseAction"
+			validate="false">
+			<set-property property="functionId" value="32232010" />
+			<forward name="page" path="site.expense.view" />
+		</action>
+		<!-- end of expense report -->
+	</action-mappings>
+</struts-config>
+
+

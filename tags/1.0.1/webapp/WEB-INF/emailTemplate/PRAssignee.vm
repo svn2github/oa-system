@@ -1,0 +1,49 @@
+Title:
+You've Got a New Pending PR Assignment!
+
+Body:
+
+<table width="95%" height="430" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="430"><span class="textblack"><br>
+      <br>
+      </span>Dear ${purchaser_name} (${role}),
+      <p>This is to notify you that you have been assigned to the following Pending PR as needed.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><span class="bold">PR No.</span></td>
+          <td><span class="bold">PR Title</span></td>
+          <td><span class="bold">PR Category</span></td>
+          #if($x_pr.capex)
+          <td><span class="bold">Budget No.</span></td>
+          #end
+          #if($x_pr.yearlyBudget)
+          <td><span class="bold">Budget No.</span></td>
+          #end
+          <td><span class="bold">PR Amount</span></td>
+          <td><span class="bold">Requestor </span></td>
+          <td><span class="bold">Request Date</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td><span class="textblack">${x_pr.id}</span></td>
+          <td><span class="textblack">${x_pr.title}</span></td>
+          <td><span class="textblack">${x_pr.purchaseSubCategory.description}</span></td>
+          #if($x_pr.capex)
+          <td><span class="textblack">${x_pr.capex.id}</span></td>
+          #end
+          #if($x_pr.yearlyBudget)
+          <td><span class="textblack">${x_pr.yearlyBudget.code}</span></td>
+          #end
+          <td><span class="textblack">${x_pr.amount}</span></td>
+          <td><span class="textblack">${x_pr.requestor.name}</span></td>
+          <td><span class="textblack">$dateTool.format('yyyy/MM/dd',$x_pr.requestDate)</span></td>
+        </tr>
+      </table>      <p><br>
+        Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

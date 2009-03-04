@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Sep 22 15:57:27 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Currency" table="currency">
+        <id name="code" column="curr_cd" type="string">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="name" column="curr_nm" type="string"  not-null="true" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+    </class>
+    
+</hibernate-mapping>
