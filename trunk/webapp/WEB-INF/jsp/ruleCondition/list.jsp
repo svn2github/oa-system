@@ -76,7 +76,7 @@
 </table>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
         <th width="80%"><bean:message key="rule.condition"/></th>
         <th width="10%"></th>
         <th width="10%"></th>

@@ -193,7 +193,7 @@
 	</table>
 	<table class="data" width="100%">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="40%" align="center"><bean:message key="expenseAttachment.title" /></th>
 				<th width="40%" align="center"><bean:message key="expenseAttachment.fileName" /></th>
 				<th width="15%" align="center"><bean:message key="expenseAttachment.uploadDate" /></th>

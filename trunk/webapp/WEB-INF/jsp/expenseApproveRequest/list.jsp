@@ -89,7 +89,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="10%"><page:order order="expense_code" style="text-decoration:none">
 					<bean:message key="expense.id" />
 					<page:desc><img src="images/down.gif" border="0" /></page:desc>

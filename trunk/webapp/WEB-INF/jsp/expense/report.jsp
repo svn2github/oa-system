@@ -153,7 +153,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="15%"><page:order order="id" style="text-decoration:none">
 					<bean:message key="expense.reportExpense.code" />
 					<page:desc>

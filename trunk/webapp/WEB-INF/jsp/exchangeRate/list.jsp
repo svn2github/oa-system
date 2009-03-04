@@ -59,7 +59,7 @@
   <jsp:include page="../pageHead.jsp"/>
   <table class="data">
     <thead>
-      <tr bgcolor="#9999ff">
+      <tr class="new_bg">
         <th width="25%">
           <page:order order="code" style="text-decoration:none">
             <bean:message key="exchangeRate.tablehead.code"/>

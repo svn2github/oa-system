@@ -102,7 +102,7 @@
 <c:if test="${x_edit}"><input type="button" value="<bean:message key="all.new"/>" onclick="addItem();"/></c:if>
 <table class="data">
 	<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 			<th><bean:message key="purchaseRequestItem.supplier.id" /></th>
 			<th><bean:message key="purchaseRequestItem.supplierItem.id" /></th>
 			<th><bean:message key="purchaseRequestItem.supplierItemSepc" /></th>

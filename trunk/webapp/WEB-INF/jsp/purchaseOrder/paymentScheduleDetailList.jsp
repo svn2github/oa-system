@@ -119,7 +119,7 @@
 
 <table class="data">
 	<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 			<th><bean:message key="paymentScheduleDetail.description" /></th>
 			<th><bean:message key="paymentScheduleDetail.date" /></th>
 			<th><bean:message key="paymentScheduleDetail.amount" /></th>

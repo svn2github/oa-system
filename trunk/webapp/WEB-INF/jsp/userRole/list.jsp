@@ -73,7 +73,7 @@
 <div style="margin-top:10px"><h3 class="formtitle"><bean:message key="userDepartment"/></h3></div>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
       <th width="35%"><bean:message key="userDepartment.site"/></th>
       <th width="35%"><bean:message key="userDepartment.department"/></th>
       <th width="30%"><bean:message key="userDepartment.title"/></th>
@@ -104,7 +104,7 @@
 <input type="hidden" name="userId" value="${X_USER.id}"/>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
       <th width="30%"><bean:message key="userRole.role"/></th>
       <th width="30%"><bean:message key="userRole.grantedSite"/></th>
       <th width="30%"><bean:message key="userRole.grantedDepartment"/></th>

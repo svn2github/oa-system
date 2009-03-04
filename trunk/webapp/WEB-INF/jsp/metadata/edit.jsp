@@ -47,7 +47,7 @@
 </table>
 <table  width="100%" class="data">
 <thead>
-	<tr bgcolor="#9999ff">
+	<tr class="new_bg">
 		<th>
 			<div align="center">
 				<bean:message key="metadata.edit.detail.code"/>

@@ -9,7 +9,7 @@
 <jsp:include page="../pageHead.jsp"/>
 <table class="data" >
 <thead>
-<tr bgcolor="#9999ff">
+<tr class="new_bg">
   <th><bean:message key="metadata.code"/></th>
   <th><bean:message key="metadata.description"/></th>
 </tr>

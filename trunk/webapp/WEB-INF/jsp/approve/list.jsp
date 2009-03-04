@@ -49,7 +49,7 @@
 </table>
 <table width="100%" class="dataList">
 <thead>
-	<tr>
+	<tr >
 		<th width="15px" align="center">
 			#
 		</th>

@@ -106,7 +106,7 @@
 	<input type="hidden" name="expenseCategory_id_value"
 		value="<bean:write name="expenseQueryForm" property="expenseCategory_id"/>" />
 
-	<table width=100% border=0 cellpadding=4 cellspacing=0>
+	<table width=100% border=0 cellpadding=3 cellspacing=0>
 		<tr>
 			<td colspan="10">
 				<div class="message">
@@ -218,7 +218,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="15%"><page:order order="id" style="text-decoration:none">
 					<bean:message key="expense.listExpense.code" />
 					<page:desc>

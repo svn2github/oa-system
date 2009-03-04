@@ -259,7 +259,7 @@
 	</table>
 	<table class="data" width="100%">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="40%">
 				<div align="center"><bean:message key="expenseAttachment.title" /></div>
 				</th>

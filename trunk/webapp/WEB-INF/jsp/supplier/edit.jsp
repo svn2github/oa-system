@@ -575,7 +575,7 @@
 	</c:if>
 	<table class="data" style="width:90%">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th>
 				<div align="center"><bean:message key="supplierContract.title" /></div>
 				</th>

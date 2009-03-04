@@ -92,7 +92,7 @@
 	</table>
 	<table class="data" width="100%" style="margin: 5px 0 20px 0">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="20%"><bean:message
 					key="supplierItem.purchaseSubCategory.purchaseCategory.id" /></th>
 				<th width="20%"><bean:message

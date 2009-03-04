@@ -473,7 +473,7 @@
 	</c:if>
 	<table style="width:90%" class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="40%">
 				<div align="center"><bean:message key="hotelContract.description" /></div>
 				</th>
@@ -511,7 +511,7 @@
 	</c:if>
 	<table style="width:90%" class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th>
 				<div align="center"><bean:message key="price.room"/></div>
 				</th>

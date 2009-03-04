@@ -42,6 +42,6 @@
   </td>
 </tr>
 <tr height="15">
-  <td colspan="2" bgcolor="#003366"></td>
+  <td colspan="2" bgcolor="#9AB1C7"></td>
 </tr>
 </table>

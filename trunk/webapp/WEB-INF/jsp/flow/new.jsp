@@ -272,7 +272,7 @@
 </table>
 <div style="width:680px">
   <table width="660px" style="border:1px solid #666">
-      <tr bgcolor="#9999ff">
+      <tr class="new_bg">
         <th width="10%"><bean:message key="flowrule.seq"/></th>
         <th width="60%"><bean:message key="flowrule.rule"/></th>
         <th width="10%"><bean:message key="flowrule.nextSeqWhenPass"/></th>

@@ -76,7 +76,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="30%"><page:order order="purchaseRequest_capex_id" style="text-decoration:none">
 					<bean:message key="purchaseRequest.id" />
 					<page:desc><img src="images/down.gif" border="0" /></page:desc>

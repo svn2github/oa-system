@@ -30,7 +30,7 @@
   <jsp:include page="../pageHead.jsp"/>
   <table class="data">
     <thead>
-      <tr bgcolor="#9999ff">
+      <tr class="new_bg">
       	<th>
       		<bean:message key="all.seq"/>
       	</th>

@@ -48,12 +48,12 @@
       <td width="5"></td>
       <td>
 	      <logic:present name="pageMainTitle" scope="page">
-	      <table width=100% border=1 cellpadding=4 cellspacing=0 bgcolor=ffffff>
+	      <table width=100% border=0 cellpadding=0 cellspacing=0 bgcolor=#000 class="new_title">
 			<tr>
-				<td bgcolor=f0f0f0 width=100% colspan=2 valign=top>    
+				<td width=100% colspan=0 valign=top>    
 					<table width=100% cellpadding=0 cellspacing=0>
 			      <tr>
-			        <td bgcolor=f0f0f0 width=80% valign=top>
+			        <td width=80% valign=top>
 			        	<h3 class="formtitle"><bean:message key="${pageMainTitle}" />
 			        	<logic:present name="pageSubTitle" scope="page">
 			        		<bean:message key="${pageSubTitle}" />

@@ -82,7 +82,7 @@
 </table>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
       <th width="10%"><bean:message key="ruleConsequence.seq"/></th>
       <th width="30%"><bean:message key="ruleConsequence.approver"/></th>
       <th width="20%"><bean:message key="ruleConsequence.canModify"/></th>

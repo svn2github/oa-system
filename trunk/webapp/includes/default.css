@@ -1,9 +1,14 @@
-
-html,body
-{
-    height: 100%;
-    font: 12px;
+html,body{
+    height: 100%; font: 12px;
 }
+
+input{
+	border:1px solid #ccc; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal; color:#666;}
+	
+select{
+	FONT-SIZE: 9pt;
+}
+
 
 .jiraform
 {
@@ -81,8 +86,8 @@ TH a { text-decoration: none; }
 
 /* titles and headings */
 .pagetitle { font-size: 24px; font-weight: bold; font-family: Arial, sans-serif; margin: 0 0 0 0; }
-.formtitle { font-size: 17px; font-weight: bold; font-family: Arial, sans-serif; margin: 0 0 2px 0; color: #003366; }
-.bluetext { color: #003366; }
+.formtitle { font-size: 15px; font-weight: bold; font-family: Arial, sans-serif; margin: 0 0 2px 0; color: #003366; margin-left:10px;}
+.bluetext { color: #666; }
 
 .formLabel
 {
@@ -108,7 +113,7 @@ TH a { text-decoration: none; }
 
 
 /* font styles */
-BODY { margin: 0px; font-family: Arial, Sans-Serif, sans-serif; color:black; }
+BODY { margin: 0px; font-family: Arial, Sans-Serif, sans-serif; color:#333; background-color: #FBFBFB; }
 BLOCKQUOTE { font-size: 11px; font-family: Arial, Sans-Serif, sans-serif; color:black; }
 .small { font-size: 9px; }
 .smallgrey { font-size: 9px; color: #666; }
@@ -259,7 +264,7 @@ H6 { font-weight: bold; font-size: 10px; font-family: Arial, Sans-Serif; margin-
 .action-links {
     text-align: right;
     padding: 2px;
-    background-color: #f0f0f0
+    background-color: #f0f0f0;
 }
 
 .action-body {
@@ -279,7 +284,7 @@ H6 { font-weight: bold; font-size: 10px; font-family: Arial, Sans-Serif; margin-
 
 
  /* new styles */
-HR { color: #3c78b5; height: 1px; }
+HR { color: #ccc; height: 1px; }
 
 /* top nav bar */
 .navItemOver { font-family: Verdana, Sans-Serif; font-size: 10px; font-weight: bold; color: #ffffff; background-color: #3c78b5; cursor: hand; cursor: pointer;}
@@ -435,16 +440,17 @@ img
 }
 
 tr.even {
-  background-color: #ccb;
+  background-color: #eaeaea;
 }
 tr.odd {
-  background-color: #eec;
+  background-color: #EEEECC;
 }
 
+/* page */
 table.pagebanner {
-	background-color: #eee;
-	border: 1px dotted #999;
-	padding: 2px 4px 2px 4px;
+	background:url(../images/page_bg.gif);
+	border: 1px solid #DBDBDB;
+	padding-left:4px; padding-right:4px;
 	width: 100%;
 	margin-top: 10px;
 }
@@ -459,7 +465,7 @@ th.order2 a {
 	background-image: url(../images/arrow_up.png);
 }
 th.sorted {
-    background-color: #9999FF;
+    background-color: #fff;
 }
 th.sorted a, th.sortable a {
 	background-position: right;
@@ -511,9 +517,19 @@ table.dataList {
 
 .message{color:green;font-weight:bold}
 
-a { 
-	color:#003366; text-decoration:underline; 
+a:link {
+	color: #003366; text-decoration:none;
 }
+a:visited {
+	color: #003366; text-decoration:none;
+}
+a:hover {
+	color: #FF0000; text-decoration:none;
+}
+a:active {
+	color: #003366; text-decoration:none;
+}
+
 
 .warningMsg { color:red }
 
@@ -522,4 +538,17 @@ a {
 .disabledStyle {
 	background-color: #F5F5F5;
 	border :#C0C0C0 1px solid;
+}
+
+/* 20090303 */
+.new_bg{
+	background:url(../images/list_title_bg.gif);
+}
+
+.new_bg_header{
+	background:#000;
+}
+
+.new_title{
+	border-bottom:1px solid #ccc; background:#fbfbfb;
 }

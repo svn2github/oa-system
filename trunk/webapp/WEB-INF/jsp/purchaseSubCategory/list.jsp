@@ -36,7 +36,7 @@
 	<div id="fixedHeaderTableContainer" class="fixedHeaderTableContainer" style="overflow=auto;height:135px;">
 	<table class="data">
 		<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 	        <th width="50%">
 	          <page:order order="description" style="text-decoration:none">
 	            <bean:message key="purchaseSubCategory.description"/>

@@ -230,7 +230,7 @@
 	</table>
 	<table width=90% border=0 cellpadding=4 cellspacing=0>
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th>
 				<div align="center"><bean:message key="supplierContract.title" /></div>
 				</th>

@@ -109,7 +109,7 @@
 </div>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
       <th width="45%"><bean:message key="userSite.site"/></th>
       <th width="45%"><bean:message key="userSite.travelGroup"/></th>
       <th width="5%"></th>
@@ -134,7 +134,7 @@
 </div>
 <table class="data">
   <thead>
-    <tr bgcolor="#9999ff">
+    <tr class="new_bg">
       <th width="30%"><bean:message key="userDepartment.site"/></th>
       <th width="30%"><bean:message key="userDepartment.department"/></th>
       <th width="30%"><bean:message key="userDepartment.title"/></th>

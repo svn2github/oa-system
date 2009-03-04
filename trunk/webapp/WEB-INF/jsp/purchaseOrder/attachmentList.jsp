@@ -33,7 +33,7 @@
 </c:if>
 <table class="data">
 	<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 			<th><bean:message key="purchaseOrderAttachment.title" /></th>
 			<th><bean:message key="purchaseOrderAttachment.fileName" /></th>
 			<th><bean:message key="purchaseOrderAttachment.uploadDate" /></th>

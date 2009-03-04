@@ -234,7 +234,7 @@
 	</table>
 <table class="data" width="100%">
 <thead>
-  <tr bgcolor="#9999ff">
+  <tr class="new_bg">
     <th width="100px" rowspan="2"><bean:message key="expense.row.date"/></th>
     <logic:iterate id="expenseSubCategory" name="x_subCategoryList">
     	<th colspan="2" align="center">${expenseSubCategory.description}</th>
@@ -243,7 +243,7 @@
     <th width="50px" rowspan="2"><bean:message key="expense.row.subTotal"/></th>  
     <th width="40px" rowspan="2"></th>
   </tr>
-  <tr bgcolor="#9999ff">
+  <tr class="new_bg">
   	<logic:iterate id="expenseSubCategory" name="x_subCategoryList">
   	<th width="80px"><bean:message key="expense.row.amount"/></th>
     <th><bean:message key="expense.row.description"/></th>

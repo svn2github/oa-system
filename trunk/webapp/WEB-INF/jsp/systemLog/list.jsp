@@ -86,7 +86,7 @@
   <jsp:include page="../pageHead.jsp"/>
   <table class="data">
     <thead>
-      <tr bgcolor="#9999ff">
+      <tr class="new_bg">
         <th>
           <page:order order="site_name" style="text-decoration:none">
             <bean:message key="systemLog.tablehead.site"/>

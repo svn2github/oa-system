@@ -43,7 +43,7 @@
 <%int ii=1;%>				
 <table id="table1" class="data">
 	<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 			<th><bean:message key="yearlyBudget.version"/></th>
 			<th><bean:message key="yearlyBudget.department"/></th>
 			<th><bean:message key="yearlyBudget.name"/></th>

@@ -249,7 +249,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg" height="32">
 				<th ><page:order order="id" style="text-decoration:none">
 					<bean:message key="travelApplication.id" />
 					<page:desc>

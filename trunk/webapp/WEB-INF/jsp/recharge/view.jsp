@@ -9,7 +9,7 @@
 		<h3 style="color:blue"><bean:message key="recharge.buyFor.recharge"/></h3>
 		<table class="data" width="100%">
 			<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th width="20px" height="29" align="right">#</th>
 				<th><bean:message key="recharge.user"/></th>
 				<th width="100px"><bean:message key="recharge.amount"/></th>

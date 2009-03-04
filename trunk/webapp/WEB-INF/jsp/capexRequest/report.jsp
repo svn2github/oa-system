@@ -76,7 +76,7 @@
 	<jsp:include page="../pageHead.jsp"/>
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th rowspan="2"><bean:message key="yearlyBudget.code"/></th>
 				<th rowspan="2"><bean:message key="yearlyBudget.year" /></th>
 				<th rowspan="2"><bean:message key="yearlyBudget.amount" /></th>
@@ -93,7 +93,7 @@
 				<th rowspan="2"><bean:message key="purchaseRequestItem.unitPrice" /></th>
 				<th rowspan="2"><bean:message key="purchaseRequestItem.status" /></th>
 			</tr>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th><bean:message key="capex.actualExpenditure.1" /></th>
 				<th><bean:message key="capex.actualExpenditure.2" /></th>
 				<th><bean:message key="capex.actualExpenditure.3" /></th>

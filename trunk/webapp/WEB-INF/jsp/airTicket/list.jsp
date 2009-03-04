@@ -111,7 +111,7 @@
 <input type="hidden" name="site_id" value="${airTicketQueryForm.site_id}" />
 <table class="data">
 	<thead>
-		<tr bgcolor="#9999ff">
+		<tr class="new_bg">
 			<th>#</th>			
 			<th><bean:message key="airTicket.supplier.id" /></th>
 			<th><bean:message key="airTicket.flightNo" /></th>

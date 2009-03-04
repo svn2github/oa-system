@@ -146,7 +146,13 @@ var TREE_ENDUSER = [
 */
 </script>
 
-<table cellpadding="5" cellspacing="0" cellpadding="10" border="0" width="100%" height="100%">
+<table cellpadding="5" cellspacing="0" cellpadding="10" border="0" width="100%" height="100%"><style type="text/css">
+<!--
+body {
+	background-color: #FBFBFB;
+}
+-->
+</style>
 <tr>
 	<td valign="top">
 	<script language="javascript">

@@ -983,7 +983,7 @@
 			<h3 style="color:blue"><bean:message key="capexRequest.history"/></h3>
 			<table class="data">
 				<thead>
-					<tr bgcolor="#9999ff">
+					<tr class="new_bg">
 						<th><bean:message key="capexRequest.history.version" /></th>
 						<th><bean:message key="capexRequest.title" /></th>
 						<th><bean:message key="capexRequest.amount" /></th>

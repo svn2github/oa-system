@@ -202,7 +202,7 @@
 	
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th align="center" nowrap><page:order order="name"
 					style="text-decoration:none">
 					<bean:message key="hotel.name" />

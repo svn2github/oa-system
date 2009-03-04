@@ -162,7 +162,7 @@
 			<td colspan="2">
 			<table width=100% class="data" style="margin: 10px 0 20px 0;">
 			<thead>
-				<tr bgcolor="#9999ff">
+				<tr class="new_bg">
 					<th align="center">
 						<bean:message key="globalParameter.mailReminder.event" />
 					</th>

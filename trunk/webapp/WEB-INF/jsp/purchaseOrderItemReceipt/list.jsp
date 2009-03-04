@@ -142,7 +142,7 @@
 <hr />
 	<table class="data">
 		<thead>
-			<tr bgcolor="#9999ff">
+			<tr class="new_bg">
 				<th colspan="2" width="40%">
 					${x_poi.requestor.name}
 				</th>
