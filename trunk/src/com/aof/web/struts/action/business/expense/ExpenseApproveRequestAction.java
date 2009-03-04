@@ -27,12 +27,14 @@ import com.aof.model.business.expense.ExpenseApproveRequest;
 import com.aof.model.business.expense.ExpenseApproveRequestListView;
 import com.aof.model.business.expense.query.ExpenseApproveRequestQueryCondition;
 import com.aof.model.business.expense.query.ExpenseApproveRequestQueryOrder;
+import com.aof.model.business.pr.YearlyBudget;
 import com.aof.model.metadata.ApproveStatus;
 import com.aof.model.metadata.ApproverDelegateType;
 import com.aof.model.metadata.YesNo;
 import com.aof.service.admin.UserManager;
 import com.aof.service.business.expense.ExpenseApproveRequestManager;
 import com.aof.service.business.expense.ExpenseManager;
+import com.aof.service.business.pr.YearlyBudgetManager;
 import com.aof.service.business.rule.ApproverDelegateManager;
 import com.aof.web.struts.action.ActionUtils;
 import com.aof.web.struts.action.ServiceLocator;
@@ -199,6 +201,8 @@ public class ExpenseApproveRequestAction extends BaseExpenseAction {
 
         putExpenseRowCellListToRequest(expense, request, true, true);
         putExpenseRechargeListToRequest(expense, request, null, true);
+        putCanViewExpenseBudgetAmount(expense.getYearlyBudget(),request);
+        
         return mapping.findForward("viewPage");
     }
 
@@ -313,5 +317,13 @@ public class ExpenseApproveRequestAction extends BaseExpenseAction {
         return new ActionForward(url, true);
     }
     
-
+    protected void putCanViewExpenseBudgetAmount(YearlyBudget yb, HttpServletRequest request) {
+        if (yb != null) {
+            YearlyBudgetManager ym = ServiceLocator.getYearlyBudgetManager(request);
+            request.setAttribute("x_canViewExpenseBudgetAmount",new Boolean(ym.canViewExpenseBudgetAmount(yb,this.getCurrentUser(request))));
+        } else {
+            request.setAttribute("x_canViewExpenseBudgetAmount", false);
+        }         
+   }
+    
 }

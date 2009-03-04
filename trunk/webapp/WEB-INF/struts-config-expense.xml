@@ -302,6 +302,13 @@
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.yearlyBudget.selectExpenseBudget" />
 		</action>
+		<action     
+			parameter="viewAmount" path="/viewExpenseBudgetAmount"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="32240011"/>
+			<set-property property="functionDescription" value="view expense budget amount"/>
+			<set-property property="functionType" value="ViewExpenseBudgetAmount"/>
+		</action>
 		<!-- end of Expense -->
 
 		<!-- ExpenseAttachment -->

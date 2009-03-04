@@ -327,7 +327,7 @@ public class YearlyBudgetManagerImpl extends BaseManager implements YearlyBudget
         if (list != null) {
             for (int i= 0; i < list.size(); i++) {
                 YearlyBudget yb = (YearlyBudget)list.get(i);
-                boolean b = canViewYearlyBudgetAmount(yb, user);
+                boolean b = canViewExpenseBudgetAmount(yb, user);
                 if (!b) {
                     yb.setAmount(null);
                     yb.setActualAmount(null);                    
@@ -379,9 +379,22 @@ public class YearlyBudgetManagerImpl extends BaseManager implements YearlyBudget
         yb.setIgnoreAmountCondition(ignoreAmountCondition);
         flowManager.executeNotifyFlow(yb);
     }
+    
+    public void updateYearBudget(YearlyBudget yb) {
+        dao.updateYearlyBudget(yb);
+    }
 
     public boolean canViewYearlyBudgetAmount(YearlyBudget yb,User user) {
         Function function=functionManager.getFunction("ViewYearlyBudgetAmount");
+        return canViewBudgetAmount(yb,user, function);
+    }
+    
+    public boolean canViewExpenseBudgetAmount(YearlyBudget yb,User user) {
+        Function function=functionManager.getFunction("ViewExpenseBudgetAmount");
+        return canViewBudgetAmount(yb,user, function);
+    }
+    
+    private boolean canViewBudgetAmount(YearlyBudget yb,User user, Function function) {
         Department[] departments=this.getBudgetDepartments(yb);
         for (int i = 0; i < departments.length; i++) {
             Department d = departments[i];

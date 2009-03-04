@@ -662,6 +662,7 @@
         <property name="expenseSubCategoryManager"><ref bean="expenseSubCategoryManager"/></property>        
         <property name="systemLogManager"><ref bean="systemLogManager"/></property>
         <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+        <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
     </bean>
 
     <bean id="expenseManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">

@@ -6,8 +6,7 @@
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
 
 <table class="data">
-		<thead>
-			<tr bgcolor="#9999ff">
+		<thead>bgcolor="#9999ff""#9999ff">
 				<th width="30%">
 					<bean:message key="supplier.code" />
 				</th>

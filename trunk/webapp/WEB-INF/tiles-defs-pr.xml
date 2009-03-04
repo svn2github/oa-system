@@ -31,6 +31,10 @@
 	<definition name="site.yearlyBudget.select2" extends="dialog.mainLayout">
 		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/select2.jsp"/>
 	</definition>
+	
+	<definition name="site.yearlyBudget.selectExpenseBudget" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/yearlyBudget/selectExpenseBudget.jsp"/>
+	</definition>
 	<!-- end of yearlyBudget -->	
 	
 	<!-- capex -->

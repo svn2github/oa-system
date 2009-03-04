@@ -6,6 +6,9 @@
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
 <script type="text/javascript">
 <!--
+	var departments = "";
+	var durationFrom = "";
+	var durationTo = "";
 	function selectTravelApplication() {
 		v = window.showModalDialog(
 			'showDialog.do?title=expense.selectTA.title&selectTravelApplication.do', 
@@ -19,21 +22,60 @@
 		};
 	}
 	
+	function checkCleanSelectedBudget() {
+		var requestDate = document.getElementById("requestDate").value;
+		var departmentId = "," + document.getElementById("department_id").value + ",";
+		
+		if (!(durationFrom <= requestDate && requestDate <= durationTo && departments.indexOf(departmentId))) {
+			if (document.getElementById("yearlyBudget_id").value != "") {
+				alert("<bean:message key="expense.clearExpenseBudget"/>");
+				cleanSelectedBudget();
+			}
+		}
+	}
+	
+	function cleanSelectedBudget() {
+		document.getElementById("yearlyBudget_code_span").innerHTML="";
+		document.getElementById("yearlyBudget_id").value="";
+		document.getElementById("canViewYearlyBudgetAmountTr").style.display = "none";
+		document.getElementById("yearlyBudget_amount").innerHTML="";
+		document.getElementById("yearlyBudget_remainAmount").innerHTML="";
+		departments = "";
+		durationFrom = "";
+		durationTo = "";
+	}
+	
 	function selectBudget()
 	{
 		with(document.expenseForm)
 		{
 			var url="newExpenseSelectBudget.do?expenseCategory_id="+
 				expenseCategory_id.value+"&department_id="+department_id.value + "&requestDate="+requestDate.value;
-			alert(url);
-			var v=dialogAction(url,"purchaseRequest.selectYearlyBudget",400,300);
+			var v=dialogAction(url,"purchaseRequest.selectYearlyBudget",600,300);
 			if(v)
 			{
-				document.getElementById("yearlyBudgetContentDIV").innerHTML=v;
+				
+				document.getElementById("yearlyBudget_code_span").innerHTML=v['code'];
+				document.getElementById("yearlyBudget_id").value=v['id'];
+				
+				if (v['amount'] != "" && v['remainAmount'] != "") {
+					document.getElementById("canViewYearlyBudgetAmountTr").style.display = "inline";
+					document.getElementById("yearlyBudget_amount").innerHTML=v['amount'];
+					document.getElementById("yearlyBudget_remainAmount").innerHTML=v['remainAmount'];
+				} else {
+					document.getElementById("canViewYearlyBudgetAmountTr").style.display = "none";
+					document.getElementById("yearlyBudget_amount").innerHTML="";
+					document.getElementById("yearlyBudget_remainAmount").innerHTML="";
+				}
+				
+				departments = v['departments'];
+				durationFrom = v['durationFrom'];
+				durationTo = v['durationTo'];
+			} else {
+				cleanSelectedBudget();
 			}
 		}	
 	}
-	
 //-->
 </script>	
 
@@ -151,27 +193,35 @@
 		</tr>	
 		<tr>
 		<td class="bluetext" width="20%"><bean:message key="expense.requestdate" />:</td>
-		<td width="30%"><html:text property="requestDate" size="8" value="${x_currentDate}"/><a onclick="event.cancelBubble=true;" href="javascript:showCalendar('dimg',false,'requestDate',null,null,'expenseForm')"><IMG align="absMiddle" border="0" id="dimg" src="images/datebtn.gif" ></A><span class="required">*</span></td>
+		<td width="30%"><html:text property="requestDate" size="8" value="${x_currentDate}"/><a onclick="event.cancelBubble=true;" href="javascript:showCalendar('dimg',false,'requestDate',null, 'checkCleanSelectedBudget','expenseForm');"><IMG align="absMiddle" border="0" id="dimg" src="images/datebtn.gif" ></A><span class="required">*</span></td>
 		<td class="bluetext" width="20%"><bean:message key="expense.budget" />:</td>
 			<td width="30%">
 				<html:hidden property="yearlyBudget_id"/>
-				<a href="javascript:selectBudget();"><img src="images/select.gif" border="0"/></a>
+				<span id="yearlyBudget_code_span"></span>
+				<a href="javascript:selectBudget();"><img src="images/select.gif" border="0"/></a>				
 			</td>
 		</tr>	
-		
-		<tr>
-			
-			<td class="bluetext"><bean:message key="expense.amount" />:</td>
-			<td>
+		<tr id="canViewYearlyBudgetAmountTr" style="display:none">
+			<td class='bluetext'>
+				<bean:message key="expense.yearlyBudget.amount"/>: 
 			</td>
+			<td>
+				<span id="yearlyBudget_amount"></span>
+			</td>
+			<td class='bluetext'>
+				<bean:message key="expense.yearlyBudget.remainAmount"/>: 
+			</td>
+			<td>
+				<span id="yearlyBudget_remainAmount"></span>
+			</td>
+		</tr>
+		<tr>
 			<td class="bluetext"><bean:message key="expense.baseCurrency" />:</td>
 			<td>
 				<span id="baseCurrencySpan"></span>
 				<html:select property="baseCurrency_code" style="display:none">
 				</html:select>
 			</td>
-		</tr>			
-		<tr>
 			<td class="bluetext"><bean:message key="expense.status" />:</td>
 			<td colspan="3">
 				<span style="color:${x_newExpense.status.color}">
@@ -204,7 +254,7 @@
 		expenseCategory_id.oldValue='<bean:write name="expenseForm" property="expenseCategory_id"/>';
 		department_site_id.oldValue='<bean:write name="expenseForm" property="department_site_id"/>';
 		department_id.oldValue='<bean:write name="expenseForm" property="department_id"/>';
-		baseCurrency_code.oldValue='<bean:write name="expenseForm" property="baseCurrency_code"/>';
+		baseCurrency_code.oldValue='<bean:write name="expenseForm" property="baseCurrency_code"/>';		
 	}
     initCascadeSelect("config","data","expenseForm",mapping,true);
     document.all.searchTASpan.style.
@@ -214,4 +264,10 @@
    	document.all.baseCurrencySpan.
     	setExpression("innerText","document.expenseForm[\"baseCurrency_code\"].value");
     document.all.title.value = "<bean:write property="travelApplication_id" name="expenseForm"/>";
+    //add checkCleanSelectedBudget function to onchange even to site drop down list
+    document.all.department_site_id.onchange = document.all.department_site_id.onchange + ";" + checkCleanSelectedBudget;
+    document.all.department_id.onchange = checkCleanSelectedBudget;
+    document.all.expenseCategory_id.onchange = checkCleanSelectedBudget;
+    document.all.requestDate.onchange = checkCleanSelectedBudget;
+    document.all.requestDate.onblur = checkCleanSelectedBudget;
 </script>

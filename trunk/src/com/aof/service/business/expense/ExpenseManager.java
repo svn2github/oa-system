@@ -199,5 +199,7 @@ public interface ExpenseManager {
     public void rejectExpenseByFinalClaim(Expense ep, User currentUser, String comment);
 
     public List getExpenseCategoriesAndUserageAmountBySiteId(Integer siteId);
+    
+    public List viewApprover(Expense expense);
 
 }

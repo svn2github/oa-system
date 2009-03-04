@@ -84,6 +84,9 @@ public class RuleType extends MetadataDetailEnum {
         s.add(ConditionType.DEPARTMENT);
         s.add(ConditionType.EXPENSE_CATEGORY);
         s.add(ConditionType.EXPENSE_ENTERED_AMOUNT);
+        s.add(ConditionType.OVER_BUDGET);
+        s.add(ConditionType.OVER_BUDGET_PERCENTAGE);
+        s.add(ConditionType.WITH_BUDGET);
         EXPENSE_APPROVAL_RULES.supportedConditions = s;
         EXPENSE_APPROVAL_RULES.consequenceType = ConsequenceType.APPROVER;
         EXPENSE_APPROVAL_RULES.prefixUrl = "ExpenseApproval";
@@ -94,6 +97,9 @@ public class RuleType extends MetadataDetailEnum {
         //s.add(ConditionType.EXPENSE_SUBCATEGORY);
         s.add(ConditionType.DIFFERENCE_AMOUNT_OF_EXPENSE_CLAIMED_AND_ENTERED);
         s.add(ConditionType.DIFFERENCE_AMOUNT_PERCENTAGE_OF_EXPENSE_CLAIMED_AND_ENTERED);
+        s.add(ConditionType.OVER_BUDGET);
+        s.add(ConditionType.OVER_BUDGET_PERCENTAGE);
+        s.add(ConditionType.WITH_BUDGET);        
         EXPENSE_CLAIM_RULES.supportedConditions = s;
         EXPENSE_CLAIM_RULES.consequenceType = ConsequenceType.ACCEPTABLE;
         EXPENSE_CLAIM_RULES.prefixUrl = "ExpenseClaim";

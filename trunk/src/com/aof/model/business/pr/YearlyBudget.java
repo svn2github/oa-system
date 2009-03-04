@@ -9,6 +9,8 @@ package com.aof.model.business.pr;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,6 +35,9 @@ import com.aof.ruleengine.FailRuleWhenAllConditionThrowMeException;
  * @version 1.0 (2005-11-19)
  */
 public class YearlyBudget extends AbstractYearlyBudget implements Serializable, Notifiable,Loggable {
+    
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    
     /**
      * Simple constructor of YearlyBudget instances.
      */
@@ -58,6 +63,22 @@ public class YearlyBudget extends AbstractYearlyBudget implements Serializable, 
             actualAmount = new BigDecimal(0d);
 
         return amount.subtract(actualAmount);
+    }
+    
+    public String getFormatedDurationFrom() {
+        if (getDurationFrom() != null) {
+            return dateFormat.format(getDurationFrom());
+        }
+        
+        return "";
+    }
+    
+    public String getFormatedDurationTo() {
+        if (getDurationTo() != null) {
+            return dateFormat.format(getDurationTo());
+        }
+        
+        return "";
     }
 
     /* Add customized code below */
@@ -207,6 +228,21 @@ public class YearlyBudget extends AbstractYearlyBudget implements Serializable, 
                 result.add(psc.getId());
             }
         }
+        return result;
+    }
+    
+    /**
+     * 返回ExpenseCategory Id列表 (审批用)
+     * 
+     * @return 包含ExpenseCategory对象Id的集合
+     */
+    public Collection getApproveExpenseCategory() {
+        Collection result = new ArrayList();
+        
+        if (this.getExpenseCategory() != null) {
+            result.add(this.getExpenseCategory().getId());
+        }
+       
         return result;
     }
 

@@ -51,7 +51,7 @@ public interface YearlyBudgetManager {
      * @return
      */
     public YearlyBudget updateYearlyBudget(YearlyBudget oldYb,YearlyBudget yearlyBudget, Department[] departments,User user);
-
+    
     /**
      * get YearlyBudget Count according to conditions
      * 
@@ -157,10 +157,14 @@ public interface YearlyBudgetManager {
      */
     public void updateAndNotifyYearlyBudget(YearlyBudget yb, boolean ignoreAmountCondition);
     
+    public void updateYearBudget(YearlyBudget yb);
+    
     /**
      * can View YearlyBudget Amount
      * @param yb
      * @return
      */
     public boolean canViewYearlyBudgetAmount(YearlyBudget yb,User user);
+    
+    public boolean canViewExpenseBudgetAmount(YearlyBudget yb,User user);
 }

@@ -204,8 +204,9 @@ public class ExportExpenseManagerImpl extends BaseExportManager {
         writer.write(getFormatString(recharge ? "" : getValue(expense,"requestor.id") ,10));
         writer.write(getFormatString(getDateValue(expense,"requestDate",dateFormat),8));
         writer.write(getFormatString(getValue(expense,"expenseCurrency.code"),8));
-        writer.write(getFormatString(getDecimalValue(expense,"amount",decimalFormat),10));
-        writer.write(getFormatString(getValue(expense,"requestor.id") ,10));
+        writer.write(getFormatString(getDecimalValue(expense,"amount",decimalFormat),10));        
+        writer.write(getFormatString(getDecimalValue(expense,"exchangeRate",exchangeRateFormat) ,8));
+        writer.write(getFormatString(getValue(expense,"expenseCategory.referenceErpId") ,8));
         //writer.write(expense.getIsRecharge().equalsYesNo(YesNo.YES)?RECHARGE_YES:RECHARGE_NO);
         writer.write(EOL);
     }

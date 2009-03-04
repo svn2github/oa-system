@@ -40,6 +40,7 @@ public class BaseDataTransferManager extends BaseManager {
             java.util.Date.class, "yyyyMMddHHmmssSSS");
     
     protected static final DecimalFormat decimalFormat = new DecimalFormat("##0.00");
+    protected static final DecimalFormat exchangeRateFormat = new DecimalFormat("##.00000");
     
     protected static final DateFormatter dateFormat =new DateFormatter(java.util.Date.class, "yyyyMMdd");
     

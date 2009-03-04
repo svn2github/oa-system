@@ -19,3 +19,7 @@ ALTER TABLE `oa`.`expense` ADD COLUMN `exp_budget_id` INTEGER AFTER `confirm_dat
     
 ALTER TABLE `oa`.`yearly_budget` ADD COLUMN `budget_duration_from` DATETIME AFTER `exp_subctgy_id`,
  ADD COLUMN `budget_duration_to` DATETIME AFTER `budget_duration_from`;
+
+ 
+INSERT INTO OA_FUNCTION (FUNC_ID, FUNC_NM, FUNC_DESC) VALUES 
+ (32240011, 'view expense budget amount', 'view expense budget amount');

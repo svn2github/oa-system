@@ -22,6 +22,7 @@ import com.aof.model.business.Controllable;
 import com.aof.model.business.Notifiable;
 import com.aof.model.business.Rechargeable;
 import com.aof.model.metadata.RuleType;
+import com.aof.model.metadata.YesNo;
 
 /**
  * A class that represents a row in the 'expense' table.
@@ -115,6 +116,33 @@ public class Expense extends AbstractExpense implements Serializable, Rechargeab
             return getAmount();
         else
             return new BigDecimal(0d);
+    }
+    
+    public YesNo getApproveWithBudget() {
+        return (this.getYearlyBudget() != null) ? YesNo.YES : YesNo.NO;
+    }
+    
+    public BigDecimal getApproveOverBudget() {        
+        if (getYearlyBudget() != null) {
+            /*
+             * 正常情况(数据库中的值)下，budget的actualAmount已经包含pr的amount，
+             * over budget是计算该pr导致超出budget的remainAmount的值，
+             * 此时的remainAmount应该是不包括该pr的amount的。
+             * 考虑到这种情况，实际的超出值就是budget当前remainAmount的负值
+             */
+            return getYearlyBudget().getRemainAmount();
+        }
+        return null;
+    }
+    
+    public BigDecimal getApproveOverBudgetPercentage() {
+        BigDecimal amount = null;
+        if (getYearlyBudget() != null) {
+            amount = getYearlyBudget().getAmount();
+        } else {
+            return null;
+        }
+        return getApproveOverBudget().multiply(new BigDecimal(100d)).divide(amount, BigDecimal.ROUND_HALF_EVEN);        
     }
 
     /**

@@ -36,6 +36,9 @@ import com.aof.model.business.expense.ExpenseRow;
 import com.aof.model.business.expense.query.ExpenseAttachmentQueryCondition;
 import com.aof.model.business.expense.query.ExpenseAttachmentQueryOrder;
 import com.aof.model.business.expense.query.ExpenseQueryOrder;
+import com.aof.model.business.pr.Capex;
+import com.aof.model.business.pr.PurchaseRequest;
+import com.aof.model.business.pr.YearlyBudget;
 import com.aof.model.metadata.ApproverDelegateType;
 import com.aof.model.metadata.ExpenseStatus;
 import com.aof.model.metadata.ExportStatus;
@@ -44,10 +47,12 @@ import com.aof.service.admin.ExpenseSubCategoryManager;
 import com.aof.service.admin.SystemLogManager;
 import com.aof.service.business.ApproveRelativeEmailManager;
 import com.aof.service.business.expense.ExpenseManager;
+import com.aof.service.business.pr.YearlyBudgetManager;
 import com.aof.service.business.rule.ExecuteFlowEmptyResultException;
 import com.aof.service.business.rule.FlowManager;
 import com.aof.service.business.rule.NoAvailableFlowToExecuteException;
 import com.aof.web.struts.action.ActionUtils;
+import com.aof.web.struts.action.ServiceLocator;
 import com.shcnc.struts.action.ActionException;
 import com.shcnc.utils.UUID;
 
@@ -71,7 +76,9 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
     
     private SystemLogManager systemLogManager;
 
-    private ApproveRelativeEmailManager approveRelativeEmailManager;       
+    private ApproveRelativeEmailManager approveRelativeEmailManager;     
+    
+    private YearlyBudgetManager yearlyBudgetManager;
 
     public void setExpenseSubCategoryManager(ExpenseSubCategoryManager expenseSubCategoryManager) {
         this.expenseSubCategoryManager = expenseSubCategoryManager;
@@ -83,6 +90,10 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
 
     public void setApproveRelativeEmailManager(ApproveRelativeEmailManager approveRelativeEmailManager) {
         this.approveRelativeEmailManager = approveRelativeEmailManager;
+    }
+    
+    public void setYearlyBudgetManager(YearlyBudgetManager yearlyBudgetManager) {
+        this.yearlyBudgetManager = yearlyBudgetManager;
     }
 
     private String getLastCode(Site site,Date date) {
@@ -162,6 +173,9 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
             expense.setStatus(ExpenseStatus.PENDING);
             expense.setRequestDate(new Date());
             expense = dao.updateExpense(expense);
+            
+            //占用预算金额
+            updateBudgetAmount(expense, new BigDecimal(0D), expense.getAmount());
             try {
                 approveRequestList = flowManager.executeApproveFlow(expense);                
             } catch (ExecuteFlowEmptyResultException e) {
@@ -320,6 +334,8 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
             ExpenseHistoryRow historyRow = createHistory((ExpenseRow) itor.next(), expenseHistory);
             dao.saveExpenseHistoryRow(historyRow);
         }
+        //释放预算
+        updateBudgetAmount(ep, ep.getAmount(), new BigDecimal(0D));
         systemLogManager.generateLog(null, ep, Expense.LOG_ACTION_REJECT, currentUser);
         approveRelativeEmailManager.sendRejectedEmail(ep, currentUser.getName(), comment);
     }
@@ -408,6 +424,9 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
         approveDao.deleteExpenseApproveRequestByExpense(expense);
         expense.setStatus(ExpenseStatus.DRAFT);
         expense.setApproveRequestId(null);
+        
+        //释放预算
+        updateBudgetAmount(expense, expense.getAmount(), new BigDecimal(0D));
         dao.updateExpense(expense);
         approveRelativeEmailManager.deleteWithdrawEmail(expense);        
         systemLogManager.generateLog(null, expense, Expense.LOG_ACTION_WITHDRAW, currentUser);
@@ -441,6 +460,7 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
         copyExpense.setStatus(ExpenseStatus.DRAFT);
         copyExpense.setTitle(srcExpense.getTitle());
         copyExpense.setTravelApplication(srcExpense.getTravelApplication());
+        copyExpense.setYearlyBudget(srcExpense.getYearlyBudget());
         
         copyExpense=insertExpense(copyExpense);
         
@@ -512,6 +532,40 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
 
     public List getExpenseCategoriesAndUserageAmountBySiteId(Integer siteId) {
         return dao.getExpenseCategoriesAndUserageAmountBySiteId(siteId);
+    }
+
+    public List viewApprover(Expense expense) {
+        try {
+            //因为是在提交后在扣减预算，所以在view approver的时候，需要先扣预算，然后执行approve flow，然后在把预算加回来
+            YearlyBudget yb = null;
+            if (expense.getYearlyBudget() != null) {               
+                yb = yearlyBudgetManager.getYearlyBudget(expense.getYearlyBudget().getId());
+                yb.updateActualAmount(new BigDecimal(0d), expense.getAmount());
+                yearlyBudgetManager.updateYearBudget(yb);
+                expense.setYearlyBudget(yb);
+            }
+            List eList = flowManager.executeApproveFlow(expense);
+            if (expense.getYearlyBudget() != null) {
+                yb.updateActualAmount(expense.getAmount(), new BigDecimal(0d));
+                yearlyBudgetManager.updateYearBudget(yb);
+                expense.setYearlyBudget(yb);
+            }
+            return eList;
+        } catch (ExecuteFlowEmptyResultException e) {
+            throw new ActionException("flow.execute.notApproverFound");
+        } catch (NoAvailableFlowToExecuteException e) {
+            throw new ActionException("flow.execute.notFlowFound");
+        }
+    }
+    
+    private void updateBudgetAmount(Expense expense, BigDecimal oldAmount,BigDecimal newAmount)
+    {
+        if (expense != null && expense.getYearlyBudget() != null) {
+            YearlyBudget yb = yearlyBudgetManager.getYearlyBudget(expense.getYearlyBudget().getId());
+            yb.updateActualAmount(oldAmount, newAmount);
+            yearlyBudgetManager.updateYearBudget(yb);
+            expense.setYearlyBudget(yb);
+        }
     }
 
 }

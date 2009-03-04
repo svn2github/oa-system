@@ -86,8 +86,8 @@ function setDate(d)
 {
 	wp.hideCalendar();
 	var dstr=yy+"/"+((mm+1)<10?"0"+(mm+1):(mm+1))+"/"+(d<10?"0"+d:d);
-	if(callback&&callback.length>0){eval("wp."+callback+"(\""+dstr+"\")");}
-	else{fld1.value=dstr;}
+	fld1.value=dstr;
+	if(callback&&callback.length>0){eval("wp."+callback+"()");}	
 }
 //-->
 </SCRIPT>

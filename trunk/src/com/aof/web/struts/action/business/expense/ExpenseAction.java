@@ -47,6 +47,7 @@ import com.aof.model.business.expense.ExpenseClaim;
 import com.aof.model.business.expense.ExpenseRow;
 import com.aof.model.business.expense.query.ExpenseQueryCondition;
 import com.aof.model.business.expense.query.ExpenseQueryOrder;
+import com.aof.model.business.pr.YearlyBudget;
 import com.aof.model.business.ta.TravelApplication;
 import com.aof.model.business.ta.query.TravelApplicationQueryCondition;
 import com.aof.model.business.ta.query.TravelApplicationQueryOrder;
@@ -186,6 +187,7 @@ public class ExpenseAction extends BaseExpenseAction {
         Expense expense = this.getExpenseFromRequest(request);
         request.setAttribute("x_expense", expense);
         getViewContent(expense,request);
+        this.putCanViewExpenseBudgetAmount(expense.getYearlyBudget(),request);
         return mapping.findForward("page");
     }
     
@@ -970,6 +972,7 @@ public class ExpenseAction extends BaseExpenseAction {
         putExpenseRowCellListToRequest(expense,request,false,false);
         putApproveListToRequest(expense,request);
         putExpenseRechargeListToRequest(expense,request,expenseForm,false);
+        this.putCanViewExpenseBudgetAmount(expense.getYearlyBudget(),request);
 
         return mapping.findForward("page");
     }
@@ -1139,14 +1142,8 @@ public class ExpenseAction extends BaseExpenseAction {
     }
 
     private List executeFlow(Expense expense, HttpServletRequest request) {
-        try {
-            List eList = ServiceLocator.getFlowManager(request).executeApproveFlow(expense);
-            return eList;
-        } catch (ExecuteFlowEmptyResultException e) {
-            throw new ActionException("flow.execute.notApproverFound");
-        } catch (NoAvailableFlowToExecuteException e) {
-            throw new ActionException("flow.execute.notFlowFound");
-        }
+        List eList = ServiceLocator.getExpenseManager(request).viewApprover(expense);
+        return eList;
     }
     
     private ActionForward getEditForwardFor(Expense expense, boolean isSelf) {
@@ -1724,6 +1721,8 @@ public class ExpenseAction extends BaseExpenseAction {
 
         getViewContent(ep,request);
         request.setAttribute("x_expense", ep);
+        this.putCanViewExpenseBudgetAmount(ep.getYearlyBudget(), request);
+        
         return mapping.findForward("page");
     }
 
@@ -1766,6 +1765,7 @@ public class ExpenseAction extends BaseExpenseAction {
         }
         
         this.postGlobalMessage("expense.finalClaim.success", request.getSession());
+      
         return getFinalClaimViewForward(ep);
     }
 
@@ -1842,5 +1842,15 @@ public class ExpenseAction extends BaseExpenseAction {
     private Date getEffectiveDateFromRequest(HttpServletRequest request) {
         Date date = ActionUtils.getDateFromDisplayDate(request.getParameter("requestDate"));
         return date;
+    }
+    
+    protected void putCanViewExpenseBudgetAmount(YearlyBudget yb, HttpServletRequest request) {
+        if (yb != null) {
+            YearlyBudgetManager ym = ServiceLocator.getYearlyBudgetManager(request);
+            request.setAttribute("x_canViewExpenseBudgetAmount",new Boolean(ym.canViewExpenseBudgetAmount(yb,this.getCurrentUser(request))));
+        } else {
+            request.setAttribute("x_canViewExpenseBudgetAmount", false);
+        }
+         
     }
 }

@@ -35,16 +35,6 @@
 			<td width="30%">
 				${x_expense.requestor.name}
 			</td>
-			<td class="bluetext" width="20%"><bean:message key="expense.requestdate" />:</td>
-			<td width="30%">
-				<fmt:formatDate value="${x_expense.requestDate}" pattern="yyyy/MM/dd"/>
-			</td>
-		</tr>	
-		<tr>
-			<td class="bluetext" width="20%"><bean:message key="expense.creator.id" />:</td>
-			<td width="30%">
-				${x_expense.creator.name}
-			</td>
 			<td class="bluetext" width="20%"><bean:message key="expense.creatDate" />:</td>
 			<td width="30%">
 				<fmt:formatDate value="${x_expense.createDate}" pattern="yyyy/MM/dd"/>
@@ -78,26 +68,62 @@
 		</c:if>
 	</tr>
 	<tr>
+			<td class="bluetext" width="20%">
+				<bean:message key="expense.requestdate" />
+				:
+			</td>
+			<td width="30%">
+				<fmt:formatDate value="${x_expense.requestDate}"
+					pattern="yyyy/MM/dd" />
+			</td>
+			<td class="bluetext" width="20%">
+				<bean:message key="expense.budget" />
+				:
+			</td>
+			<td width="30%">
+				${x_expense.yearlyBudget.code}
+			</td>
+		</tr>
+		<c:if test="${x_canViewExpenseBudgetAmount == true}">
+		<tr>
+			<td class='bluetext'>
+				<bean:message key="expense.yearlyBudget.amount" />
+				:
+			</td>
+			<td>
+				${x_expense.yearlyBudget.amount}
+			</td>
+			<td class='bluetext'>
+				<bean:message key="expense.yearlyBudget.remainAmount" />
+				:
+			</td>
+			<td>
+				<span <c:if test="${x_expense.yearlyBudget.remainAmount < 0}">style="color:red"</c:if>>				
+				${x_expense.yearlyBudget.remainAmount}
+				</span>
+			</td>
+		</tr>
+		</c:if>
+	
+	
+	<tr>		
+		<td class="bluetext" width="20%"><bean:message key="expense.baseCurrency" />:</td>
+		<td width="30%">
+			${x_expense.department.site.baseCurrency.name}
+		</td>
+		<td class="bluetext" width="20%"><bean:message key="expense.status" />:</td>
+		<td width="30%">
+			<span style="color:${x_expense.status.color}"><bean:write name="x_expense" property="status.${x_lang}ShortDescription"/></span> 
+		</td>
+	</tr>			
+	<tr>
 		<td class="bluetext" width="20%"><bean:message key="expense.amount" />:</td>
 		<td width="30%">
 			<div id="baseAmount">
 				<fmt:formatNumber value="${x_expense.baseAmount}" maxFractionDigits="2" minFractionDigits="2"/>
 			</div>
 		</td>
-		<td class="bluetext" width="20%"><bean:message key="expense.baseCurrency" />:</td>
-		<td width="30%">
-			${x_expense.department.site.baseCurrency.name}
-		</td>
-	</tr>			
-	<tr>
-		<td class="bluetext" width="20%"><bean:message key="expense.status" />:</td>
-		<td width="30%">
-			<span style="color:${x_expense.status.color}"><bean:write name="x_expense" property="status.${x_lang}ShortDescription"/></span> 
-		</td>
-		<td class="bluetext" width="20%"><bean:message key="expense.isRecharge" />:</td>
-		<td width="30%">
-			<span style="color:${x_expense.isRecharge.color}"><bean:write name="x_expense" property="isRecharge.${x_lang}ShortDescription"/></span>
-		</td>
+		
 	</tr>			
 	</table>
 <logic:notEmpty name="x_attachmentList">

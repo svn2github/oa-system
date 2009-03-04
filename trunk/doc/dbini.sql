@@ -139,6 +139,7 @@ INSERT INTO OA_FUNCTION (FUNC_ID, FUNC_NM, FUNC_DESC) VALUES
     (32230070, 'withdraw delegate expense', 'withdraw delegate expense'),
     (32232010, 'expense report', 'expense report'),
     (32240010, 'view yearly budget amount', 'view yearly budget amount'),
+    (32240011, 'view expense budget amount', 'view expense budget amount'),
     (32250010, 'view capex amount', 'view capex amount'),
     (32250020, 'list capex request', 'list capex request'),
     (32250030, 'create capex request', 'create capex request'),
@@ -226,7 +227,8 @@ INSERT INTO ROLE (ROLE_ID, ROLE_NM, ROLE_DESC, ROLE_TYPE) VALUES
     (70, 'Supervisor (View Yearly Budget Amount)', NULL, 3),
     (71, 'Supervisor (View Capex Amount)', NULL, 3),
     (72, 'Report (Purchase Order)', NULL, 2),
-    (73, 'Finance (Expensen Final Claim)', NULL, 2);
+    (73, 'Finance (Expensen Final Claim)', NULL, 2),
+    (74, 'Supervisor (View Expense Budget Amount)', NULL, 3);
 
 INSERT INTO ROLE_FUNCTION (ROLE_ID, FUNC_ID) VALUES
     (1, 11140020),
@@ -397,7 +399,8 @@ INSERT INTO ROLE_FUNCTION (ROLE_ID, FUNC_ID) VALUES
     (71, 32250010),
     (72, 22272020),
     (72, 22272060),
-    (73, 22230011);
+    (73, 22230011),
+    (74, 32240011);
 
 INSERT INTO MENU (MENU_ID, MENU_NM, MENU_DESC, FUNC_ID, URL, PARENT_ID, ONCLICK, ONMOUSE_OVER, ONMOUSE_DOWN, SEC_MENU_NM, SEC_MENU_DESC) VALUES 
 	(1, 'Global Administrator Menu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Global Administrator Menu', NULL),
