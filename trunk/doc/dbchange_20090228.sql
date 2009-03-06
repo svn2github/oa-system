@@ -23,3 +23,10 @@ ALTER TABLE `oa`.`yearly_budget` ADD COLUMN `budget_duration_from` DATETIME AFTE
  
 INSERT INTO OA_FUNCTION (FUNC_ID, FUNC_NM, FUNC_DESC) VALUES 
  (32240011, 'view expense budget amount', 'view expense budget amount');
+ 
+ ALTER TABLE `oa`.`travel_application` ADD COLUMN `ta_curr_cd` VARCHAR(8)  NULL AFTER `is_on_travel`,
+ ADD CONSTRAINT `FK_travel_application_to_currency` FOREIGN KEY `FK_travel_application_to_currency` (`ta_curr_cd`)
+    REFERENCES `currency` (`curr_cd`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT;
+ 
