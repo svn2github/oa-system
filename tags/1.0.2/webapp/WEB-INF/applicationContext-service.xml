@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	 <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+	   <property name="resourceLoaderPath"><value>/WEB-INF/emailTemplate/</value></property>
+	 </bean>
+
+    <bean id="universalManagerTarget" class="com.aof.service.impl.UniversalManagerImpl">
+        <property name="universalDAO"><ref bean="universalDAO"/></property>
+    </bean>
+
+    <bean id="universalManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="universalManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="beanLoader" class="com.aof.web.struts.action.BeanLoader">
+        <property name="universalManager"><ref bean="universalManager"/></property>
+    </bean>
+
+
+
+    <bean id="userManagerTarget" class="com.aof.service.admin.impl.UserManagerImpl">
+        <property name="userDAO"><ref bean="userDAO"/></property>
+        <property name="userRoleDAO"><ref bean="userRoleDAO"/></property>        
+        <property name="userSiteDAO"><ref bean="userSiteDAO"/></property>
+        <property name="userDepartmentDAO"><ref bean="userDepartmentDAO"/></property>
+        <property name="departmentManager"><ref bean="departmentManager"/></property>
+        <property name="siteManager"><ref bean="siteManager"/></property>
+        <property name="expenseCategoryManager"><ref bean="expenseCategoryManager"/></property>
+    </bean>
+
+    <bean id="userManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="userManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+    <bean id="metadataManagerTarget" class="com.aof.service.admin.impl.MetadataManagerImpl" init-method="init">
+        <property name="metadataDAO"><ref bean="metadataDAO"/></property>
+    </bean>
+
+    <bean id="metadataManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="metadataManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="init">PROPAGATION_REQUIRED</prop>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="currencyManagerTarget" class="com.aof.service.admin.impl.CurrencyManagerImpl">
+        <property name="currencyDAO"><ref bean="currencyDAO"/></property>
+    </bean>
+
+    <bean id="currencyManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="currencyManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="functionManagerTarget" class="com.aof.service.admin.impl.FunctionManagerImpl">
+        <property name="functionDAO"><ref bean="functionDAO"/></property>
+    </bean>
+
+    <bean id="functionManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="functionManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="initiate">PROPAGATION_REQUIRED</prop>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+    <bean id="siteManagerTarget" class="com.aof.service.admin.impl.SiteManagerImpl">
+        <property name="siteDAO"><ref bean="siteDAO"/></property>
+    </bean>
+
+    <bean id="siteManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="siteManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+    <bean id="globalManagerTarget" class="com.aof.service.admin.impl.GlobalManagerImpl">
+        <property name="globalDAO"><ref bean="globalDAO"/></property>
+    </bean>
+
+    <bean id="globalManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="globalManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+        </props>
+        </property>
+    </bean>    
+
+    <bean id="roleManagerTarget" class="com.aof.service.admin.impl.RoleManagerImpl">
+        <property name="roleDAO"><ref bean="roleDAO"/></property>
+    </bean>
+
+    <bean id="roleManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="roleManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+    <bean id="menuManagerTarget" class="com.aof.service.admin.impl.MenuManagerImpl">
+        <property name="menuDAO"><ref bean="menuDAO"/></property>
+    </bean>
+
+    <bean id="menuManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="menuManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="exchangeRateManagerTarget" class="com.aof.service.admin.impl.ExchangeRateManagerImpl">
+        <property name="exchangeRateDAO"><ref bean="exchangeRateDAO"/></property>
+    </bean>
+
+    <bean id="exchangeRateManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exchangeRateManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+    <bean id="departmentManagerTarget" class="com.aof.service.admin.impl.DepartmentManagerImpl">
+        <property name="departmentDAO"><ref bean="departmentDAO"/></property>
+    </bean>
+
+    <bean id="departmentManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="departmentManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+	<bean id="expenseCategoryManagerTarget" class="com.aof.service.admin.impl.ExpenseCategoryManagerImpl">
+        <property name="expenseCategoryDAO"><ref bean="expenseCategoryDAO"/></property>
+        <property name="expenseSubCategoryDAO"><ref bean="expenseSubCategoryDAO"/></property>
+    </bean>
+
+    <bean id="expenseCategoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="expenseCategoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	
+
+
+
+	<bean id="travelGroupManagerTarget" class="com.aof.service.admin.impl.TravelGroupManagerImpl">
+        <property name="travelGroupDAO"><ref bean="travelGroupDAO"/></property>
+        <property name="travelGroupDetailDAO"><ref bean="travelGroupDetailDAO"/></property>
+    </bean>
+
+    <bean id="travelGroupManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="travelGroupManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+
+	<bean id="countryManagerTarget" class="com.aof.service.admin.impl.CountryManagerImpl">
+        <property name="countryDAO"><ref bean="countryDAO"/></property>
+        <property name="provinceDAO"><ref bean="provinceDAO"/></property>
+        <property name="cityDAO"><ref bean="cityDAO"/></property>
+    </bean>
+
+    <bean id="countryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="countryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="promote*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="delete*">PROPAGATION_REQUIRED</prop>            
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="provinceManagerTarget" class="com.aof.service.admin.impl.ProvinceManagerImpl">
+        <property name="provinceDAO"><ref bean="provinceDAO"/></property>
+    </bean>
+
+    <bean id="provinceManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="provinceManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="promote*">PROPAGATION_REQUIRED</prop>
+            <prop key="delete*">PROPAGATION_REQUIRED</prop>                        
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="cityManagerTarget" class="com.aof.service.admin.impl.CityManagerImpl">
+        <property name="cityDAO"><ref bean="cityDAO"/></property>
+    </bean>
+
+    <bean id="cityManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="cityManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="promote*">PROPAGATION_REQUIRED</prop>
+            <prop key="delete*">PROPAGATION_REQUIRED</prop>                        
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+
+	<bean id="purchaseCategoryManagerTarget" class="com.aof.service.admin.impl.PurchaseCategoryManagerImpl">
+        <property name="purchaseCategoryDAO"><ref bean="purchaseCategoryDAO"/></property>
+        <property name="purchaseSubCategoryDAO"><ref bean="purchaseSubCategoryDAO"/></property>
+    </bean>
+
+    <bean id="purchaseCategoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseCategoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+	<bean id="hotelManagerTarget" class="com.aof.service.admin.impl.HotelManagerImpl">
+        <property name="hotelDAO"><ref bean="hotelDAO"/></property>
+        <property name="priceDAO"><ref bean="priceDAO"/></property>        
+        <property name="exchangeRateDAO"><ref bean="exchangeRateDAO"/></property>                
+    </bean>
+
+    <bean id="hotelManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="hotelManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*Promote">PROPAGATION_REQUIRED</prop>
+            <prop key="promote">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+	<bean id="purchaseSubCategoryManagerTarget" class="com.aof.service.admin.impl.PurchaseSubCategoryManagerImpl">
+        <property name="purchaseSubCategoryDAO"><ref bean="purchaseSubCategoryDAO"/></property>
+    </bean>
+
+    <bean id="purchaseSubCategoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseSubCategoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="emailManagerTarget" class="com.aof.service.admin.impl.EmailManagerImpl" init-method="init">
+        <property name="emailDAO"><ref bean="emailDAO"/></property>
+        <property name="globalDAO"><ref bean="globalDAO"/></property>
+        <property name="velocityEngine"><ref bean="velocityEngine"/></property>        
+        <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>           
+        <property name="parameterDAO"><ref bean="parameterDAO"/></property>                   
+        <property name="userDAO"><ref bean="userDAO"/></property>            
+        <property name="functionManager"><ref bean="functionManager"/></property>                    
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>                            
+        <property name="travelApplicationDAO"><ref bean="travelApplicationDAO"/></property>                
+        <property name="hotelDAO"><ref bean="hotelDAO"/></property>            
+        <property name="supplierDAO"><ref bean="supplierDAO"/></property>            
+        <property name="capexRequestApproveRequestDAO"><ref bean="capexRequestApproveRequestDAO"/></property>            
+        <property name="expenseApproveRequestDAO"><ref bean="expenseApproveRequestDAO"/></property>            
+        <property name="purchaseRequestApproveRequestDAO"><ref bean="purchaseRequestApproveRequestDAO"/></property>            
+        <property name="purchaseOrderApproveRequestDAO"><ref bean="purchaseOrderApproveRequestDAO"/></property>            
+        <property name="travelApplicationApproveRequestDAO"><ref bean="travelApplicationApproveRequestDAO"/></property>            
+        <property name="approverDelegateDAO"><ref bean="approverDelegateDAO"/></property>            
+        <property name="expenseDAO"><ref bean="expenseDAO"/></property>            
+        <property name="siteDAO"><ref bean="siteDAO"/></property>
+    </bean>
+
+    <bean id="emailManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="emailManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="send*">PROPAGATION_REQUIRED</prop>
+            <prop key="mailReminder">PROPAGATION_REQUIRED</prop>            
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="emailJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	  <property name="targetObject" ref="emailManager"/>
+	  <property name="targetMethod" value="sendEmail"/>
+	  <property name="concurrent" value="false"/>
+	</bean>
+	
+	<bean id="reminderJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	  <property name="targetObject" ref="emailManager"/>
+	  <property name="targetMethod" value="mailReminder"/>
+	  <property name="concurrent" value="false"/>
+	</bean>
+	
+	<bean id="batchEmailJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	  <property name="targetObject" ref="emailManager"/>
+	  <property name="targetMethod" value="sendBatchEmail"/>
+	  <property name="concurrent" value="false"/>
+	</bean>
+	
+	<bean id="emailTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+	  <property name="jobDetail" ref="emailJobDetail"/>
+		<!-- 10 seconds -->
+	  <property name="startDelay" value="10000"/>
+		<!-- repeat every 15 mins -->
+	  <property name="repeatInterval" value="900000"/>
+	</bean>
+	
+	<bean id="reminderTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail" ref="reminderJobDetail"/>
+	  <!-- run at 6:00am everyday -->
+	  <property name="cronExpression">
+	  	<value>0 0 6 * * ?</value>
+	  </property>
+	</bean>
+	
+	<bean id="batchEmailTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail" ref="batchEmailJobDetail"/>
+	  <!-- run at 5:00am everyday -->
+	 <property name="cronExpression">
+	  	<value>0 0 5 * * ?</value>
+	  </property>
+	</bean>			
+
+	<bean id="supplierManagerTarget" class="com.aof.service.admin.impl.SupplierManagerImpl">
+        <property name="supplierDAO"><ref bean="supplierDAO"/></property>
+        <property name="supplierHistoryDAO"><ref bean="supplierHistoryDAO"/></property>
+    </bean>
+
+    <bean id="supplierManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="supplierManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="confirmSupplier">PROPAGATION_REQUIRED</prop>
+            <prop key="cancelSupplier">PROPAGATION_REQUIRED</prop>
+            <prop key="promote*">PROPAGATION_REQUIRED</prop>
+            <prop key="*Promote">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="supplierContractManagerTarget" class="com.aof.service.admin.impl.SupplierContractManagerImpl">
+        <property name="supplierContractDAO"><ref bean="supplierContractDAO"/></property>
+    </bean>
+
+    <bean id="supplierContractManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="supplierContractManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="hotelContractManagerTarget" class="com.aof.service.admin.impl.HotelContractManagerImpl">
+        <property name="hotelContractDAO"><ref bean="hotelContractDAO"/></property>
+    </bean>
+
+    <bean id="hotelContractManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="hotelContractManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="priceManagerTarget" class="com.aof.service.admin.impl.PriceManagerImpl">
+        <property name="priceDAO"><ref bean="priceDAO"/></property>
+    </bean>
+
+    <bean id="priceManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="priceManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+	<bean id="supplierHistoryManagerTarget" class="com.aof.service.admin.impl.SupplierHistoryManagerImpl">
+        <property name="supplierHistoryDAO"><ref bean="supplierHistoryDAO"/></property>
+    </bean>
+
+    <bean id="supplierHistoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="supplierHistoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="supplierItemManagerTarget" class="com.aof.service.admin.impl.SupplierItemManagerImpl">
+        <property name="supplierItemDAO"><ref bean="supplierItemDAO"/></property>
+    </bean>
+
+    <bean id="supplierItemManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="supplierItemManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="change*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="ruleEngineWorkspace" class="com.aof.ruleengine.EngineWorkspace">
+    </bean>
+
+	<bean id="flowManagerTarget" class="com.aof.service.business.rule.impl.FlowManagerImpl" init-method="initWorkspace">
+        <property name="flowDAO"><ref bean="flowDAO"/></property>
+        <property name="siteManager"><ref bean="siteManager"/></property>                
+        <property name="userManager"><ref bean="userManager"/></property>                
+        <property name="ruleManager"><ref bean="ruleManager"/></property>                
+        <property name="emailManager"><ref bean="emailManager"/></property>                
+        <property name="workspace"><ref bean="ruleEngineWorkspace"/></property>
+    </bean>
+
+    <bean id="flowManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="flowManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+   	<bean id="travelApplicationManagerTarget" class="com.aof.service.business.ta.impl.TravelApplicationManagerImpl">
+        <property name="flowManager"><ref bean="flowManager"/></property>	
+        <property name="travelApplicationDAO"><ref bean="travelApplicationDAO"/></property>
+        <property name="airTicketDAO"><ref bean="airTicketDAO"/></property>
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
+        <property name="exchangeRateDAO"><ref bean="exchangeRateDAO"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property> 
+        <property name="emailManager"><ref bean="emailManager"/></property>   
+        <property name="userManager"><ref bean="userManager"/></property>   
+        <property name="functionManager"><ref bean="functionManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>   
+        <property name="supplierItemDAO"><ref bean="supplierItemDAO"/></property>   
+    </bean>
+
+    <bean id="travelApplicationManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="travelApplicationManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+        </props>
+        </property>
+    </bean>
+    
+
+	<bean id="ruleManagerTarget" class="com.aof.service.business.rule.impl.RuleManagerImpl">
+        <property name="ruleDAO"><ref bean="ruleDAO"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>
+        <property name="workspace"><ref bean="ruleEngineWorkspace"/></property>
+    </bean>
+
+    <bean id="ruleManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="ruleManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="approverDelegateManagerTarget" class="com.aof.service.business.rule.impl.ApproverDelegateManagerImpl">
+        <property name="approverDelegateDAO"><ref bean="approverDelegateDAO"/></property>
+        <property name="userManager"><ref bean="userManager"/></property>
+        <property name="functionManager"><ref bean="functionManager"/></property>
+    </bean>
+
+    <bean id="approverDelegateManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="approverDelegateManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="travelApplicationApproveRequestManagerTarget" class="com.aof.service.business.ta.impl.TravelApplicationApproveRequestManagerImpl">
+        <property name="travelApplicationApproveRequestDAO"><ref bean="travelApplicationApproveRequestDAO"/></property>
+        <property name="travelApplicationManager"><ref bean="travelApplicationManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>     
+        <property name="airTicketDAO"><ref bean="airTicketDAO"/></property>   
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>   
+    </bean>
+
+    <bean id="travelApplicationApproveRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="travelApplicationApproveRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="approve*">PROPAGATION_REQUIRED</prop>
+            <prop key="reject*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="expenseSubCategoryManagerTarget" class="com.aof.service.admin.impl.ExpenseSubCategoryManagerImpl">
+        <property name="expenseSubCategoryDAO"><ref bean="expenseSubCategoryDAO"/></property>
+    </bean>
+
+    <bean id="expenseSubCategoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="expenseSubCategoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="expenseManagerTarget" class="com.aof.service.business.expense.impl.ExpenseManagerImpl">
+        <property name="expenseDAO"><ref bean="expenseDAO"/></property>
+        <property name="expenseApproveRequestDAO"><ref bean="expenseApproveRequestDAO"/></property>
+        <property name="expenseAttachmentDAO"><ref bean="expenseAttachmentDAO"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>
+        <property name="expenseSubCategoryManager"><ref bean="expenseSubCategoryManager"/></property>        
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+        <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
+    </bean>
+
+    <bean id="expenseManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="expenseManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="copy*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="airTicketManagerTarget" class="com.aof.service.business.ta.impl.AirTicketManagerImpl">
+        <property name="airTicketDAO"><ref bean="airTicketDAO"/></property>
+        <property name="travelApplicationDAO"><ref bean="travelApplicationDAO"/></property>
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+    </bean>
+
+    <bean id="airTicketManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="airTicketManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="create*">PROPAGATION_REQUIRED</prop>
+            <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="customerManagerTarget" class="com.aof.service.admin.impl.CustomerManagerImpl">
+        <property name="customerDAO"><ref bean="customerDAO"/></property>
+    </bean>
+
+    <bean id="customerManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="customerManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="expenseAttachmentManagerTarget" class="com.aof.service.business.expense.impl.ExpenseAttachmentManagerImpl">
+        <property name="expenseAttachmentDAO"><ref bean="expenseAttachmentDAO"/></property>
+    </bean>
+
+    <bean id="expenseAttachmentManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="expenseAttachmentManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="remove*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="expenseApproveRequestManagerTarget" class="com.aof.service.business.expense.impl.ExpenseApproveRequestManagerImpl">
+        <property name="expenseApproveRequestDAO"><ref bean="expenseApproveRequestDAO"/></property>
+        <property name="expenseManager"><ref bean="expenseManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+    </bean>
+
+    <bean id="expenseApproveRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="expenseApproveRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="approve*">PROPAGATION_REQUIRED</prop>
+            <prop key="reject*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+    <bean id="purchaseTypeManagerTarget" class="com.aof.service.admin.impl.PurchaseTypeManagerImpl">
+        <property name="purchaseTypeDAO"><ref bean="purchaseTypeDAO"/></property>
+    </bean>
+
+    <bean id="purchaseTypeManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseTypeManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="yearlyBudgetManagerTarget" class="com.aof.service.business.pr.impl.YearlyBudgetManagerImpl">
+        <property name="yearlyBudgetDAO"><ref bean="yearlyBudgetDAO"/></property>
+        <property name="yearlyBudgetDepartmentDAO"><ref bean="yearlyBudgetDepartmentDAO"/></property>      
+        <property name="yearlyBudgetHistoryDAO"><ref bean="yearlyBudgetHistoryDAO"/></property>              
+        <property name="purchaseCategoryManager"><ref bean="purchaseCategoryManager"/></property>
+        <property name="purchaseSubCategoryManager"><ref bean="purchaseSubCategoryManager"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>              
+        <property name="functionManager"><ref bean="functionManager"/></property>         
+        <property name="userManager"><ref bean="userManager"/></property>
+		<property name="systemLogManager"><ref bean="systemLogManager"/></property>                
+    </bean>
+
+    <bean id="yearlyBudgetManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="yearlyBudgetManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="freeze*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="capexManagerTarget" class="com.aof.service.business.pr.impl.CapexManagerImpl">
+        <property name="capexDAO"><ref bean="capexDAO"/></property>
+        <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
+        <property name="purchaseCategoryManager"><ref bean="purchaseCategoryManager"/></property>
+        <property name="purchaseSubCategoryManager"><ref bean="purchaseSubCategoryManager"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>     
+        <property name="functionManager"><ref bean="functionManager"/></property>         
+        <property name="userManager"><ref bean="userManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+    </bean>
+
+    <bean id="capexManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="capexManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="save*">PROPAGATION_REQUIRED</prop>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            <prop key="create*">PROPAGATION_REQUIRED</prop>
+            <prop key="withdraw*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="capexRequestApproveRequestManagerTarget" class="com.aof.service.business.pr.impl.CapexRequestApproveRequestManagerImpl">
+        <property name="capexRequestApproveRequestDAO"><ref bean="capexRequestApproveRequestDAO"/></property>
+        <property name="capexDAO"><ref bean="capexDAO"/></property>
+        <property name="capexManager"><ref bean="capexManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+    </bean>
+
+    <bean id="capexRequestApproveRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="capexRequestApproveRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="approve*">PROPAGATION_REQUIRED</prop>
+            <prop key="reject*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="purchaseRequestManagerTarget" class="com.aof.service.business.pr.impl.PurchaseRequestManagerImpl">
+        <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
+        <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
+        <property name="capexManager"><ref bean="capexManager"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+        <property name="purchaseRequestApproveRequestDAO"><ref bean="purchaseRequestApproveRequestDAO"/></property>        
+        <property name="emailManager"><ref bean="emailManager"/></property>
+    </bean>
+
+    <bean id="purchaseRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+            <prop key="*">PROPAGATION_REQUIRED</prop>            
+        </props>
+        </property>
+    </bean>
+
+	<bean id="parameterManagerTarget" class="com.aof.service.admin.impl.ParameterManagerImpl">
+        <property name="parameterDAO"><ref bean="parameterDAO"/></property>
+        <property name="dataTransferManager"><ref bean="dataTransferManager"/></property>
+    </bean>
+
+    <bean id="parameterManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="parameterManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="update*">PROPAGATION_REQUIRED</prop>
+            <prop key="insert*">PROPAGATION_REQUIRED</prop>
+            <prop key="get*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="purchaseRequestApproveRequestManagerTarget" class="com.aof.service.business.pr.impl.PurchaseRequestApproveRequestManagerImpl">
+        <property name="purchaseRequestApproveRequestDAO"><ref bean="purchaseRequestApproveRequestDAO"/></property>
+        <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
+        <property name="purchaseRequestManager"><ref bean="purchaseRequestManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>        
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+    </bean>
+
+    <bean id="purchaseRequestApproveRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseRequestApproveRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="approve*">PROPAGATION_REQUIRED</prop>
+            <prop key="reject*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="purchaseOrderManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderManagerImpl">
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
+        <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
+        <property name="purchaseOrderItemReceiptDAO"><ref bean="purchaseOrderItemReceiptDAO"/></property>        
+        <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
+        <property name="capexManager"><ref bean="capexManager"/></property>
+        <property name="flowManager"><ref bean="flowManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>        
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+        <property name="purchaseOrderApproveRequestDAO"><ref bean="purchaseOrderApproveRequestDAO"/></property>        
+    </bean>
+
+    <bean id="purchaseOrderManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseOrderManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportPurchaseOrderManagerTarget" class="com.aof.service.dataTransfer.impl.ExportPurchaseOrderManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportPurchaseOrderManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportPurchaseOrderManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportPurchaseOrderReceiptManagerTarget" class="com.aof.service.dataTransfer.impl.ExportPurchaseOrderReceiptManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportPurchaseOrderReceiptManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportPurchaseOrderReceiptManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportExpenseManagerTarget" class="com.aof.service.dataTransfer.impl.ExportExpenseManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportExpenseManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportExpenseManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportSupplierManagerTarget" class="com.aof.service.dataTransfer.impl.ExportSupplierManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportSupplierManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportSupplierManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportDepartmentManagerTarget" class="com.aof.service.dataTransfer.impl.ExportDepartmentManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportDepartmentManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportDepartmentManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="exportCountryManagerTarget" class="com.aof.service.dataTransfer.impl.ExportCountryManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="exportCountryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="exportCountryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="importPurchaseTypeManagerTarget" class="com.aof.service.dataTransfer.impl.ImportPurchaseTypeManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="importPurchaseTypeManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="importPurchaseTypeManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="import*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="importExpenseCategoryManagerTarget" class="com.aof.service.dataTransfer.impl.ImportExpenseCategoryManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="importExpenseCategoryManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="importExpenseCategoryManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="import*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="importCustomerManagerTarget" class="com.aof.service.dataTransfer.impl.ImportCustomerManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="importCustomerManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="importCustomerManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="import*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="importExchangeRateManagerTarget" class="com.aof.service.dataTransfer.impl.ImportExchangeRateManagerImpl">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+    </bean>
+    
+    <bean id="importExchangeRateManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="importExchangeRateManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="import*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+    
+    <bean id="dataTransferManagerTarget" class="com.aof.service.admin.impl.DataTransferManagerImpl" init-method="init" destroy-method="destroy">
+        <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
+        <property name="poExportManager"><ref bean="exportPurchaseOrderManager"/></property>
+        <property name="poReceiptExportManager"><ref bean="exportPurchaseOrderReceiptManager"/></property>
+        <property name="expenseExportManager"><ref bean="exportExpenseManager"/></property>
+        <property name="supplierExportManager"><ref bean="exportSupplierManager"/></property>
+        <property name="departmentExportManager"><ref bean="exportDepartmentManager"/></property>
+        <property name="countryExportManager"><ref bean="exportCountryManager"/></property>
+        <property name="purchaseTypeImportManager"><ref bean="importPurchaseTypeManager"/></property>
+        <property name="expenseCategoryImportManager"><ref bean="importExpenseCategoryManager"/></property>
+        <property name="customerImportManager"><ref bean="importCustomerManager"/></property>
+        <property name="exchangeRateImportManager"><ref bean="importExchangeRateManager"/></property>
+        <property name="emailManager"><ref bean="emailManager"/></property>
+    </bean>
+
+    <bean id="dataTransferManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="dataTransferManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="get*">PROPAGATION_REQUIRED</prop>
+            <prop key="export*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+
+	<bean id="purchaseOrderApproveRequestManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderApproveRequestManagerImpl">
+        <property name="purchaseOrderApproveRequestDAO"><ref bean="purchaseOrderApproveRequestDAO"/></property>
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
+        <property name="purchaseOrderManager"><ref bean="purchaseOrderManager"/></property>
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>        
+        <property name="approveRelativeEmailManager"><ref bean="approveRelativeEmailManager"/></property>
+    </bean>
+
+    <bean id="purchaseOrderApproveRequestManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseOrderApproveRequestManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="approve*">PROPAGATION_REQUIRED</prop>
+            <prop key="reject*">PROPAGATION_REQUIRED</prop>
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="purchaseOrderItemReceiptManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderItemReceiptManagerImpl">
+        <property name="purchaseOrderItemReceiptDAO"><ref bean="purchaseOrderItemReceiptDAO"/></property>
+        <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>        
+        <property name="systemLogManager"><ref bean="systemLogManager"/></property>   
+        <property name="emailManager"><ref bean="emailManager"/></property>   
+    </bean>
+
+    <bean id="purchaseOrderItemReceiptManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="purchaseOrderItemReceiptManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="systemLogManagerTarget" class="com.aof.service.admin.impl.SystemLogManagerImpl">
+        <property name="systemLogDAO"><ref bean="systemLogDAO"/></property>
+        <property name="universalDAO"><ref bean="universalDAO"/></property>
+    </bean>
+
+    <bean id="systemLogManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="systemLogManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+            <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>
+
+	<bean id="approveRelativeEmailManager" class="com.aof.service.business.impl.ApproveRelativeEmailManagerImpl">
+        <property name="emailManager"><ref bean="emailManager"/></property>
+        <property name="approverDelegateDAO"><ref bean="approverDelegateDAO"/></property>
+    </bean>  
+    
+    <!-- 
+    <bean id="kpiManagerTarget" class="com.aof.service.kpi.impl.KPIManagerImpl">
+        <property name="kpiSummaryDAO"><ref bean="kpiSummaryDAO"/></property>
+        <property name="siteManager"><ref bean="siteManager"/></property>        
+        <property name="capexManager"><ref bean="capexManager"/></property>                
+        <property name="expenseManager"><ref bean="expenseManager"/></property>                
+        <property name="purchaseRequestManager"><ref bean="purchaseRequestManager"/></property>                
+        <property name="travelApplicationManager"><ref bean="travelApplicationManager"/></property>                
+    </bean>
+    
+    <bean id="kpiManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="kpiManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>
+            <prop key="*">PROPAGATION_REQUIRED</prop>
+        </props>
+        </property>
+    </bean>
+     
+    <bean id="batchKPISummaryJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	  <property name="targetObject" ref="kpiManager"/>
+	  <property name="targetMethod" value="doSummary"/>
+	  <property name="concurrent" value="false"/>
+	</bean>
+
+	<bean id="kpiSummaryTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+	  <property name="jobDetail" ref="batchKPISummaryJobDetail"/>
+	  <property name="startDelay" value="10000"/>
+	  <property name="repeatInterval" value="30000"/>
+	</bean>
+	
+	<bean id="kpiSummaryTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail" ref="batchKPISummaryJobDetail"/>
+	  
+	  <property name="cronExpression">
+	  	<value>0 30 11 * * ?</value>
+	  </property>
+	</bean>
+	-->
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	  <property name="triggers">
+	    <list>
+	      <ref bean="emailTrigger"/>
+	      <ref bean="reminderTrigger"/>
+	      <ref bean="batchEmailTrigger"/>
+	      <!-- <ref bean="kpiSummaryTrigger"/>-->	      
+	    </list>
+	  </property>
+	</bean>	   
+	
+	<bean id="projectCodeManagerTarget" class="com.aof.service.admin.impl.ProjectCodeManagerImpl">
+        <property name="projectCodeDAO"><ref bean="projectCodeDAO"/></property>
+    </bean>
+
+    <bean id="projectCodeManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="hibernateTransactionManager"/></property>
+        <property name="target"><ref local="projectCodeManagerTarget"/></property>
+        <property name="transactionAttributes">
+        <props>                     
+            <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+        </props>
+        </property>
+    </bean>    	
+</beans>

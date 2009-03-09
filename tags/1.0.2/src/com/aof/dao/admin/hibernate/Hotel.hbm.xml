@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 13:36:35 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Hotel" table="hotel">
+        <id name="id" column="hotel_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="name" column="hotel_nm" type="string" />
+        <property name="address" column="hotel_addr" type="string" />
+        <property name="description" column="hotel_desc" type="string" />
+        <property name="email" column="hotel_email" type="string" />
+        <property name="contact" column="hotel_contact" type="string" />        
+        <property name="telephone" column="hotel_tele" type="string" />
+        <property name="fax" column="hotel_fax" type="string" />
+        <property name="level" column="hotel_level" type="com.aof.model.metadata.HotelLevel" />
+        <property name="contractStartDate" column="cont_fr_date" type="date" />
+        <property name="contractExpireDate" column="cont_to_date" type="date" />
+        <property name="promoteStatus" column="promote_status" type="com.aof.model.metadata.HotelPromoteStatus" not-null="true" />
+        <property name="promoteMessage" column="promote_msg" type="string" />
+        <property name="promoteDate" column="promote_date" type="timestamp" />
+        <property name="emailDate" column="email_date" type="timestamp" />
+        <property name="emailTimes" column="email_times" type="integer" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+		<many-to-one name="site" column="hotel_site" class="Site" />
+		 
+        <many-to-one name="currency" column="hotel_curr" class="Currency" />
+ 
+        <many-to-one name="city" column="hotel_city" class="City" />
+        
+        <property name="specialService" column="hotel_spec" type="string" />
+ 
+    </class>
+    
+    <class name="HotelContract" table="hotel_contract">
+        <id name="id" column="cont_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<property name="fileSize" column="cont_file_size" type="integer"/>
+        <property name="fileName" column="cont_file_nm" type="string"  not-null="true" />
+        <property name="description" column="cont_file_desc" type="string" />
+        <property name="uploadDate" column="cont_uploaddate" type="date"  not-null="true" />
+ 
+        <many-to-one name="hotel" column="hotel_id" class="Hotel"  not-null="true" />
+    </class>
+
+    <class name="HotelContractContent" table="hotel_contract">
+        <id name="id" column="cont_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="fileContent" column="cont_filecontnt" type="blob"  not-null="true" />
+    </class>
+
+    <class name="Price" table="hotel_room">
+        <id name="id" column="room_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="room" column="room_nm" type="string" />
+        <property name="price" column="room_price" type="big_decimal" />
+        <property name="discount" column="room_discount" type="integer" />
+        <property name="breakfast" column="room_breakfast" type="string" />        
+        <property name="network" column="room_network" type="string" />
+        <property name="description" column="room_desc" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="hotel" column="hotel_id" class="Hotel" />
+    </class>
+    
+</hibernate-mapping>

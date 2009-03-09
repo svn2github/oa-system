@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />  
+
+	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig">
+
+		<form-bean name="yearlyBudgetFreezeForm" type="com.shcnc.struts.form.DynaValidatorForm">
+			<form-property name="yearlyBudgetIds" type="java.lang.String[]">	
+			</form-property>
+		</form-bean>
+				
+		<form-bean name="yearlyBudgetForm"
+				type="com.aof.model.business.pr.YearlyBudget">
+			<set-property property="requires"
+				value=" 
+					site.id,
+					code,
+					name,
+					type,
+					year,
+					durationFrom,
+					durationTo,
+					amount,
+					status,
+				" />
+			<set-property property="includes"
+				value=" 
+					id,
+					purchaseCategory.id,
+					purchaseSubCategory.id,
+					expenseCategory.id,
+					status,
+				" />
+			<form-property name="departments" type="java.lang.String[]">	
+			</form-property>
+		</form-bean>
+		
+		<form-bean name="yearlyBudgetEditForm"
+				type="com.aof.model.business.pr.YearlyBudget">
+			<set-property property="requires"
+				value=" 
+					name,
+					amount,
+					status,
+					
+				" />
+			<set-property property="includes"
+				value="id,rowVersion," />	               
+				
+			<form-property name="departments" type="java.lang.String[]">	
+			</form-property>
+		</form-bean>
+		
+		<form-bean name="yearlyBudgetQueryForm" type="com.aof.web.struts.form.business.pr.YearlyBudgetQueryForm" />
+
+		<form-bean name="capexRequestForm"
+				type="com.aof.model.business.pr.CapexRequest">
+			<set-property property="identities"
+				value=" 
+					capex.site.id,
+					capex.currency.code,
+					capex.purchaseCategory.id,
+					capex.purchaseSubCategory.id,
+					capex.yearlyBudget.id,
+					referenceCurrency.code,
+					projectLeader.id,
+				" />
+			<set-property property="requires"
+				value=" 
+					title,
+					capex.site.id,
+					capex.currency.code,
+					referenceCurrency.code,
+					capexCapitalizedAmount,
+					referenceExchangeRate,
+				" />
+			<set-property property="includes"
+				value=" 
+					description,
+					amount,
+					activity,
+					capex.yearlyBudget.id,
+					postAuditDate,
+					firstExpenseDate,
+					lastExpenseDate,
+					completionDate,
+					projectLeader.id,
+					projectLeaderTitle,
+					accountingCode,
+					isCapexType,
+					isNewImplantationReason,
+					isCapacityIncreaseReason,
+					isAssetDisposalType,
+					isCostImprovementReason,
+					isNewProductLineReason,
+					otherType,
+					isDownsizingReason,
+					isHSEReason,
+					otherReason,
+					otherExpenseAmount,
+					assetDisposalAmount,
+					grossBookAmount,
+					projectImpactNonOperating1,
+					projectImpactNonOperating2,
+					projectImpactOther1,
+					projectImpactOther2,
+					projectImpactOther3,
+					lastForecastAmount,
+					discountedCashFlowPayback,
+					internalRateOfReturn,
+					npvAmount,
+					discountRate,
+				" />
+			<set-property property="toForms" 
+				value="
+					id,
+					capex.id,
+				"/>
+			<form-property name="capex_department_id" type="java.lang.String[]" />
+		</form-bean>
+		<form-bean name="capexRequestQueryForm" type="com.aof.web.struts.form.business.pr.CapexRequestQueryForm" />
+
+		<form-bean name="capexRequestAttachmentForm"
+			type="com.aof.model.business.pr.CapexRequestAttachment">
+			<set-property property="requires" value="capexRequest.id,description" />
+			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
+			</form-property>
+		</form-bean>		
+
+		<form-bean name="capexRequestItemForm"
+				type="com.aof.model.business.pr.CapexRequestItem">
+			<set-property property="identities"
+				value=" 
+					supplier.id,
+					supplierItem.id,
+					purchaseSubCategory.id,
+					exchangeRate.id,
+				" />
+			<set-property property="requires"
+				value=" 
+					purchaseSubCategory.id,
+					supplierItemSepc,
+					price,
+					quantity,
+					currency.code,
+					exchangeRateValue,
+				" />
+			<set-property property="includes"
+				value=" 
+					supplierName,
+				" />
+			<set-property property="toForms" 
+				value="
+					id,
+					capexRequest.id,
+					capexRequest.capex.purchaseCategory.id,
+				"/>
+		</form-bean>
+		
+		<form-bean name="capexRequestApproveRequestQueryForm" type="com.aof.web.struts.form.business.BaseApproveQueryForm" />
+
+		<!-- purchaseRequest starts -->
+		<form-bean name="purchaseRequestForm"
+				type="com.aof.model.business.pr.PurchaseRequest">
+			<set-property property="requires"
+				value=" 
+					department.site.id,
+					title,
+					purchaseSubCategory.purchaseCategory.id,
+					purchaseSubCategory.id,
+					department.id,
+					requestor.id,
+					currency.code,
+				" />
+			<set-property property="includes"
+				value=" 
+					description,
+					capex.id,
+					yearlyBudget.id,
+				" />	
+			<set-property property="toForms" 
+				value="
+					id,
+				"/>
+			<form-property name="budgetType" type="java.lang.String">
+			</form-property>
+		</form-bean>
+		<form-bean name="purchaseRequestQueryForm" type="com.aof.web.struts.form.business.pr.PurchaseRequestQueryForm" />
+		<form-bean name="purchaseRequestEditForm"
+				type="com.aof.model.business.pr.PurchaseRequest">
+			<set-property property="requires"
+				value=" 
+					title,
+				" />
+			<set-property property="includes"
+				value=" 
+					description,
+				" />	
+			<set-property property="toForms" 
+				value="
+					id,
+				"/>
+		</form-bean>
+		
+		<form-bean name="purchaseRequestItemForm"
+				type="com.aof.model.business.pr.PurchaseRequestItem">
+			<set-property property="identities"
+				value=" 
+					supplier.id,
+					supplierItem.id,
+					exchangeRate.id,
+					buyForUser.id,
+					buyForDepartment.id,	
+					projectCode.id,					
+				" />        
+			<set-property property="requires"
+				value=" 
+					supplierItemSepc,
+					unitPrice,
+					quantity,
+					exchangeRate_id,
+					exchangeRateValue,	
+						
+				" />        
+			<set-property property="includes"
+				value=" 
+					supplierName,
+					dueDate,
+					isRecharge,					
+									
+				" />
+			<set-property property="toForms"  
+				value="
+					id,
+					purchaseRequest.id,
+					buyForUser.name,
+					projectCode.code,						       
+				"/>
+			<form-property name="rechargeType" type="java.lang.String"/>
+		</form-bean>
+		
+		<form-bean name="purchaseRequestAttachmentForm"
+			type="com.aof.model.business.pr.PurchaseRequestAttachment">
+			
+			<set-property property="requires" value="description" />
+			
+			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
+			</form-property>
+			
+			<form-property name="attachment_id" type="java.lang.String" 
+				className="com.shcnc.struts.form.config.BeanFormPropertyConfig">
+				<set-property property="toForm" value="true"/>
+				<set-property property="beanPropertyName" value="id"/>
+			</form-property>
+		</form-bean>		
+		
+		<form-bean name="purchaseRequestItemAttachmentForm"
+			type="com.aof.model.business.pr.PurchaseRequestItemAttachment">
+			<set-property property="requires" value="description" />
+			
+			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
+			</form-property>
+			
+			<form-property name="item_attachment_id" type="java.lang.String" 
+				className="com.shcnc.struts.form.config.BeanFormPropertyConfig">
+				<set-property property="toForm" value="true"/>
+				<set-property property="beanPropertyName" value="id"/>
+			</form-property>
+			
+		</form-bean>		
+		
+		
+		<form-bean name="purchaseRequestPurchaseForm"
+				type="com.shcnc.struts.form.DynaValidatorForm">
+			<form-property name="id" type="java.lang.String"/>
+			<form-property name="po_ids" type="java.lang.String[]"/>
+		</form-bean>
+
+		<form-bean name="purchaseRequestAssignForm"
+			type="com.aof.model.business.pr.PurchaseRequest">
+			<set-property property="requires" value="purchaser.id" />
+			<set-property property="includes" value="id" />
+		</form-bean>	
+
+		<!-- purchaseRequest ends -->
+
+		<form-bean name="purchaseRequestApproveRequestQueryForm" type="com.aof.web.struts.form.business.BaseApproveQueryForm" />
+
+	</form-beans>
+
+	<global-exceptions>
+	</global-exceptions>
+
+	<global-forwards>
+	</global-forwards>
+
+	<action-mappings type="com.aof.web.struts.action.SecureActionMapping">
+		<!-- YearlyBudget -->
+		<action     
+			parameter="list" path="/listYearlyBudget" scope="session" name="yearlyBudgetQueryForm" 
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240020"/>
+			<set-property property="functionDescription" value="list yearly budget"/>			
+			<forward name="page" path="site.yearlyBudget.list" />
+		</action>
+		
+		<action     
+			parameter="listHistory" path="/listYearlyBudget_history" scope="request"  
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240170"/>
+			<set-property property="functionDescription" value="list history of yearly budget"/>			
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.yearlyBudget.history" />
+		</action>
+		
+		<action     
+			parameter="list_freeze" path="/listYearlyBudget_freeze" scope="session" name="yearlyBudgetQueryForm" 
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240180"/>
+			<set-property property="functionDescription" value="freeze/unfreeze yearly budget"/>
+			<forward name="page" path="site.yearlyBudget.freeze.list" />
+		</action>
+		
+		<action     
+			parameter="freeze" path="/freezeYearlyBudget" scope="request" name="yearlyBudgetFreezeForm" 
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction"
+			input="/listYearlyBudget_freeze.do"
+		>
+			<set-property property="functionId" value="22240180"/>
+		</action>
+		
+		<action     
+			parameter="newObject" path="/newYearlyBudget" scope="request"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240030"/>
+			<set-property property="functionDescription" value="create yearly budget"/>			
+			<forward name="page" path="site.yearlyBudget.new" />
+		</action>
+		<action     
+			parameter="insert" path="/insertYearlyBudget" scope="request" name="yearlyBudgetForm" input="/newYearlyBudget.do"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240030"/>
+		</action>
+		<action     
+			parameter="edit" path="/editYearlyBudget" scope="request"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240040"/>
+			<set-property property="functionDescription" value="edit yearly budget"/>
+			<forward name="page" path="site.yearlyBudget.edit" />
+		</action>
+		<action     
+			parameter="update" path="/updateYearlyBudget" scope="request" name="yearlyBudgetEditForm" input="/editYearlyBudget.do"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="22240040"/>
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<action     
+			parameter="viewAmount" path="/viewYearlyBudgetAmount"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="32240010"/>
+			<set-property property="functionDescription" value="view yearly budget amount"/>
+			<set-property property="functionType" value="ViewYearlyBudgetAmount"/>
+		</action>
+		<!-- end of YearlyBudget -->
+		
+		<!-- CapexRequest -->
+		<action
+			parameter="list" path="/listCapexRequest" scope="session" name="capexRequestQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250020"/>
+			<set-property property="functionDescription" value="list capex request"/>			
+			<forward name="page" path="site.capexRequest.list" />
+		</action>
+		<action
+			parameter="report" path="/reportCapexRequest" scope="session" 
+			name="capexRequestQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="22252020"/>
+			<set-property property="functionDescription" value="capex report"/>						
+			<forward name="page" path="site.capexRequest.report" />
+		</action>
+		<action
+			parameter="newObject" path="/newCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250030"/>
+			<set-property property="functionDescription" value="create capex request"/>
+			<forward name="page" path="site.capexRequest.new" />
+		</action>
+		<action
+			parameter="insert" path="/insertCapexRequest" scope="request" name="capexRequestForm" input="/newCapexRequest.do"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250030"/>
+		</action>
+		<action
+			parameter="edit" path="/editCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="functionDescription" value="edit capex request"/>			
+			<forward name="page" path="site.capexRequest.edit" />
+		</action>
+		<action
+			parameter="update" path="/updateCapexRequest" scope="request" name="capexRequestForm" input="/editCapexRequest.do" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250040"/>
+		</action>
+		<action
+			parameter="viewapprover" path="/updateCapexRequest_viewApprover" scope="request" name="capexRequestForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.approve.viewApprover" />
+		</action>
+		<action
+			parameter="view" path="/viewCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250060"/>
+			<set-property property="functionDescription" value="view capex request"/>			
+			<forward name="page" path="site.capexRequest.view" />
+			<forward name="pageDialog" path="site.capexRequest.viewDialog" />
+		</action>
+		<action
+			parameter="export" path="/exportCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250060"/>
+		</action>
+		<action
+			parameter="delete" path="/deleteCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250050"/>
+			<set-property property="functionDescription" value="delete capex request"/>				
+		</action>
+		<action
+			parameter="createIncrease" path="/createIncreaseCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250020"/>
+		</action>
+
+		<action
+			parameter="withdraw" path="/withdrawCapexRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250070"/>
+			<set-property property="functionDescription" value="withdraw capex request"/>
+		</action>
+
+		<action
+			parameter="selectYearlyBudget" path="/selectYearlyBudget" scope="request" name="capexRequestForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAction">
+			<set-property property="functionId" value="32250020"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.yearlyBudget.select" />
+		</action>
+		<action     
+			parameter="viewAmount" path="/viewCapexAmount"
+			type="com.aof.web.struts.action.business.pr.YearlyBudgetAction">
+			<set-property property="functionId" value="32250010"/>
+			<set-property property="functionDescription" value="view capex amount"/>
+			<set-property property="functionType" value="ViewCapexAmount"/>
+		</action>
+		<!-- end of CapexRequest -->
+
+		<!-- CapexRequestItem -->
+		<action
+			parameter="edit" path="/editCapexRequestItem" scope="request" name="capexRequestItemForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestItemAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.capexRequest.editItem" />
+		</action>
+		<action
+			parameter="update" path="/updateCapexRequestItem"  scope="request" name="capexRequestItemForm" input="/editCapexRequestItem.do"
+			type="com.aof.web.struts.action.business.pr.CapexRequestItemAction">
+			<set-property property="functionId" value="32250040"/>
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<!-- end of CapexRequestItem -->
+
+		<!-- CapexRequestAttachment -->
+		<action     
+			parameter="newObject" path="/newCapexRequestAttachment" scope="request" 
+			type="com.aof.web.struts.action.business.pr.CapexRequestAttachmentAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.capexRequestAttachment.new" />
+		</action>
+		<action     
+			parameter="insert" path="/insertCapexRequestAttachment" scope="request" name="capexRequestAttachmentForm" input="/newCapexRequestAttachment.do"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAttachmentAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<action     
+			parameter="delete" path="/deleteCapexRequestAttachment" scope="request" 
+			type="com.aof.web.struts.action.business.pr.CapexRequestAttachmentAction">
+			<set-property property="functionId" value="32250040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
+		</action>
+		<action
+			parameter="download" path="/downloadCapexRequestAttachment" scope="request"
+			type="com.aof.web.struts.action.business.pr.CapexRequestAttachmentAction">
+			<set-property property="functionId" value="32250060" />
+		</action>
+		<!-- end of CapexRequestAttachment -->
+		
+		<!-- CapexRequestApproveRequest -->
+		<action
+			parameter="list" path="/listCapexRequestApproveRequest"
+			scope="session" name="capexRequestApproveRequestQueryForm"
+			validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestApproveRequestAction">
+			<set-property property="functionId" value="12251010" />
+			<set-property property="functionDescription" value="approve capex request"/>			
+			<set-property property="functionType" value="CapexApproval" />
+			<forward name="page" path="site.capexRequestApproveRequest.list" />
+		</action>
+		<action
+			parameter="view" path="/viewCapexRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestApproveRequestAction">
+			<set-property property="functionId" value="12251010" />
+			<forward name="viewPage" path="site.capexRequestApproveRequest.view" />
+			<forward name="editPage" path="site.capexRequestApproveRequest.edit" />
+		</action>
+		<action
+			parameter="approve" path="/approveCapexRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestApproveRequestAction">
+			<set-property property="functionId" value="12251010" />
+		</action>
+		<action parameter="updateAndApprove"
+			path="/updateAndApproveCapexRequestApproveRequest" scope="request"
+			name="capexRequestForm" input="/viewCapexRequestApproveRequest.do" validate="false"
+			type="com.aof.web.struts.action.business.pr.CapexRequestApproveRequestAction">
+			<set-property property="functionId" value="12251010" />
+		</action>
+		<action
+			parameter="reject" path="/rejectCapexRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.CapexRequestApproveRequestAction">
+			<set-property property="functionId" value="12251010" />
+		</action>
+		<!-- end of CapexRequestApproveRequest -->
+
+		<!-- PurchaseRequest -->
+		<action     
+			parameter="listSelf" path="/listPurchaseRequest_self" scope="session" 
+			name="purchaseRequestQueryForm" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260020"/>
+			<set-property property="functionDescription" value="list my request purchase request"/>						
+			<forward name="page" path="site.purchaseRequest.list.self" />
+		</action>
+		<action
+			parameter="report" path="/reportPurchaseRequest" scope="session" 
+			name="purchaseRequestQueryForm" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="32262020"/>
+			<set-property property="functionDescription" value="purchase request report"/>						
+			<forward name="page" path="site.purchaseRequest.report" />
+		</action>
+		<action     
+			parameter="listOther" path="/listPurchaseRequest_other" scope="session" 
+			name="purchaseRequestQueryForm" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260021"/>
+			<set-property property="functionDescription" value="list my delegate purchase request"/>			
+			<forward name="page" path="site.purchaseRequest.list.other" />
+		</action>
+
+		<action     
+			parameter="newObjectSelf" path="/newPurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260030"/>
+			<set-property property="functionDescription" value="create my request purchase request"/>			
+			<forward name="page" path="site.purchaseRequest.new.self" />
+		</action>
+		<action     
+			parameter="newObjectOther" path="/newPurchaseRequest_other" scope="request"
+			name="purchaseRequestForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260031"/>
+			<set-property property="functionDescription" value="create my delegate purchase request"/>
+			<forward name="page" path="site.purchaseRequest.new.other" />
+		</action>
+		
+		
+		<action     
+			parameter="viewDialog" path="/viewPurchaseRequest_dialog" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="32260060"/>
+			<set-property property="functionDescription" value="view purchase request(dialog)"/>
+			<forward name="page" path="site.purchaseRequest.view.dialog" />
+		</action>
+		<action     
+			parameter="viewOther" path="/viewPurchaseRequestItem" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="32260060"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.viewItem" />			
+		</action>
+		<action     
+			parameter="viewReport" path="/viewPurchaseRequest_report" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="32262060"/>
+			<set-property property="functionDescription" value="view purchase request(report)"/>
+			<forward name="page" path="site.purchaseRequest.view.other" />
+		</action>
+		<action     
+			parameter="viewSelf" path="/viewPurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260060"/>
+			<set-property property="functionDescription" value="view my request purchase request"/>
+			<forward name="page" path="site.purchaseRequest.view.self" />
+		</action>
+		<action     
+			parameter="viewOther" path="/viewPurchaseRequest_other" scope="request"
+			name="purchaseRequestForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260061"/>
+			<set-property property="functionDescription" value="view my delegate purchase request"/>
+			<forward name="page" path="site.purchaseRequest.view.other" />
+		</action>
+		<action     
+			parameter="exportPDF" path="/exportPurchaseRequestDetailPDF_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260060"/>
+		</action>
+		<action     
+			parameter="exportPDF" path="/exportPurchaseRequestDetailPDF_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260061"/>
+		</action>
+		<action     
+			parameter="selectYearlyBudget" path="/newPurchaseRequest_self_selectYearlyBudget" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260030"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.yearlyBudget.select2" />
+		</action>
+		<action     
+			parameter="selectYearlyBudget" path="/newPurchaseRequest_other_selectYearlyBudget" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260031"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.yearlyBudget.select2" />
+		</action>
+		
+		<action     
+			parameter="selectCapex" path="/newPurchaseRequest_self_selectCapex" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260030"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.capex.select" />
+		</action>
+		<action     
+			parameter="selectCapex" path="/newPurchaseRequest_other_selectCapex" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260031"/>
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.capex.select" />
+		</action>		
+		
+		<action     
+			parameter="insertSelf" path="/insertPurchaseRequest_self" scope="request" 
+			name="purchaseRequestForm" input="/newPurchaseRequest_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260030"/>
+		</action>
+		<action     
+			parameter="insertOther" path="/insertPurchaseRequest_other" scope="request" 
+			name="purchaseRequestForm" input="/newPurchaseRequest_other.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260031"/>
+		</action>
+		
+		<action
+			parameter="update_viewApprover_self" path="/updatePurchaseRequest_self_viewApprover"
+			scope="request" name="purchaseRequestEditForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="functionDescription" value="edit my request purchase request"/>			
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.approve.viewApprover" />
+		</action>
+		
+		<action
+			parameter="update_viewApprover_other" path="/updatePurchaseRequest_other_viewApprover"
+			scope="request" name="purchaseRequestEditForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="functionDescription" value="edit my delegate purchase request"/>			
+			<set-property property="dialog" value="true" />
+			<forward name="page" path="site.approve.viewApprover" />
+		</action>
+		
+		<action     
+			parameter="editSelf" path="/editPurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260040"/>
+			<forward name="page" path="site.purchaseRequest.edit.self" />
+		</action>
+		<action     
+			parameter="editOther" path="/editPurchaseRequest_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260041"/>
+			<forward name="page" path="site.purchaseRequest.edit.other" />
+		</action>
+
+		<action     
+			parameter="updateSelf" path="/updatePurchaseRequest_self" scope="request" 
+			name="purchaseRequestEditForm" input="/editPurchaseRequest_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260040"/>
+		</action>
+		<action     
+			parameter="updateOther" path="/updatePurchaseRequest_other" scope="request" 
+			name="purchaseRequestEditForm" input="/editPurchaseRequest_other.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260041"/>
+		</action>
+		
+		<action     
+			parameter="deleteSelf" path="/deletePurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260050"/>
+			<set-property property="functionDescription" value="delete my request purchase request"/>			
+		</action>
+		<action     
+			parameter="deleteOther" path="/deletePurchaseRequest_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">   
+			<set-property property="functionId" value="12260051"/>
+			<set-property property="functionDescription" value="delete my delegate purchase request"/>						
+		</action>
+		
+		<action     
+			parameter="withdrawSelf" path="/withdrawPurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260070"/>
+			<set-property property="functionDescription" value="withdraw my request purchase request"/>						
+		</action>
+		<action     
+			parameter="withdrawOther" path="/withdrawPurchaseRequest_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">   
+			<set-property property="functionId" value="12260071"/>
+			<set-property property="functionDescription" value="withdraw my delegate purchase request"/>						
+
+		</action>
+		
+		<action     
+			parameter="copy" path="/copyPurchaseRequest_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260040"/>
+		</action>
+		<action     
+			parameter="copy" path="/copyPurchaseRequest_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="12260041"/>
+		</action>
+		<!-- end of PurchaseRequest -->	
+		
+		<!-- begin of PurchaseRequestItem -->	
+		<action     
+			parameter="viewSelf" path="/viewPurchaseRequestItem_self" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260060"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.viewItem" />			
+		</action>
+		<action     
+			parameter="viewOther" path="/viewPurchaseRequestItem_other" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260061"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.viewItem" />			
+		</action>
+		
+		
+		<action     
+			parameter="editSelf" path="/editPurchaseRequestItem_self" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.editItem" />			
+		</action>
+		<action     
+			parameter="editOther" path="/editPurchaseRequestItem_other" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.editItem" />			
+		</action>
+		
+		<action     
+			parameter="updateSelf" path="/updatePurchaseRequestItem_self" scope="request"
+			name="purchaseRequestItemForm"			
+			input="/editPurchaseRequestItem_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		<action     
+			parameter="updateOther" path="/updatePurchaseRequestItem_other" scope="request" 
+			name="purchaseRequestItemForm"
+			input="/editPurchaseRequestItem_other.do"			
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		
+		<action     
+			parameter="delete" path="/deletePurchaseRequestItem_self" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>		
+		</action>
+		<action     
+			parameter="delete" path="/deletePurchaseRequestItem_other" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>		
+		</action>
+		
+		<action     
+			parameter="newObjectSelf" path="/newPurchaseRequestItem_self" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.editItem" />			
+		</action>
+		<action     
+			parameter="newObjectOther" path="/newPurchaseRequestItem_other" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.editItem" />			
+		</action>
+		
+		<action     
+			parameter="insertSelf" path="/insertPurchaseRequestItem_self" scope="request"
+			name="purchaseRequestItemForm"			
+			input="/newPurchaseRequestItem_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		<action     
+			parameter="insertOther" path="/insertPurchaseRequestItem_other" scope="request" 
+			name="purchaseRequestItemForm"
+			input="/newPurchaseRequestItem_other.do"			
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		
+		
+		<action     
+			parameter="selectRechargeCustomer" path="/selectPurchaseRequestItemRechargeCustomer" scope="session" name="rechargeCustomerQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listCustomer" />
+		</action>
+		<action     
+			parameter="selectRechargeEntity" path="/selectPurchaseRequestItemRechargeEntity" scope="session" name="rechargeCustomerQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listCustomer" />
+		</action>
+		<action     
+			parameter="selectRechargePerson" path="/selectPurchaseRequestItemRechargePerson" scope="session" name="rechargePersonQueryForm" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.recharge.listPerson" />
+		</action>
+
+		<!-- end of PurchaseRequestItem -->	
+		
+		<!-- begin of PurchaseRequestAttachment -->
+		<action     
+			parameter="newObjectSelf" path="/newPurchaseRequestAttachment_self" scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.purchaseRequestAttachment.new" />
+		</action>
+		<action     
+			parameter="newObjectOther" path="/newPurchaseRequestAttachment_other" scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.purchaseRequestAttachment.new" />
+		</action>
+		
+		<action     
+			parameter="insertSelf" path="/insertPurchaseRequestAttachment_self" 
+			scope="request" name="purchaseRequestAttachmentForm" input="/newPurchaseRequestAttachment_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<action     
+			parameter="insertOther" path="/insertPurchaseRequestAttachment_other" 
+			scope="request" name="purchaseRequestAttachmentForm" input="/newPurchaseRequestAttachment_other.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		
+		<action
+			parameter="download" path="/downloadPurchaseRequestAttachment_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260060" />
+		</action>
+		<action
+			parameter="download" path="/downloadPurchaseRequestAttachment_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+			<set-property property="functionId" value="12260061" />
+		</action>
+		
+		
+		<!-- end of PurchaseRequestAttachment -->
+		
+		<!-- begin of PurchaseRequestItemAttachment -->
+		<action     
+			parameter="newObjectSelf" path="/newPurchaseRequestItemAttachment_self" scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.purchaseRequestItemAttachment.new" />
+		</action>
+		<action     
+			parameter="newObjectOther" path="/newPurchaseRequestItemAttachment_other" scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="page" path="site.purchaseRequestItemAttachment.new" />
+		</action>
+		
+		<action     
+			parameter="insertSelf" path="/insertPurchaseRequestItemAttachment_self" 
+			scope="request" name="purchaseRequestItemAttachmentForm" input="/newPurchaseRequestItemAttachment_self.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260040"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		<action     
+			parameter="insertOther" path="/insertPurchaseRequestItemAttachment_other" 
+			scope="request" name="purchaseRequestItemAttachmentForm" input="/newPurchaseRequestItemAttachment_other.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260041"/>
+			<set-property property="dialog" value="true"/>				
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
+		</action>
+		
+		<action
+			parameter="download" path="/downloadPurchaseRequestItemAttachment_self" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260060" />
+		</action>
+		<action
+			parameter="download" path="/downloadPurchaseRequestAttachment" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAttachmentAction">
+		</action>
+		<action
+			parameter="download" path="/downloadPurchaseRequestItemAttachment_other" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestItemAttachmentAction">
+			<set-property property="functionId" value="12260061" />
+		</action>
+		
+		<!-- end of PurchaseRequestItemAttachment -->
+		
+		<!-- PurchaseRequestApproveRequest -->
+		<action
+			parameter="list" path="/listPurchaseRequestApproveRequest"
+			scope="session" name="purchaseRequestApproveRequestQueryForm"
+			validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestApproveRequestAction">
+			<set-property property="functionId" value="12261010" />
+			<set-property property="functionDescription" value="approve purchase request"/>			
+			<set-property property="functionType" value="PRApproval" />
+			<forward name="page" path="site.purchaseRequestApproveRequest.list" />
+		</action>
+		<action
+			parameter="view" path="/viewPurchaseRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestApproveRequestAction">
+			<set-property property="functionId" value="12261010" />
+			<forward name="viewPage" path="site.purchaseRequestApproveRequest.view" />
+			<forward name="editPage" path="site.purchaseRequestApproveRequest.edit" />
+		</action>
+		<action
+			parameter="approve" path="/approvePurchaseRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestApproveRequestAction">
+			<set-property property="functionId" value="12261010" />
+		</action>
+		<action parameter="updateAndApprove"
+			path="/updateAndApprovePurchaseRequestApproveRequest" scope="request"
+			name="purchaseRequestEditForm" input="/viewPurchaseRequestApproveRequest.do" validate="false"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestApproveRequestAction">
+			<set-property property="functionId" value="12261010" />
+		</action>
+		<action
+			parameter="reject" path="/rejectPurchaseRequestApproveRequest"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestApproveRequestAction">
+			<set-property property="functionId" value="12261010" />
+		</action>
+		<!-- end of PurchaseRequestApproveRequest -->
+		
+		<!-- start of PurchaseRequestPurchaseAction -->		
+		<action parameter="listAssign"
+			path="/listPurchaseRequest_assign" scope="session"
+			name="purchaseRequestQueryForm"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="32260120" /> 
+			<set-property property="functionDescription" value="assign purchase request"/>			
+			<forward name="page" path="site.purchaseRequest.assign.list" />
+		</action>
+		<action parameter="assign"
+			path="/assignPurchaseRequest"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="32260120" />
+			<forward name="page" path="site.purchaseRequest.assign" />
+		</action>
+		<action parameter="assignResult"
+			path="/assignPurchaseRequest_result" scope="request"
+			name="purchaseRequestAssignForm"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="32260120" />
+		</action>
+
+		<action
+			parameter="listPurchase" path="/listPurchaseRequest_purchase" scope="session" 
+			name="purchaseRequestQueryForm" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="functionDescription" value="purchase purchase request"/>			
+			<set-property property="functionType" value="Purchasing" />
+			<forward name="page" path="site.purchaseRequest.purchase.list" />
+		</action>
+		
+		<action
+			parameter="reject" path="/rejectPurchaseRequest_purchase" scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="22260150"/>
+		</action>
+		
+		<action     
+			parameter="view" path="/viewPurchaseRequest_purchase" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="22260150"/>
+			<forward name="page" path="site.purchaseRequest.purchase.view" />
+		</action>
+		
+		<action     
+			parameter="purchase" path="/purchasePurchaseRequest" scope="request"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="22260150"/>
+			<forward name="page" path="site.purchaseRequest.purchase" />
+		</action>
+
+		<action     
+			parameter="purchaseResult" path="/purchasePurchaseRequest_result" scope="request" 
+			name="purchaseRequestPurchaseForm" input="/purchasePurchaseRequest"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseAction">
+			<set-property property="functionId" value="22260150"/>
+		</action>
+		<!-- end of PurchaseRequestPurchaseAction -->				
+		
+		<!-- begin of PurchaseOrderItem on PurchaseRequestPurchase-->	
+		<action     
+			parameter="view" path="/viewPurchaseOrderItem_purchaseRequest" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseOrderItemAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.purchase.viewItem" />			
+		</action>
+		<action     
+			parameter="edit" 
+			path="/editPurchaseOrderItem_purchaseRequest" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseOrderItemAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.purchase.editItem" />			
+		</action>
+		
+		<action     
+			parameter="update" 
+			path="/updatePurchaseOrderItem_purchaseRequest" 
+			scope="request" name="purchaseOrderItemForm"
+			input="/editPurchaseOrderItem_purchaseRequest.do"			
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseOrderItemAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		
+		<action     
+			parameter="split" 
+			path="/splitPurchaseOrderItem" 
+			scope="request" 
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseOrderItemAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="dialog" value="true"/>
+			<forward name="page" path="site.purchaseRequest.purchase.editItem" />			
+		</action>
+		
+		<action     
+			parameter="splitResult" 
+			path="/splitPurchaseOrderItem_result" 
+			scope="request" name="purchaseOrderItemForm"			
+			input="/splitPurchaseOrderItem.do"
+			type="com.aof.web.struts.action.business.pr.PurchaseRequestPurchaseOrderItemAction">
+			<set-property property="functionId" value="22260150"/>
+			<set-property property="dialog" value="true"/>			
+			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
+		</action>
+		
+		
+		
+
+		<!-- end of PurchaseRequestItem on PurchaseRequestPurchase -->			
+
+	</action-mappings>
+
+
+
+</struts-config>
+
+
+

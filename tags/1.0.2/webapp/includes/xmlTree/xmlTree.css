@@ -1,0 +1,47 @@
+body {
+  font: 10pt Verdana,sans-serif;
+}
+.node {
+  margin: 3px;
+  cursor: hand;
+}
+.branch {
+  display: none;
+  margin-left: 16px;
+}
+
+SPAN.clsNormal {
+  padding-top: 2px;
+  padding-bottom:1px;
+  padding-left:4px;
+  padding-right:4px;
+  backgroud-color:transparent;
+  border:1px none #000000;
+}
+
+SPAN.clsActive {
+  padding-top: 2px;
+  padding-bottom:1px;
+  padding-left:4px;
+  padding-right:4px;
+  background-color:#F1F1F1;
+  border:1px solid #999999;
+}
+
+SPAN.clsMouseOver {
+  padding-top: 2px;
+  padding-bottom:1px;
+  padding-left:4px;
+  padding-right:4px;
+  background-color:#CCCCCC;
+  border:1px solid #999999;
+}
+
+SPAN.clsMouseDown {
+  padding-top: 2px;
+  padding-bottom:1px;
+  padding-left:4px;
+  padding-right:4px;
+  background-color:#999999;
+  border:1px solid #999999;
+}

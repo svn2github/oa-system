@@ -1,0 +1,38 @@
+Title:
+Yearly Budget Alert Message!
+
+Body:
+
+<table width="95%" height="396" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="396"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This mail is an alert message to inform you that the following Yearly 
+      Budget is affected by the predefined settings.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF"> 
+          <td width="134" class="bold">Budget code :</td>
+          <td width="274" class="textblack"><span class="bold">Budget name</span></td>
+        <td width="66" class="textblack"><span class="bold">Budget year</span></td>
+          <td width="58" class="textblack"><span class="bold">Budget type</span></td>
+          <td width="55" class="textblack"><span class="bold">Budget amount</span></td>
+          <td width="17" class="textblack"><span class="bold">Remaining amount</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td class="textblack">${yb.code}</td>
+          <td class="textblack">${yb.name}</td>
+        <td class="textblack">${yb.year}</td>
+          <td class="textblack">${yb.type.engShortDescription}</td>
+          <td class="textblack">${yb.amount}</td>
+          <td class="textblack">${yb.remainAmount}</td>
+        </tr>
+      </table>
+      <p> Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

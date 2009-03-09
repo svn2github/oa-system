@@ -1,0 +1,146 @@
+<PUBLIC:COMPONENT>
+	<PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="snInit()" />
+	<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="changeCursor()" />	
+	<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="backCursor()" />			
+	<!--public:attach event="ondblclick" onevent="setPropertise()" /-->
+	<public:attach event="onkeydown" onevent="miliAdjust()" />
+	<PUBLIC:EVENT NAME="onBeginDrag" ID="bdID" />
+	<PUBLIC:EVENT NAME="onDraging" ID="dID" />
+	<PUBLIC:EVENT NAME="onEndDrag" ID="edID" />
+	<PUBLIC:EVENT NAME="onSelected" ID="sID" />
+	<PUBLIC:METHOD NAME="locked" />
+	<PUBLIC:METHOD NAME="unlocked" />
+	<PUBLIC:PROPERTY NAME="lock" />
+	<PUBLIC:PROPERTY NAME="isEndDrag" />
+<script>
+/**
+  * 给控件增加拖动的功能
+  * @author shennan
+  * @date 20060426
+  * @lastModify 20080104
+  * @property isEndDrag 这个是给调用者使用的，目的在于判断是否开始拖动。
+  */
+var top,left;
+var oldTop,oldLeft;
+var newTop,newLeft;
+var isDrag;
+var lock;
+var isIn;	//鼠标是否在控件内
+function snInit(){
+	top=element.style.top;
+	left=element.style.left;
+	isDrag=false;
+	isIn=false;
+	if(lock==null)lock=false;
+	this.isEndDrag=false;
+	element.onselectstart=function(){return false;};	
+}
+
+function changeCursor(){
+//设置焦点
+	event.cancelBubble=true;
+	if(isIn)return;
+	isIn=true;
+	element.style.cursor="hand";	
+	//element.style.border="solid 1px #ff3333";
+	window.document.body.attachEvent("onmousedown",beginDrag);
+	window.document.body.attachEvent("onmouseup",endDrag);
+	window.document.body.attachEvent("onmousemove",draging);
+}
+function backCursor(){
+//恢复焦点
+	if(!isIn)return;
+	if(isDrag)return;
+	element.style.cursor="auto";
+	//element.style.border="solid 1px #000000";
+	isIn=false;
+	
+	window.document.body.detachEvent("onmousedown",beginDrag);
+	window.document.body.detachEvent("onmouseup",endDrag);
+	window.document.body.detachEvent("onmousemove",draging);
+}
+function beginDrag(){
+//开始拖动
+	if(!isIn){isDrag=false;return;}
+	if(lock)return;
+	isDrag=true;	
+	this.isEndDrag=true;
+	top=element.style.posTop;
+	left=element.style.posLeft;
+	oldTop=parseInt(event.y);
+	oldLeft=parseInt(event.x);
+//	element.innerHTML="x:"+oldLeft+",Y:"+oldTop;
+
+//回掉事件
+	var oEvent = createEventObject();
+    oEvent.top=parseInt(element.style.posTop);
+	oEvent.left=parseInt(element.style.posLeft);
+	bdID.fire(oEvent);
+}
+
+function endDrag(){
+//结束拖动
+	if(!isIn)return;
+	var oEvent = createEventObject();
+    oEvent.top=parseInt(element.style.posTop);
+	oEvent.left=parseInt(element.style.posLeft);
+	oEvent.srcElement=element;
+	sID.fire(oEvent);//选择
+	
+	if(!isDrag)return;
+	isDrag=false;
+//回掉事件	
+	edID.fire(oEvent);	//结束
+	
+}
+
+function draging(){
+//开始拖动
+	if(lock)return;
+	if(!isDrag)return;	
+	newTop=parseInt(event.y);
+	newLeft=parseInt(event.x);
+
+	element.style.posLeft=left + (newLeft - oldLeft);
+	element.style.posTop=top + (newTop - oldTop);
+//	element.innerHTML="x:"+newLeft+",Y:"+newTop;
+
+//回掉事件
+	var oEvent = createEventObject();
+    oEvent.top=parseInt(element.style.posTop);
+	oEvent.left=parseInt(element.style.posLeft);
+	dID.fire(oEvent);
+}
+
+function locked(){//锁定
+	lock=true;
+}
+function unlocked(){//开锁
+	lock=false;
+}
+function setPropertise(){
+//设置一系列属性
+	if(lock)lock=false;
+	else lock=true;
+}
+function miliAdjust(){
+	if(lock)return;	
+	var code=event.keyCode;
+	event.cancelBubble=true;
+	switch(code){
+		case 37://左
+			element.style.posLeft=parseInt(element.style.posLeft) - 1;
+			break;
+		case 38://上
+			element.style.posTop=parseInt(element.style.posTop) - 1;
+			break;
+		case 39://右
+			element.style.posLeft=parseInt(element.style.posLeft) + 1;
+			break;
+		case 40://下
+			element.style.posTop=parseInt(element.style.posTop) + 1;
+			break;									
+	}		
+}
+</script>
+</PUBLIC:COMPONENT>

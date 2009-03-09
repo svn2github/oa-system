@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Oct 24 10:51:39 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.kpi">
+
+    <class name="KPISummary" table="kpi_summary">
+        <id name="id" column="kpi_summary_id" type="integer">
+            <generator class="native"/>
+        </id>
+                
+        <!-- <many-to-one name="site" column="summary_site" class="com.aof.model.admin.Site" not-null="true" />-->       
+		<property name="summaryDate" column="summary_date" type="java.util.Date" not-null="true" />  
+		<property name="loginUserCount" column="login_user_count" type="int" not-null="true" />  
+		<property name="closedTANumToday" column="ta_closed" type="int" not-null="true" />  
+		<property name="avgTAClosedDays" column="avg_ta_closed_days" type="big_decimal" not-null="true" />  
+		<property name="createdTANumToday" column="ta_created" type="int" not-null="true" />   
+		<property name="closedCapexNumToday" column="capex_closed" type="int" not-null="true" />  
+		<property name="avgCapexClosedDays" column="avg_ce_closed_days" type="big_decimal" not-null="true" />  
+		<property name="createdCapexNumToday" column="capex_created" type="int" not-null="true" />  
+		<property name="closedPRNumToday" column="pr_closed" type="int" not-null="true" />  
+		<property name="avgPRClosedDays" column="avg_pr_closed_days" type="big_decimal" not-null="true" />  
+		<property name="createdPRNumToday" column="pr_created" type="int" not-null="true" />  
+		<property name="closedExpenseNumToday" column="expense_closed" type="int" not-null="true" />  
+		<property name="avgExpenseClosedDays" column="avg_ex_closed_days" type="big_decimal" not-null="true" />  
+		<property name="createdExpenseNumToday" column="expense_created" type="int" not-null="true" />  
+    </class>
+    
+    <class name="KPIPurchaseCategorySummary" table="kpi_sum_purctgy">
+        <id name="id" column="kpi_sum_purctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+        
+        <many-to-one name="kpiSummary" column="kpi_summary_id" class="com.aof.model.kpi.KPISummary" not-null="true" />
+        <many-to-one name="site" column="site_id" class="com.aof.model.admin.Site" not-null="true" />
+		<property name="summaryDate" column="summary_date" type="java.util.Date" not-null="true" />  
+		<many-to-one name="purchaseCategory" column="pr_categry_id" class="com.aof.model.admin.PurchaseCategory" not-null="true" />
+		<property name="purchaseRequestCreatedToday" column="pr_created" type="int" not-null="true" />  		
+    </class>
+    
+    <class name="KPIExpenseCategorySummary" table="kpi_sum_expctgy">
+        <id name="id" column="kpi_sum_expctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+        
+        <many-to-one name="kpiSummary" column="kpi_summary_id" class="com.aof.model.kpi.KPISummary" not-null="true" />
+        <many-to-one name="site" column="site_id" class="com.aof.model.admin.Site" not-null="true" />
+		<property name="summaryDate" column="summary_date" type="java.util.Date" not-null="true" />  
+		<many-to-one name="expenseCategory" column="exp_req_categry_id" class="com.aof.model.admin.ExpenseCategory" not-null="true" />
+		<property name="expenseRequestCreatedToday" column="exp_req_created" type="int" not-null="true" />  		
+    </class>
+</hibernate-mapping>

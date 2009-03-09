@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 14:49:10 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="PurchaseCategory" table="purchase_ctgy">
+        <id name="id" column="pur_ctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="description" column="pur_ctgy_desc" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="site" column="pur_ctgy_site" class="Site" />
+ 
+    </class>
+    
+    <class name="PurchaseSubCategory" table="purchase_subctgy">
+        <id name="id" column="pur_subctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="description" column="pur_subctgy_des" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="purchaseCategory" column="pur_ctgy_id" class="PurchaseCategory"  not-null="true" />
+        
+ 		<many-to-one name="defaultSupplier" column="def_supplier" class="Supplier" />
+ 		
+ 		<many-to-one name="inspector" column="inspector" class="User" />
+        
+    </class>
+    
+    <class name="PurchaseType" table="purchase_type">
+        <id name="code" column="pur_type_cd" type="string">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="description" column="pur_type_desc" type="string" />
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="site" column="pur_type_site" class="Site"  not-null="true" />
+    </class>
+</hibernate-mapping>

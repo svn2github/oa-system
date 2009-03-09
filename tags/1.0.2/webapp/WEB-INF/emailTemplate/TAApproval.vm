@@ -1,0 +1,34 @@
+Title: 
+Notification For TA Approval!
+
+Body:
+<table width="95%" height="483" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="483"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to notify you that the following TA need your online approval.</p>
+      <table width="90%"  border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td><div align="left"><span class="bold">Urgent Level</span></div></td>
+          <td><div align="left"><span class="bold">TA No.</span></div></td>
+          <td><div align="left"><span class="bold">TA Title</span></div></td>
+          <td><div align="left"><span class="bold">From City</span></div></td>
+          <td><div align="left"><span class="bold">To City</span></div></td>
+          <td><div align="left"><span class="bold">Travel Mode </span></div></td>
+          <td><div align="left"><span class="bold">Date From</span></div></td>
+          <td><div align="left"><span class="bold">Date To</span></div></td>
+          <td><div align="left"><span class="bold">Requestor</span></div></td>
+          <td><div align="left"><span class="bold">Request Date</span></div></td>
+        </tr>
+        ${batchEmailContext}        
+      </table>      
+      <p>&nbsp;</p>
+      
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p></p></td>
+  </tr>
+</table>

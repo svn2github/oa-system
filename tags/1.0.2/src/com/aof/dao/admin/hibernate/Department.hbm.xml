@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Sep 22 16:52:37 CST 2005                         -->
+<hibernate-mapping package="com.aof.model.admin">
+
+    <class name="Department" table="department">
+        <id name="id" column="dep_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="enabled" column="is_enabled" type="com.aof.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="parentDepartment" column="parent_id" class="Department" />
+ 
+        <many-to-one name="site" column="dep_site" class="Site" not-null="true" />
+        
+        <property name="name" column="dep_name" type="string" not-null="true" />
+ 
+        <many-to-one name="manager" column="dep_mgr" class="User" />
+ 
+    </class>
+    
+</hibernate-mapping>

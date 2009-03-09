@@ -1,0 +1,46 @@
+Title: 
+PO Final Confirm Reminder!
+
+Body:
+<table width="95%" height="385" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="385"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_user.name} (${role}),
+      <p>This is to remind you that the following PO need you final confirm online.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">PO No.</div></td>
+          <td align="center" class="bold"><div align="left">PO Title</div></td>
+          <td align="center" class="bold"><div align="left">Supplier Name</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Category</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Currency</div></td>
+          <td align="center" class="bold"><div align="left">Purchase Amount</div></td>
+          <td align="center" class="bold"><div align="left">Base Currency</div></td>
+          <td align="center" class="bold"><div align="left">Base Amount</div></td>
+          <td align="center" class="bold"><div align="left">Creator</div></td>
+          <td align="center" class="bold"><div align="left">Create Date</div></td>
+          
+      #foreach( $x_po in $x_poList)      
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack"><div align="left">${x_po.id}</div></td>
+          <td class="textblack"><div align="left">${x_po.title}</div></td>
+          <td class="textblack"><div align="left">${x_po.supplier.name}</div></td>
+          <td class="textblack"><div align="left">${x_po.subCategory.description}</div></td>
+          <td class="textblack"><div align="left">${x_po.exchangeRate.currency.code}</div></td>
+          <td class="textblack"> <div align="left">${x_po.amount}</div></td>
+          <td class="textblack"> <div align="left">${x_po.baseCurrency.code}</div></td>
+          <td class="textblack"><div align="left">${x_po.baseCurrencyAmount}</div></td>
+          <td class="textblack"><div align="left">${x_po.createUser.name}</div></td>
+          <td class="textblack"><div align="left">$dateTool.format('yyyy/MM/dd',$x_po.createDate)</div></td>
+        </tr>
+      </table>   
+        #end
+      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+      ${signature}</p>
+      <p>&nbsp;</p>
+    <p></p></td>
+  </tr>
+</table>

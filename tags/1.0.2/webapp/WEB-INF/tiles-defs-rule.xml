@@ -1,0 +1,241 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<tiles-definitions>
+	<!-- Capex Approval Rule -->
+	<definition name="site.rule.listCapexApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.capexApproval.list"/>
+	</definition>
+	<!-- End of Capex Approval Rule -->
+
+	<!-- PR Approval Rule -->
+	<definition name="site.rule.listPRApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.prApproval.list"/>
+	</definition>
+	<!-- End of PR Approval Rule -->
+
+	<!-- Purchasing Rule -->
+	<definition name="site.rule.listPurchasing" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.purchasing.list"/>
+	</definition>
+	<!-- End of Purchasing Rule -->
+
+	<!-- Purchasing Price Control Rule -->
+	<definition name="site.rule.listPurchasingPriceControl" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.purchasingPriceControl.list"/>
+	</definition>
+	<!-- End of Purchasing Price Control Rule -->
+
+	<!-- PO Approval Rule -->
+	<definition name="site.rule.listPOApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.poApproval.list"/>
+	</definition>
+	<!-- End of PO Approval Rule -->
+
+	<!-- Expense Approval Rule -->
+	<definition name="site.rule.listExpenseApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.expenseApproval.list"/>
+	</definition>
+	<!-- End of Expense Approval Rule -->
+
+	<!-- Expense Claim Rule -->
+	<definition name="site.rule.listExpenseClaim" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.expenseClaim.list"/>
+	</definition>
+	<!-- End of Expense Claim Rule -->
+
+	<!-- Travel Approval Rule -->
+	<definition name="site.rule.listTravelApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/list.jsp"/>
+		<put name="pageMainTitle" 	value="rule.travelApproval.list"/>
+	</definition>
+	<!-- End of Travel Approval Rule -->
+
+	<!--  Common Rule -->
+	<definition name="site.rule.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/new.jsp"/>
+	</definition>
+	<definition name="site.rule.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/edit.jsp"/>
+	</definition>
+	<definition name="site.rule.webDragAndDraw" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/rule/newWebDragAndDraw.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.list" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/list.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.chooseType" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/chooseType.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newBudgetType" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newBudgetType.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newDepartment" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newDepartment.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newNumber" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newNumber.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newPurchaseCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newPurchaseCategory.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newExpenseCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newExpenseCategory.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newTravelType" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newTravelType.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newTravellingMode" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newTravellingMode.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.newYesNo" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newYesNo.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editBudgetType" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editBudgetType.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editDepartment" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editDepartment.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editNumber" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editNumber.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editPurchaseCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editPurchaseCategory.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editExpenseCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editExpenseCategory.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editTravelType" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editTravelType.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editTravellingMode" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editTravellingMode.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editYesNo" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editYesNo.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.newApprover" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/newApprover.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.newPurchaser" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/newPurchaser.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.newNotifier" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/newNotifier.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.editApprover" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/editApprover.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.editPurchaser" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/editPurchaser.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.editNotifier" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/editNotifier.jsp"/>
+	</definition>
+	<definition name="site.ruleConsequence.selectUser" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleConsequence/selectUser.jsp"/>
+	</definition>
+	<!-- End of Common Rule -->
+	
+	<!-- Capex Approval Flow -->
+	<definition name="site.flow.listCapexApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.capexApproval.list"/>
+	</definition>
+	<!-- End of Capex Approval Flow -->
+
+	<!-- PR Approval Flow -->
+	<definition name="site.flow.listPRApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.prApproval.list"/>
+	</definition>
+	<!-- End of PR Approval Flow -->
+
+	<!-- Purchasing Flow -->
+	<definition name="site.flow.listPurchasing" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.purchasing.list"/>
+	</definition>
+	<!-- End of Purchasing Flow -->
+
+	<!-- Purchasing Price Control Flow -->
+	<definition name="site.flow.listPurchasingPriceControl" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.purchasingPriceControl.list"/>
+	</definition>
+	<!-- End of Purchasing Price Control Flow -->
+
+	<!-- PO Approval Flow -->
+	<definition name="site.flow.listPOApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.poApproval.list"/>
+	</definition>
+	<!-- End of PO Approval Flow -->
+
+	<!-- Expense Approval Flow -->
+	<definition name="site.flow.listExpenseApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.expenseApproval.list"/>
+	</definition>
+	<!-- End of Expense Approval Flow -->
+
+	<!-- Expense Claim Flow -->
+	<definition name="site.flow.listExpenseClaim" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.expenseClaim.list"/>
+	</definition>
+	<!-- End of Expense Claim Flow -->
+
+	<!-- Travel Approval Flow -->
+	<definition name="site.flow.listTravelApproval" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/list.jsp"/>
+		<put name="pageMainTitle" 	value="flow.travelApproval.list"/>
+	</definition>
+	<!-- End of Travel Approval Flow -->
+
+	<!--  Common Flow -->
+	<definition name="site.flow.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/new.jsp"/>
+	</definition>
+	<definition name="site.flow.newWebDragAndDraw" extends="site.mainFrameLayoutWebDragAndDraw">
+		<put name="body"	value="/WEB-INF/jsp/flowWebDragAndDraw/new.jsp"/>
+	</definition>
+	<definition name="site.flow.editWebDragAndDraw" extends="site.mainFrameLayoutWebDragAndDraw">
+		<put name="body"	value="/WEB-INF/jsp/flowWebDragAndDraw/edit.jsp"/>
+	</definition>
+	<definition name="site.flow.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/flow/edit.jsp"/>
+	</definition>
+	<definition name="site.flow.editWebDragAndDraw" extends="site.mainFrameLayoutWebDragAndDraw">
+		<put name="body"	value="/WEB-INF/jsp/flowWebDragAndDraw/edit.jsp"/>
+	</definition>
+	<!-- End of Common Flow -->
+	
+	<!-- approverDelegate -->
+	<definition name="site.approverDelegate.approver.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/approverDelegate/listApprover.jsp"/>
+		<put name="pageMainTitle" 	value="approverDelegate.approver.list.title"/>
+	</definition>	
+	<definition name="site.approverDelegate.list" extends="site.mainFrameLayout">
+		<put name="body"	value="/WEB-INF/jsp/approverDelegate/list.jsp"/>
+		<put name="pageMainTitle" 	value="approverDelegate.list.title"/>
+	</definition>
+	<definition name="site.approverDelegate.select" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/approverDelegate/select.jsp"/>
+	</definition>
+	<definition name="site.approverDelegate.new" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/approverDelegate/new.jsp"/>
+	</definition>
+	<definition name="site.approverDelegate.edit" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/approverDelegate/edit.jsp"/>
+	</definition>
+	<!-- end of approverDelegate -->
+	
+</tiles-definitions>

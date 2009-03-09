@@ -1,0 +1,51 @@
+Title:
+Capex Alert Message!
+
+Body:
+
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" ><span class="textblack"><br>
+      <br>
+      Dear ${user.name} (${role}),</span>
+      <p>This mail is an alert message to inform you that the following Capex is affected by the predefined settings.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="129"><span class="bold">Capex No. </span></td>
+          <td width="104"><span class="bold"><span class="textblack">Capex title</span></span></td>
+          #if($capexRequest.capex.purchaseCategory)
+          <td width="59"><span class="bold"><span class="textblack">Purchase category</span></span></td>
+          #else
+          <td width="59"><span class="bold"><span class="textblack">Purchase category </span></span></td>
+          #end #if($capexRequest.capex.purchaseSubCategory)
+          <td width="76"><span class="bold"><span class="textblack">Purchase subcategory</span></span></td>
+          #else
+          <td width="192"><span class="bold"><span class="textblack">Purchase subcategory</span></span></td>
+          #end
+          <td width="28"><span class="bold"><span class="textblack">Capex amount </span></span></td>
+        <td width="28"><span class="bold">Remaining amount :</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td height="47"><span class="textblack">${capex.id}</span></td>
+          <td><span class="textblack">${capex.lastApprovedRequest.title}</span></td>
+          #if($capexRequest.capex.purchaseCategory)
+          <td><span class="textblack">${capexRequest.capex.purchaseCategory.description}</span></td>
+          #else
+          <td><span class="textblack">All category</span></td>
+          #end #if($capexRequest.capex.purchaseSubCategory)
+          <td><span class="textblack">${capexRequest.capex.purchaseSubCategory.description}</span></td>
+          #else
+          <td><span class="textblack">All subcategory</span></td>
+          #end
+          <td><span class="textblack">${capexRequest.amount} </span></td>
+        <td><span class="textblack">${capex.remainAmount}</span></td>
+        </tr>
+      </table>      <p>&nbsp;</p>
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}<br>
+      </p>
+    <p></p></td>
+  </tr>
+</table>

@@ -1,0 +1,31 @@
+Title: 
+Notification for Supplier Modification
+
+Body:
+
+<table width="95%" height="268" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  valign="top" height="268"><span class="textblack"><br>
+      <br>
+      </span>Dear ${user.name} (${role}),
+      <p>This is to notify you that the following supplier need your online confirm.</p>
+      <table width="600" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td width="132" class="bold">Supplier Code:</td>
+          <td width="238" class="textblack"><span class="bold">Supplier Name</span></td>
+        <td width="208" class="textblack"><span class="bold">Supplier Country</span></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td class="textblack">${supplier.code}</td>
+          <td class="textblack">${supplier.name}</td>
+        <td class="textblack">${country.engName}</td>
+        </tr>
+      </table>      <p>Please use your web browser to go to:<br>
+      ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}</p>
+      <p>&nbsp;</p>
+      <p></p>
+    </td>
+  </tr>
+</table>

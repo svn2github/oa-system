@@ -1,0 +1,31 @@
+Title: 
+Global Hotel Promotion Remind!
+
+Body:
+<table width="95%" height="300" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><span class="textblack"><br>
+      <br>
+      </span>Dear ${x_user.name} (${role}),
+      <p>This is to remind you that you haven't responsed for your global hotel promotion yet, please respond.</p>
+      <table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#666666">
+        <tr bgcolor="#FFFFFF">
+          <td align="center" class="bold"><div align="left">Hotel Name</div></td>
+          <td align="center" class="bold"><div align="left">Hotel City</div></td>
+          <td align="center" class="bold"><div align="left">Promote Message</div></td>
+          
+        #foreach( $hotel in $x_hotelList )      
+        <tr bgcolor="#FFFFFF">
+        	<td class="textblack">${hotel.name}</td>          
+          <td class="textblack">${hotel.city.engName}</td>
+          <td class="textblack">${hotel.promoteMessage}</td>
+        </tr>
+        #end
+      </table>
+      <p>Please use your web browser to go to:<br>
+        ${visitUrl} visit our system.</p>
+      <p>${regardWords}<br>
+        ${signature}<br>
+    </p></td>
+  </tr>
+</table>
