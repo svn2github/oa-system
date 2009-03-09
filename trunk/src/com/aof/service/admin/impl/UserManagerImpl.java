@@ -597,8 +597,9 @@ public class UserManagerImpl extends BaseManager implements UserManager {
             if (site.getEnabled().equals(EnabledDisabled.ENABLED)) {
                 retVal.add(userSite);
                 userSite.setEnabledUserDepartmentList(this.getEnabledUserDepartmentList(user,site));
-                site.setEnabledTravelExpenseCategory(expenseCategoryManager.getEnabledTravelExpenseCategoryOfSite(site.getId().intValue()));
-                site.setEnabledNotTravelExpenseCategoryList(expenseCategoryManager.getEnabledNotTravelExpenseCategoryListOfSite(site.getId().intValue()));
+//                site.setEnabledTravelExpenseCategory(expenseCategoryManager.getEnabledTravelExpenseCategoryOfSite(site.getId().intValue()));
+//                site.setEnabledNotTravelExpenseCategoryList(expenseCategoryManager.getEnabledNotTravelExpenseCategoryListOfSite(site.getId().intValue()));
+                site.setEnabledNotTravelExpenseCategoryList(expenseCategoryManager.getEnabledExpenseCategoryOfSite(site));
             }
         }
         return userSiteList;

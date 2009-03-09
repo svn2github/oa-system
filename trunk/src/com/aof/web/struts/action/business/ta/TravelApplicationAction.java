@@ -551,6 +551,7 @@ public class TravelApplicationAction extends BaseTravelApplicationAction {
         pm.process();
 
         putEnumListToRequest(request);
+        
         return mapping.findForward("page");
     }
 
@@ -577,6 +578,7 @@ public class TravelApplicationAction extends BaseTravelApplicationAction {
         pm.process();
 
         putEnumListToRequest(request);
+        
         return mapping.findForward("page");
     }
 

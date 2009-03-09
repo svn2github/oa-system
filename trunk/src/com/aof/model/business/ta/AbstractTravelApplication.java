@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.aof.model.admin.Currency;
 import com.aof.model.admin.Department;
 import com.aof.model.admin.User;
 import com.aof.model.metadata.TravelApplicationBookStatus;
@@ -58,6 +59,8 @@ public abstract class AbstractTravelApplication extends BaseTravelApplication im
     private BigDecimal fee;
     
     private YesNo isOnTravel;
+    
+    private Currency currency;
 
     /**
      * 缺省构造函数
@@ -321,6 +324,20 @@ public abstract class AbstractTravelApplication extends BaseTravelApplication im
      */
     public void setIsOnTravel(YesNo isOnTravel) {
         this.isOnTravel = isOnTravel;
+    }
+
+    /**
+     * @return Returns the currency.
+     */
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    /**
+     * @param currency The currency to set.
+     */
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
     
 }

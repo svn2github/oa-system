@@ -122,7 +122,15 @@
 		</tr>
 		<tr>
 			<td class="bluetext" width="20%"><bean:message key="travelApplication.fee" />:</td>
-			<td colspan=4><html:text property="fee" size="5"></html:text><span class="required">*</span></td>			
+			<td><html:text property="fee" size="5"></html:text><span class="required">*</span></td>
+			<td class="bluetext" width="20%"><bean:message key="travelApplication.currecny" />:</td>
+			<td>
+				<html:select property="currency_code">
+					<html:options collection="x_currencyList" property="code"
+					labelProperty="name" />
+				</html:select>
+			<span class="required">*</span>
+			</td>			
 		</tr>
 
 	</table>

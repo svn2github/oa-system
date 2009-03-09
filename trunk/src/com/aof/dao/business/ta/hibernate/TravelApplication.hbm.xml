@@ -44,6 +44,7 @@
         <property name="emailTimes" column="email_times" type="integer" />    
         <property name="fee" column="ta_fee" type="big_decimal" not-null="true" />
         <property name="isOnTravel" column="is_on_travel" type="com.aof.model.metadata.YesNo" not-null="true" />
+        <many-to-one name="currency" column="ta_curr_cd" class="com.aof.model.admin.Currency" not-null="true" />
     </class>
     
     <class name="TravelApplicationHistory" table="ta_history">

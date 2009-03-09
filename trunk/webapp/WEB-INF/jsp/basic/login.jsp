@@ -3,7 +3,7 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <html:javascript formName="loginForm" staticJavascript="false"/>
-<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" class="new_table_bg">
 <tr>
   <td align="center" valign="middle">
     <html:form action="login.do" method="post" focus="loginName" onsubmit="return validateLoginForm(this);">

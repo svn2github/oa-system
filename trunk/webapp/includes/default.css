@@ -2,13 +2,14 @@ html,body{
     height: 100%; font: 12px;
 }
 
+/*
 input{
-	border:1px solid #ccc; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal; color:#666;}
-	
-select{
-	FONT-SIZE: 9pt;
-}
+	border:1px solid #ccc; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal; color:#666; }
+*/
 
+
+select{
+	FONT-SIZE: 9pt;}
 
 .jiraform
 {
@@ -551,4 +552,8 @@ a:active {
 
 .new_title{
 	border-bottom:1px solid #ccc; background:#fbfbfb;
+}
+
+.new_table_bg {
+filter:progid:DXImageTransform.microsoft.gradient(gradienttype=0,startColorStr=#eaeaea,endColorStr=white);
 }

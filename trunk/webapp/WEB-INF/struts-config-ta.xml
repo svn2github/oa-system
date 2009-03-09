@@ -31,7 +31,7 @@
 				*,
 				hotel.id,
 				price.id,
-				
+				currency.code,
 				department.site.id,
 				fromCity.province.country.id,
 				fromCity.province.id,

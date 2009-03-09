@@ -148,7 +148,10 @@
 		</tr>
 		<tr>
 			<td class="bluetext" width="20%"><bean:message key="travelApplication.fee" />:</td>
-			<td colspan=4>${x_ta.fee}</td>			
+			<td>${x_ta.fee}</td>	
+			<td class="bluetext" width="20%"><bean:message key="travelApplication.currecny" />:</td>
+			<td>${x_ta.currency.name}
+			</td>			
 		</tr>
 	</table>
 	<hr align="left" width="100%">

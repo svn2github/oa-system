@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 
 
+import com.aof.model.admin.Site;
+import com.aof.model.admin.User;
 import com.aof.model.business.ta.TravelApplication;
 import com.aof.model.metadata.EnabledDisabled;
 import com.aof.model.metadata.SingleReturn;
@@ -21,6 +23,10 @@ import com.aof.model.metadata.TravelApplicationStatus;
 import com.aof.model.metadata.TravelApplicationUrgent;
 import com.aof.model.metadata.TravellingMode;
 
+import com.aof.service.admin.CurrencyManager;
+import com.aof.service.admin.DepartmentManager;
+import com.aof.service.admin.ExchangeRateManager;
+import com.aof.service.admin.SiteManager;
 import com.aof.service.business.ta.TravelApplicationApproveRequestManager;
 import com.aof.service.business.ta.TravelApplicationManager;
 import com.aof.web.struts.action.ServiceLocator;
@@ -87,7 +93,8 @@ public class BaseTravelApplicationAction extends RechargeAction {
         request.setAttribute("x_taStatusList", PersistentEnum.getEnumList(TravelApplicationStatus.class));
         request.setAttribute("x_taModeList", PersistentEnum.getEnumList(TravellingMode.class));
         request.setAttribute("x_singleOrReturnList", PersistentEnum.getEnumList(SingleReturn.class));
-        request.setAttribute("x_urgentList", PersistentEnum.getEnumList(TravelApplicationUrgent.class));        
+        request.setAttribute("x_urgentList", PersistentEnum.getEnumList(TravelApplicationUrgent.class));   
+        putCurrencyListToRequest(request);
     }
 
     protected void putApproveListToRequest(TravelApplication ta, HttpServletRequest request) {
@@ -141,5 +148,9 @@ public class BaseTravelApplicationAction extends RechargeAction {
         request.setAttribute("x_edit", Boolean.valueOf(isEdit));
     }
     
-
+    protected void putCurrencyListToRequest(HttpServletRequest request) {
+        CurrencyManager cm=ServiceLocator.getCurrencyManager(request);
+        List currencyList=cm.getAllEnabledCurrencyList();
+        request.setAttribute("x_currencyList",currencyList);
+    }
 }
