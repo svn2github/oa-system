@@ -3,15 +3,15 @@
 
 <struts-config>
 	<form-beans>
-		<form-bean name="ruleQueryForm" type="com.aof.web.struts.form.business.rule.RuleQueryForm" />
+		<form-bean name="ruleQueryForm" type="net.sourceforge.web.struts.form.business.rule.RuleQueryForm" />
 		
-		<form-bean name="ruleForm" type="com.aof.model.business.rule.Rule">
+		<form-bean name="ruleForm" type="net.sourceforge.model.business.rule.Rule">
 			<set-property property="requires" value="description"/>
 			<set-property property="includes" value="id,site.id,enabled"/>
 			<set-property property="toForms" value="site.name"/>
 		</form-bean>
 		
-        <form-bean name="ruleConditionForm" type="com.aof.model.business.rule.RuleCondition">
+        <form-bean name="ruleConditionForm" type="net.sourceforge.model.business.rule.RuleCondition">
             <set-property property="requires" value="type,compareType"/>
             <set-property property="includes" value="rule.id"/>
             <set-property property="toForms" value="value"/>
@@ -19,33 +19,33 @@
             <form-property name="pvalue" type="java.lang.String"/>
         </form-bean>
 
-		<form-bean name="ruleConsequenceForm" type="com.aof.model.business.rule.RuleConsequence">
+		<form-bean name="ruleConsequenceForm" type="net.sourceforge.model.business.rule.RuleConsequence">
 			<set-property property="requires" value="user.id"/>
 			<set-property property="includes" value="rule.id,seq,canModify,superior.id"/>
 			<set-property property="toForms" value="user.name,superior.name"/>
 		</form-bean>
  		
-		<form-bean name="flowQueryForm" type="com.aof.web.struts.form.business.rule.FlowQueryForm" />
+		<form-bean name="flowQueryForm" type="net.sourceforge.web.struts.form.business.rule.FlowQueryForm" />
 		
-		<form-bean name="flowForm" type="com.aof.model.business.rule.Flow">
+		<form-bean name="flowForm" type="net.sourceforge.model.business.rule.Flow">
 			<set-property property="requires" value="site.id,description,enabled"/>
 			<set-property property="includes" value="id"/>
 			<set-property property="toForms" value="site.name"/>
 		</form-bean>
 		
 		<form-bean name="approverDelegateForm" 
-				type="com.aof.model.business.rule.ApproverDelegate">  
+				type="net.sourceforge.model.business.rule.ApproverDelegate">  
 			<set-property property="requires" 
 				value="*,*.id" />
 			<set-property property="requireExcludes" value="id" />				
 			<set-property property="toForms" 
 				value="*.name" />
 		</form-bean>
-		<form-bean name="approverDelegateQueryForm" type="com.aof.web.struts.form.business.rule.ApproverDelegateQueryForm" />
+		<form-bean name="approverDelegateQueryForm" type="net.sourceforge.web.struts.form.business.rule.ApproverDelegateQueryForm" />
 		
     	<form-bean name="approverQueryForm" 
-    		type="com.aof.model.business.rule.query.ApproverQueryCondition">
-    		<set-property property="formClassName" value="com.aof.web.struts.form.BeanSessionQueryForm" />
+    		type="net.sourceforge.model.business.rule.query.ApproverQueryCondition">
+    		<set-property property="formClassName" value="net.sourceforge.web.struts.form.BeanSessionQueryForm" />
     		<form-property name="originalApprover_id" type="java.lang.String">
     		</form-property>
 	    </form-bean>
@@ -100,168 +100,168 @@
 		<forward name="successRuleConsequenceDeleteNotifier" path="/WEB-INF/jsp/operationSuccess.jsp" />
 	</global-forwards>
 
-	<action-mappings  type="com.aof.web.struts.action.SecureActionMapping">
+	<action-mappings  type="net.sourceforge.web.struts.action.SecureActionMapping">
 		<!-- Capex Approval Rule -->
 		<action     
 			parameter="listCapexApproval" path="/listCapexApprovalRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="functionDescription" value="capex approve rule maintenance"/>
 			<forward name="page" path="site.rule.listCapexApproval" />
 		</action>
 		<action     
 			parameter="newCapexApproval" path="/newCapexApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertCapexApproval" path="/insertCapexApprovalRule" scope="request" name="ruleForm" input="/newCapexApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApproval" path="/editCapexApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateCapexApproval" path="/updateCapexApprovalRule" scope="request" name="ruleForm" input="/editCapexApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteCapexApproval" path="/deleteCapexApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listCapexApproval" path="/listCapexApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 		</action>
 		<action 
 			parameter="newCapexApproval" path="/newCapexApprovalRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertCapexApproval" path="/insertCapexApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/newCapexApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApproval" path="/editCapexApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateCapexApproval" path="/updateCapexApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/editCapexApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteCapexApproval" path="/deleteCapexApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newCapexApproval" path="/newCapexApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertCapexApproval" path="/insertCapexApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newCapexApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApproval" path="/editCapexApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateCapexApproval" path="/updateCapexApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editCapexApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteCapexApproval" path="/deleteCapexApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectCapexApprovalUser" path="/selectCapexApprovalConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23250010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApprovalWebDragAndDraw" path="/editCapexApprovalRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25250011"/>
 		</action>
 		<action     
 			parameter="newCapexApprovalWebDragAndDraw" path="/newCapexApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertCapexApprovalWebDragAndDraw" path="/insertCapexApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newCapexApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApprovalWebDragAndDraw" path="/editCapexApprovalRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updateCapexApprovalWebDragAndDraw" path="/updateCapexApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editCapexApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newCapexApprovalWebDragAndDraw" path="/newCapexApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertCapexApprovalWebDragAndDraw" path="/insertCapexApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newCapexApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editCapexApprovalWebDragAndDraw" path="/editCapexApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateCapexApprovalWebDragAndDraw" path="/updateCapexApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editCapexApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -270,164 +270,164 @@
 		<!-- PR Approval Rule -->
 		<action     
 			parameter="listPRApproval" path="/listPRApprovalRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="functionDescription" value="pr approve rule maintenance"/>
 			<forward name="page" path="site.rule.listPRApproval" />
 		</action>
 		<action     
 			parameter="newPRApproval" path="/newPRApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPRApproval" path="/insertPRApprovalRule" scope="request" name="ruleForm" input="/newPRApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApproval" path="/editPRApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePRApproval" path="/updatePRApprovalRule" scope="request" name="ruleForm" input="/editPRApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePRApproval" path="/deletePRApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listPRApproval" path="/listPRApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 		</action>
 		<action     
 			parameter="newPRApproval" path="/newPRApprovalRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPRApproval" path="/insertPRApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/newPRApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApproval" path="/editPRApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePRApproval" path="/updatePRApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/editPRApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePRApproval" path="/deletePRApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newPRApproval" path="/newPRApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPRApproval" path="/insertPRApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newPRApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApproval" path="/editPRApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePRApproval" path="/updatePRApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editPRApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePRApproval" path="/deletePRApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectPRApprovalUser" path="/selectPRApprovalConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApprovalWebDragAndDraw" path="/editPRApprovalRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25260012"/>
 		</action>
 		<action     
 			parameter="newPRApprovalWebDragAndDraw" path="/newPRApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPRApprovalWebDragAndDraw" path="/insertPRApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newPRApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApprovalWebDragAndDraw" path="/editPRApprovalRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updatePRApprovalWebDragAndDraw" path="/updatePRApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editPRApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newPRApprovalWebDragAndDraw" path="/newPRApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPRApprovalWebDragAndDraw" path="/insertPRApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newPRApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPRApprovalWebDragAndDraw" path="/editPRApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePRApprovalWebDragAndDraw" path="/updatePRApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editPRApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -436,164 +436,164 @@
 		<!-- Purchasing Rule -->
 		<action     
 			parameter="listPurchasing" path="/listPurchasingRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="functionDescription" value="pr purchasing rule maintenance"/>
 			<forward name="page" path="site.rule.listPurchasing" />
 		</action>
 		<action     
 			parameter="newPurchasing" path="/newPurchasingRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasing" path="/insertPurchasingRule" scope="request" name="ruleForm" input="/newPurchasingRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasing" path="/editPurchasingRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasing" path="/updatePurchasingRule" scope="request" name="ruleForm" input="/editPurchasingRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasing" path="/deletePurchasingRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listPurchasing" path="/listPurchasingRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 		</action>
 		<action     
 			parameter="newPurchasing" path="/newPurchasingRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasing" path="/insertPurchasingRuleCondition" scope="request" name="ruleConditionForm" input="/newPurchasingRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasing" path="/editPurchasingRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasing" path="/updatePurchasingRuleCondition" scope="request" name="ruleConditionForm" input="/editPurchasingRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasing" path="/deletePurchasingRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newPurchasing" path="/newPurchasingRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasing" path="/insertPurchasingRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newPurchasingRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasing" path="/editPurchasingRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasing" path="/updatePurchasingRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editPurchasingRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasing" path="/deletePurchasingRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectPurchasingUser" path="/selectPurchasingConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23260011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingWebDragAndDraw" path="/editPurchasingRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25260013"/>
 		</action>
 		<action     
 			parameter="newPurchasingWebDragAndDraw" path="/newPurchasingRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingWebDragAndDraw" path="/insertPurchasingRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newPurchasingRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingWebDragAndDraw" path="/editPurchasingRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updatePurchasingWebDragAndDraw" path="/updatePurchasingRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editPurchasingRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newPurchasingWebDragAndDraw" path="/newPurchasingRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingWebDragAndDraw" path="/insertPurchasingRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newPurchasingRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingWebDragAndDraw" path="/editPurchasingRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasingWebDragAndDraw" path="/updatePurchasingRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editPurchasingRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -602,164 +602,164 @@
 		<!-- Purchasing Price Control Rule -->
 		<action     
 			parameter="listPurchasingPriceControl" path="/listPurchasingPriceControlRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="functionDescription" value="purchasing price control rule maintenance"/>
 			<forward name="page" path="site.rule.listPurchasingPriceControl" />
 		</action>
 		<action     
 			parameter="newPurchasingPriceControl" path="/newPurchasingPriceControlRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControl" path="/insertPurchasingPriceControlRule" scope="request" name="ruleForm" input="/newPurchasingPriceControlRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControl" path="/editPurchasingPriceControlRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControl" path="/updatePurchasingPriceControlRule" scope="request" name="ruleForm" input="/editPurchasingPriceControlRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasingPriceControl" path="/deletePurchasingPriceControlRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listPurchasingPriceControl" path="/listPurchasingPriceControlRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 		</action>
 		<action     
 			parameter="newPurchasingPriceControl" path="/newPurchasingPriceControlRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControl" path="/insertPurchasingPriceControlRuleCondition" scope="request" name="ruleConditionForm" input="/newPurchasingPriceControlRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControl" path="/editPurchasingPriceControlRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControl" path="/updatePurchasingPriceControlRuleCondition" scope="request" name="ruleConditionForm" input="/editPurchasingPriceControlRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasingPriceControl" path="/deletePurchasingPriceControlRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newPurchasingPriceControl" path="/newPurchasingPriceControlRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControl" path="/insertPurchasingPriceControlRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newPurchasingPriceControlRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControl" path="/editPurchasingPriceControlRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControl" path="/updatePurchasingPriceControlRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editPurchasingPriceControlRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePurchasingPriceControl" path="/deletePurchasingPriceControlRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectPurchasingPriceControlUser" path="/selectPurchasingPriceControlConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControlWebDragAndDraw" path="/editPurchasingPriceControlRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25270013"/>
 		</action>
 		<action     
 			parameter="newPurchasingPriceControlWebDragAndDraw" path="/newPurchasingPriceControlRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControlWebDragAndDraw" path="/insertPurchasingPriceControlRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newPurchasingPriceControlRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControlWebDragAndDraw" path="/editPurchasingPriceControlRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updatePurchasingPriceControlWebDragAndDraw" path="/updatePurchasingPriceControlRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editPurchasingPriceControlRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newPurchasingPriceControlWebDragAndDraw" path="/newPurchasingPriceControlRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControlWebDragAndDraw" path="/insertPurchasingPriceControlRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newPurchasingPriceControlRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControlWebDragAndDraw" path="/editPurchasingPriceControlRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControlWebDragAndDraw" path="/updatePurchasingPriceControlRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editPurchasingPriceControlRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -768,164 +768,164 @@
 		<!-- PO Approval Rule -->
 		<action     
 			parameter="listPOApproval" path="/listPOApprovalRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="functionDescription" value="purchase order approval rule maintenance"/>
 			<forward name="page" path="site.rule.listPOApproval" />
 		</action>
 		<action     
 			parameter="newPOApproval" path="/newPOApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPOApproval" path="/insertPOApprovalRule" scope="request" name="ruleForm" input="/newPOApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApproval" path="/editPOApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePOApproval" path="/updatePOApprovalRule" scope="request" name="ruleForm" input="/editPOApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePOApproval" path="/deletePOApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listPOApproval" path="/listPOApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 		</action>
 		<action     
 			parameter="newPOApproval" path="/newPOApprovalRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPOApproval" path="/insertPOApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/newPOApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApproval" path="/editPOApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePOApproval" path="/updatePOApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/editPOApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePOApproval" path="/deletePOApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newPOApproval" path="/newPOApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPOApproval" path="/insertPOApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newPOApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApproval" path="/editPOApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePOApproval" path="/updatePOApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editPOApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deletePOApproval" path="/deletePOApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectPOApprovalUser" path="/selectPOApprovalConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23270010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApprovalWebDragAndDraw" path="/editPOApprovalRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25270012"/>
 		</action>
 		<action     
 			parameter="newPOApprovalWebDragAndDraw" path="/newPOApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPOApprovalWebDragAndDraw" path="/insertPOApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newPOApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApprovalWebDragAndDraw" path="/editPOApprovalRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updatePOApprovalWebDragAndDraw" path="/updatePOApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editPOApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newPOApprovalWebDragAndDraw" path="/newPOApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertPOApprovalWebDragAndDraw" path="/insertPOApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newPOApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editPOApprovalWebDragAndDraw" path="/editPOApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updatePOApprovalWebDragAndDraw" path="/updatePOApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editPOApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -934,164 +934,164 @@
 		<!-- Expense Approval Rule -->
 		<action     
 			parameter="listExpenseApproval" path="/listExpenseApprovalRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="functionDescription" value="expense approval rule maintenance"/>
 			<forward name="page" path="site.rule.listExpenseApproval" />
 		</action>
 		<action     
 			parameter="newExpenseApproval" path="/newExpenseApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseApproval" path="/insertExpenseApprovalRule" scope="request" name="ruleForm" input="/newExpenseApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApproval" path="/editExpenseApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseApproval" path="/updateExpenseApprovalRule" scope="request" name="ruleForm" input="/editExpenseApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseApproval" path="/deleteExpenseApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listExpenseApproval" path="/listExpenseApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 		</action>
 		<action     
 			parameter="newExpenseApproval" path="/newExpenseApprovalRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseApproval" path="/insertExpenseApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/newExpenseApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApproval" path="/editExpenseApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseApproval" path="/updateExpenseApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/editExpenseApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseApproval" path="/deleteExpenseApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newExpenseApproval" path="/newExpenseApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseApproval" path="/insertExpenseApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newExpenseApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApproval" path="/editExpenseApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseApproval" path="/updateExpenseApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editExpenseApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseApproval" path="/deleteExpenseApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectExpenseApprovalUser" path="/selectExpenseApprovalConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApprovalWebDragAndDraw" path="/editExpenseApprovalRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25230012"/>
 		</action>
 		<action     
 			parameter="newExpenseApprovalWebDragAndDraw" path="/newExpenseApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseApprovalWebDragAndDraw" path="/insertExpenseApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newExpenseApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApprovalWebDragAndDraw" path="/editExpenseApprovalRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updateExpenseApprovalWebDragAndDraw" path="/updateExpenseApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editExpenseApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newExpenseApprovalWebDragAndDraw" path="/newExpenseApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseApprovalWebDragAndDraw" path="/insertExpenseApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newExpenseApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseApprovalWebDragAndDraw" path="/editExpenseApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseApprovalWebDragAndDraw" path="/updateExpenseApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editExpenseApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -1100,164 +1100,164 @@
 		<!-- Expense Claim Rule -->
 		<action     
 			parameter="listExpenseClaim" path="/listExpenseClaimRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="functionDescription" value="expense claim rule maintenance"/>
 			<forward name="page" path="site.rule.listExpenseClaim" />
 		</action>
 		<action     
 			parameter="newExpenseClaim" path="/newExpenseClaimRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseClaim" path="/insertExpenseClaimRule" scope="request" name="ruleForm" input="/newExpenseClaimRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaim" path="/editExpenseClaimRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseClaim" path="/updateExpenseClaimRule" scope="request" name="ruleForm" input="/editExpenseClaimRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseClaim" path="/deleteExpenseClaimRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listExpenseClaim" path="/listExpenseClaimRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 		</action>
 		<action     
 			parameter="newExpenseClaim" path="/newExpenseClaimRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseClaim" path="/insertExpenseClaimRuleCondition" scope="request" name="ruleConditionForm" input="/newExpenseClaimRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaim" path="/editExpenseClaimRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseClaim" path="/updateExpenseClaimRuleCondition" scope="request" name="ruleConditionForm" input="/editExpenseClaimRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseClaim" path="/deleteExpenseClaimRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newExpenseClaim" path="/newExpenseClaimRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseClaim" path="/insertExpenseClaimRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newExpenseClaimRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaim" path="/editExpenseClaimRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseClaim" path="/updateExpenseClaimRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editExpenseClaimRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteExpenseClaim" path="/deleteExpenseClaimRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectExpenseClaimUser" path="/selectExpenseClaimConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23230011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaimWebDragAndDraw" path="/editExpenseClaimRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25230013"/>
 		</action>
 		<action     
 			parameter="newExpenseClaimWebDragAndDraw" path="/newExpenseClaimRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseClaimWebDragAndDraw" path="/insertExpenseClaimRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newExpenseClaimRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaimWebDragAndDraw" path="/editExpenseClaimRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updateExpenseClaimWebDragAndDraw" path="/updateExpenseClaimRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editExpenseClaimRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newExpenseClaimWebDragAndDraw" path="/newExpenseClaimRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertExpenseClaimWebDragAndDraw" path="/insertExpenseClaimRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newExpenseClaimRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editExpenseClaimWebDragAndDraw" path="/editExpenseClaimRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateExpenseClaimWebDragAndDraw" path="/updateExpenseClaimRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editExpenseClaimRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -1266,164 +1266,164 @@
 		<!-- Travel Approval Rule -->
 		<action     
 			parameter="listTravelApproval" path="/listTravelApprovalRule" scope="session" name="ruleQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="functionDescription" value="travel application approval rule maintenance"/>
 			<forward name="page" path="site.rule.listTravelApproval" />
 		</action>
 		<action     
 			parameter="newTravelApproval" path="/newTravelApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertTravelApproval" path="/insertTravelApprovalRule" scope="request" name="ruleForm" input="/newTravelApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApproval" path="/editTravelApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateTravelApproval" path="/updateTravelApprovalRule" scope="request" name="ruleForm" input="/editTravelApprovalRule.do"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteTravelApproval" path="/deleteTravelApprovalRule"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action     
 			parameter="listTravelApproval" path="/listTravelApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 		</action>
 		<action     
 			parameter="newTravelApproval" path="/newTravelApprovalRuleCondition" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertTravelApproval" path="/insertTravelApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/newTravelApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApproval" path="/editTravelApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateTravelApproval" path="/updateTravelApprovalRuleCondition" scope="request" name="ruleConditionForm" input="/editTravelApprovalRuleCondition.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteTravelApproval" path="/deleteTravelApprovalRuleCondition"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 
 		<action 
 			parameter="newTravelApproval" path="/newTravelApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertTravelApproval" path="/insertTravelApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/newTravelApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApproval" path="/editTravelApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateTravelApproval" path="/updateTravelApprovalRuleConsequence" scope="request" name="ruleConsequenceForm" input="/editTravelApprovalRuleConsequence.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="deleteTravelApproval" path="/deleteTravelApprovalRuleConsequence"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="selectTravelApprovalUser" path="/selectTravelApprovalConsequenceUser" scope="session" name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="23210010"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApprovalWebDragAndDraw" path="/editTravelApprovalRuleWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleAction">
 			<set-property property="functionId" value="25210011"/>
 		</action>
 		<action     
 			parameter="newTravelApprovalWebDragAndDraw" path="/newTravelApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertTravelApprovalWebDragAndDraw" path="/insertTravelApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/newTravelApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApprovalWebDragAndDraw" path="/editTravelApprovalRuleConditionWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>		
 		<action     
 			parameter="updateTravelApprovalWebDragAndDraw" path="/updateTravelApprovalRuleConditionWebDragAndDraw" scope="request" name="ruleConditionForm" input="/editTravelApprovalRuleConditionWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConditionAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConditionAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action 
 			parameter="newTravelApprovalWebDragAndDraw" path="/newTravelApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="insertTravelApprovalWebDragAndDraw" path="/insertTravelApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/newTravelApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="editTravelApprovalWebDragAndDraw" path="/editTravelApprovalRuleConsequenceWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
 		<action     
 			parameter="updateTravelApprovalWebDragAndDraw" path="/updateTravelApprovalRuleConsequenceWebDragAndDraw" scope="request" name="ruleConsequenceForm" input="/editTravelApprovalRuleConsequenceWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.RuleConsequenceAction">
+			type="net.sourceforge.web.struts.action.business.rule.RuleConsequenceAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 		</action>
@@ -1432,76 +1432,76 @@
 		<!-- Capex Approval Flow -->
 		<action     
 			parameter="listCapexApproval" path="/listCapexApprovalFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="functionDescription" value="capex approval flow maintenance"/>
 			<forward name="page" path="site.flow.listCapexApproval" />
 		</action>
 		<action
 			parameter="newCapexApproval" path="/newCapexApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertCapexApproval" path="/insertCapexApprovalFlow" scope="request" name="flowForm" input="/newCapexApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editCapexApproval" path="/editCapexApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updateCapexApproval" path="/updateCapexApprovalFlow" scope="request" name="flowForm" input="/editCapexApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deleteCapexApproval" path="/deleteCapexApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listCapexApprovalWebDragAndDraw" path="/listCapexApprovalFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listCapexApproval" />
 		</action>
 		<action
 			parameter="newCapexApprovalWebDragAndDraw" path="/newCapexApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250011"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertCapexApprovalWebDragAndDraw" path="/insertCapexApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/newCapexApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listCapexApprovalFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editCapexApprovalWebDragAndDraw" path="/editCapexApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updateCapexApprovalWebDragAndDraw" path="/updateCapexApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/editCapexApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25250011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listCapexApprovalFlowWebDragAndDraw.do" />
@@ -1511,76 +1511,76 @@
 		<!-- PR Approval Flow -->
 		<action     
 			parameter="listPRApproval" path="/listPRApprovalFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="functionDescription" value="pr approval flow maintenance"/>
 			<forward name="page" path="site.flow.listPRApproval" />
 		</action>
 		<action
 			parameter="newPRApproval" path="/newPRApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertPRApproval" path="/insertPRApprovalFlow" scope="request" name="flowForm" input="/newPRApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editPRApproval" path="/editPRApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updatePRApproval" path="/updatePRApprovalFlow" scope="request" name="flowForm" input="/editPRApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deletePRApproval" path="/deletePRApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listPRApprovalWebDragAndDraw" path="/listPRApprovalFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listPRApproval" />
 		</action>
 		<action
 			parameter="newPRApprovalWebDragAndDraw" path="/newPRApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260012"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertPRApprovalWebDragAndDraw" path="/insertPRApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/newPRApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPRApprovalFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editPRApprovalWebDragAndDraw" path="/editPRApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updatePRApprovalWebDragAndDraw" path="/updatePRApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/editPRApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPRApprovalFlowWebDragAndDraw.do" />
@@ -1590,76 +1590,76 @@
 		<!-- Purchasing Flow -->
 		<action     
 			parameter="listPurchasing" path="/listPurchasingFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="functionDescription" value="pr purchasing flow maintenance"/>
 			<forward name="page" path="site.flow.listPurchasing" />
 		</action>
 		<action
 			parameter="newPurchasing" path="/newPurchasingFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertPurchasing" path="/insertPurchasingFlow" scope="request" name="flowForm" input="/newPurchasingFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editPurchasing" path="/editPurchasingFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updatePurchasing" path="/updatePurchasingFlow" scope="request" name="flowForm" input="/editPurchasingFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deletePurchasing" path="/deletePurchasingFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listPurchasingWebDragAndDraw" path="/listPurchasingFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listPurchasing" />
 		</action>
 		<action
 			parameter="newPurchasingWebDragAndDraw" path="/newPurchasingFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260013"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertPurchasingWebDragAndDraw" path="/insertPurchasingFlowWebDragAndDraw" scope="request" name="flowForm" input="/newPurchasingFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPurchasingFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editPurchasingWebDragAndDraw" path="/editPurchasingFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updatePurchasingWebDragAndDraw" path="/updatePurchasingFlowWebDragAndDraw" scope="request" name="flowForm" input="/editPurchasingFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25260013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPurchasingFlowWebDragAndDraw.do" />
@@ -1669,76 +1669,76 @@
 		<!-- Purchasing Price Control Flow -->
 		<action     
 			parameter="listPurchasingPriceControl" path="/listPurchasingPriceControlFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="functionDescription" value="purchasing price control flow maintenance"/>
 			<forward name="page" path="site.flow.listPurchasingPriceControl" />
 		</action>
 		<action
 			parameter="newPurchasingPriceControl" path="/newPurchasingPriceControlFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControl" path="/insertPurchasingPriceControlFlow" scope="request" name="flowForm" input="/newPurchasingPriceControlFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControl" path="/editPurchasingPriceControlFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControl" path="/updatePurchasingPriceControlFlow" scope="request" name="flowForm" input="/editPurchasingPriceControlFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deletePurchasingPriceControl" path="/deletePurchasingPriceControlFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listPurchasingPriceControlWebDragAndDraw" path="/listPurchasingPriceControlFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listPurchasingPriceControl" />
 		</action>
 		<action
 			parameter="newPurchasingPriceControlWebDragAndDraw" path="/newPurchasingPriceControlFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270013"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertPurchasingPriceControlWebDragAndDraw" path="/insertPurchasingPriceControlFlowWebDragAndDraw" scope="request" name="flowForm" input="/newPurchasingPriceControlFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPurchasingPriceControlFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editPurchasingPriceControlWebDragAndDraw" path="/editPurchasingPriceControlFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updatePurchasingPriceControlWebDragAndDraw" path="/updatePurchasingPriceControlFlowWebDragAndDraw" scope="request" name="flowForm" input="/editPurchasingPriceControlFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPurchasingPriceControlFlowWebDragAndDraw.do" />
@@ -1748,76 +1748,76 @@
 		<!-- PO Approval Flow -->
 		<action     
 			parameter="listPOApproval" path="/listPOApprovalFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="functionDescription" value="po approval flow maintenance"/>
 			<forward name="page" path="site.flow.listPOApproval" />
 		</action>
 		<action
 			parameter="newPOApproval" path="/newPOApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertPOApproval" path="/insertPOApprovalFlow" scope="request" name="flowForm" input="/newPOApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editPOApproval" path="/editPOApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updatePOApproval" path="/updatePOApprovalFlow" scope="request" name="flowForm" input="/editPOApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deletePOApproval" path="/deletePOApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listPOApprovalWebDragAndDraw" path="/listPOApprovalFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listPOApproval" />
 		</action>
 		<action
 			parameter="newPOApprovalWebDragAndDraw" path="/newPOApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270012"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertPOApprovalWebDragAndDraw" path="/insertPOApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/newPOApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPOApprovalFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editPOApprovalWebDragAndDraw" path="/editPOApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updatePOApprovalWebDragAndDraw" path="/updatePOApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/editPOApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25270012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listPOApprovalFlowWebDragAndDraw.do" />
@@ -1827,76 +1827,76 @@
 		<!-- Expense Approval Flow -->
 		<action     
 			parameter="listExpenseApproval" path="/listExpenseApprovalFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="functionDescription" value="expense approval flow maintenance"/>
 			<forward name="page" path="site.flow.listExpenseApproval" />
 		</action>
 		<action
 			parameter="newExpenseApproval" path="/newExpenseApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertExpenseApproval" path="/insertExpenseApprovalFlow" scope="request" name="flowForm" input="/newExpenseApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editExpenseApproval" path="/editExpenseApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updateExpenseApproval" path="/updateExpenseApprovalFlow" scope="request" name="flowForm" input="/editExpenseApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deleteExpenseApproval" path="/deleteExpenseApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listExpenseApprovalWebDragAndDraw" path="/listExpenseApprovalFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="functionDescription" value="expense approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listExpenseApproval" />
 		</action>
 		<action
 			parameter="newExpenseApprovalWebDragAndDraw" path="/newExpenseApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230012"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertExpenseApprovalWebDragAndDraw" path="/insertExpenseApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/newExpenseApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listExpenseApprovalFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editExpenseApprovalWebDragAndDraw" path="/editExpenseApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updateExpenseApprovalWebDragAndDraw" path="/updateExpenseApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/editExpenseApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230012"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listExpenseApprovalFlowWebDragAndDraw.do" />
@@ -1906,76 +1906,76 @@
 		<!-- Expense Claim Flow -->
 		<action     
 			parameter="listExpenseClaim" path="/listExpenseClaimFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="functionDescription" value="expense claim flow maintenance"/>
 			<forward name="page" path="site.flow.listExpenseClaim" />
 		</action>
 		<action
 			parameter="newExpenseClaim" path="/newExpenseClaimFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertExpenseClaim" path="/insertExpenseClaimFlow" scope="request" name="flowForm" input="/newExpenseClaimFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editExpenseClaim" path="/editExpenseClaimFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updateExpenseClaim" path="/updateExpenseClaimFlow" scope="request" name="flowForm" input="/editExpenseClaimFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deleteExpenseClaim" path="/deleteExpenseClaimFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="listExpenseClaimWebDragAndDraw" path="/listExpenseClaimFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listExpenseClaim" />
 		</action>
 		<action
 			parameter="newExpenseClaimWebDragAndDraw" path="/newExpenseClaimFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230013"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertExpenseClaimWebDragAndDraw" path="/insertExpenseClaimFlowWebDragAndDraw" scope="request" name="flowForm" input="/newExpenseClaimFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listExpenseClaimFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editExpenseClaimWebDragAndDraw" path="/editExpenseClaimFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updateExpenseClaimWebDragAndDraw" path="/updateExpenseClaimFlowWebDragAndDraw" scope="request" name="flowForm" input="/editExpenseClaimFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25230013"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listExpenseClaimFlowWebDragAndDraw.do" />
@@ -1985,76 +1985,76 @@
 		<!-- Travel Approval Flow -->
 		<action     
 			parameter="listTravelApproval" path="/listTravelApprovalFlow" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="functionDescription" value="travel application approval flow maintenance"/>
 			<forward name="page" path="site.flow.listTravelApproval" />
 		</action>
 		<action
 			parameter="newTravelApproval" path="/newTravelApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.new" />
 		</action>
 		<action     
 			parameter="insertTravelApproval" path="/insertTravelApprovalFlow" scope="request" name="flowForm" input="/newTravelApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editTravelApproval" path="/editTravelApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.edit" />
 		</action>
 		<action     
 			parameter="updateTravelApproval" path="/updateTravelApprovalFlow" scope="request" name="flowForm" input="/editTravelApprovalFlow.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/flow/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deleteTravelApproval" path="/deleteTravelApprovalFlow"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210010"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action   
 			parameter="listTravelApprovalWebDragAndDraw" path="/listTravelApprovalFlowWebDragAndDraw" scope="session" name="flowQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="functionDescription" value=" approval flow maintenance web drag and draw"/>
 			<forward name="page" path="site.flow.listTravelApproval" />
 		</action>
 		<action
 			parameter="newTravelApprovalWebDragAndDraw" path="/newTravelApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210011"/>
 			<forward name="page" path="site.flow.newWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="insertTravelApprovalWebDragAndDraw" path="/insertTravelApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/newTravelApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listTravelApprovalFlowWebDragAndDraw.do" />
 		</action>
 		<action     
 			parameter="editTravelApprovalWebDragAndDraw" path="/editTravelApprovalFlowWebDragAndDraw"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.flow.editWebDragAndDraw" />
 		</action>
 		<action     
 			parameter="updateTravelApprovalWebDragAndDraw" path="/updateTravelApprovalFlowWebDragAndDraw" scope="request" name="flowForm" input="/editTravelApprovalFlowWebDragAndDraw.do"
-			type="com.aof.web.struts.action.business.rule.FlowAction">
+			type="net.sourceforge.web.struts.action.business.rule.FlowAction">
 			<set-property property="functionId" value="25210011"/>
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/listTravelApprovalFlowWebDragAndDraw.do" />
@@ -2065,7 +2065,7 @@
 		
 		<action     
 			parameter="listApprover" path="/listApprover" scope="session" name="approverQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200010"/>
 			<set-property property="functionDescription" value="global list approver delegate"/>
 			<forward name="page" path="site.approverDelegate.approver.list" />
@@ -2073,7 +2073,7 @@
 		
 		<action     
 			parameter="listApprover" path="/listApprover_department" scope="session" name="approverQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200010"/>
 			<set-property property="functionDescription" value="department list approver delegate"/>
 			<forward name="page" path="site.approverDelegate.approver.list" />
@@ -2081,7 +2081,7 @@
 
 		<action     
 			parameter="list" path="/listApproverDelegate" scope="session" name="approverDelegateQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="functionDescription" value="approver delegate maintenance"/>
 			<forward name="page" path="site.approverDelegate.list" />
@@ -2089,7 +2089,7 @@
 		
 		<action     
 			parameter="list" path="/listApproverDelegate_self" scope="session" name="approverDelegateQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="functionDescription" value="self approver delegate maintenance"/>
 			<forward name="page" path="site.approverDelegate.list" />
@@ -2098,7 +2098,7 @@
 		<action     
 			parameter="select" path="/selectDelegateApprover" scope="session"  
 			name="approverQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.select" />
@@ -2106,28 +2106,28 @@
 		
 		<action     
 			parameter="newObject" path="/newApproverDelegate" scope="request" 
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.new" />
 		</action>
 		<action     
 			parameter="insert" path="/insertApproverDelegate" scope="request" name="approverDelegateForm" input="/newApproverDelegate.do"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="edit" path="/editApproverDelegate" scope="request"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.edit" />
 		</action>
 		<action     
 			parameter="update" path="/updateApproverDelegate" scope="request" name="approverDelegateForm" input="/editApproverDelegate.do"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="33200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -2137,7 +2137,7 @@
 		<action     
 			parameter="select" path="/selectDelegateApprover_self" scope="session"  
 			name="approverQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.select" />
@@ -2145,7 +2145,7 @@
 		
 		<action     
 			parameter="newObject" path="/newApproverDelegate_self" scope="request" 
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.new" />
@@ -2153,14 +2153,14 @@
 		<action     
 			parameter="insert" path="/insertApproverDelegate_self" scope="request" 
 			name="approverDelegateForm" input="/newApproverDelegate_self.do"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="edit" path="/editApproverDelegate_self" scope="request"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.approverDelegate.edit" />
@@ -2168,7 +2168,7 @@
 		<action     
 			parameter="update" path="/updateApproverDelegate_self" scope="request" 
 			name="approverDelegateForm" input="/editApproverDelegate_self.do"
-			type="com.aof.web.struts.action.business.rule.ApproverDelegateAction">
+			type="net.sourceforge.web.struts.action.business.rule.ApproverDelegateAction">
 			<set-property property="functionId" value="13200011"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />

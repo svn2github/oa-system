@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import="com.aof.model.metadata.ApproveStatus"%>
-<%@ page import="com.aof.model.metadata.YesNo"%>
-<%@ page import="com.aof.model.metadata.SingleReturn"%>
-<%@ page import="com.aof.model.metadata.TravellingMode"%>
+<%@ page import="net.sourceforge.model.metadata.ApproveStatus"%>
+<%@ page import="net.sourceforge.model.metadata.YesNo"%>
+<%@ page import="net.sourceforge.model.metadata.SingleReturn"%>
+<%@ page import="net.sourceforge.model.metadata.TravellingMode"%>
 
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>

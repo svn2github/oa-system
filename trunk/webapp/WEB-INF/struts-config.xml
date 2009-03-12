@@ -6,73 +6,73 @@
 
 	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig">
 		<form-bean name="loginForm"
-			type="com.aof.web.struts.form.admin.LoginForm" />
+			type="net.sourceforge.web.struts.form.admin.LoginForm" />
 		<form-bean name="functionQueryForm"
-			type="com.aof.web.struts.form.admin.FunctionQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.FunctionQueryForm" />
 		<form-bean name="userQueryForm"
-			type="com.aof.web.struts.form.admin.UserQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.UserQueryForm" />
 		<form-bean name="currencyQueryForm"
-			type="com.aof.web.struts.form.admin.CurrencyQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.CurrencyQueryForm" />
 		<form-bean name="roleQueryForm"
-			type="com.aof.web.struts.form.admin.RoleQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.RoleQueryForm" />
 		<form-bean name="metadataForm"
-			type="com.aof.web.struts.form.admin.MetadataForm" />
+			type="net.sourceforge.web.struts.form.admin.MetadataForm" />
 		<form-bean name="metadataQueryForm"
-			type="com.aof.web.struts.form.BaseSessionQueryForm" />	
+			type="net.sourceforge.web.struts.form.BaseSessionQueryForm" />	
 		<form-bean name="mailForm"
-			type="com.aof.web.struts.form.admin.MailForm" />
+			type="net.sourceforge.web.struts.form.admin.MailForm" />
 		<form-bean name="paraForm"
-			type="com.aof.web.struts.form.admin.ParaForm" />
+			type="net.sourceforge.web.struts.form.admin.ParaForm" />
 		<form-bean name="exchangeRateQueryForm"
-			type="com.aof.web.struts.form.admin.ExchangeRateQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.ExchangeRateQueryForm" />
 		<form-bean name="siteQueryForm"
-			type="com.aof.web.struts.form.admin.SiteQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.SiteQueryForm" />
 		<form-bean name="departmentQueryForm"
-			type="com.aof.web.struts.form.admin.DepartmentQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.DepartmentQueryForm" />
 		<form-bean name="webMonitorQueryForm"
-			type="com.aof.web.struts.form.admin.WebMonitorQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.WebMonitorQueryForm" />
 		<form-bean name="purchaseCategoryQueryForm"
-			type="com.aof.web.struts.form.admin.PurchaseCategoryQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.PurchaseCategoryQueryForm" />
 		<form-bean name="systemLogQueryForm"
-			type="com.aof.web.struts.form.admin.SystemLogQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.SystemLogQueryForm" />
 			
-		<form-bean name="functionForm" type="com.aof.model.admin.Function">
+		<form-bean name="functionForm" type="net.sourceforge.model.admin.Function">
 			<set-property property="requires" value="name"/>
 			<set-property property="includes" value="id,description"/>
 		</form-bean>
 
-		<form-bean name="userForm" type="com.aof.model.admin.User">
+		<form-bean name="userForm" type="net.sourceforge.model.admin.User">
 			<set-property property="requires" value="loginName,name,email"/>
 			<set-property property="includes" value="id,password,gender,telephone,primarySite.id,enabled"/>
 			<set-property property="toForms" value="loginFailedCount,lastLoginTime"/>
 			<form-property name="resetLoginFailedCount" type="java.lang.Boolean"/>
 		</form-bean>
 
-		<form-bean name="roleForm" type="com.aof.model.admin.Role">
+		<form-bean name="roleForm" type="net.sourceforge.model.admin.Role">
 			<set-property property="requires" value="name"/>
 			<set-property property="includes" value="id,description,type"/>
 		</form-bean>
 
-		<form-bean name="menuForm" type="com.aof.model.admin.Menu">
+		<form-bean name="menuForm" type="net.sourceforge.model.admin.Menu">
 			<set-property property="requires" value="name,secondName"/>
 			<set-property property="includes" value="id,description,secondDescription,parentMenu.id,function.id,url"/>
 			<set-property property="toForms" value="parentMenu.name"/>
 		</form-bean>
 
 		<form-bean name="currencyForm"
-			type="com.aof.model.admin.Currency">
+			type="net.sourceforge.model.admin.Currency">
 			<set-property property="requires" value="code,name,enabled"/>
 			<set-property property="includes" value=""/>
 		</form-bean>
 
 		<form-bean name="exchangeRateForm"
-			type="com.aof.model.admin.ExchangeRate">
+			type="net.sourceforge.model.admin.ExchangeRate">
 			<set-property property="requires" value="currency.code,site.id,exchangeRate"/>
 			<set-property property="toForms" value="site.name"/>
 			<set-property property="includes" value="id,site.name"/>
 		</form-bean>
 
-		<form-bean name="siteForm" type="com.aof.model.admin.Site">
+		<form-bean name="siteForm" type="net.sourceforge.model.admin.Site">
 			<set-property property="requires" value="name,baseCurrency.code,enabled,city.id,canRecharge"/>
 			<set-property property="includes" value="id,manager.id,activity"/>
 			<set-property property="toForms" value="manager.name,city.province.id,city.province.country.id"/>
@@ -80,41 +80,41 @@
 			<form-property name="logo" type="org.apache.struts.upload.FormFile"/>
 		</form-bean>
 
-		<form-bean name="departmentForm" type="com.aof.model.admin.Department">
+		<form-bean name="departmentForm" type="net.sourceforge.model.admin.Department">
 			<set-property property="requires" value="name,site.id"/>
 			<set-property property="includes" value="id,parentDepartment.id,manager.id,enabled"/>
 		</form-bean>
 
-    	<form-bean name="userSiteForm" type="com.aof.model.admin.UserSite">
+    	<form-bean name="userSiteForm" type="net.sourceforge.model.admin.UserSite">
 			<set-property property="requires" value="user.id,site.id,travelGroup.id"/>
 			<set-property property="includes" value=""/>
 			<set-property property="toForms" value="user.loginName,site.name"/>
     	</form-bean>
 
-    	<form-bean name="userDepartmentForm" type="com.aof.model.admin.UserDepartment">
+    	<form-bean name="userDepartmentForm" type="net.sourceforge.model.admin.UserDepartment">
 			<set-property property="requires" value="user.id,department.id"/>
 			<set-property property="includes" value="title"/>
 			<set-property property="toForms" value="user.loginName,department.site.id,department.site.name,department.name"/>
 		</form-bean>
 
-		<form-bean name="userRoleForm" type="com.aof.model.admin.UserRole">
+		<form-bean name="userRoleForm" type="net.sourceforge.model.admin.UserRole">
 			<set-property property="requires" value="user.id,role.id"/>
 			<set-property property="includes" value="id,grantedSite.id,grantedDepartment.id"/>
 			<set-property property="toForms" value="user.loginName"/>
 		</form-bean>
 
 		<form-bean name="expenseCategoryForm"
-			type="com.aof.model.admin.ExpenseCategory">
+			type="net.sourceforge.model.admin.ExpenseCategory">
 			
 			<set-property property="requires" value="description" />
 			<set-property property="includes" value="*,site.id" />			
 			
 		</form-bean>
 		<form-bean name="expenseCategoryQueryForm"
-			type="com.aof.web.struts.form.admin.ExpenseCategoryQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.ExpenseCategoryQueryForm" />
 
 		<form-bean name="expenseSubCategoryForm"
-			type="com.aof.model.admin.ExpenseSubCategory">
+			type="net.sourceforge.model.admin.ExpenseSubCategory">
 			
 			<set-property property="requires" value="description" />
 			<set-property property="includes" value="*,expenseCategory.id" />			
@@ -122,11 +122,11 @@
 		</form-bean>
 		
 		<form-bean name="expenseSubCategoryQueryForm"
-			type="com.aof.web.struts.form.admin.ExpenseSubCategoryQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.ExpenseSubCategoryQueryForm" />
 
 
 		<form-bean name="travelGroupForm"
-			type="com.aof.model.admin.TravelGroup">
+			type="net.sourceforge.model.admin.TravelGroup">
 			<set-property property="requires" value="name" />
 			<set-property property="includes" value="*,site.id" />			
 			
@@ -137,47 +137,47 @@
 
 		</form-bean>
 		<form-bean name="travelGroupQueryForm"
-			type="com.aof.web.struts.form.admin.TravelGroupQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.TravelGroupQueryForm" />
 
 		
 		<form-bean name="travelGroupDetailQueryForm"
-			type="com.aof.web.struts.form.admin.TravelGroupDetailQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.TravelGroupDetailQueryForm" />
 
 		<form-bean name="countryForm"
-			type="com.aof.model.admin.Country">
+			type="net.sourceforge.model.admin.Country">
 			<set-property property="requires" value="shortName,engName,chnName" />
 			<set-property property="includes" value="*,site.id" />
 		</form-bean>
 		<form-bean name="countryQueryForm"
-			type="com.aof.web.struts.form.admin.CountryQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.CountryQueryForm" />
 
 		<form-bean name="provinceForm"
-			type="com.aof.model.admin.Province">
+			type="net.sourceforge.model.admin.Province">
 			<set-property property="requires" value="engName,chnName" />
 			<set-property property="includes" value="*,country.id,site.id" />
 		</form-bean>
 		<form-bean name="provinceQueryForm"
-			type="com.aof.web.struts.form.admin.ProvinceQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.ProvinceQueryForm" />
 
 		<form-bean name="cityForm"
-			type="com.aof.model.admin.City">
+			type="net.sourceforge.model.admin.City">
 			<set-property property="requires" value="engName,chnName" />
 			<set-property property="includes" value="*,province.id,site.id" />
 		</form-bean>
 		
 		<form-bean name="cityQueryForm"
-			type="com.aof.web.struts.form.admin.CityQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.CityQueryForm" />
 
 
 		<form-bean name="purchaseCategoryForm"
-			type="com.aof.model.admin.PurchaseCategory">
+			type="net.sourceforge.model.admin.PurchaseCategory">
 			<set-property property="requires" value="description" />
 			<set-property property="includes" value="*,site.id,site.name" />
 			<set-property property="toForms" value="site.name" />
 		</form-bean>
 		
 		<form-bean name="purchaseSubCategoryForm"
-			type="com.aof.model.admin.PurchaseSubCategory">
+			type="net.sourceforge.model.admin.PurchaseSubCategory">
 			<set-property property="requires" value="description" />
 			<set-property property="includes" value="
 				*,
@@ -188,7 +188,7 @@
 		</form-bean>
 		
 		<form-bean name="hotelForm"
-			type="com.aof.model.admin.Hotel">
+			type="net.sourceforge.model.admin.Hotel">
 			<set-property property="requires" value="
 				name,city.id
 				" />
@@ -204,18 +204,18 @@
 		</form-bean>
 		
 		<form-bean name="hotelQueryForm"
-			type="com.aof.web.struts.form.admin.HotelQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.HotelQueryForm" />
 
 
 		<form-bean name="purchaseSubCategoryQueryForm"
-			type="com.aof.web.struts.form.admin.PurchaseSubCategoryQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.PurchaseSubCategoryQueryForm" />
 
 		<form-bean name="emailQueryForm"
-			type="com.aof.web.struts.form.admin.EmailQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.EmailQueryForm" />
 
 		
 		<form-bean name="supplierForm"
-			type="com.aof.model.admin.Supplier">
+			type="net.sourceforge.model.admin.Supplier">
 			<set-property property="requires" value="
 				name,address1,country.id
 				" />
@@ -225,9 +225,9 @@
 		</form-bean>
 		
 		<form-bean name="supplierQueryForm"
-			type="com.aof.web.struts.form.admin.SupplierQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.SupplierQueryForm" />
 		<form-bean name="supplierContractForm"
-			type="com.aof.model.admin.SupplierContract">
+			type="net.sourceforge.model.admin.SupplierContract">
 			<set-property property="requires" value="
 				description
 			" />
@@ -240,10 +240,10 @@
 			</form-property>
 		</form-bean>
 		<form-bean name="supplierContractQueryForm"
-			type="com.aof.web.struts.form.admin.SupplierContractQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.SupplierContractQueryForm" />
 			
 		<form-bean name="hotelContractForm"
-			type="com.aof.model.admin.HotelContract">
+			type="net.sourceforge.model.admin.HotelContract">
 			<set-property property="requires" value="
 				description
 			" />
@@ -256,10 +256,10 @@
 			</form-property>
 		</form-bean>
 		<form-bean name="hotelContractQueryForm"
-			type="com.aof.web.struts.form.admin.HotelContractQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.HotelContractQueryForm" />
 
 		<form-bean name="priceForm"
-			type="com.aof.model.admin.Price">
+			type="net.sourceforge.model.admin.Price">
 			<set-property property="requires" value="
 				price,discount,room,
 			" />
@@ -268,12 +268,12 @@
 			" />
 		</form-bean>
 		<form-bean name="priceQueryForm"
-			type="com.aof.web.struts.form.admin.PriceQueryForm" />
+			type="net.sourceforge.web.struts.form.admin.PriceQueryForm" />
 	
 
 
 		<form-bean name="supplierHistoryForm"
-			type="com.aof.model.admin.SupplierHistory">
+			type="net.sourceforge.model.admin.SupplierHistory">
 			<set-property property="requires" value="
 				name,address1,city.id
 				" />
@@ -284,11 +284,11 @@
 				" />
 		</form-bean>
 
-		<form-bean name="supplierHistoryQueryForm" type="com.aof.web.struts.form.admin.SupplierHistoryQueryForm" />
+		<form-bean name="supplierHistoryQueryForm" type="net.sourceforge.web.struts.form.admin.SupplierHistoryQueryForm" />
 
 	
 		<form-bean name="supplierItemForm"
-			type="com.aof.model.admin.SupplierItem">
+			type="net.sourceforge.model.admin.SupplierItem">
 			<set-property property="requires" value="
 				supplier.id,
 				purchaseSubCategory.purchaseCategory.id,
@@ -302,16 +302,16 @@
 				" />
 		</form-bean>
 		
-		<form-bean name="supplierItemQueryForm" type="com.aof.web.struts.form.admin.SupplierItemQueryForm" />
+		<form-bean name="supplierItemQueryForm" type="net.sourceforge.web.struts.form.admin.SupplierItemQueryForm" />
 
 
 	
-		<form-bean name="rechargeCustomerQueryForm" type="com.aof.web.struts.form.business.RechargeCustomerQueryForm" />
-		<form-bean name="rechargePersonQueryForm" type="com.aof.web.struts.form.business.RechargePersonQueryForm" />
+		<form-bean name="rechargeCustomerQueryForm" type="net.sourceforge.web.struts.form.business.RechargeCustomerQueryForm" />
+		<form-bean name="rechargePersonQueryForm" type="net.sourceforge.web.struts.form.business.RechargePersonQueryForm" />
 		
 	
 		<form-bean name="globalParameterForm"
-				type="com.aof.model.admin.GlobalParameter">
+				type="net.sourceforge.model.admin.GlobalParameter">
 			<set-property property="requires" value="
 				smtpAddress,
 				minPasswordLength,
@@ -323,7 +323,7 @@
 				" />	
 		</form-bean>
 		<form-bean name="siteParameterForm"
-				type="com.aof.model.admin.DataTransferParameter">
+				type="net.sourceforge.model.admin.DataTransferParameter">
 			<set-property property="requires" value="	
 				exportFileType
 				" />	
@@ -348,7 +348,7 @@
 	</form-beans>
 
 	<global-exceptions>
-		<exception handler="com.aof.web.struts.action.ExceptionHandler"
+		<exception handler="net.sourceforge.web.struts.action.ExceptionHandler"
 			key="key" type="java.lang.Exception" scope="request" />
 	</global-exceptions>
 
@@ -359,7 +359,7 @@
 		<forward name="selectOK" path="/WEB-INF/jsp/selectOK.jsp" />
 	</global-forwards>
 
-	<action-mappings type="com.aof.web.struts.action.SecureActionMapping">
+	<action-mappings type="net.sourceforge.web.struts.action.SecureActionMapping">
 		<action path="/showDialog"
 			className="com.shcnc.struts.action.CustomActionMapping"
 			type="com.shcnc.struts.action.DialogAction">
@@ -371,14 +371,14 @@
 			forward="site.confirmOperation" />
 
 		<action parameter="welcome" path="/welcome" className="org.apache.struts.action.ActionMapping"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="login" path="/login.do" redirect="true" />
 			<forward name="mainFrame" path="site.frame" />
 		</action>
 
 		<action parameter="login" path="/login" name="loginForm" className="org.apache.struts.action.ActionMapping"
 			input="site.basic.login" scope="request"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="changePwd" path="site.basic.changePassword" />
 			<forward name="page" path="site.basic.login" />
 			<forward name="success" path="/welcome.do" redirect="true" />
@@ -387,24 +387,24 @@
 		
 		<action parameter="changePasswordFirstTime" path="/changePasswordFirstTime" className="org.apache.struts.action.ActionMapping"
 			input="site.basic.changePassword" scope="request" name="loginForm"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="success" path="/welcome.do" redirect="true" />
 			<forward name="page" path="site.basic.login" />
 		</action>
 
 		<action parameter="logout" path="/logout" className="org.apache.struts.action.ActionMapping"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="success" path="site.basic.login" />
 		</action>
 
 		<action parameter="forgetPassword" path="/forgetPassword" className="org.apache.struts.action.ActionMapping"
 			input="site.basic.forgetPassword" scope="request"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="page" path="site.basic.forgetPassword" />
 		</action>
 		
 		<action parameter="top" path="/top" className="org.apache.struts.action.ActionMapping"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="page" path="site.basic.top" />
 		</action>
 
@@ -413,7 +413,7 @@
 		</action>
 
 		<action parameter="menu" path="/menu" className="org.apache.struts.action.ActionMapping"
-			type="com.aof.web.struts.action.admin.BasicAction">
+			type="net.sourceforge.web.struts.action.admin.BasicAction">
 			<forward name="page" path="site.basic.menu" />
 		</action>
 		
@@ -424,7 +424,7 @@
 			
 			parameter="list" path="/listGlobalUser" scope="session"
 			name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="functionId" value="11140020" />
 			<set-property property="functionDescription" value="list global user" />
 			<forward name="page" path="site.user.list" />
@@ -433,7 +433,7 @@
 			
 			parameter="list" path="/listUser" scope="session"
 			name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="functionId" value="21140020" />
 			<set-property property="functionDescription" value="list site user" />
 			<set-property property="functionType" value="siteUserMaintainance" />
@@ -444,7 +444,7 @@
 		<action
 			parameter="userRoleReport" path="/reportUserRole" scope="session"
 			name="userQueryForm"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="functionId" value="21140020" />
 			<forward name="page" path="site.user.userRole.report" />
 		</action>
@@ -453,7 +453,7 @@
 		<action
 			
 			parameter="newObject" path="/newUser" scope="request"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<set-property property="functionDescription" value="user maintenance" />
@@ -463,7 +463,7 @@
 			
 			parameter="insert" path="/insertUser" scope="request" name="userForm"
 			input="/newUser.do"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -471,7 +471,7 @@
 		<action
 			
 			parameter="edit" path="/editUser" scope="request"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.user.edit" />
@@ -480,7 +480,7 @@
 			
 			parameter="update" path="/updateUser" scope="request" name="userForm"
 			input="/editUser.do"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -489,7 +489,7 @@
 			
 			parameter="changePassword" path="/changePassword"
 			input="site.user.changePassword"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.user.changePassword" />
 			<forward name="success"
@@ -498,13 +498,13 @@
 		<action
 			
 			parameter="switchLocale" path="/switchLocale"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<forward name="page" path="site.user.switchLocale" />
 		</action>
 		<action
 			
 			parameter="checkLoginName" path="/checkLoginName"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.user.checkLoginName" />
 		</action>
@@ -512,7 +512,7 @@
 			
 			parameter="select" path="/selectUser" scope="session"
 			name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.UserAction">
+			type="net.sourceforge.web.struts.action.admin.UserAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140020" />
 			<forward name="page" path="site.user.select" />
@@ -520,41 +520,41 @@
 
 		<action     
 			parameter="list" path="/listUserSiteDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userSiteDepartment.list" />
 		</action>
 		<action     
 			parameter="newSite" path="/newUserSite" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true"/>
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userSiteDepartment.newSite" />
 		</action>
 		<action     
 			parameter="insertSite" path="/insertUserSite" scope="request" name="userSiteForm" input="/newUserSite.do"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true"/>
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="editSite" path="/editUserSite" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true"/>
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userSiteDepartment.editSite" />
 		</action>
 		<action     
 			parameter="updateSite" path="/updateUserSite" scope="request" name="userSiteForm" input="/editUserSite.do"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true"/>
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="deleteSite" path="/deleteUserSite" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true"/>
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
@@ -562,7 +562,7 @@
 		<action
 			
 			parameter="newDepartment" path="/newUserDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userSiteDepartment.newDepartment" />
@@ -571,7 +571,7 @@
 			
 			parameter="insertDepartment" path="/insertUserDepartment" scope="request"
 			name="userDepartmentForm" input="/newUserDepartment.do"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -579,7 +579,7 @@
 		<action
 			
 			parameter="editDepartment" path="/editUserDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userSiteDepartment.editDepartment" />
@@ -588,7 +588,7 @@
 			
 			parameter="updateDepartment" path="/updateUserDepartment" scope="request"
 			name="userDepartmentForm" input="/editUserDepartment.do"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -596,7 +596,7 @@
 		<action
 			
 			parameter="deleteDepartment" path="/deleteUserDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.UserSiteDepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.UserSiteDepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success"
@@ -605,7 +605,7 @@
 
 		<action
 			parameter="list" path="/listUserRole" scope="request"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userRole.list" />
 		</action>
@@ -615,7 +615,7 @@
 		<action
 			
 			parameter="newObject" path="/newUserRole" scope="request"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userRole.new" />
@@ -624,7 +624,7 @@
 			
 			parameter="insert" path="/insertUserRole" scope="request"
 			name="userRoleForm" input="/newUserRole.do"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -632,7 +632,7 @@
 		<action
 			
 			parameter="edit" path="/editUserRole" scope="request"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="page" path="site.userRole.edit" />
@@ -641,7 +641,7 @@
 			
 			parameter="update" path="/updateUserRole" scope="request"
 			name="userRoleForm" input="/editUserRole.do"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -649,7 +649,7 @@
 		<action
 			
 			parameter="delete" path="/deleteUserRole" scope="request"
-			type="com.aof.web.struts.action.admin.UserRoleAction">
+			type="net.sourceforge.web.struts.action.admin.UserRoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21140010" />
 			<forward name="success"
@@ -660,7 +660,7 @@
 			
 			parameter="list" path="/listMetadata" scope="session"
 			name="metadataQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.MetadataAction" >
+			type="net.sourceforge.web.struts.action.admin.MetadataAction" >
 			<set-property property="functionId" value="11080010" />
 			<set-property property="functionDescription" value="metadata maintenance" />
 			<forward name="page" path="site.metadata.list" />
@@ -669,7 +669,7 @@
 			
 			parameter="edit" path="/editMetadata" scope="request"
 			name="metadataForm" validate="false"
-			type="com.aof.web.struts.action.admin.MetadataAction">
+			type="net.sourceforge.web.struts.action.admin.MetadataAction">
 			<set-property property="functionId" value="11080010" />
 			<forward name="page" path="site.metadata.edit" />
 		</action>
@@ -677,7 +677,7 @@
 
 			parameter="update" path="/updateMetadata" scope="request"
 			name="metadataForm" validate="false" input="/editMetadata.do"
-			type="com.aof.web.struts.action.admin.MetadataAction">
+			type="net.sourceforge.web.struts.action.admin.MetadataAction">
 			<set-property property="functionId" value="11080010" />
 		</action>
 
@@ -685,7 +685,7 @@
 			
 			parameter="list" path="/listCurrency" scope="session"
 			name="currencyQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.CurrencyAction">
+			type="net.sourceforge.web.struts.action.admin.CurrencyAction">
 			<set-property property="functionId" value="21070010" />
 			<set-property property="functionDescription" value="currency maintenance" />
 			<forward name="page" path="site.currency.list" />
@@ -693,7 +693,7 @@
 		<action
 			
 			parameter="newObject" path="/newCurrency" scope="request"
-			type="com.aof.web.struts.action.admin.CurrencyAction">
+			type="net.sourceforge.web.struts.action.admin.CurrencyAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21070010" />
 			<forward name="page" path="site.currency.new" />
@@ -702,7 +702,7 @@
 			
 			parameter="insert" path="/insertCurrency" scope="request"
 			name="currencyForm" input="/newCurrency.do"
-			type="com.aof.web.struts.action.admin.CurrencyAction">
+			type="net.sourceforge.web.struts.action.admin.CurrencyAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21070010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -710,7 +710,7 @@
 		<action
 			
 			parameter="edit" path="/editCurrency" scope="request"
-			type="com.aof.web.struts.action.admin.CurrencyAction">
+			type="net.sourceforge.web.struts.action.admin.CurrencyAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21070010" />
 			<forward name="page" path="site.currency.edit" />
@@ -719,7 +719,7 @@
 			
 			parameter="update" path="/updateCurrency" scope="request"
 			name="currencyForm" input="/editCurrency.do"
-			type="com.aof.web.struts.action.admin.CurrencyAction">
+			type="net.sourceforge.web.struts.action.admin.CurrencyAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21070010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -729,7 +729,7 @@
 			
 			parameter="list" path="/listFunction" scope="session"
 			name="functionQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.FunctionAction">
+			type="net.sourceforge.web.struts.action.admin.FunctionAction">
 			<set-property property="functionId" value="11030010" />
 			<set-property property="functionDescription" value="function maintenance" />
 			<forward name="page" path="site.function.list" />
@@ -737,7 +737,7 @@
 		<action
 			
 			parameter="edit" path="/editFunction" scope="request"
-			type="com.aof.web.struts.action.admin.FunctionAction">
+			type="net.sourceforge.web.struts.action.admin.FunctionAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11030010" />
 			<forward name="page" path="site.function.edit" />
@@ -746,7 +746,7 @@
 			
 			parameter="update" path="/updateFunction" scope="request"
 			name="functionForm" input="/editFunction.do"
-			type="com.aof.web.struts.action.admin.FunctionAction">
+			type="net.sourceforge.web.struts.action.admin.FunctionAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11030010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -756,7 +756,7 @@
 			
 			parameter="list" path="/listRole" scope="session"
 			name="roleQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="functionId" value="11050010" />
 			<set-property property="functionDescription" value="role maintenance" />
 			<forward name="page" path="site.role.list" />
@@ -764,7 +764,7 @@
 		<action
 			
 			parameter="newObject" path="/newRole" scope="request"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11050010" />
 			<forward name="page" path="site.role.new" />
@@ -773,7 +773,7 @@
 			
 			parameter="insert" path="/insertRole" scope="request" name="roleForm"
 			input="/newRole.do"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11050010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -781,7 +781,7 @@
 		<action
 			
 			parameter="edit" path="/editRole" scope="request"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11050010" />
 			<forward name="page" path="site.role.edit" />
@@ -790,7 +790,7 @@
 			
 			parameter="update" path="/updateRole" scope="request" name="roleForm"
 			input="/editRole.do"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11050010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -798,7 +798,7 @@
 		<action
 			
 			parameter="grantFunction" path="/grantRoleFunction" scope="request"
-			type="com.aof.web.struts.action.admin.RoleAction">
+			type="net.sourceforge.web.struts.action.admin.RoleAction">
 			<set-property property="functionId" value="11050010" />
 			<forward name="page" path="site.role.grantFunction" />
 		</action>
@@ -806,7 +806,7 @@
 		<action
 			
 			parameter="list" path="/listMenu" scope="request"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="functionId" value="11040010" />
 			<set-property property="functionDescription" value="menu maintenance" />
 			<forward name="page" path="site.menu.list" />
@@ -814,7 +814,7 @@
 		<action
 			
 			parameter="newObject" path="/newMenu" scope="request"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11040010" />
 			<forward name="page" path="site.menu.new" />
@@ -823,7 +823,7 @@
 			
 			parameter="insert" path="/insertMenu" scope="request" name="menuForm"
 			input="/newMenu.do"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11040010" />
 			<forward name="success" path="/WEB-INF/jsp/menu/saveOK.jsp" />
@@ -831,7 +831,7 @@
 		<action
 			
 			parameter="edit" path="/editMenu" scope="request"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11040010" />
 			<forward name="page" path="site.menu.edit" />
@@ -840,7 +840,7 @@
 			
 			parameter="update" path="/updateMenu" scope="request" name="menuForm"
 			input="/editMenu.do"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11040010" />
 			<forward name="success" path="/WEB-INF/jsp/menu/saveOK.jsp" />
@@ -848,7 +848,7 @@
 		<action
 			
 			parameter="delete" path="/deleteMenu" scope="request"
-			type="com.aof.web.struts.action.admin.MenuAction">
+			type="net.sourceforge.web.struts.action.admin.MenuAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11040010" />
 			<forward name="success"
@@ -859,7 +859,7 @@
 			
 			parameter="list" path="/listExchangeRate" scope="session"
 			name="exchangeRateQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.ExchangeRateAction">
+			type="net.sourceforge.web.struts.action.admin.ExchangeRateAction">
 			<set-property property="functionId" value="21160010" />
 			<set-property property="functionDescription" value="exchange rate maintenance" />
 			<forward name="page" path="site.exchangeRate.list" />
@@ -867,7 +867,7 @@
 		<action
 			
 			parameter="newObject" path="/newExchangeRate" scope="request"
-			type="com.aof.web.struts.action.admin.ExchangeRateAction">
+			type="net.sourceforge.web.struts.action.admin.ExchangeRateAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21160010" />
 			<forward name="page" path="site.exchangeRate.new" />
@@ -876,7 +876,7 @@
 			
 			parameter="insert" path="/insertExchangeRate" scope="request"
 			name="exchangeRateForm" input="/newExchangeRate.do"
-			type="com.aof.web.struts.action.admin.ExchangeRateAction">
+			type="net.sourceforge.web.struts.action.admin.ExchangeRateAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21160010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -884,7 +884,7 @@
 		<action
 			
 			parameter="edit" path="/editExchangeRate" scope="request"
-			type="com.aof.web.struts.action.admin.ExchangeRateAction">
+			type="net.sourceforge.web.struts.action.admin.ExchangeRateAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21160010" />
 			<forward name="page" path="site.exchangeRate.edit" />
@@ -893,7 +893,7 @@
 			
 			parameter="update" path="/updateExchangeRate" scope="request"
 			name="exchangeRateForm" input="/editExchangeRate.do"
-			type="com.aof.web.struts.action.admin.ExchangeRateAction">
+			type="net.sourceforge.web.struts.action.admin.ExchangeRateAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21160010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -903,7 +903,7 @@
 			
 			parameter="list" path="/listSite" scope="session"
 			name="siteQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SiteAction">
+			type="net.sourceforge.web.struts.action.admin.SiteAction">
 			<set-property property="functionId" value="11130010" />
 			<set-property property="functionDescription" value="site maintenance" />
 			<forward name="page" path="site.site.list" />
@@ -911,7 +911,7 @@
 		<action
 			
 			parameter="newObject" path="/newSite" scope="request"
-			type="com.aof.web.struts.action.admin.SiteAction">
+			type="net.sourceforge.web.struts.action.admin.SiteAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11130010" />
 			<forward name="page" path="site.site.new" />
@@ -920,7 +920,7 @@
 			
 			parameter="insert" path="/insertSite" scope="request" name="siteForm"
 			input="/newSite.do"
-			type="com.aof.web.struts.action.admin.SiteAction">
+			type="net.sourceforge.web.struts.action.admin.SiteAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11130010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -928,7 +928,7 @@
 		<action
 			
 			parameter="edit" path="/editSite" scope="request"
-			type="com.aof.web.struts.action.admin.SiteAction">
+			type="net.sourceforge.web.struts.action.admin.SiteAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11130010" />
 			<forward name="page" path="site.site.edit" />
@@ -937,20 +937,20 @@
 			
 			parameter="update" path="/updateSite" scope="request" name="siteForm"
 			input="/editSite.do"
-			type="com.aof.web.struts.action.admin.SiteAction">
+			type="net.sourceforge.web.struts.action.admin.SiteAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11130010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action parameter="showLogo" path="/showSiteLogo"
-			scope="request" type="com.aof.web.struts.action.admin.SiteAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.SiteAction">
 		</action>
 
 		<action
 			
 			parameter="list" path="/listDepartment" scope="session"
 			name="departmentQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.DepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.DepartmentAction">
 			<set-property property="functionId" value="21180010" />
 			<set-property property="functionDescription" value="department maintenance" />
 			<forward name="page" path="site.department.list" />
@@ -958,7 +958,7 @@
 		<action
 			
 			parameter="newObject" path="/newDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.DepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.DepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21180010" />
 			<forward name="page" path="site.department.new" />
@@ -967,7 +967,7 @@
 			
 			parameter="insert" path="/insertDepartment" scope="request"
 			name="departmentForm" input="/newDepartment.do"
-			type="com.aof.web.struts.action.admin.DepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.DepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21180010" />
 			<forward name="success"
@@ -976,7 +976,7 @@
 		<action
 			
 			parameter="edit" path="/editDepartment" scope="request"
-			type="com.aof.web.struts.action.admin.DepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.DepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21180010" />
 			<forward name="page" path="site.department.edit" />
@@ -985,7 +985,7 @@
 			
 			parameter="update" path="/updateDepartment" scope="request"
 			name="departmentForm" input="/editDepartment.do"
-			type="com.aof.web.struts.action.admin.DepartmentAction">
+			type="net.sourceforge.web.struts.action.admin.DepartmentAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21180010" />
 			<forward name="success"
@@ -996,7 +996,7 @@
 			
 			parameter="list" path="/listGlobalOnlineUser" scope="session"
 			name="webMonitorQueryForm"
-			type="com.aof.web.struts.action.admin.WebMonitorAction">
+			type="net.sourceforge.web.struts.action.admin.WebMonitorAction">
 			<set-property property="functionId" value="11020010" />
 			<set-property property="functionDescription" value="global user monitor" />
 			<forward name="page" path="site.webmonitor.list" />
@@ -1005,7 +1005,7 @@
 			
 			parameter="list" path="/listOnlineUser" scope="session"
 			name="webMonitorQueryForm"
-			type="com.aof.web.struts.action.admin.WebMonitorAction">
+			type="net.sourceforge.web.struts.action.admin.WebMonitorAction">
 			<set-property property="functionId" value="21020010" />
 			<set-property property="functionDescription" value="site user monitor" />
 			<forward name="page" path="site.webmonitor.list" />
@@ -1015,7 +1015,7 @@
 			
 			parameter="list" path="/listExpenseCategory" scope="session"
 			name="expenseCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.ExpenseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="functionDescription" value="expense category maintenance" />
 			<forward name="page" path="site.expenseCategory.list" />
@@ -1023,7 +1023,7 @@
 		<action
 			
 			parameter="newObject" path="/newExpenseCategory" scope="request"
-			type="com.aof.web.struts.action.admin.ExpenseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.expenseCategory.new" />
@@ -1032,7 +1032,7 @@
 			
 			parameter="insert" path="/insertExpenseCategory" scope="request"
 			name="expenseCategoryForm" input="/newExpenseCategory.do"
-			type="com.aof.web.struts.action.admin.ExpenseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21150010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1040,7 +1040,7 @@
 		<action
 			
 			parameter="edit" path="/editExpenseCategory" scope="request"
-			type="com.aof.web.struts.action.admin.ExpenseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.expenseCategory.edit" />
@@ -1049,7 +1049,7 @@
 			
 			parameter="update" path="/updateExpenseCategory" scope="request"
 			name="expenseCategoryForm" input="/editExpenseCategory.do"
-			type="com.aof.web.struts.action.admin.ExpenseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1058,7 +1058,7 @@
 		<action
 			parameter="list" path="/listExpenseSubCategory" scope="session"
 			name="expenseSubCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.ExpenseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseSubCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.expenseSubCategory.list" />
@@ -1066,7 +1066,7 @@
 		<action
 			
 			parameter="newObject" path="/newExpenseSubCategory" scope="request"
-			type="com.aof.web.struts.action.admin.ExpenseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseSubCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.expenseSubCategory.new" />
@@ -1075,7 +1075,7 @@
 			
 			parameter="insert" path="/insertExpenseSubCategory" scope="request"
 			name="expenseSubCategoryForm" input="/newExpenseSubCategory.do"
-			type="com.aof.web.struts.action.admin.ExpenseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseSubCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1083,7 +1083,7 @@
 		<action
 			
 			parameter="edit" path="/editExpenseSubCategory" scope="request"
-			type="com.aof.web.struts.action.admin.ExpenseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseSubCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.expenseSubCategory.edit" />
@@ -1092,7 +1092,7 @@
 			
 			parameter="update" path="/updateExpenseSubCategory" scope="request"
 			name="expenseSubCategoryForm" input="/editExpenseSubCategory.do"
-			type="com.aof.web.struts.action.admin.ExpenseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.ExpenseSubCategoryAction">
 			<set-property property="functionId" value="21150010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1102,7 +1102,7 @@
 			
 			parameter="list" path="/listTravelGroup" scope="session"
 			name="travelGroupQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.TravelGroupAction">
+			type="net.sourceforge.web.struts.action.admin.TravelGroupAction">
 			<set-property property="functionId" value="21190010" />
 			<set-property property="functionDescription" value="travel group maintenance" />
 			<forward name="page" path="site.travelGroup.list" />
@@ -1110,7 +1110,7 @@
 		<action
 			
 			parameter="newObject" path="/newTravelGroup" scope="request"
-			type="com.aof.web.struts.action.admin.TravelGroupAction">
+			type="net.sourceforge.web.struts.action.admin.TravelGroupAction">
 			<set-property property="functionId" value="21190010" />
 			<forward name="page" path="site.travelGroup.new" />
 		</action>
@@ -1118,14 +1118,14 @@
 			
 			parameter="insert" path="/insertTravelGroup" scope="request"
 			name="travelGroupForm" input="/newTravelGroup.do"
-			type="com.aof.web.struts.action.admin.TravelGroupAction">
+			type="net.sourceforge.web.struts.action.admin.TravelGroupAction">
 			<set-property property="functionId" value="21190010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			
 			parameter="edit" path="/editTravelGroup" scope="request"
-			type="com.aof.web.struts.action.admin.TravelGroupAction">
+			type="net.sourceforge.web.struts.action.admin.TravelGroupAction">
 			<set-property property="functionId" value="21190010" />
 			<forward name="page" path="site.travelGroup.edit" />
 		</action>
@@ -1133,7 +1133,7 @@
 			
 			parameter="update" path="/updateTravelGroup" scope="request"
 			name="travelGroupForm" input="/editTravelGroup.do"
-			type="com.aof.web.struts.action.admin.TravelGroupAction">
+			type="net.sourceforge.web.struts.action.admin.TravelGroupAction">
 			<set-property property="functionId" value="21190010" />
 
 		</action>
@@ -1143,7 +1143,7 @@
 			
 			parameter="listCountryProvinceCity" path="/listCountryProvinceCity"
 			scope="session" name="countryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="11110020" />
 			<set-property property="functionDescription" value="list global country province city" />
 			<forward name="page"
@@ -1155,7 +1155,7 @@
 			parameter="listCountryProvinceCity"
 			path="/listCountryProvinceCity_site" scope="session"
 			name="countryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110020" />
 			<set-property property="functionDescription" value="list site country province city" />
 			<forward name="page"
@@ -1166,7 +1166,7 @@
 			
 			parameter="list" path="/listCountry" scope="session"
 			name="countryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="functionDescription" value="country province city maintenance" />
 			<set-property property="functionType" value="countryProvinceCityMaintenance" />
@@ -1176,7 +1176,7 @@
 		<action
 			
 			parameter="newObject" path="/newCountry" scope="request"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.country.new" />
@@ -1186,7 +1186,7 @@
 			
 			parameter="insert" path="/insertCountry" scope="request"
 			name="countryForm" input="/newCountry.do"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1195,7 +1195,7 @@
 		<action
 			
 			parameter="edit" path="/editCountry" scope="request"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.country.edit" />
@@ -1203,7 +1203,7 @@
 		
 		<action
 			parameter="delete" path="/deleteCountry" scope="request"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
@@ -1212,7 +1212,7 @@
 		<action
 			
 			parameter="promote" path="/promoteCountry" scope="request"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="11110070" />
 			<set-property property="functionDescription" value="promote country province city" />
 			<set-property property="dialog" value="true" />
@@ -1224,7 +1224,7 @@
 			
 			parameter="update" path="/updateCountry" scope="request"
 			name="countryForm" input="/editCountry.do"
-			type="com.aof.web.struts.action.admin.CountryAction">
+			type="net.sourceforge.web.struts.action.admin.CountryAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1235,7 +1235,7 @@
 			
 			parameter="list" path="/listProvince" scope="session"
 			name="provinceQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<forward name="page" path="/WEB-INF/jsp/province/list.jsp" />
 		</action>
@@ -1243,7 +1243,7 @@
 		<action
 			
 			parameter="newObject" path="/newProvince" scope="request"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="page" path="site.province.new" />
@@ -1254,7 +1254,7 @@
 			
 			parameter="insert" path="/insertProvince" scope="request"
 			name="provinceForm" input="/newProvince.do"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1264,7 +1264,7 @@
 		<action
 			
 			parameter="edit" path="/editProvince" scope="request"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="page" path="site.province.edit" />
@@ -1272,7 +1272,7 @@
 		
 		<action
 			parameter="delete" path="/deleteProvince" scope="request"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
@@ -1282,7 +1282,7 @@
 		<action
 			
 			parameter="promote" path="/promoteProvince" scope="request"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="11110070" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1292,7 +1292,7 @@
 			
 			parameter="update" path="/updateProvince" scope="request"
 			name="provinceForm" input="/editProvince.do"
-			type="com.aof.web.struts.action.admin.ProvinceAction">
+			type="net.sourceforge.web.struts.action.admin.ProvinceAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1303,7 +1303,7 @@
 			
 			parameter="list" path="/listCity" scope="session"
 			name="cityQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<forward name="page" path="/WEB-INF/jsp/city/list.jsp" />
 		</action>
@@ -1311,7 +1311,7 @@
 		<action
 			
 			parameter="newObject" path="/newCity" scope="request"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="page" path="site.city.new" />
@@ -1321,7 +1321,7 @@
 			
 			parameter="insert" path="/insertCity" scope="request" name="cityForm"
 			input="/newCity.do"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1329,7 +1329,7 @@
 		
 		<action
 			parameter="delete" path="/deleteCity" scope="request"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>
@@ -1339,7 +1339,7 @@
 		<action
 			
 			parameter="edit" path="/editCity" scope="request"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="page" path="site.city.edit" />
@@ -1348,7 +1348,7 @@
 		<action
 			
 			parameter="promote" path="/promoteCity" scope="request"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="11110070" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1359,7 +1359,7 @@
 			
 			parameter="update" path="/updateCity" scope="request" name="cityForm"
 			input="/editCity.do"
-			type="com.aof.web.struts.action.admin.CityAction">
+			type="net.sourceforge.web.struts.action.admin.CityAction">
 			<set-property property="functionId" value="21110010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1371,7 +1371,7 @@
 		<action
 			parameter="list" path="/listPurchaseCategory" scope="session"
 			name="purchaseCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="functionId" value="11060010" />
 			<set-property property="functionDescription" value="global purchase category maintenance" />
 			<forward name="page" path="site.purchaseCategory.list" />
@@ -1379,21 +1379,21 @@
 		<action
 			parameter="list" path="/listPurchaseCategory_site" scope="session"
 			name="purchaseCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="functionId" value="21060010" />
 			<set-property property="functionDescription" value="site purchase category maintenance" />
 			<forward name="page" path="site.purchaseCategory.list" />
 		</action>
 		<action
 			parameter="newObject" path="/newPurchaseCategory" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="page" path="site.purchaseCategory.new" />
 		</action>
 		<action
 			parameter="newObject" path="/newPurchaseCategory_site" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseCategory.new" />
@@ -1401,7 +1401,7 @@
 		<action
 			parameter="insert" path="/insertPurchaseCategory" scope="request"
 			name="purchaseCategoryForm" input="/newPurchaseCategory.do"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1409,21 +1409,21 @@
 		<action
 			parameter="insert" path="/insertPurchaseCategory_site" scope="request"
 			name="purchaseCategoryForm" input="/newPurchaseCategory_site.do"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			parameter="edit" path="/editPurchaseCategory" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="page" path="site.purchaseCategory.edit" />
 		</action>
 		<action
 			parameter="edit" path="/editPurchaseCategory_site" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseCategory.edit" />
@@ -1431,7 +1431,7 @@
 		<action
 			parameter="update" path="/updatePurchaseCategory" scope="request"
 			name="purchaseCategoryForm" input="/editPurchaseCategory.do"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1439,7 +1439,7 @@
 		<action
 			parameter="update" path="/updatePurchaseCategory_site" scope="request"
 			name="purchaseCategoryForm" input="/editPurchaseCategory_site.do"
-			type="com.aof.web.struts.action.admin.PurchaseCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1448,27 +1448,27 @@
 		<action
 			parameter="list" path="/listPurchaseSubCategory" scope="session"
 			name="purchaseSubCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="functionId" value="11060010" />
 			<forward name="page" path="site.purchaseSubCategory.list" />
 		</action>
 		<action
 			parameter="list" path="/listPurchaseSubCategory_site" scope="session"
 			name="purchaseSubCategoryQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseSubCategory.list" />
 		</action>
 		<action
 			parameter="newObject" path="/newPurchaseSubCategory" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="page" path="site.purchaseSubCategory.new" />
 		</action>
 		<action
 			parameter="newObject" path="/newPurchaseSubCategory_site" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseSubCategory.new" />
@@ -1477,7 +1477,7 @@
 		<action
 			parameter="selectInspector" path="/selectInspector_site" scope="session"
 			name="userQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseSubCategory.selectInspector" />
@@ -1485,7 +1485,7 @@
 		<action
 			parameter="insert" path="/insertPurchaseSubCategory" scope="request"
 			name="purchaseSubCategoryForm" input="/newPurchaseSubCategory.do"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1493,21 +1493,21 @@
 		<action
 			parameter="insert" path="/insertPurchaseSubCategory_site" scope="request"
 			name="purchaseSubCategoryForm" input="/newPurchaseSubCategory_site.do"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			parameter="edit" path="/editPurchaseSubCategory" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="page" path="site.purchaseSubCategory.edit" />
 		</action>
 		<action
 			parameter="edit" path="/editPurchaseSubCategory_site" scope="request"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="page" path="site.purchaseSubCategory.edit" />
@@ -1515,7 +1515,7 @@
 		<action
 			parameter="update" path="/updatePurchaseSubCategory" scope="request"
 			name="purchaseSubCategoryForm" input="/editPurchaseSubCategory.do"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="11060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1523,7 +1523,7 @@
 		<action
 			parameter="update" path="/updatePurchaseSubCategory_site" scope="request"
 			name="purchaseSubCategoryForm" input="/editPurchaseSubCategory_site.do"
-			type="com.aof.web.struts.action.admin.PurchaseSubCategoryAction">
+			type="net.sourceforge.web.struts.action.admin.PurchaseSubCategoryAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21060010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1535,7 +1535,7 @@
 			
 			parameter="list" path="/listHotel" scope="session"
 			name="hotelQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="functionDescription" value="global hotel maintenance" />
 			<forward name="page" path="site.hotel.list" />
@@ -1544,7 +1544,7 @@
 			
 			parameter="list" path="/listHotel_site" scope="session"
 			name="hotelQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="functionDescription" value="site hotel maintenance" />
 			<set-property property="functionType" value="siteHotelMaintenance" />
@@ -1555,14 +1555,14 @@
 		<action
 			
 			parameter="newObject" path="/newHotel" scope="request"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 			<forward name="page" path="site.hotel.new" />
 		</action>
 		<action
 			
 			parameter="newObject" path="/newHotel_site" scope="request"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 			<forward name="page" path="site.hotel.new" />
 		</action>
@@ -1571,21 +1571,21 @@
 			
 			parameter="insert" path="/insertHotel" scope="request"
 			name="hotelForm" input="/newHotel.do"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 		</action>
 		<action
 			
 			parameter="insert" path="/insertHotel_site" scope="request"
 			name="hotelForm" input="/newHotel_site.do"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 		</action>
 
 		<action
 			
 			parameter="edit" path="/editHotel" scope="request"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 			<forward name="page" path="site.hotel.edit" />
 		</action>
@@ -1593,7 +1593,7 @@
 		<action
 			
 			parameter="edit" path="/editHotel_site" scope="request"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 			<forward name="page" path="site.hotel.edit" />
 		</action>
@@ -1601,7 +1601,7 @@
 		<action
 			
 			parameter="requestPromote" path="/requestPromoteHotel"
-			scope="request" type="com.aof.web.struts.action.admin.HotelAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="page" path="site.hotel.promote.request" />			
@@ -1611,7 +1611,7 @@
 			
 			parameter="requestPromote_result" path="/requestPromoteHotel_result"
 			scope="request" name="hotelForm" input="requestPromoteHotel.do" validate="false"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/hotel/requestPromoteSuccess.jsp" />
@@ -1621,7 +1621,7 @@
 		<action
 			
 			parameter="responsePromote" path="/responsePromoteHotel"
-			scope="request" type="com.aof.web.struts.action.admin.HotelAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/editHotel_site.do" />
@@ -1631,7 +1631,7 @@
 			
 			parameter="update" path="/updateHotel" scope="request"
 			name="hotelForm" input="/editHotel.do"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="11120010" />
 
 		</action>
@@ -1639,7 +1639,7 @@
 			
 			parameter="update" path="/updateHotel_site" scope="request"
 			name="hotelForm" input="/editHotel_site.do"
-			type="com.aof.web.struts.action.admin.HotelAction">
+			type="net.sourceforge.web.struts.action.admin.HotelAction">
 			<set-property property="functionId" value="21120010" />
 
 		</action>
@@ -1650,14 +1650,14 @@
 			
 			parameter="list" path="/listHotelContract" scope="session"
 			name="hotelContractQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 			<forward name="page" path="site.hotelContract.list" />
 		</action>
 		<action
 			
 			parameter="newObject" path="/newHotelContract" scope="request"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.hotelContract.new" />
@@ -1665,7 +1665,7 @@
 		<action
 			
 			parameter="newObject" path="/newHotelContract_site" scope="request"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.hotelContract.new" />
@@ -1675,7 +1675,7 @@
 			
 			parameter="insert" path="/insertHotelContract" scope="request"
 			name="hotelContractForm" input="/newHotelContract.do"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1685,7 +1685,7 @@
 			
 			parameter="insert" path="/insertHotelContract_site" scope="request"
 			name="hotelContractForm" input="/newHotelContract_site.do"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1694,7 +1694,7 @@
 		<action
 			
 			parameter="edit" path="/editHotelContract" scope="request"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.hotelContract.edit" />
@@ -1703,7 +1703,7 @@
 			
 			parameter="update" path="/updateHotelContract" scope="request"
 			name="hotelContractForm" input="/editHotelContract.do"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1712,7 +1712,7 @@
 		<action
 			
 			parameter="download" path="/downloadHotelContract" scope="request"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="11120010" />
 		</action>
 
@@ -1720,7 +1720,7 @@
 			
 			parameter="download" path="/downloadHotelContract_site"
 			scope="request"
-			type="com.aof.web.struts.action.admin.HotelContractAction">
+			type="net.sourceforge.web.struts.action.admin.HotelContractAction">
 			<set-property property="functionId" value="21120010" />
 		</action>
 
@@ -1731,14 +1731,14 @@
 			
 			parameter="list" path="/listPrice" scope="session"
 			name="priceQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="11120010" />
 			<forward name="page" path="site.price.list" />
 		</action>
 		<action
 			
 			parameter="newObject" path="/newPrice" scope="request"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.price.new" />
@@ -1746,7 +1746,7 @@
 		<action
 			
 			parameter="newObject" path="/newPrice_site" scope="request"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.price.new" />
@@ -1756,7 +1756,7 @@
 			
 			parameter="insert" path="/insertPrice" scope="request"
 			name="priceForm" input="/newPrice.do"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1765,7 +1765,7 @@
 			
 			parameter="insert" path="/insertPrice_site" scope="request"
 			name="priceForm" input="/newPrice_site.do"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1774,7 +1774,7 @@
 		<action
 			
 			parameter="edit" path="/editPrice" scope="request"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.price.edit" />
@@ -1782,7 +1782,7 @@
 		<action
 			
 			parameter="edit" path="/editPrice_site" scope="request"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.price.edit" />
@@ -1791,7 +1791,7 @@
 			
 			parameter="update" path="/updatePrice" scope="request"
 			name="priceForm" input="/editPrice.do"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="11120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1800,7 +1800,7 @@
 			
 			parameter="update" path="/updatePrice_site" scope="request"
 			name="priceForm" input="/editPrice_site.do"
-			type="com.aof.web.struts.action.admin.PriceAction">
+			type="net.sourceforge.web.struts.action.admin.PriceAction">
 			<set-property property="functionId" value="21120010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -1812,7 +1812,7 @@
 			
 			parameter="list" path="/listEmail" scope="session"
 			name="emailQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.EmailAction">
+			type="net.sourceforge.web.struts.action.admin.EmailAction">
 			<set-property property="functionId" value="11300010" />
 			<set-property property="functionDescription" value="email maintenance" />
 			<forward name="page" path="site.email.listGlobal" />
@@ -1825,7 +1825,7 @@
 		<!-- Supplier -->
 		<action     
 			parameter="list" path="/listSupplier" scope="session" name="supplierQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="functionDescription" value="global supplier maintenance" />
 			<forward name="page" path="site.supplier.list" />
@@ -1833,7 +1833,7 @@
 
 		<action     
 			parameter="list" path="/listSupplier_site" scope="session" name="supplierQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="functionDescription" value="site supplier maintenance" />
 			<set-property property="functionType" value="siteSupplierMaintenance" />
@@ -1842,7 +1842,7 @@
 		
 		<action     
 			parameter="listConfirm" path="/listConfirmSupplier" scope="session" name="supplierQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100070" />
 			<set-property property="functionDescription" value="global confirm supplier" />
 			<set-property property="functionType" value="globalSupplierConfirm" />
@@ -1851,7 +1851,7 @@
 		
 		<action     
 			parameter="listConfirm" path="/listConfirmSupplier_site" scope="session" name="supplierQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100070" />
 			<set-property property="functionDescription" value="site confirm supplier" />
 			<set-property property="functionType" value="siteSupplierConfirm" />
@@ -1860,7 +1860,7 @@
 		<action
 			
 			parameter="confirm" path="/confirmSupplier" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100070" />
 			<forward name="pageConfirmNew" path="site.supplier.confirmNew" />
 			<forward name="pageConfirmModify" path="site.supplier.confirmModify" />
@@ -1868,7 +1868,7 @@
 		<action
 			
 			parameter="confirm" path="/confirmSupplier_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100070" />
 			<forward name="pageConfirmNew" path="site.supplier.confirmNew" />
 			<forward name="pageConfirmModify" path="site.supplier.confirmModify" />
@@ -1877,20 +1877,20 @@
 			
 			parameter="confirmResult" path="/confirmSupplierResult" scope="request"
 			name="supplierForm" input="/confirmSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100070" />
 		</action>
 		<action
 			
 			parameter="confirmResult" path="/confirmSupplierResult_site" scope="request"
 			name="supplierForm" input="/confirmSupplier_site.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100070" />
 		</action>
 		
 		<action     
 			parameter="select" path="/selectSupplier" scope="session" name="supplierQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="dialog" value="true" />
 			<set-property property="functionId" value="21100010" />
 			<forward name="page" path="site.supplier.selectSupplier" />
@@ -1898,14 +1898,14 @@
 		<action
 			
 			parameter="newObject" path="/newSupplier" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<forward name="page" path="site.supplier.new" />
 		</action>
 		<action
 			
 			parameter="newObject" path="/newSupplier_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 			<forward name="page" path="site.supplier.new" />
 		</action>
@@ -1913,21 +1913,21 @@
 			
 			parameter="insert" path="/insertSupplier" scope="request"
 			name="supplierForm" input="/newSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 		<action
 			
 			parameter="insert" path="/insertSupplier_site" scope="request"
 			name="supplierForm" input="/newSupplier_site.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			
 			parameter="edit" path="/editSupplier" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<forward name="page" path="site.supplier.edit" />
 			<forward name="view" path="site.supplier.view" />
@@ -1935,7 +1935,7 @@
 		<action
 			
 			parameter="edit" path="/editSupplier_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 			<forward name="page" path="site.supplier.edit" />
 			<forward name="view" path="site.supplier.view" />
@@ -1944,21 +1944,21 @@
 			
 			parameter="update" path="/updateSupplier" scope="request"
 			name="supplierForm" input="/editSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 		<action
 			
 			parameter="update" path="/updateSupplier_site" scope="request"
 			name="supplierForm" input="/editSupplier_site.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 		</action>
 		
 		<action
 			
 			parameter="requestPromote" path="/requestPromoteSupplier"
-			scope="request" type="com.aof.web.struts.action.admin.SupplierAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />	
 			<forward name="page" path="site.supplier.promote.request" />			
@@ -1968,7 +1968,7 @@
 			
 			parameter="requestPromoteResult" path="/requestPromoteSupplierResult"
 			scope="request" name="supplierForm" input="requestPromoteSupplier.do" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />			
 			<forward name="success" path="/WEB-INF/jsp/supplier/requestPromoteSuccess.jsp" />
@@ -1977,7 +1977,7 @@
 		<action
 			
 			parameter="promote" path="/promoteSupplier" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 			<forward name="page" path="site.supplier.promote.promote" />
 		</action>
@@ -1985,28 +1985,28 @@
 			
 			parameter="promoteCreate" path="/promoteSupplierCreate" scope="request"
 			name="supplierForm" input="/promoteSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 		<action
 			
 			parameter="promoteDelete" path="/promoteSupplierDelete" scope="request"
 			name="supplierForm" input="/promoteSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 		<action
 			
 			parameter="promoteSave" path="/promoteSupplierSave" scope="request"
 			name="supplierForm" input="/promoteSupplier.do"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 		<action
 			
 			parameter="responsePromote" path="/responsePromoteSupplier"
 			name="supplierForm" input="/editSupplier_site.do"
-			scope="request" type="com.aof.web.struts.action.admin.SupplierAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/editSupplier_site.do" />
@@ -2016,12 +2016,12 @@
 		<action
 			
 			parameter="responsePromoteResult" path="/responsePromoteSupplierResult"
-			scope="request" type="com.aof.web.struts.action.admin.SupplierAction">
+			scope="request" type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100010" />
 		</action>
 		
 		<action parameter="viewBaseInfo" path="/viewSupplierBaseInfo"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="functionId" value="21100110" />
 			<set-property property="functionDescription" value="view supplier base info" />
 			<set-property property="dialog" value="true" />
@@ -2029,7 +2029,7 @@
 		</action>
 		
 		<action parameter="viewAviableSupplier" path="/viewAviableSupplier"
-			type="com.aof.web.struts.action.admin.SupplierAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierAction">
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplier.viewAviableSupplier" />
 		</action>
@@ -2041,14 +2041,14 @@
 			
 			parameter="list" path="/listSupplierContract" scope="session"
 			name="supplierContractQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 			<forward name="page" path="site.supplierContract.list" />
 		</action>
 		<action
 			
 			parameter="newObject" path="/newSupplierContract" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierContract.new" />
@@ -2056,7 +2056,7 @@
 		<action
 			
 			parameter="newObject" path="/newSupplierContract_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierContract.new" />
@@ -2065,7 +2065,7 @@
 		<action			
 			parameter="insert" path="/insertSupplierContract" scope="request"
 			name="supplierContractForm" input="/newSupplierContract.do"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -2074,7 +2074,7 @@
 		<action			
 			parameter="insert" path="/insertSupplierContract_site" scope="request"
 			name="supplierContractForm" input="/newSupplierContract_site.do"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -2083,7 +2083,7 @@
 		<action
 			
 			parameter="edit" path="/editSupplierContract" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierContract.edit" />
@@ -2092,7 +2092,7 @@
 			
 			parameter="update" path="/updateSupplierContract" scope="request"
 			name="supplierContractForm" input="/editSupplierContract.do"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -2101,7 +2101,7 @@
 		<action
 			
 			parameter="download" path="/downloadSupplierContract" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="11100010" />
 		</action>
 
@@ -2109,7 +2109,7 @@
 			
 			parameter="download" path="/downloadSupplierContract_site"
 			scope="request"
-			type="com.aof.web.struts.action.admin.SupplierContractAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierContractAction">
 			<set-property property="functionId" value="21100010" />
 		</action>
 
@@ -2119,7 +2119,7 @@
 		<action     
 			parameter="list" path="/listSupplierItem" scope="session"
 			name="supplierItemQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<forward name="page" path="site.supplierItem.list" />
 			<forward name="dialogPage" path="site.supplierItem.list.dialog" />
@@ -2127,77 +2127,77 @@
 		<action     
 			parameter="list" path="/listSupplierItem_site" scope="session"
 			name="supplierItemQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<forward name="page" path="site.supplierItem.list" />
 			<forward name="dialogPage" path="site.supplierItem.list.dialog" />
 		</action>
 		<action     
 			parameter="newObject" path="/newSupplierItem" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierItem.new" />
 		</action>
 		<action     
 			parameter="newObject" path="/newSupplierItem_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierItem.new" />
 		</action>
 		<action     
 			parameter="edit" path="/editSupplierItem" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierItem.edit" />
 		</action>
 		<action     
 			parameter="edit" path="/editSupplierItem_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="page" path="site.supplierItem.edit" />
 		</action>
 		<action     
 			parameter="insert" path="/insertSupplierItem" scope="request" name="supplierItemForm" validate="true"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="insert" path="/insertSupplierItem_site" scope="request" name="supplierItemForm" validate="true"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="update" path="/updateSupplierItem" scope="request" name="supplierItemForm" validate="true"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="update" path="/updateSupplierItem_site" scope="request" name="supplierItemForm" validate="true"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="delete" path="/deleteSupplierItem" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="11100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action     
 			parameter="delete" path="/deleteSupplierItem_site" scope="request"
-			type="com.aof.web.struts.action.admin.SupplierItemAction">
+			type="net.sourceforge.web.struts.action.admin.SupplierItemAction">
 			<set-property property="functionId" value="21100010" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
@@ -2205,33 +2205,33 @@
 		<!-- end of SupplierItem -->
 
 		<!-- Parameter -->
-		<action className="com.aof.web.struts.action.SecureActionMapping"    
+		<action className="net.sourceforge.web.struts.action.SecureActionMapping"    
 			parameter="editGlobal" path="/editGlobalParameter" scope="request"
-			type="com.aof.web.struts.action.admin.ParameterAction">
+			type="net.sourceforge.web.struts.action.admin.ParameterAction">
 			<set-property property="functionId" value="11090010" />
 			<set-property property="functionDescription" value="global parameter maintenance" />
 			<forward name="page" path="site.globalParameter.edit" />
 		</action>
-		<action className="com.aof.web.struts.action.SecureActionMapping"    
+		<action className="net.sourceforge.web.struts.action.SecureActionMapping"    
 			parameter="updateGlobal" path="/updateGlobalParameter" scope="request" name="globalParameterForm" input="/editGlobalParameter.do"
-			type="com.aof.web.struts.action.admin.ParameterAction">
+			type="net.sourceforge.web.struts.action.admin.ParameterAction">
 			<set-property property="functionId" value="11090010" />
 		</action>
-		<action className="com.aof.web.struts.action.SecureActionMapping"    
+		<action className="net.sourceforge.web.struts.action.SecureActionMapping"    
 			parameter="editSite" path="/editSiteParameter" scope="request"
-			type="com.aof.web.struts.action.admin.ParameterAction">
+			type="net.sourceforge.web.struts.action.admin.ParameterAction">
 			<set-property property="functionId" value="21170010" />
 			<set-property property="functionDescription" value="site parameter maintenance" />
 			<forward name="page" path="site.siteParameter.edit" />
 		</action>
-		<action className="com.aof.web.struts.action.SecureActionMapping"    
+		<action className="net.sourceforge.web.struts.action.SecureActionMapping"    
 			parameter="updateSite" path="/updateSiteParameter" scope="request" name="siteParameterForm" input="/editSiteParameter.do"
-			type="com.aof.web.struts.action.admin.ParameterAction">
+			type="net.sourceforge.web.struts.action.admin.ParameterAction">
 			<set-property property="functionId" value="21170010" />
 		</action>
-		<action className="com.aof.web.struts.action.SecureActionMapping"    
+		<action className="net.sourceforge.web.struts.action.SecureActionMapping"    
 			parameter="startJob" path="/startJob" scope="request"
-			type="com.aof.web.struts.action.admin.ParameterAction">
+			type="net.sourceforge.web.struts.action.admin.ParameterAction">
 			<set-property property="functionId" value="21170010" />
 		</action>
 		<!-- end of Parameter -->
@@ -2239,7 +2239,7 @@
 		<!-- SystemLog -->
 		<action     
 			parameter="list" path="/listSystemLog" scope="session" name="systemLogQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SystemLogAction">
+			type="net.sourceforge.web.struts.action.admin.SystemLogAction">
 			<set-property property="functionId" value="11010020" />
 			<set-property property="functionDescription" value="global list system log" />
 			<forward name="page" path="site.systemLog.list" />
@@ -2247,7 +2247,7 @@
 
 		<action     
 			parameter="list" path="/listSystemLog_site" scope="session" name="systemLogQueryForm" validate="false"
-			type="com.aof.web.struts.action.admin.SystemLogAction">
+			type="net.sourceforge.web.struts.action.admin.SystemLogAction">
 			<set-property property="functionId" value="21010020" />
 			<set-property property="functionDescription" value="site list system log" />
 			<forward name="page" path="site.systemLog.list" />
@@ -2259,7 +2259,7 @@
 	
 	<message-resources
 		factory="com.shcnc.struts.util.PropertyFileMessageResourcesFactory"
-		parameter="com.aof.web.struts.ApplicationResources" null="false" />
+		parameter="net.sourceforge.web.struts.ApplicationResources" null="false" />
 
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"
@@ -2274,17 +2274,25 @@
 	
 	<plug-in className="com.shcnc.struts.autoValidator.SpringHibernateAutoValidatorPlugin">
 		<set-property property="catalog"
-			value="" />
+			value="oa" />
 		
 		<!-- mysql only -->	
-		
-		<set-property property="schemaPattern"
+		<!--
+		<set-property property="catalog"
 			value="" />
+		<set-property property="schemaPattern"
+			value="" />-->
   		
-
+		<!-- sql server only -->
+		<set-property property="catalog"
+			value="oa" />
+		<set-property property="schemaPattern"
+			value="dbo" />
 			
 		<!-- db2 only-->
 		<!--
+		<set-property property="catalog"
+			value="" />
 		<set-property property="schemaPattern"
 			value="DB2ADMIN" />
 		<set-property property="tableNameUpperCase"
@@ -2303,7 +2311,7 @@
 	
 	</plug-in> 
 
-	<plug-in className="com.aof.web.struts.repeatsubmit.PreventRepeatSubmitPlugIn">
+	<plug-in className="net.sourceforge.web.struts.repeatsubmit.PreventRepeatSubmitPlugIn">
 
 	</plug-in>
 

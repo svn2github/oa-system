@@ -31,7 +31,7 @@
 	<!-- 
 	<filter>
 		<filter-name>compressionFilter</filter-name>
-		<filter-class>com.aof.web.filter.GZIPFilter</filter-class>
+		<filter-class>net.sourceforge.web.filter.GZIPFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>compressionFilter</filter-name>
@@ -73,7 +73,7 @@
 	<servlet>
 		<servlet-name>download</servlet-name>
 		<servlet-class>
-			com.aof.web.servlet.DownloadServlet
+			net.sourceforge.web.servlet.DownloadServlet
 		</servlet-class>
 	</servlet>
 	<servlet-mapping>
@@ -88,7 +88,7 @@
 	</listener>
 	<listener>
 		<listener-class>
-			com.aof.web.domain.SessionListener
+			net.sourceforge.web.domain.SessionListener
 		</listener-class>
 	</listener>
 	<mime-mapping>  

@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
-<%@ page import="com.aof.model.metadata.*"%>
+<%@ page import="net.sourceforge.model.metadata.*"%>
 
 
 <script>

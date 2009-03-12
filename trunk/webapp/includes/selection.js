@@ -1,6 +1,6 @@
 /* ====================================================================
  *
- * Copyright (c) Atos Origin INFORMATION TECHNOLOGY All rights reserved.
+ * Copyright (c) Sourceforge INFORMATION TECHNOLOGY All rights reserved.
  *
  * ==================================================================== *
  */

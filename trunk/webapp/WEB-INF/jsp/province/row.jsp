@@ -2,7 +2,7 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
-<%@ page import="com.aof.model.metadata.EnabledDisabled"%>
+<%@ page import="net.sourceforge.model.metadata.EnabledDisabled"%>
 <tr id="r${X_OBJECT.id}">
 	<td width="100%">
 	<div id="c${X_OBJECT.id}"  site_id="${X_OBJECT.site.id}" style="cursor:hand;width:100%;font-size:12px;color:black"

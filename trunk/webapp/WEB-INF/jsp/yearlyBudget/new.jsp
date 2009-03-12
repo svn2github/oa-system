@@ -106,7 +106,7 @@
 		
 	function onchangeBudgetType()
 	{
-		if(yearlyBudgetForm.type.options[yearlyBudgetForm.type.selectedIndex].value == "<%=com.aof.model.metadata.BudgetType.Expense.getEnumCode()%>")
+		if(yearlyBudgetForm.type.options[yearlyBudgetForm.type.selectedIndex].value == "<%=net.sourceforge.model.metadata.BudgetType.Expense.getEnumCode()%>")
 		{
 			document.getElementById("yearTr").style.display = "none";
 			document.getElementById("durationFromTr").style.display = "inline";

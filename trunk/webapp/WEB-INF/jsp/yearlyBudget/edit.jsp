@@ -100,7 +100,7 @@
 				<bean:write name="x_yearlyBudget" property="type.${x_lang}ShortDescription"/>
 			</td>
 		</tr>
-		<c:set var="x_budgettype_expense" value="<%=com.aof.model.metadata.BudgetType.Expense.getEnumCode()%>" scope="request" />
+		<c:set var="x_budgettype_expense" value="<%=net.sourceforge.model.metadata.BudgetType.Expense.getEnumCode()%>" scope="request" />
 		<c:choose>
 			<c:when
 				test="${x_yearlyBudget.type.enumCode == x_budgettype_expense}">

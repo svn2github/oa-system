@@ -67,7 +67,7 @@
 	<h3><font color="blue"><bean:message key="recharge.buyFor"/></font></h3>
 	<script type="text/javascript">
 	<!--
-		document.getElementById('choose_buyfor').style.setExpression("display", "document.forms(rechargeFormName).isRecharge.value=='<%=com.aof.model.metadata.YesNo.NO.getEnumCode()%>' ? '' : 'none'");
+		document.getElementById('choose_buyfor').style.setExpression("display", "document.forms(rechargeFormName).isRecharge.value=='<%=net.sourceforge.model.metadata.YesNo.NO.getEnumCode()%>' ? '' : 'none'");
 
 		function buyFor_selectUser() {
 			var form = document.forms(rechargeFormName);

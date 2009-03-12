@@ -7,7 +7,7 @@
 	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig"> 
 	
 		<form-bean name="purchaseOrderForm"
-				type="com.aof.model.business.po.PurchaseOrder">
+				type="net.sourceforge.model.business.po.PurchaseOrder">
 			<set-property property="requires"
 				value=" 
 				" />
@@ -26,7 +26,7 @@
 		</form-bean>
 		
 		<form-bean name="purchaseOrderConfirmForm"
-				type="com.aof.model.business.po.PurchaseOrder">
+				type="net.sourceforge.model.business.po.PurchaseOrder">
 			<set-property property="requires"
 				value=" 
 					
@@ -43,7 +43,7 @@
 		
 
 		<form-bean name="purchaseOrderItemConfirmForm"
-				type="com.aof.model.business.po.PurchaseOrderItem">
+				type="net.sourceforge.model.business.po.PurchaseOrderItem">
 			<set-property property="identities"
 				value=" 
 					buyForUser.id,
@@ -71,7 +71,7 @@
 
 	
 		<form-bean name="purchaseOrderItemForm"
-				type="com.aof.model.business.po.PurchaseOrderItem">
+				type="net.sourceforge.model.business.po.PurchaseOrderItem">
 			<set-property property="identities"
 				value=" 
 					supplier.id,
@@ -110,7 +110,7 @@
 	
 	
 		<form-bean name="purchaseOrderAttachmentForm"
-			type="com.aof.model.business.po.PurchaseOrderAttachment">
+			type="net.sourceforge.model.business.po.PurchaseOrderAttachment">
 			<set-property property="requires" value="description" />
 			
 			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
@@ -124,7 +124,7 @@
 		</form-bean>		
 		
 		<form-bean name="purchaseOrderItemAttachmentForm"
-			type="com.aof.model.business.po.PurchaseOrderItemAttachment">
+			type="net.sourceforge.model.business.po.PurchaseOrderItemAttachment">
 			<set-property property="requires" value="description" />
 			
 			<form-property name="fileContent" type="org.apache.struts.upload.FormFile">
@@ -137,11 +137,11 @@
 			</form-property>
 		</form-bean>	
 		
-		<form-bean name="purchaseOrderQueryForm" type="com.aof.web.struts.form.business.po.PurchaseOrderQueryForm" />	
+		<form-bean name="purchaseOrderQueryForm" type="net.sourceforge.web.struts.form.business.po.PurchaseOrderQueryForm" />	
 		
 		
 		<form-bean name="paymentScheduleDetailForm"
-				type="com.aof.model.business.po.PaymentScheduleDetail">
+				type="net.sourceforge.model.business.po.PaymentScheduleDetail">
 
 			<set-property property="requires"  
 				value=" 
@@ -159,26 +159,26 @@
 				"/>
 		</form-bean>
 
-		<form-bean name="purchaseOrderApproveRequestQueryForm" type="com.aof.web.struts.form.business.po.PurchaseOrderApproveRequestQueryForm" />
+		<form-bean name="purchaseOrderApproveRequestQueryForm" type="net.sourceforge.web.struts.form.business.po.PurchaseOrderApproveRequestQueryForm" />
 
-		<form-bean name="purchaseOrderItemCancelQuantityForm" type="com.aof.model.business.po.PurchaseOrderItem">
+		<form-bean name="purchaseOrderItemCancelQuantityForm" type="net.sourceforge.model.business.po.PurchaseOrderItem">
 			<set-property property="requires" value="id" />
 			<form-property name="cancelQuantity" type="java.lang.String"/>
 		</form-bean>
 		
 		<form-bean name="purchaseOrderAssignForm"
-			type="com.aof.model.business.po.PurchaseOrder">
+			type="net.sourceforge.model.business.po.PurchaseOrder">
 			<set-property property="requires" value="purchaser.id" />
 			<set-property property="includes" value="id" />
 		</form-bean>	
 		
 		<form-bean name="purchaseOrderItemReceiptForm"
-			type="com.aof.model.business.po.PurchaseOrderItemReceipt">
+			type="net.sourceforge.model.business.po.PurchaseOrderItemReceipt">
 			<set-property property="includes" value="receiveQty1,receiveQty2,purchaseOrderItem.id" />
 			<set-property property="toForms" value="id" />
 		</form-bean>	
 
-		<form-bean name="purchaseOrderItemQueryForm" type="com.aof.web.struts.form.business.po.PurchaseOrderItemQueryForm" />
+		<form-bean name="purchaseOrderItemQueryForm" type="net.sourceforge.web.struts.form.business.po.PurchaseOrderItemQueryForm" />
 	</form-beans>
 
 	<global-exceptions>
@@ -187,45 +187,45 @@
 	<global-forwards>
 	</global-forwards>
 
-	<action-mappings type="com.aof.web.struts.action.SecureActionMapping">
+	<action-mappings type="net.sourceforge.web.struts.action.SecureActionMapping">
 	
 		<!-- begin of PurchaseOrder -->
 		<action     
 			parameter="withdraw" path="/withdrawPurchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270070"/>
 			<set-property property="functionDescription" value="withdraw purchase order"/>
 		</action>
 		<action     
 			parameter="edit" path="/editPurchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="functionDescription" value="edit purchase order"/>
 			<forward name="page" path="site.purchaseOrder.edit" />
 		</action>
 		<action     
 			parameter="cancel" path="/cancelPurchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270080"/>
 			<set-property property="functionDescription" value="cancel purchase order"/>
 		</action>
 		<action     
 			parameter="update" path="/updatePurchaseOrder" scope="request" 
 			name="purchaseOrderForm" input="/editPurchaseOrder.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270040"/>
 		</action>
 		<action     
 			parameter="update_viewApprover" path="/updatePurchaseOrder_viewApprover" scope="request" 
 			name="purchaseOrderForm" validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270040"/>
 			<forward name="page" path="site.approve.viewApprover" />
 		</action>
 		<action     
 			parameter="view" 
 			path="/viewPurchaseOrder_dialog" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction"> 
 			<set-property property="functionId" value="22270060"/>
 			<set-property property="functionDescription" value="view purchase order(dialog)"/>
 			<set-property property="dialog" value="true"/>			
@@ -234,7 +234,7 @@
 		<action     
 			parameter="view" 
 			path="/viewPurchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction"> 
 			<set-property property="functionId" value="22270061"/>
 			<set-property property="functionDescription" value="view purchase order"/>
 			<forward name="page" path="site.purchaseOrder.view" />
@@ -242,13 +242,13 @@
 		<action     
 			parameter="exportPDF" 
 			path="/exportPurchaseOrderPDF" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction"> 
 			<set-property property="functionId" value="22270061"/>
 		</action>
 		<action
 			parameter="list" path="/listPurchaseOrder" scope="session" 
 			name="purchaseOrderQueryForm" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270020"/>
 			<set-property property="functionDescription" value="list purchase order"/>
 			<set-property property="functionType" value="PurchaseOrderPurchase" />
@@ -258,7 +258,7 @@
 		<action     
 			parameter="updateErpNo" 
 			path="/updatePurchaseOrderErpNo" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction"> 
 			<set-property property="functionId" value="22270090"/>
 			<set-property property="functionDescription" value="update erpNo of purchase orders"/>
 		</action>
@@ -266,7 +266,7 @@
 		<action     
 			parameter="consolidate" 
 			path="/consolidatePurchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction"> 
 			<set-property property="functionId" value="22270100"/>
 			<set-property property="functionDescription" value="consolidate purchase orders"/>
 		</action>
@@ -274,7 +274,7 @@
 		<action
 			parameter="report" path="/reportPurchaseOrder" scope="session" 
 			name="purchaseOrderQueryForm" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22272020"/>
 			<set-property property="functionDescription" value="purchase order report"/>						
 			<forward name="page" path="site.purchaseOrder.report" />
@@ -282,7 +282,7 @@
 		
 		<action     
 			parameter="viewReport" path="/viewPurchaseOrder_report" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22272060"/>
 			<set-property property="functionDescription" value="view purchase order(report)"/>
 			<forward name="page" path="site.purchaseOrder.view" />
@@ -293,7 +293,7 @@
 		<!-- begin of PurchaseOrderAttachment -->
 		<action     
 			parameter="newObject" path="/newPurchaseOrderAttachment" scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAttachmentAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAttachmentAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.purchaseOrderAttachment.new" />
@@ -301,14 +301,14 @@
 		<action     
 			parameter="insert" path="/insertPurchaseOrderAttachment" 
 			scope="request" name="purchaseOrderAttachmentForm" input="/newPurchaseOrderAttachment.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAttachmentAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAttachmentAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			parameter="download" path="/downloadPurchaseOrderAttachment" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAttachmentAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAttachmentAction"> 
 			<set-property property="functionId" value="22270060" /> 
 		</action>
 		<!-- end of PurchaseOrderAttachment -->
@@ -316,7 +316,7 @@
 		<!-- begin of PurchaseOrderItemAttachment -->
 		<action     
 			parameter="newObject" path="/newPurchaseOrderItemAttachment" scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.purchaseOrderItemAttachment.new" />
@@ -324,14 +324,14 @@
 		<action     
 			parameter="insert" path="/insertPurchaseOrderItemAttachment" 
 			scope="request" name="purchaseOrderItemAttachmentForm" input="/newPurchaseOrderItemAttachment.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action
 			parameter="download" path="/downloadPurchaseOrderItemAttachment" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAttachmentAction">
 			<set-property property="functionId" value="22270060" />
 		</action>
 		<!-- end of PurchaseOrderItemAttachment -->
@@ -341,7 +341,7 @@
 			parameter="selectRechargeCustomer" 
 			path="/selectPurchaseOrderItemRechargeCustomer"
 			scope="session" name="rechargeCustomerQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listCustomer" />
@@ -350,7 +350,7 @@
 			parameter="selectRechargeEntity" 
 			path="/selectPurchaseOrderItemRechargeEntity" 
 			scope="session" name="rechargeCustomerQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listCustomer" />
@@ -359,7 +359,7 @@
 			parameter="selectRechargePerson" 
 			path="/selectPurchaseOrderItemRechargePerson" 
 			scope="session" name="rechargePersonQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listPerson" />
@@ -370,7 +370,7 @@
 		<action     
 			parameter="view" path="/viewPurchaseOrderItem" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270060"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.purchaseOrder.viewItem" />			
@@ -379,7 +379,7 @@
 			parameter="edit" 
 			path="/editPurchaseOrderItem" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.purchaseOrder.editItem" />			
@@ -390,7 +390,7 @@
 			path="/updatePurchaseOrderItem" 
 			scope="request" name="purchaseOrderItemForm"
 			input="/editPurchaseOrderItem"			
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
@@ -400,7 +400,7 @@
 			parameter="cancel" 
 			path="/cancelPurchaseOrderItem" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>		
@@ -414,7 +414,7 @@
 			parameter="edit" 
 			path="/editPaymentScheduleDetail" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PaymentScheduleDetailAction">
+			type="net.sourceforge.web.struts.action.business.po.PaymentScheduleDetailAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.paymentScheduleDetail.edit" />			
@@ -424,7 +424,7 @@
 			parameter="newObject" 
 			path="/newPaymentScheduleDetail" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PaymentScheduleDetailAction">
+			type="net.sourceforge.web.struts.action.business.po.PaymentScheduleDetailAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.paymentScheduleDetail.edit" />			
@@ -435,7 +435,7 @@
 			path="/updatePaymentScheduleDetail" 
 			scope="request" name="paymentScheduleDetailForm"
 			input="/editPaymentScheduleDetail"			
-			type="com.aof.web.struts.action.business.po.PaymentScheduleDetailAction">
+			type="net.sourceforge.web.struts.action.business.po.PaymentScheduleDetailAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
@@ -446,7 +446,7 @@
 			path="/insertPaymentScheduleDetail" 
 			scope="request" name="paymentScheduleDetailForm"
 			input="/newPaymentScheduleDetail"			
-			type="com.aof.web.struts.action.business.po.PaymentScheduleDetailAction">
+			type="net.sourceforge.web.struts.action.business.po.PaymentScheduleDetailAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
@@ -456,7 +456,7 @@
 			parameter="delete" 
 			path="/deletePaymentScheduleDetail" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PaymentScheduleDetailAction">
+			type="net.sourceforge.web.struts.action.business.po.PaymentScheduleDetailAction">
 			<set-property property="functionId" value="22270040"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>		
@@ -470,7 +470,7 @@
 			parameter="list" path="/listPurchaseOrderApproveRequest"
 			scope="session" name="purchaseOrderApproveRequestQueryForm"
 			validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
 			<set-property property="functionId" value="12271020" />
 			<set-property property="functionDescription" value="list approve request of purchase order"/>
 			<set-property property="functionType" value="POApproval" />
@@ -478,7 +478,7 @@
 		</action>
 		<action
 			parameter="view" path="/viewPurchaseOrderApproveRequest"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
 			<set-property property="functionId" value="12271060" />
 			<set-property property="functionDescription" value="view approve request of purchase order"/>			
 			<forward name="viewPage" path="site.purchaseOrderApproveRequest.view" />
@@ -486,19 +486,19 @@
 		</action>
 		<action
 			parameter="approve" path="/approvePurchaseOrderApproveRequest"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
 			<set-property property="functionId" value="12271040" />
 			<set-property property="functionDescription" value="approve approve request of purchase order"/>			
 		</action>
 		<action parameter="updateAndApprove"
 			path="/updateAndApprovePurchaseOrderApproveRequest" scope="request"
 			name="purchaseOrderForm" input="/viewPurchaseOrderApproveRequest.do" validate="false"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
 			<set-property property="functionId" value="12271040" />
 		</action>
 		<action
 			parameter="reject" path="/rejectPurchaseOrderApproveRequest"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderApproveRequestAction">
 			<set-property property="functionId" value="12271040" />
 		</action>
 		<!-- end of PurchaseOrderApproveRequest -->
@@ -507,7 +507,7 @@
 		<action
 			parameter="selectInspector" path="/selectInspector_purchaseOrderConfirm" scope="session" 
 			name="userQueryForm" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 			<set-property property="functionDescription" value="confirm purchase order"/>						
 			<set-property property="functionType" value="finalConfirmPurchaseOrder" />
@@ -518,45 +518,45 @@
 		<action
 			parameter="listConfirm" path="/listPurchaseOrder_confirm" scope="session" 
 			name="purchaseOrderQueryForm" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270110"/>
 			<forward name="page" path="site.purchaseOrder.confirm.list" />
 		</action>
 		<action
 			parameter="confirm" path="/confirmPurchaseOrder" scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 			<forward name="page" path="site.purchaseOrder.confirm" />
 		</action>
 		<action
 			parameter="editConfirmed" path="/editConfirmedPurchaseOrder" scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 			<forward name="page" path="site.purchaseOrder.editConfirm" />
 		</action>
 		<action
 			parameter="updateConfirmed" path="/updateConfirmedPurchaseOrder" scope="request" 
 			name="purchaseOrderConfirmForm" input="/editConfirmedPurchaseOrder.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 		</action>
 		<action     
 			parameter="view" 
 			path="/viewPurchaseOrder_confirm" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction"> 
 			<set-property property="functionId" value="22270110"/>
 			<forward name="page" path="site.purchaseOrder.view" />
 		</action>
 		<action
 			parameter="reject" path="/rejectPurchaseOrder" scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 		</action>
 		
 		<action
 			parameter="confirmResult" path="/confirmPurchaseOrder_result" scope="request" 
 			name="purchaseOrderConfirmForm" input="/confirmPurchaseOrder.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 		</action>
 		
@@ -564,7 +564,7 @@
 			parameter="edit" 
 			path="/editPurchaseOrderItem_confirm" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.purchaseOrder.confirm.editItem" />			
@@ -574,7 +574,7 @@
 			path="/updatePurchaseOrderItem_confirm" 
 			scope="request" name="purchaseOrderItemConfirmForm"
 			input="/editPurchaseOrderItem_confirm.do"			
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemConfirmAction">
 			<set-property property="functionId" value="22270110"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
@@ -582,7 +582,7 @@
 		
 		<action
 			parameter="confirmSupplier" path="/confirmSupplier_purchaseOrder" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110" />
 			<set-property property="dialog" value="true"/>			
 			<forward name="pageConfirmNew" path="site.purchaseOrder.confirmSupplier.confirmNew" />
@@ -592,7 +592,7 @@
 			
 			parameter="confirmSupplierResult" path="/confirmSupplierResult_purchaseOrder" scope="request"
 			name="supplierForm" input="/confirmSupplier_purchaseOrder.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction">
 			<set-property property="functionId" value="22270110" />
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/selectOK.jsp" />			
@@ -601,7 +601,7 @@
 		<action     
 			parameter="exportPDF" 
 			path="/exportPurchaseOrderPDF_confirm" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderConfirmAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderConfirmAction"> 
 			<set-property property="functionId" value="22270110"/>
 		</action>
 		
@@ -611,7 +611,7 @@
 		<action
 			parameter="listCancel" path="/listPurchaseOrder_cancel" scope="session" 
 			name="purchaseOrderQueryForm" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270081"/>
 			<set-property property="functionDescription" value="cancel purchase order item"/>												
 			<forward name="page" path="site.purchaseOrder.cancel.list" />
@@ -620,7 +620,7 @@
 		<action     
 			parameter="view" 
 			path="/viewPurchaseOrder_cancel" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderCancelAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderCancelAction"> 
 			<set-property property="functionId" value="22270081"/>
 			<forward name="page" path="site.purchaseOrder.cancel.view" />
 		</action>
@@ -628,7 +628,7 @@
 		<action     
 			parameter="cancel" 
 			path="/cancelPurchaseOrderItemQuantity" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderCancelAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderCancelAction"> 
 			<set-property property="functionId" value="22270081"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="page" path="site.purchaseOrder.cancel.cancel" />
@@ -637,7 +637,7 @@
 		<action     
 			parameter="cancelResult" 
 			path="/cancelPurchaseOrderItemQuantityResult" scope="request" name="purchaseOrderItemCancelQuantityForm" input="/cancelPurchaseOrderItemQuantity.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderCancelAction"> 
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderCancelAction"> 
 			<set-property property="functionId" value="22270081"/>
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />			
@@ -648,21 +648,21 @@
 		<action parameter="listAssign"
 			path="/listPurchaseOrder_assign" scope="session"
 			name="purchaseOrderQueryForm"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAction">
 			<set-property property="functionId" value="22270120" />
 			<set-property property="functionDescription" value="assign purchaser of purchase order"/>															 
 			<forward name="page" path="site.purchaseOrder.assign.list" />
 		</action>
 		<action parameter="assign"
 			path="/assignPurchaseOrder"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAssignAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAssignAction">
 			<set-property property="functionId" value="22270120" />
 			<forward name="page" path="site.purchaseOrder.assign" />
 		</action>
 		<action parameter="assignResult"
 			path="/assignPurchaseOrder_result" scope="request"
 			name="purchaseOrderAssignForm"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderAssignAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderAssignAction">
 			<set-property property="functionId" value="22270120" />
 		</action>
 		<!-- end of PurchaseOrder Assign -->
@@ -671,14 +671,14 @@
 		<action     
 			parameter="list" path="/listPurchaseOrderItemReceipt" 
 			scope="request" 
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="functionDescription" value="receipt of purchase order"/>												
 			<forward name="page" path="site.purchaseOrderItemReceipt.list" />
 		</action>
 		<action     
 			parameter="newObject" path="/newPurchaseOrderItemReceipt" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.purchaseOrderItemReceipt.new" />
@@ -686,21 +686,21 @@
 		<action     
 			parameter="insert" path="/insertPurchaseOrderItemReceipt" scope="request" 
 			name="purchaseOrderItemReceiptForm" input="/newPurchaseOrderItemReceipt.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
 		</action>
 		<action     
 			parameter="edit" path="/editPurchaseOrderItemReceipt" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="page" path="site.purchaseOrderItemReceipt.edit" />
 		</action>
 		<action     
 			parameter="delete" path="/deletePurchaseOrderItemReceipt" scope="request"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>	
@@ -708,7 +708,7 @@
 		<action     
 			parameter="update" path="/updatePurchaseOrderItemReceipt" scope="request" 
 			name="purchaseOrderItemReceiptForm" input="/editPurchaseOrderItemReceipt.do"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemReceiptAction">
 			<set-property property="functionId" value="12270130"/>
 			<set-property property="dialog" value="true"/>				
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -716,7 +716,7 @@
 		<action parameter="listReceipt"
 			path="/listPurchaseOrderItem_receipt" scope="session"
 			name="purchaseOrderItemQueryForm"
-			type="com.aof.web.struts.action.business.po.PurchaseOrderItemAction">
+			type="net.sourceforge.web.struts.action.business.po.PurchaseOrderItemAction">
 			<set-property property="functionId" value="12270130" /> 
 			<forward name="page" path="site.purchaseOrderItem.receipt.list" />
 		</action>

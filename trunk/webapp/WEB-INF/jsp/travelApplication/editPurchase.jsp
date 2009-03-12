@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import="com.aof.model.metadata.ApproveStatus"%>
-<%@ page import="com.aof.model.metadata.YesNo"%>
-<%@ page import="com.aof.model.metadata.TravellingMode"%>
-<%@ page import="com.aof.model.metadata.SingleReturn"%>
+<%@ page import="net.sourceforge.model.metadata.ApproveStatus"%>
+<%@ page import="net.sourceforge.model.metadata.YesNo"%>
+<%@ page import="net.sourceforge.model.metadata.TravellingMode"%>
+<%@ page import="net.sourceforge.model.metadata.SingleReturn"%>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
-<c:set var="ta_bookStatus_Received" value="<%=com.aof.model.metadata.TravelApplicationBookStatus.RECEIVED%>"/>
-<c:set var="air" value="<%=com.aof.model.metadata.TravellingMode.AIR.getEnumCode()%>"/>
-<c:set var="YesNo_NO" value="<%=com.aof.model.metadata.YesNo.NO%>"/>
-<c:set var="YesNo_YES" value="<%=com.aof.model.metadata.YesNo.YES%>"/>
+<c:set var="ta_bookStatus_Received" value="<%=net.sourceforge.model.metadata.TravelApplicationBookStatus.RECEIVED%>"/>
+<c:set var="air" value="<%=net.sourceforge.model.metadata.TravellingMode.AIR.getEnumCode()%>"/>
+<c:set var="YesNo_NO" value="<%=net.sourceforge.model.metadata.YesNo.NO%>"/>
+<c:set var="YesNo_YES" value="<%=net.sourceforge.model.metadata.YesNo.YES%>"/>
 <script>
 	
 	

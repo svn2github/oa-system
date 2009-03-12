@@ -3,9 +3,9 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<c:set var="x_supplier_promoteStatus_GLOBAL" value="<%=com.aof.model.metadata.SupplierPromoteStatus.GLOBAL%>"/>
-<c:set var="x_supplier_promoteStatus_SITE" value="<%=com.aof.model.metadata.SupplierPromoteStatus.SITE%>"/>
-<c:set var="x_supplier_promoteStatus_REQUEST" value="<%=com.aof.model.metadata.SupplierPromoteStatus.REQUEST%>"/>
+<c:set var="x_supplier_promoteStatus_GLOBAL" value="<%=net.sourceforge.model.metadata.SupplierPromoteStatus.GLOBAL%>"/>
+<c:set var="x_supplier_promoteStatus_SITE" value="<%=net.sourceforge.model.metadata.SupplierPromoteStatus.SITE%>"/>
+<c:set var="x_supplier_promoteStatus_REQUEST" value="<%=net.sourceforge.model.metadata.SupplierPromoteStatus.REQUEST%>"/>
 
 <c:set var="modifyable" value="${(x_version=='' && x_supplier.promoteStatus == x_supplier_promoteStatus_GLOBAL) || (x_version!='' && x_supplier.promoteStatus != x_supplier_promoteStatus_GLOBAL)}"/>
 

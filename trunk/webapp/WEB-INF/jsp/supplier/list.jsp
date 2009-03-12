@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
-<%@ page import="com.aof.model.metadata.SupplierPromoteStatus"%>
+<%@ page import="net.sourceforge.model.metadata.SupplierPromoteStatus"%>
 
 <script type="text/javascript">
 <!--

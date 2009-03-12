@@ -5,8 +5,8 @@
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
 <%try {%>
-<c:set var="metadata_yesno_YES" value="<%=com.aof.model.metadata.YesNo.YES%>"/>
-<c:set var="metadata_yesno_NO" value="<%=com.aof.model.metadata.YesNo.NO%>"/>
+<c:set var="metadata_yesno_YES" value="<%=net.sourceforge.model.metadata.YesNo.YES%>"/>
+<c:set var="metadata_yesno_NO" value="<%=net.sourceforge.model.metadata.YesNo.NO%>"/>
 <xml id="dataExchangeRate">
 <data>
 <c:forEach var="x_exchangeRate" items="${x_refCurrency}">

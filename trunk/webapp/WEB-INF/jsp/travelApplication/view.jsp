@@ -3,8 +3,8 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<%@ page import="com.aof.model.metadata.TravelApplicationStatus"%>
-<%@ page import="com.aof.model.metadata.TravelApplicationBookStatus"%>
+<%@ page import="net.sourceforge.model.metadata.TravelApplicationStatus"%>
+<%@ page import="net.sourceforge.model.metadata.TravelApplicationBookStatus"%>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
 	<td>

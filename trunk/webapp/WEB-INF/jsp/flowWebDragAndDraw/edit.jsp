@@ -89,13 +89,13 @@ function initAllNode() {
 	var	consequences;
 <%
 	java.util.Set flowRuleSet = (java.util.Set)request.getAttribute("X_FLOWRULES");
-	com.aof.model.admin.User user = (com.aof.model.admin.User)session.getAttribute("LOGIN_USER");
+	net.sourceforge.model.admin.User user = (net.sourceforge.model.admin.User)session.getAttribute("LOGIN_USER");
 	String locale = user.getLocale();
 	if (flowRuleSet != null && flowRuleSet.size() > 0) {
 		java.util.Iterator iterator = flowRuleSet.iterator();
 		while (iterator.hasNext()) {
 			int type = 2;
-			com.aof.model.business.rule.FlowRule fr = (com.aof.model.business.rule.FlowRule)iterator.next();
+			net.sourceforge.model.business.rule.FlowRule fr = (net.sourceforge.model.business.rule.FlowRule)iterator.next();
 			if (fr.getSeq() == 1) {
 				type = 1;
 			}
@@ -107,7 +107,7 @@ function initAllNode() {
 				java.util.Iterator condIter = fr.getRule().getConditions().iterator();
 				int condCount = 0;
 				while (condIter.hasNext()) {
-					com.aof.model.business.rule.RuleCondition condition = (com.aof.model.business.rule.RuleCondition)condIter.next();
+					net.sourceforge.model.business.rule.RuleCondition condition = (net.sourceforge.model.business.rule.RuleCondition)condIter.next();
 %>					
 	conditions[<%=condCount%>] = new Object();
 	conditions[<%=condCount%>].conditionTypeDesc = "<%=condition.getType() != null ? ("en".equals(locale) ? condition.getType().getEngDescription() : condition.getType().getChnDescription()) : ""%>";
@@ -134,7 +134,7 @@ function initAllNode() {
 				java.util.Iterator consIter = fr.getRule().getConsequences().iterator();
 				int consCount = 0;
 				while (consIter.hasNext()) {
-					com.aof.model.business.rule.RuleConsequence consequence = (com.aof.model.business.rule.RuleConsequence)consIter.next();
+					net.sourceforge.model.business.rule.RuleConsequence consequence = (net.sourceforge.model.business.rule.RuleConsequence)consIter.next();
 %>			
 	consequences[<%=consCount%>] = new Object();
 	consequences[<%=consCount%>].type= "<%=fr.getRule().getType().getConsequenceType()%>";	
@@ -169,7 +169,7 @@ function initAllLine() {
 		java.util.Iterator iterator = flowRuleSet.iterator();
 		int index = 0;
 		while (iterator.hasNext()) {		
-			com.aof.model.business.rule.FlowRule fr = (com.aof.model.business.rule.FlowRule)iterator.next();
+			net.sourceforge.model.business.rule.FlowRule fr = (net.sourceforge.model.business.rule.FlowRule)iterator.next();
 			if (fr.getNextSeqWhenPass() > 0) {
 %>
 	initLine(<%=index%>, "Pass", "Pass", <%=fr.getSeq() - 1%>, <%=fr.getNextSeqWhenPass() - 1%>);

@@ -2,8 +2,8 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<%@ page import="com.aof.model.metadata.AirTicketStatus" %>
-<%@ page import="com.aof.model.metadata.YesNo" %>
+<%@ page import="net.sourceforge.model.metadata.AirTicketStatus" %>
+<%@ page import="net.sourceforge.model.metadata.YesNo" %>
 <c:set var="status_booked" value="<%=AirTicketStatus.BOOKED.getEnumCode()%>"/>
 <c:set var="status_received" value="<%=AirTicketStatus.RECEIVED.getEnumCode()%>"/>
 <c:set var="yes" value="<%=YesNo.YES.getEnumCode()%>"/>

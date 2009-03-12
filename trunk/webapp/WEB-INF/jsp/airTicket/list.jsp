@@ -3,8 +3,8 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<c:set var="YesNo_NO" value="<%=com.aof.model.metadata.YesNo.NO%>"/>
-<c:set var="YesNo_YES" value="<%=com.aof.model.metadata.YesNo.YES%>"/>
+<c:set var="YesNo_NO" value="<%=net.sourceforge.model.metadata.YesNo.NO%>"/>
+<c:set var="YesNo_YES" value="<%=net.sourceforge.model.metadata.YesNo.YES%>"/>
 <xml id="data">
 <data>
 <logic:iterate id="x_site" name="x_siteList">
@@ -12,7 +12,7 @@
 		<department id="" name="<bean:message key="department.allDepartment"/>"/>
 		<logic:iterate id="x_department" name="x_site" property="departments">
 		<%
-			com.aof.model.admin.Department dep = (com.aof.model.admin.Department)x_department;
+			net.sourceforge.model.admin.Department dep = (net.sourceforge.model.admin.Department)x_department;
 			String blank = "";
 			while (dep.getParentDepartment() != null) {
 				blank += "    ";

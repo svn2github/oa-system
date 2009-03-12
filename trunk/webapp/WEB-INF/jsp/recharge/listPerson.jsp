@@ -11,12 +11,12 @@
 		var result = [];
 		result['id'] = id;
 		result['name'] = name;
-		result['prefixColor'] = '<%=com.aof.model.metadata.RechargeType.PERSON.getColor()%>';
+		result['prefixColor'] = '<%=net.sourceforge.model.metadata.RechargeType.PERSON.getColor()%>';
 		<c:if test="${sessionScope.LOGIN_USER.locale=='en'}">
-		result['prefix'] = '<%=com.aof.model.metadata.RechargeType.PERSON.getEngShortDescription()%>';
+		result['prefix'] = '<%=net.sourceforge.model.metadata.RechargeType.PERSON.getEngShortDescription()%>';
 		</c:if>
 		<c:if test="${sessionScope.LOGIN_USER.locale!='en'}">
-		result['prefix'] = '<%=com.aof.model.metadata.RechargeType.PERSON.getChnShortDescription()%>';
+		result['prefix'] = '<%=net.sourceforge.model.metadata.RechargeType.PERSON.getChnShortDescription()%>';
 		</c:if>
 		window.parent.returnValue = result;
 		window.parent.close();

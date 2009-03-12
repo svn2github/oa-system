@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
-<%@ page import="com.aof.model.metadata.ExpenseStatus"%>
+<%@ page import="net.sourceforge.model.metadata.ExpenseStatus"%>
 <%
 	request.setAttribute("EXPENSE_STATUS_DRAFT",ExpenseStatus.DRAFT);
 	request.setAttribute("EXPENSE_STATUS_REJECTED",ExpenseStatus.REJECTED);

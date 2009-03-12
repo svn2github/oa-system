@@ -8,7 +8,7 @@
 	   <property name="resourceLoaderPath"><value>/WEB-INF/emailTemplate/</value></property>
 	 </bean>
 
-    <bean id="universalManagerTarget" class="com.aof.service.impl.UniversalManagerImpl">
+    <bean id="universalManagerTarget" class="net.sourceforge.service.impl.UniversalManagerImpl">
         <property name="universalDAO"><ref bean="universalDAO"/></property>
     </bean>
 
@@ -22,13 +22,13 @@
         </property>
     </bean>
     
-    <bean id="beanLoader" class="com.aof.web.struts.action.BeanLoader">
+    <bean id="beanLoader" class="net.sourceforge.web.struts.action.BeanLoader">
         <property name="universalManager"><ref bean="universalManager"/></property>
     </bean>
 
 
 
-    <bean id="userManagerTarget" class="com.aof.service.admin.impl.UserManagerImpl">
+    <bean id="userManagerTarget" class="net.sourceforge.service.admin.impl.UserManagerImpl">
         <property name="userDAO"><ref bean="userDAO"/></property>
         <property name="userRoleDAO"><ref bean="userRoleDAO"/></property>        
         <property name="userSiteDAO"><ref bean="userSiteDAO"/></property>
@@ -51,7 +51,7 @@
         </property>
     </bean>
 
-    <bean id="metadataManagerTarget" class="com.aof.service.admin.impl.MetadataManagerImpl" init-method="init">
+    <bean id="metadataManagerTarget" class="net.sourceforge.service.admin.impl.MetadataManagerImpl" init-method="init">
         <property name="metadataDAO"><ref bean="metadataDAO"/></property>
     </bean>
 
@@ -67,7 +67,7 @@
         </property>
     </bean>
 
-	<bean id="currencyManagerTarget" class="com.aof.service.admin.impl.CurrencyManagerImpl">
+	<bean id="currencyManagerTarget" class="net.sourceforge.service.admin.impl.CurrencyManagerImpl">
         <property name="currencyDAO"><ref bean="currencyDAO"/></property>
     </bean>
 
@@ -83,7 +83,7 @@
         </property>
     </bean>
     
-    <bean id="functionManagerTarget" class="com.aof.service.admin.impl.FunctionManagerImpl">
+    <bean id="functionManagerTarget" class="net.sourceforge.service.admin.impl.FunctionManagerImpl">
         <property name="functionDAO"><ref bean="functionDAO"/></property>
     </bean>
 
@@ -99,7 +99,7 @@
         </property>
     </bean>
 
-    <bean id="siteManagerTarget" class="com.aof.service.admin.impl.SiteManagerImpl">
+    <bean id="siteManagerTarget" class="net.sourceforge.service.admin.impl.SiteManagerImpl">
         <property name="siteDAO"><ref bean="siteDAO"/></property>
     </bean>
 
@@ -114,7 +114,7 @@
         </property>
     </bean>
 
-    <bean id="globalManagerTarget" class="com.aof.service.admin.impl.GlobalManagerImpl">
+    <bean id="globalManagerTarget" class="net.sourceforge.service.admin.impl.GlobalManagerImpl">
         <property name="globalDAO"><ref bean="globalDAO"/></property>
     </bean>
 
@@ -130,7 +130,7 @@
         </property>
     </bean>    
 
-    <bean id="roleManagerTarget" class="com.aof.service.admin.impl.RoleManagerImpl">
+    <bean id="roleManagerTarget" class="net.sourceforge.service.admin.impl.RoleManagerImpl">
         <property name="roleDAO"><ref bean="roleDAO"/></property>
     </bean>
 
@@ -147,7 +147,7 @@
         </property>
     </bean>
 
-    <bean id="menuManagerTarget" class="com.aof.service.admin.impl.MenuManagerImpl">
+    <bean id="menuManagerTarget" class="net.sourceforge.service.admin.impl.MenuManagerImpl">
         <property name="menuDAO"><ref bean="menuDAO"/></property>
     </bean>
 
@@ -163,7 +163,7 @@
         </property>
     </bean>
 
-	<bean id="exchangeRateManagerTarget" class="com.aof.service.admin.impl.ExchangeRateManagerImpl">
+	<bean id="exchangeRateManagerTarget" class="net.sourceforge.service.admin.impl.ExchangeRateManagerImpl">
         <property name="exchangeRateDAO"><ref bean="exchangeRateDAO"/></property>
     </bean>
 
@@ -178,7 +178,7 @@
         </property>
     </bean>
 
-    <bean id="departmentManagerTarget" class="com.aof.service.admin.impl.DepartmentManagerImpl">
+    <bean id="departmentManagerTarget" class="net.sourceforge.service.admin.impl.DepartmentManagerImpl">
         <property name="departmentDAO"><ref bean="departmentDAO"/></property>
     </bean>
 
@@ -195,7 +195,7 @@
     </bean>
 
 
-	<bean id="expenseCategoryManagerTarget" class="com.aof.service.admin.impl.ExpenseCategoryManagerImpl">
+	<bean id="expenseCategoryManagerTarget" class="net.sourceforge.service.admin.impl.ExpenseCategoryManagerImpl">
         <property name="expenseCategoryDAO"><ref bean="expenseCategoryDAO"/></property>
         <property name="expenseSubCategoryDAO"><ref bean="expenseSubCategoryDAO"/></property>
     </bean>
@@ -216,7 +216,7 @@
 
 
 
-	<bean id="travelGroupManagerTarget" class="com.aof.service.admin.impl.TravelGroupManagerImpl">
+	<bean id="travelGroupManagerTarget" class="net.sourceforge.service.admin.impl.TravelGroupManagerImpl">
         <property name="travelGroupDAO"><ref bean="travelGroupDAO"/></property>
         <property name="travelGroupDetailDAO"><ref bean="travelGroupDetailDAO"/></property>
     </bean>
@@ -235,7 +235,7 @@
 
 
 
-	<bean id="countryManagerTarget" class="com.aof.service.admin.impl.CountryManagerImpl">
+	<bean id="countryManagerTarget" class="net.sourceforge.service.admin.impl.CountryManagerImpl">
         <property name="countryDAO"><ref bean="countryDAO"/></property>
         <property name="provinceDAO"><ref bean="provinceDAO"/></property>
         <property name="cityDAO"><ref bean="cityDAO"/></property>
@@ -255,7 +255,7 @@
         </property>
     </bean>
 
-	<bean id="provinceManagerTarget" class="com.aof.service.admin.impl.ProvinceManagerImpl">
+	<bean id="provinceManagerTarget" class="net.sourceforge.service.admin.impl.ProvinceManagerImpl">
         <property name="provinceDAO"><ref bean="provinceDAO"/></property>
     </bean>
 
@@ -273,7 +273,7 @@
         </property>
     </bean>
 
-	<bean id="cityManagerTarget" class="com.aof.service.admin.impl.CityManagerImpl">
+	<bean id="cityManagerTarget" class="net.sourceforge.service.admin.impl.CityManagerImpl">
         <property name="cityDAO"><ref bean="cityDAO"/></property>
     </bean>
 
@@ -293,7 +293,7 @@
 
 
 
-	<bean id="purchaseCategoryManagerTarget" class="com.aof.service.admin.impl.PurchaseCategoryManagerImpl">
+	<bean id="purchaseCategoryManagerTarget" class="net.sourceforge.service.admin.impl.PurchaseCategoryManagerImpl">
         <property name="purchaseCategoryDAO"><ref bean="purchaseCategoryDAO"/></property>
         <property name="purchaseSubCategoryDAO"><ref bean="purchaseSubCategoryDAO"/></property>
     </bean>
@@ -311,7 +311,7 @@
     </bean>
 
 
-	<bean id="hotelManagerTarget" class="com.aof.service.admin.impl.HotelManagerImpl">
+	<bean id="hotelManagerTarget" class="net.sourceforge.service.admin.impl.HotelManagerImpl">
         <property name="hotelDAO"><ref bean="hotelDAO"/></property>
         <property name="priceDAO"><ref bean="priceDAO"/></property>        
         <property name="exchangeRateDAO"><ref bean="exchangeRateDAO"/></property>                
@@ -332,7 +332,7 @@
     </bean>
 
 
-	<bean id="purchaseSubCategoryManagerTarget" class="com.aof.service.admin.impl.PurchaseSubCategoryManagerImpl">
+	<bean id="purchaseSubCategoryManagerTarget" class="net.sourceforge.service.admin.impl.PurchaseSubCategoryManagerImpl">
         <property name="purchaseSubCategoryDAO"><ref bean="purchaseSubCategoryDAO"/></property>
     </bean>
 
@@ -348,7 +348,7 @@
         </property>
     </bean>
 
-	<bean id="emailManagerTarget" class="com.aof.service.admin.impl.EmailManagerImpl" init-method="init">
+	<bean id="emailManagerTarget" class="net.sourceforge.service.admin.impl.EmailManagerImpl" init-method="init">
         <property name="emailDAO"><ref bean="emailDAO"/></property>
         <property name="globalDAO"><ref bean="globalDAO"/></property>
         <property name="velocityEngine"><ref bean="velocityEngine"/></property>        
@@ -426,7 +426,7 @@
 	  </property>
 	</bean>			
 
-	<bean id="supplierManagerTarget" class="com.aof.service.admin.impl.SupplierManagerImpl">
+	<bean id="supplierManagerTarget" class="net.sourceforge.service.admin.impl.SupplierManagerImpl">
         <property name="supplierDAO"><ref bean="supplierDAO"/></property>
         <property name="supplierHistoryDAO"><ref bean="supplierHistoryDAO"/></property>
     </bean>
@@ -447,7 +447,7 @@
         </property>
     </bean>
     
-    <bean id="supplierContractManagerTarget" class="com.aof.service.admin.impl.SupplierContractManagerImpl">
+    <bean id="supplierContractManagerTarget" class="net.sourceforge.service.admin.impl.SupplierContractManagerImpl">
         <property name="supplierContractDAO"><ref bean="supplierContractDAO"/></property>
     </bean>
 
@@ -463,7 +463,7 @@
         </property>
     </bean>
 
-	<bean id="hotelContractManagerTarget" class="com.aof.service.admin.impl.HotelContractManagerImpl">
+	<bean id="hotelContractManagerTarget" class="net.sourceforge.service.admin.impl.HotelContractManagerImpl">
         <property name="hotelContractDAO"><ref bean="hotelContractDAO"/></property>
     </bean>
 
@@ -479,7 +479,7 @@
         </property>
     </bean>
 
-	<bean id="priceManagerTarget" class="com.aof.service.admin.impl.PriceManagerImpl">
+	<bean id="priceManagerTarget" class="net.sourceforge.service.admin.impl.PriceManagerImpl">
         <property name="priceDAO"><ref bean="priceDAO"/></property>
     </bean>
 
@@ -496,7 +496,7 @@
     </bean>
 
 
-	<bean id="supplierHistoryManagerTarget" class="com.aof.service.admin.impl.SupplierHistoryManagerImpl">
+	<bean id="supplierHistoryManagerTarget" class="net.sourceforge.service.admin.impl.SupplierHistoryManagerImpl">
         <property name="supplierHistoryDAO"><ref bean="supplierHistoryDAO"/></property>
     </bean>
 
@@ -512,7 +512,7 @@
         </property>
     </bean>
 
-	<bean id="supplierItemManagerTarget" class="com.aof.service.admin.impl.SupplierItemManagerImpl">
+	<bean id="supplierItemManagerTarget" class="net.sourceforge.service.admin.impl.SupplierItemManagerImpl">
         <property name="supplierItemDAO"><ref bean="supplierItemDAO"/></property>
     </bean>
 
@@ -530,10 +530,10 @@
         </property>
     </bean>
 
-	<bean id="ruleEngineWorkspace" class="com.aof.ruleengine.EngineWorkspace">
+	<bean id="ruleEngineWorkspace" class="net.sourceforge.ruleengine.EngineWorkspace">
     </bean>
 
-	<bean id="flowManagerTarget" class="com.aof.service.business.rule.impl.FlowManagerImpl" init-method="initWorkspace">
+	<bean id="flowManagerTarget" class="net.sourceforge.service.business.rule.impl.FlowManagerImpl" init-method="initWorkspace">
         <property name="flowDAO"><ref bean="flowDAO"/></property>
         <property name="siteManager"><ref bean="siteManager"/></property>                
         <property name="userManager"><ref bean="userManager"/></property>                
@@ -555,7 +555,7 @@
         </property>
     </bean>
     
-   	<bean id="travelApplicationManagerTarget" class="com.aof.service.business.ta.impl.TravelApplicationManagerImpl">
+   	<bean id="travelApplicationManagerTarget" class="net.sourceforge.service.business.ta.impl.TravelApplicationManagerImpl">
         <property name="flowManager"><ref bean="flowManager"/></property>	
         <property name="travelApplicationDAO"><ref bean="travelApplicationDAO"/></property>
         <property name="airTicketDAO"><ref bean="airTicketDAO"/></property>
@@ -581,7 +581,7 @@
     </bean>
     
 
-	<bean id="ruleManagerTarget" class="com.aof.service.business.rule.impl.RuleManagerImpl">
+	<bean id="ruleManagerTarget" class="net.sourceforge.service.business.rule.impl.RuleManagerImpl">
         <property name="ruleDAO"><ref bean="ruleDAO"/></property>
         <property name="flowManager"><ref bean="flowManager"/></property>
         <property name="workspace"><ref bean="ruleEngineWorkspace"/></property>
@@ -600,7 +600,7 @@
         </property>
     </bean>
 
-	<bean id="approverDelegateManagerTarget" class="com.aof.service.business.rule.impl.ApproverDelegateManagerImpl">
+	<bean id="approverDelegateManagerTarget" class="net.sourceforge.service.business.rule.impl.ApproverDelegateManagerImpl">
         <property name="approverDelegateDAO"><ref bean="approverDelegateDAO"/></property>
         <property name="userManager"><ref bean="userManager"/></property>
         <property name="functionManager"><ref bean="functionManager"/></property>
@@ -618,7 +618,7 @@
         </property>
     </bean>
 
-	<bean id="travelApplicationApproveRequestManagerTarget" class="com.aof.service.business.ta.impl.TravelApplicationApproveRequestManagerImpl">
+	<bean id="travelApplicationApproveRequestManagerTarget" class="net.sourceforge.service.business.ta.impl.TravelApplicationApproveRequestManagerImpl">
         <property name="travelApplicationApproveRequestDAO"><ref bean="travelApplicationApproveRequestDAO"/></property>
         <property name="travelApplicationManager"><ref bean="travelApplicationManager"/></property>
         <property name="systemLogManager"><ref bean="systemLogManager"/></property>     
@@ -638,7 +638,7 @@
         </property>
     </bean>
     
-    <bean id="expenseSubCategoryManagerTarget" class="com.aof.service.admin.impl.ExpenseSubCategoryManagerImpl">
+    <bean id="expenseSubCategoryManagerTarget" class="net.sourceforge.service.admin.impl.ExpenseSubCategoryManagerImpl">
         <property name="expenseSubCategoryDAO"><ref bean="expenseSubCategoryDAO"/></property>
     </bean>
 
@@ -654,7 +654,7 @@
         </property>
     </bean>
 
-	<bean id="expenseManagerTarget" class="com.aof.service.business.expense.impl.ExpenseManagerImpl">
+	<bean id="expenseManagerTarget" class="net.sourceforge.service.business.expense.impl.ExpenseManagerImpl">
         <property name="expenseDAO"><ref bean="expenseDAO"/></property>
         <property name="expenseApproveRequestDAO"><ref bean="expenseApproveRequestDAO"/></property>
         <property name="expenseAttachmentDAO"><ref bean="expenseAttachmentDAO"/></property>
@@ -680,7 +680,7 @@
         </property>
     </bean>
 
-	<bean id="airTicketManagerTarget" class="com.aof.service.business.ta.impl.AirTicketManagerImpl">
+	<bean id="airTicketManagerTarget" class="net.sourceforge.service.business.ta.impl.AirTicketManagerImpl">
         <property name="airTicketDAO"><ref bean="airTicketDAO"/></property>
         <property name="travelApplicationDAO"><ref bean="travelApplicationDAO"/></property>
         <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
@@ -701,7 +701,7 @@
         </property>
     </bean>
 
-	<bean id="customerManagerTarget" class="com.aof.service.admin.impl.CustomerManagerImpl">
+	<bean id="customerManagerTarget" class="net.sourceforge.service.admin.impl.CustomerManagerImpl">
         <property name="customerDAO"><ref bean="customerDAO"/></property>
     </bean>
 
@@ -715,7 +715,7 @@
         </property>
     </bean>
 
-	<bean id="expenseAttachmentManagerTarget" class="com.aof.service.business.expense.impl.ExpenseAttachmentManagerImpl">
+	<bean id="expenseAttachmentManagerTarget" class="net.sourceforge.service.business.expense.impl.ExpenseAttachmentManagerImpl">
         <property name="expenseAttachmentDAO"><ref bean="expenseAttachmentDAO"/></property>
     </bean>
 
@@ -732,7 +732,7 @@
         </property>
     </bean>
 
-	<bean id="expenseApproveRequestManagerTarget" class="com.aof.service.business.expense.impl.ExpenseApproveRequestManagerImpl">
+	<bean id="expenseApproveRequestManagerTarget" class="net.sourceforge.service.business.expense.impl.ExpenseApproveRequestManagerImpl">
         <property name="expenseApproveRequestDAO"><ref bean="expenseApproveRequestDAO"/></property>
         <property name="expenseManager"><ref bean="expenseManager"/></property>
         <property name="systemLogManager"><ref bean="systemLogManager"/></property>
@@ -752,7 +752,7 @@
     </bean>
 
 
-    <bean id="purchaseTypeManagerTarget" class="com.aof.service.admin.impl.PurchaseTypeManagerImpl">
+    <bean id="purchaseTypeManagerTarget" class="net.sourceforge.service.admin.impl.PurchaseTypeManagerImpl">
         <property name="purchaseTypeDAO"><ref bean="purchaseTypeDAO"/></property>
     </bean>
 
@@ -766,7 +766,7 @@
         </property>
     </bean>
 
-	<bean id="yearlyBudgetManagerTarget" class="com.aof.service.business.pr.impl.YearlyBudgetManagerImpl">
+	<bean id="yearlyBudgetManagerTarget" class="net.sourceforge.service.business.pr.impl.YearlyBudgetManagerImpl">
         <property name="yearlyBudgetDAO"><ref bean="yearlyBudgetDAO"/></property>
         <property name="yearlyBudgetDepartmentDAO"><ref bean="yearlyBudgetDepartmentDAO"/></property>      
         <property name="yearlyBudgetHistoryDAO"><ref bean="yearlyBudgetHistoryDAO"/></property>              
@@ -791,7 +791,7 @@
         </property>
     </bean>
 
-	<bean id="capexManagerTarget" class="com.aof.service.business.pr.impl.CapexManagerImpl">
+	<bean id="capexManagerTarget" class="net.sourceforge.service.business.pr.impl.CapexManagerImpl">
         <property name="capexDAO"><ref bean="capexDAO"/></property>
         <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
         <property name="purchaseCategoryManager"><ref bean="purchaseCategoryManager"/></property>
@@ -818,7 +818,7 @@
         </property>
     </bean>
 
-	<bean id="capexRequestApproveRequestManagerTarget" class="com.aof.service.business.pr.impl.CapexRequestApproveRequestManagerImpl">
+	<bean id="capexRequestApproveRequestManagerTarget" class="net.sourceforge.service.business.pr.impl.CapexRequestApproveRequestManagerImpl">
         <property name="capexRequestApproveRequestDAO"><ref bean="capexRequestApproveRequestDAO"/></property>
         <property name="capexDAO"><ref bean="capexDAO"/></property>
         <property name="capexManager"><ref bean="capexManager"/></property>
@@ -838,7 +838,7 @@
         </property>
     </bean>
 
-	<bean id="purchaseRequestManagerTarget" class="com.aof.service.business.pr.impl.PurchaseRequestManagerImpl">
+	<bean id="purchaseRequestManagerTarget" class="net.sourceforge.service.business.pr.impl.PurchaseRequestManagerImpl">
         <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
         <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
         <property name="yearlyBudgetManager"><ref bean="yearlyBudgetManager"/></property>
@@ -861,7 +861,7 @@
         </property>
     </bean>
 
-	<bean id="parameterManagerTarget" class="com.aof.service.admin.impl.ParameterManagerImpl">
+	<bean id="parameterManagerTarget" class="net.sourceforge.service.admin.impl.ParameterManagerImpl">
         <property name="parameterDAO"><ref bean="parameterDAO"/></property>
         <property name="dataTransferManager"><ref bean="dataTransferManager"/></property>
     </bean>
@@ -879,7 +879,7 @@
         </property>
     </bean>
 
-	<bean id="purchaseRequestApproveRequestManagerTarget" class="com.aof.service.business.pr.impl.PurchaseRequestApproveRequestManagerImpl">
+	<bean id="purchaseRequestApproveRequestManagerTarget" class="net.sourceforge.service.business.pr.impl.PurchaseRequestApproveRequestManagerImpl">
         <property name="purchaseRequestApproveRequestDAO"><ref bean="purchaseRequestApproveRequestDAO"/></property>
         <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
         <property name="purchaseRequestManager"><ref bean="purchaseRequestManager"/></property>
@@ -899,7 +899,7 @@
         </property>
     </bean>
 
-	<bean id="purchaseOrderManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderManagerImpl">
+	<bean id="purchaseOrderManagerTarget" class="net.sourceforge.service.business.po.impl.PurchaseOrderManagerImpl">
         <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
         <property name="purchaseRequestDAO"><ref bean="purchaseRequestDAO"/></property>
         <property name="purchaseOrderItemReceiptDAO"><ref bean="purchaseOrderItemReceiptDAO"/></property>        
@@ -922,7 +922,7 @@
         </property>
     </bean>
     
-    <bean id="exportPurchaseOrderManagerTarget" class="com.aof.service.dataTransfer.impl.ExportPurchaseOrderManagerImpl">
+    <bean id="exportPurchaseOrderManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportPurchaseOrderManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -937,7 +937,7 @@
         </property>
     </bean>
     
-    <bean id="exportPurchaseOrderReceiptManagerTarget" class="com.aof.service.dataTransfer.impl.ExportPurchaseOrderReceiptManagerImpl">
+    <bean id="exportPurchaseOrderReceiptManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportPurchaseOrderReceiptManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -952,7 +952,7 @@
         </property>
     </bean>
     
-    <bean id="exportExpenseManagerTarget" class="com.aof.service.dataTransfer.impl.ExportExpenseManagerImpl">
+    <bean id="exportExpenseManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportExpenseManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -967,7 +967,7 @@
         </property>
     </bean>
     
-    <bean id="exportSupplierManagerTarget" class="com.aof.service.dataTransfer.impl.ExportSupplierManagerImpl">
+    <bean id="exportSupplierManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportSupplierManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -982,7 +982,7 @@
         </property>
     </bean>
     
-    <bean id="exportDepartmentManagerTarget" class="com.aof.service.dataTransfer.impl.ExportDepartmentManagerImpl">
+    <bean id="exportDepartmentManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportDepartmentManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -997,7 +997,7 @@
         </property>
     </bean>
     
-    <bean id="exportCountryManagerTarget" class="com.aof.service.dataTransfer.impl.ExportCountryManagerImpl">
+    <bean id="exportCountryManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ExportCountryManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -1012,7 +1012,7 @@
         </property>
     </bean>
     
-    <bean id="importPurchaseTypeManagerTarget" class="com.aof.service.dataTransfer.impl.ImportPurchaseTypeManagerImpl">
+    <bean id="importPurchaseTypeManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ImportPurchaseTypeManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -1027,7 +1027,7 @@
         </property>
     </bean>
     
-    <bean id="importExpenseCategoryManagerTarget" class="com.aof.service.dataTransfer.impl.ImportExpenseCategoryManagerImpl">
+    <bean id="importExpenseCategoryManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ImportExpenseCategoryManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -1042,7 +1042,7 @@
         </property>
     </bean>
     
-    <bean id="importCustomerManagerTarget" class="com.aof.service.dataTransfer.impl.ImportCustomerManagerImpl">
+    <bean id="importCustomerManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ImportCustomerManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -1057,7 +1057,7 @@
         </property>
     </bean>
     
-    <bean id="importExchangeRateManagerTarget" class="com.aof.service.dataTransfer.impl.ImportExchangeRateManagerImpl">
+    <bean id="importExchangeRateManagerTarget" class="net.sourceforge.service.dataTransfer.impl.ImportExchangeRateManagerImpl">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
     </bean>
     
@@ -1072,7 +1072,7 @@
         </property>
     </bean>
     
-    <bean id="dataTransferManagerTarget" class="com.aof.service.admin.impl.DataTransferManagerImpl" init-method="init" destroy-method="destroy">
+    <bean id="dataTransferManagerTarget" class="net.sourceforge.service.admin.impl.DataTransferManagerImpl" init-method="init" destroy-method="destroy">
         <property name="dataTransferDAO"><ref bean="dataTransferDAO"/></property>
         <property name="poExportManager"><ref bean="exportPurchaseOrderManager"/></property>
         <property name="poReceiptExportManager"><ref bean="exportPurchaseOrderReceiptManager"/></property>
@@ -1100,7 +1100,7 @@
     </bean>
 
 
-	<bean id="purchaseOrderApproveRequestManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderApproveRequestManagerImpl">
+	<bean id="purchaseOrderApproveRequestManagerTarget" class="net.sourceforge.service.business.po.impl.PurchaseOrderApproveRequestManagerImpl">
         <property name="purchaseOrderApproveRequestDAO"><ref bean="purchaseOrderApproveRequestDAO"/></property>
         <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>
         <property name="purchaseOrderManager"><ref bean="purchaseOrderManager"/></property>
@@ -1120,7 +1120,7 @@
         </property>
     </bean>
 
-	<bean id="purchaseOrderItemReceiptManagerTarget" class="com.aof.service.business.po.impl.PurchaseOrderItemReceiptManagerImpl">
+	<bean id="purchaseOrderItemReceiptManagerTarget" class="net.sourceforge.service.business.po.impl.PurchaseOrderItemReceiptManagerImpl">
         <property name="purchaseOrderItemReceiptDAO"><ref bean="purchaseOrderItemReceiptDAO"/></property>
         <property name="purchaseOrderDAO"><ref bean="purchaseOrderDAO"/></property>        
         <property name="systemLogManager"><ref bean="systemLogManager"/></property>   
@@ -1138,7 +1138,7 @@
         </property>
     </bean>
 
-	<bean id="systemLogManagerTarget" class="com.aof.service.admin.impl.SystemLogManagerImpl">
+	<bean id="systemLogManagerTarget" class="net.sourceforge.service.admin.impl.SystemLogManagerImpl">
         <property name="systemLogDAO"><ref bean="systemLogDAO"/></property>
         <property name="universalDAO"><ref bean="universalDAO"/></property>
     </bean>
@@ -1154,13 +1154,13 @@
         </property>
     </bean>
 
-	<bean id="approveRelativeEmailManager" class="com.aof.service.business.impl.ApproveRelativeEmailManagerImpl">
+	<bean id="approveRelativeEmailManager" class="net.sourceforge.service.business.impl.ApproveRelativeEmailManagerImpl">
         <property name="emailManager"><ref bean="emailManager"/></property>
         <property name="approverDelegateDAO"><ref bean="approverDelegateDAO"/></property>
     </bean>  
     
     <!-- 
-    <bean id="kpiManagerTarget" class="com.aof.service.kpi.impl.KPIManagerImpl">
+    <bean id="kpiManagerTarget" class="net.sourceforge.service.kpi.impl.KPIManagerImpl">
         <property name="kpiSummaryDAO"><ref bean="kpiSummaryDAO"/></property>
         <property name="siteManager"><ref bean="siteManager"/></property>        
         <property name="capexManager"><ref bean="capexManager"/></property>                
@@ -1211,7 +1211,7 @@
 	  </property>
 	</bean>	   
 	
-	<bean id="projectCodeManagerTarget" class="com.aof.service.admin.impl.ProjectCodeManagerImpl">
+	<bean id="projectCodeManagerTarget" class="net.sourceforge.service.admin.impl.ProjectCodeManagerImpl">
         <property name="projectCodeDAO"><ref bean="projectCodeDAO"/></property>
     </bean>
 

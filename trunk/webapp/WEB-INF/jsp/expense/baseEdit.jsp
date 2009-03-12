@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
-<c:set var="x_expense_expenseType_TRAVEL" value="<%=com.aof.model.metadata.ExpenseType.TRAVEL%>"/>
+<c:set var="x_expense_expenseType_TRAVEL" value="<%=net.sourceforge.model.metadata.ExpenseType.TRAVEL%>"/>
 <script>
 	var allowChangeRequestAmount = true;
 	
@@ -41,7 +41,7 @@
 			return false;
 		}
 		
-		if(form["isRecharge"].value=='<%=com.aof.model.metadata.YesNo.YES%>') {
+		if(form["isRecharge"].value=='<%=net.sourceforge.model.metadata.YesNo.YES%>') {
 			if(!checkExpenseListForRecharge() ) {
 				return false;
 			}

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c" %>
-<%@ page import="com.aof.model.metadata.PurchaseOrderStatus"%>
+<%@ page import="net.sourceforge.model.metadata.PurchaseOrderStatus"%>
 <c:set var="x_approved" value="<%=PurchaseOrderStatus.APPROVED.getEnumCode()%>"/>
 <c:set var="x_confirmed" value="<%=PurchaseOrderStatus.CONFIRMED.getEnumCode()%>"/>
 <c:set var="x_received" value="<%=PurchaseOrderStatus.RECEIVED.getEnumCode()%>"/>

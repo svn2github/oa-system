@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
-<%@ page import="com.aof.model.metadata.*"%>
+<%@ page import="net.sourceforge.model.metadata.*"%>
 
 
 <xml id="dataCPC">
@@ -145,7 +145,7 @@
 				var urgentMessage="<bean:message key="travelApplication.urgent.warning"/>";
 				var submitMessage="<bean:message key="travelApplication.submit.confirm"/>";
 								
-				if (document.travelApplicationForm.urgent.options[document.travelApplicationForm.urgent.selectedIndex].value == "<%=com.aof.model.metadata.TravelApplicationUrgent.URGENT%>") {				
+				if (document.travelApplicationForm.urgent.options[document.travelApplicationForm.urgent.selectedIndex].value == "<%=net.sourceforge.model.metadata.TravelApplicationUrgent.URGENT%>") {				
 					if (confirm(urgentMessage)) {
 						document.travelApplicationForm.submit();
 					}

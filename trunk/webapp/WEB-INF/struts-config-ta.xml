@@ -6,13 +6,13 @@
 	<form-beans type="com.shcnc.struts.form.config.BeanFormConfig">
 
 		<form-bean name="travelApplicationAssignForm"
-			type="com.aof.model.business.ta.TravelApplication">
+			type="net.sourceforge.model.business.ta.TravelApplication">
 			<set-property property="requires"
 				value="id, booker.id" />
 		</form-bean>	
 
 		<form-bean name="travelApplicationForm"
-			type="com.aof.model.business.ta.TravelApplication">
+			type="net.sourceforge.model.business.ta.TravelApplication">
 			<set-property property="requires"
 				value=" 
 					department.id,
@@ -49,13 +49,13 @@
 		</form-bean>
 
 		<form-bean name="travelApplicationQueryForm"
-			type="com.aof.web.struts.form.business.ta.TravelApplicationQueryForm" />
+			type="net.sourceforge.web.struts.form.business.ta.TravelApplicationQueryForm" />
 
 		<form-bean name="travelApplicationApproveRequestQueryForm"
-			type="com.aof.web.struts.form.business.ta.TravelApplicationApproveRequestQueryForm" />
+			type="net.sourceforge.web.struts.form.business.ta.TravelApplicationApproveRequestQueryForm" />
 
 		<form-bean name="travelApplicationPurchaseForm"
-				type="com.aof.model.business.ta.TravelApplication">
+				type="net.sourceforge.model.business.ta.TravelApplication">
 				
 			<set-property property="requires"
 				value=" 
@@ -76,7 +76,7 @@
 			" />
 		</form-bean>
 		
-		<form-bean name="updateTravelApplicationPurchaseForm" type="com.aof.model.business.ta.TravelApplication">
+		<form-bean name="updateTravelApplicationPurchaseForm" type="net.sourceforge.model.business.ta.TravelApplication">
 			<set-property property="includes"
 				value=" 
 				id
@@ -84,7 +84,7 @@
 		</form-bean>
 		
 		<form-bean name="airTicketBookForm"
-				type="com.aof.model.business.ta.AirTicket">
+				type="net.sourceforge.model.business.ta.AirTicket">
 				<set-property property="requires"
 					value=" 
 					supplier.id,
@@ -118,8 +118,8 @@
 		
 		
 		
-		<form-bean name="airTicketQueryForm" type="com.aof.web.struts.form.business.ta.AirTicketQueryForm" />
-		<form-bean name="airTicketForm" type="com.aof.model.business.po.PurchaseOrderItem">
+		<form-bean name="airTicketQueryForm" type="net.sourceforge.web.struts.form.business.ta.AirTicketQueryForm" />
+		<form-bean name="airTicketForm" type="net.sourceforge.model.business.po.PurchaseOrderItem">
 			<set-property property="identities"	value="airTicket.id" />
 			<set-property property="requires" value="id,airTicket.id,isRecharge" />
 			<set-property property="includes" value="" />
@@ -129,12 +129,12 @@
 	</form-beans>
 	
 	<action-mappings
-		type="com.aof.web.struts.action.SecureActionMapping">
+		type="net.sourceforge.web.struts.action.SecureActionMapping">
 		<!-- TravelApplication -->
 		
 		<action parameter="select" path="/selectTravelApplication"
 			scope="session" name="travelApplicationQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210140" />
 			<set-property property="functionDescription" value="select travel application"/>
 			<set-property property="dialog" value="true" />
@@ -143,7 +143,7 @@
 		
 		<action parameter="list" path="/listTravelApplication_self"
 			scope="session" name="travelApplicationQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210020" />
 			<set-property property="functionDescription" value="list my request travel application"/>
 			<forward name="page" path="site.travelApplication.list.self" />
@@ -151,7 +151,7 @@
 
 		<action parameter="list" path="/listTravelApplication_other"
 			scope="session" name="travelApplicationQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210020" />
 			<set-property property="functionDescription" value="list my delegate travel application"/>			
 			<forward name="page" path="site.travelApplication.list.other" />
@@ -160,7 +160,7 @@
 		<action parameter="newObject_self"
 			path="/newTravelApplication_self" scope="request"
 			name="travelApplicationForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210030" />
 			<set-property property="functionDescription" value="create my request travel application"/>						
 			<forward name="page" path="site.travelApplication.new.self" />
@@ -169,7 +169,7 @@
 		<action parameter="newObject_other"
 			path="/newTravelApplication_other" scope="request"
 			name="travelApplicationForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210030" />
 			<set-property property="functionDescription" value="create my delegate travel application"/>									
 			<forward name="page"
@@ -179,14 +179,14 @@
 		<action parameter="insert_self"
 			path="/insertTravelApplication_self" scope="request"
 			name="travelApplicationForm" input="/newTravelApplication_self.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210030" />
 		</action>
 		
 		<action parameter="insert_self_viewapprover"
 			path="/insertTravelApplication_self_viewApprover" scope="request"
 			name="travelApplicationForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210030" />
 			<set-property property="dialog" value="true" />
 			<forward name="page"
@@ -196,14 +196,14 @@
 		<action parameter="insert_other"
 			path="/insertTravelApplication_other" scope="request"
 			name="travelApplicationForm" input="/newTravelApplication_other.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210030" />
 		</action>
 		
 		<action parameter="insert_other_viewapprover"
 			path="/insertTravelApplication_other_viewApprover" scope="request"
 			name="travelApplicationForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210030" />
 			<set-property property="dialog" value="true" />
 			<forward name="page"
@@ -212,7 +212,7 @@
 		
 		<action parameter="edit_self" path="/editTravelApplication_self"
 			scope="request" name="travelApplicationForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 			<set-property property="functionDescription" value="edit my request travel application"/>												
 			<forward name="page" path="site.travelApplication.edit.self" />
@@ -221,7 +221,7 @@
 		<action parameter="edit_other"
 			path="/editTravelApplication_other" scope="request"
 			name="travelApplicationForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210040" />
 			<set-property property="functionDescription" value="edit my deletgate travel application"/>												
 			<forward name="page"
@@ -231,14 +231,14 @@
 		<action parameter="update_self"
 			path="/updateTravelApplication_self" scope="request"
 			name="travelApplicationForm" input="/editTravelApplication_self.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 		</action>
 		
 		<action parameter="update_self_viewapprover"
 			path="/updateTravelApplication_self_viewApprover" scope="request"
 			name="travelApplicationForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 			<set-property property="dialog" value="true" />
 			<forward name="page"
@@ -248,14 +248,14 @@
 		<action parameter="update_other"
 			path="/updateTravelApplication_other" scope="request"
 			name="travelApplicationForm" input="/editTravelApplication_other.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210040" />
 		</action>
 		
 		<action parameter="update_other_viewapprover"
 			path="/updateTravelApplication_other_viewApprover" scope="request"
 			name="travelApplicationForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210040" />
 			<set-property property="dialog" value="true" />
 			<forward name="page"
@@ -264,7 +264,7 @@
 		
 		<action parameter="exportDetailPDF_self"
 			path="/exportPdfTravelApplication_self" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210060" />
 			<set-property property="functionDescription" value="view my request travel application"/>															
 			<forward name="page"
@@ -274,14 +274,14 @@
 		
 		<action parameter="exportDetailPDF_other"
 			path="/exportPdfTravelApplication_other" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210060" />
 			<set-property property="functionDescription" value="view my delegate travel application"/>			
 		</action>
 		
 		<action parameter="view"
 			path="/viewTravelApplication_self" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210060" />
 			<forward name="page"
 				path="site.travelApplication.view.self" />
@@ -289,7 +289,7 @@
 		
 		<action parameter="view"
 			path="/viewTravelApplication_other" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210060" />
 			<forward name="page"
 				path="site.travelApplication.view.other" />
@@ -297,7 +297,7 @@
 		
 		<action parameter="withdraw_self"
 			path="/withdrawTravelApplication_self" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210220" />
 			<set-property property="functionDescription" value="withdraw my request travel application"/>															
 			<forward name="page"
@@ -306,7 +306,7 @@
 		
 		<action parameter="withdraw_other"
 			path="/withdrawTravelApplication_other" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210220" />
 			<set-property property="functionDescription" value="withdraw my delegate travel application"/>																		
 			<forward name="page"
@@ -315,14 +315,14 @@
 		
 		<action parameter="delete_self"
 			path="/deleteTravelApplication_self" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210050" />
 			<set-property property="functionDescription" value="delete my request travel application"/>																		
 		</action>
 		
 		<action parameter="delete_other"
 			path="/deleteTravelApplication_other" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210050" />
 			<set-property property="functionDescription" value="delete my delegate travel application"/>																		
 
@@ -331,7 +331,7 @@
 		<action parameter="listPurchase"
 			path="/listTravelApplicationPurchase" scope="session"
 			name="travelApplicationQueryForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" /> 
 			<set-property property="functionDescription" value="purchase travel application"/>																					
 			<set-property property="functionType" value="TravelApplicationPurchase" />
@@ -341,7 +341,7 @@
 		<action parameter="listAssign"
 			path="/listTravelApplication_assign" scope="session"
 			name="travelApplicationQueryForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210120" /> 
 			<set-property property="functionDescription" value="assign travel application"/>																								
 			<forward name="page"
@@ -350,7 +350,7 @@
 		
 		<action parameter="purchase"
 			path="/purchaseTravelApplication" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 			<forward name="page"
 				path="site.travelApplication.purchase" />
@@ -358,7 +358,7 @@
 		
 		<action parameter="book"
 			path="/bookAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>	
 			<forward name="page"
@@ -367,7 +367,7 @@
 		
 		<action parameter="edit"
 			path="/editBookAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>	
 			<forward name="page"
@@ -376,7 +376,7 @@
 		
 		<action parameter="update" input="/editBookAirTicket.do"
 			path="/updateBookAirTicket" scope="request" name="airTicketBookForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />	
@@ -384,7 +384,7 @@
 		
 		<action parameter="view"
 			path="/viewAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>	
 			<forward name="page"
@@ -393,7 +393,7 @@
 		
 		<action parameter="delete"
 			path="/deleteBookAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>	
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>	
@@ -401,7 +401,7 @@
 		
 		<action parameter="requestorDelete"
 			path="/requestorDeleteBookAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="12210040" />
 			<set-property property="dialog" value="true"/>	
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp"/>	
@@ -409,7 +409,7 @@
 		
 		<action parameter="bookResult" input="/bookAirTicket.do"
 			path="/bookAirTicket_result" scope="request" name="airTicketBookForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAirTicketAction">
 			<set-property property="functionId" value="32210150" />
 			<set-property property="dialog" value="true"/>			
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />	
@@ -419,7 +419,7 @@
 		
 		<action parameter="assign"
 			path="/assignTravelApplication" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210120" />
 			<forward name="page"
 				path="site.travelApplication.assign" />
@@ -428,7 +428,7 @@
 		<action parameter="assignResult"
 			path="/assignTravelApplication_result" scope="request"
 			name="travelApplicationAssignForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210120" />
 		</action>
 		
@@ -436,13 +436,13 @@
 		<action parameter="purchaseResult"
 			path="/purchaseTravelApplication_result" scope="request"
 			name="travelApplicationPurchaseForm" input="/purchaseTravelApplication.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 		</action>
 		
 		<action parameter="requestorViewPurchase"
 			path="/viewTravelApplicationPurchase_requestor" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 			<forward name="page"
 				path="site.travelApplication.purchase.view.requestor"/>
@@ -450,7 +450,7 @@
 		
 		<action parameter="editPurchase"
 			path="/editTravelApplicationPurchase" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 			<forward name="page"
 				path="site.travelApplication.purchase.edit"/>
@@ -458,7 +458,7 @@
 		
 		<action parameter="updatePurchase" input="/editTravelApplicationPurchase.do"
 			path="/updateTravelApplicationPurchase" scope="request" name="updateTravelApplicationPurchaseForm"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 
 		</action>
@@ -466,7 +466,7 @@
 		<!-- 		
 		<action parameter="savePurchase"
 			path="/saveTravelApplicationPurchase" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 			<forward name="viewPurchase"
 				path="/viewTravelApplicationPurchase.do"/>
@@ -475,7 +475,7 @@
 		
 		<action parameter="confirmAirTicket"
 			path="/confirmTravelApplicationAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 			<set-property property="dialog" value="true" />
 			<forward name="success" path="/WEB-INF/jsp/rowSaveOK.jsp" />
@@ -483,13 +483,13 @@
 		
 		<action parameter="deleteAirTicket"
 			path="/deleteTravelApplicationAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150" />
 		</action>
 		
 		<action parameter="cancelAirTicket"
 			path="/cancelTravelApplicationAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="12210040" />
 			<set-property property="dialog" value="true" />
 			<forward name="page"
@@ -499,7 +499,7 @@
 		
 		<action    
 			parameter="selectRechargeCustomer" path="/selectAirTicketRechargeCustomer" scope="session" name="rechargeCustomerQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listCustomer" />
@@ -507,7 +507,7 @@
 
 		<action    
 			parameter="selectRechargeEntity" path="/selectAirTicketRechargeEntity" scope="session" name="rechargeCustomerQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listCustomer" />
@@ -515,7 +515,7 @@
 
 		<action    
 			parameter="selectRechargePerson" path="/selectAirTicketRechargePerson" scope="session" name="rechargePersonQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32210150"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.recharge.listPerson" />
@@ -524,14 +524,14 @@
 		<action
 			parameter="report" path="/reportTravelApplication" scope="session" 
 			name="travelApplicationQueryForm" 
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32212020"/>
 			<set-property property="functionDescription" value="travel application report"/>																											
 			<forward name="page" path="site.travelApplication.report" />
 		</action>
 		<action parameter="viewReport"
 			path="/viewTravelApplication_report" scope="request"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationAction">
 			<set-property property="functionId" value="32212020"/>
 			<forward name="page" path="site.travelApplication.view.report" />
 		</action>
@@ -542,7 +542,7 @@
 			parameter="list" path="/listTravelApplicationApproveRequest"
 			scope="session" name="travelApplicationApproveRequestQueryForm"
 			validate="false"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
 			<set-property property="functionId" value="12211010" />
 			<set-property property="functionDescription" value="approve travel application"/>			
 			<set-property property="functionType"
@@ -552,7 +552,7 @@
 		</action>
 		<action
 			parameter="view" path="/viewTravelApplicationApproveRequest"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationApproveRequestAction"
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationApproveRequestAction"
 			name="travelApplicationForm" validate="false" scope="request" 
 			>
 			<set-property property="functionId" value="12211010" />
@@ -561,18 +561,18 @@
 		</action>
 		<action
 			parameter="approve" path="/approveTravelApplicationApproveRequest"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
 			<set-property property="functionId" value="12211010" />
 		</action>
 		<action parameter="updateAndApprove"
 			path="/updateAndApproveTravelApplicationApproveRequest" scope="request"
 			name="travelApplicationForm" input="/viewTravelApplicationApproveRequest.do"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
 			<set-property property="functionId" value="12211010" />
 		</action>
 		<action
 			parameter="reject" path="/rejectTravelApplicationApproveRequest"
-			type="com.aof.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
+			type="net.sourceforge.web.struts.action.business.ta.TravelApplicationApproveRequestAction">
 			<set-property property="functionId" value="12211010" />
 		</action>
 		<!-- end of TravelApplicationApproveRequest -->
@@ -580,33 +580,33 @@
 		<!-- AirTicket -->
 		<action    
 			parameter="list" path="/listAirTicket" scope="session" name="airTicketQueryForm" validate="false"
-			type="com.aof.web.struts.action.business.ta.AirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.AirTicketAction">
 			<set-property property="functionId" value="22220160"/>
 			<set-property property="functionDescription" value="air ticket maintenaice"/>			
 			<forward name="page" path="site.airTicket.list" />
 		</action>
 		<action    
 			parameter="edit" path="/editAirTicket" scope="request"
-			type="com.aof.web.struts.action.business.ta.AirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.AirTicketAction">
 			<set-property property="functionId" value="22220160"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="page" path="site.airTicket.edit" />
 		</action>
 		<action    
 			parameter="update" path="/updateAirTicket" scope="request" name="airTicketForm" input="/editAirTicket.do"
-			type="com.aof.web.struts.action.business.ta.AirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.AirTicketAction">
 			<set-property property="functionId" value="22220160"/>
 			<set-property property="dialog" value="true"/>
 			<forward name="success" path="/WEB-INF/jsp/operationSuccess.jsp" />
 		</action>
 		<action    
 			parameter="createPO" path="/createAirTicketPO" input="/listAirTicket.do"
-			type="com.aof.web.struts.action.business.ta.AirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.AirTicketAction">
 			<set-property property="functionId" value="22220160"/>
 		</action>
 		<action    
 			parameter="saveBoardingPass" path="/saveBoardingPass" input="/listAirTicket.do"
-			type="com.aof.web.struts.action.business.ta.AirTicketAction">
+			type="net.sourceforge.web.struts.action.business.ta.AirTicketAction">
 			<set-property property="functionId" value="22220160"/>
 		</action>
 		<!-- end of AirTicket -->

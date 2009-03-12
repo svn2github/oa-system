@@ -430,18 +430,18 @@
 		<tr>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.capitalExpenditure" />:
-				<input type="checkbox" name="isCapexType" checked value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCapexType" checked value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isCapexType" value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCapexType" value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.newImplantation" />:
-				<input type="checkbox" name="isNewImplantationReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isNewImplantationReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isNewImplantationReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isNewImplantationReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>
@@ -449,28 +449,28 @@
 			<td colspan="2"></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.capacityIncrease" />:
-				<input type="checkbox" name="isCapacityIncreaseReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCapacityIncreaseReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isCapacityIncreaseReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCapacityIncreaseReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.assetDisposal" />:
-				<input type="checkbox" name="isAssetDisposalType" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isAssetDisposalType" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isAssetDisposalType" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isAssetDisposalType" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.costImprovement" />:
-				<input type="checkbox" name="isCostImprovementReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCostImprovementReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isCostImprovementReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isCostImprovementReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>
@@ -478,10 +478,10 @@
 			<td colspan="2"></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.newProductLine" />:
-				<input type="checkbox" name="isNewProductLineReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isNewProductLineReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isNewProductLineReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isNewProductLineReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>
@@ -494,10 +494,10 @@
 			<td></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.downsizing" />:
-				<input type="checkbox" name="isDownsizingReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isDownsizingReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isDownsizingReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isDownsizingReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>
@@ -508,10 +508,10 @@
 			<td rowspan="2"></td>
 			<td class="bluetext" align="right">
 				<bean:message key="capexRequest.hse" />:
-				<input type="checkbox" name="isHSEReason" value="<%=com.aof.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isHSEReason" value="<%=net.sourceforge.model.metadata.YesNo.YES%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td style="display:none">
-				<input type="checkbox" name="isHSEReason" checked value="<%=com.aof.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
+				<input type="checkbox" name="isHSEReason" checked value="<%=net.sourceforge.model.metadata.YesNo.NO%>" onclick="reverseCheckSameNameCheckBox(this);"/>
 			</td>
 			<td></td>
 		</tr>

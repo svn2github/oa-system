@@ -7,41 +7,41 @@
         <property name="dataSource"><ref bean="dataSource"/></property>
         <property name="mappingResources">
             <list>
-                <value>com/aof/dao/admin/hibernate/User.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Role.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Metadata.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Currency.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Site.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Function.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Department.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Menu.hbm.xml</value>                
-                <value>com/aof/dao/admin/hibernate/Country.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/TravelGroup.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/ExpenseCategory.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Customer.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/ExchangeRate.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/GlobalParameter.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Hotel.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Supplier.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Purchase.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/Email.hbm.xml</value>
-                <value>com/aof/dao/business/ta/hibernate/TravelApplication.hbm.xml</value>
-                <value>com/aof/dao/business/po/hibernate/PurchaseOrder.hbm.xml</value>
-                <value>com/aof/dao/business/rule/hibernate/Rule.hbm.xml</value>
-                <value>com/aof/dao/business/rule/hibernate/ApproverDelegate.hbm.xml</value>
-                <value>com/aof/dao/business/expense/hibernate/Expense.hbm.xml</value>
-                <value>com/aof/dao/business/pr/hibernate/YearlyBudget.hbm.xml</value>
-                <value>com/aof/dao/business/pr/hibernate/Capex.hbm.xml</value>
-                <value>com/aof/dao/business/pr/hibernate/PurchaseRequest.hbm.xml</value>
-                <value>com/aof/dao/admin/hibernate/SystemLog.hbm.xml</value>
-                <!-- <value>com/aof/dao/kpi/hibernate/KPISummary.hbm.xml</value>-->
-                <value>com/aof/dao/admin/hibernate/ProjectCode.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/User.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Role.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Metadata.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Currency.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Site.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Function.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Department.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Menu.hbm.xml</value>                
+                <value>net/sourceforge/dao/admin/hibernate/Country.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/TravelGroup.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/ExpenseCategory.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Customer.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/ExchangeRate.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/GlobalParameter.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Hotel.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Supplier.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Purchase.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/Email.hbm.xml</value>
+                <value>net/sourceforge/dao/business/ta/hibernate/TravelApplication.hbm.xml</value>
+                <value>net/sourceforge/dao/business/po/hibernate/PurchaseOrder.hbm.xml</value>
+                <value>net/sourceforge/dao/business/rule/hibernate/Rule.hbm.xml</value>
+                <value>net/sourceforge/dao/business/rule/hibernate/ApproverDelegate.hbm.xml</value>
+                <value>net/sourceforge/dao/business/expense/hibernate/Expense.hbm.xml</value>
+                <value>net/sourceforge/dao/business/pr/hibernate/YearlyBudget.hbm.xml</value>
+                <value>net/sourceforge/dao/business/pr/hibernate/Capex.hbm.xml</value>
+                <value>net/sourceforge/dao/business/pr/hibernate/PurchaseRequest.hbm.xml</value>
+                <value>net/sourceforge/dao/admin/hibernate/SystemLog.hbm.xml</value>
+                <!-- <value>net/sourceforge/dao/kpi/hibernate/KPISummary.hbm.xml</value>-->
+                <value>net/sourceforge/dao/admin/hibernate/ProjectCode.hbm.xml</value>
              </list>
         </property>
         
         <property name="hibernateProperties">
         <props>
-            <prop key="hibernate.dialect">net.sf.hibernate.dialect.MySQLDialect</prop>
+            <prop key="hibernate.dialect">net.sf.hibernate.dialect.SQLServerDialect</prop>
             <prop key="hibernate.show_sql">false</prop>
             <prop key="hibernate.max_fetch_depth">1</prop>
         </props>
@@ -52,297 +52,297 @@
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
-	<bean id="universalDAO" class="com.aof.dao.hibernate.UniversalDAOImpl">
+	<bean id="universalDAO" class="net.sourceforge.dao.hibernate.UniversalDAOImpl">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
     <!-- CurrencyDAO: Hibernate implementation -->
-    <bean id="currencyDAO" class="com.aof.dao.admin.hibernate.CurrencyDAOHibernate">
+    <bean id="currencyDAO" class="net.sourceforge.dao.admin.hibernate.CurrencyDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
     <!-- UserDAO: Hibernate implementation -->
-    <bean id="userDAO" class="com.aof.dao.admin.hibernate.UserDAOHibernate">
+    <bean id="userDAO" class="net.sourceforge.dao.admin.hibernate.UserDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- UserRoleDAO: Hibernate implementation -->
-    <bean id="userRoleDAO" class="com.aof.dao.admin.hibernate.UserRoleDAOHibernate">
+    <bean id="userRoleDAO" class="net.sourceforge.dao.admin.hibernate.UserRoleDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
 
     <!-- UserSiteDAO: Hibernate implementation -->
-    <bean id="userSiteDAO" class="com.aof.dao.admin.hibernate.UserSiteDAOHibernate">
+    <bean id="userSiteDAO" class="net.sourceforge.dao.admin.hibernate.UserSiteDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- UserDepartmentDAO: Hibernate implementation -->
-    <bean id="userDepartmentDAO" class="com.aof.dao.admin.hibernate.UserDepartmentDAOHibernate">
+    <bean id="userDepartmentDAO" class="net.sourceforge.dao.admin.hibernate.UserDepartmentDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- MetadataDAO: Hibernate implementation -->
-    <bean id="metadataDAO" class="com.aof.dao.admin.hibernate.MetadataDAOHibernate">
+    <bean id="metadataDAO" class="net.sourceforge.dao.admin.hibernate.MetadataDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- FunctionDAO: Hibernate implementation -->
-    <bean id="functionDAO" class="com.aof.dao.admin.hibernate.FunctionDAOHibernate">
+    <bean id="functionDAO" class="net.sourceforge.dao.admin.hibernate.FunctionDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- SiteDAO: Hibernate implementation -->
-    <bean id="siteDAO" class="com.aof.dao.admin.hibernate.SiteDAOHibernate">
+    <bean id="siteDAO" class="net.sourceforge.dao.admin.hibernate.SiteDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- GolbalDAO: Hibernate implementation -->
-    <bean id="globalDAO" class="com.aof.dao.admin.hibernate.GlobalDAOHibernate">
+    <bean id="globalDAO" class="net.sourceforge.dao.admin.hibernate.GlobalDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>    
 
     <!-- RoleDAO: Hibernate implementation -->
-    <bean id="roleDAO" class="com.aof.dao.admin.hibernate.RoleDAOHibernate">
+    <bean id="roleDAO" class="net.sourceforge.dao.admin.hibernate.RoleDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- MenuDAO: Hibernate implementation -->
-    <bean id="menuDAO" class="com.aof.dao.admin.hibernate.MenuDAOHibernate">
+    <bean id="menuDAO" class="net.sourceforge.dao.admin.hibernate.MenuDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- ExchangeRateDAO: Hibernate implementation -->
-    <bean id="exchangeRateDAO" class="com.aof.dao.admin.hibernate.ExchangeRateDAOHibernate">
+    <bean id="exchangeRateDAO" class="net.sourceforge.dao.admin.hibernate.ExchangeRateDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- DepartmentDAO: Hibernate implementation -->
-    <bean id="departmentDAO" class="com.aof.dao.admin.hibernate.DepartmentDAOHibernate">
+    <bean id="departmentDAO" class="net.sourceforge.dao.admin.hibernate.DepartmentDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- expenseCategoryDAO: Hibernate implementation -->
-    <bean id="expenseCategoryDAO" class="com.aof.dao.admin.hibernate.ExpenseCategoryDAOHibernate">
+    <bean id="expenseCategoryDAO" class="net.sourceforge.dao.admin.hibernate.ExpenseCategoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- expenseSubCategoryDAO: Hibernate implementation -->
-    <bean id="expenseSubCategoryDAO" class="com.aof.dao.admin.hibernate.ExpenseSubCategoryDAOHibernate">
+    <bean id="expenseSubCategoryDAO" class="net.sourceforge.dao.admin.hibernate.ExpenseSubCategoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
 
     <!-- travelGroupDAO: Hibernate implementation -->
-    <bean id="travelGroupDAO" class="com.aof.dao.admin.hibernate.TravelGroupDAOHibernate">
+    <bean id="travelGroupDAO" class="net.sourceforge.dao.admin.hibernate.TravelGroupDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- travelGroupDetailDAO: Hibernate implementation -->
-    <bean id="travelGroupDetailDAO" class="com.aof.dao.admin.hibernate.TravelGroupDetailDAOHibernate">
+    <bean id="travelGroupDetailDAO" class="net.sourceforge.dao.admin.hibernate.TravelGroupDetailDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- countryDAO: Hibernate implementation -->
-    <bean id="countryDAO" class="com.aof.dao.admin.hibernate.CountryDAOHibernate">
+    <bean id="countryDAO" class="net.sourceforge.dao.admin.hibernate.CountryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- provinceDAO: Hibernate implementation -->
-    <bean id="provinceDAO" class="com.aof.dao.admin.hibernate.ProvinceDAOHibernate">
+    <bean id="provinceDAO" class="net.sourceforge.dao.admin.hibernate.ProvinceDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- cityDAO: Hibernate implementation -->
-    <bean id="cityDAO" class="com.aof.dao.admin.hibernate.CityDAOHibernate">
+    <bean id="cityDAO" class="net.sourceforge.dao.admin.hibernate.CityDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
 
     <!-- purchaseCategoryDAO: Hibernate implementation -->
-    <bean id="purchaseCategoryDAO" class="com.aof.dao.admin.hibernate.PurchaseCategoryDAOHibernate">
+    <bean id="purchaseCategoryDAO" class="net.sourceforge.dao.admin.hibernate.PurchaseCategoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- hotelDAO: Hibernate implementation -->
-    <bean id="hotelDAO" class="com.aof.dao.admin.hibernate.HotelDAOHibernate">
+    <bean id="hotelDAO" class="net.sourceforge.dao.admin.hibernate.HotelDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
     <!-- purchaseSubCategoryDAO: Hibernate implementation -->
-    <bean id="purchaseSubCategoryDAO" class="com.aof.dao.admin.hibernate.PurchaseSubCategoryDAOHibernate">
+    <bean id="purchaseSubCategoryDAO" class="net.sourceforge.dao.admin.hibernate.PurchaseSubCategoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- emailDAO: Hibernate implementation -->
-    <bean id="emailDAO" class="com.aof.dao.admin.hibernate.EmailDAOHibernate">
+    <bean id="emailDAO" class="net.sourceforge.dao.admin.hibernate.EmailDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- supplierDAO: Hibernate implementation -->
-    <bean id="supplierDAO" class="com.aof.dao.admin.hibernate.SupplierDAOHibernate">
+    <bean id="supplierDAO" class="net.sourceforge.dao.admin.hibernate.SupplierDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 	<!-- supplierContractDAO: Hibernate implementation -->
-    <bean id="supplierContractDAO" class="com.aof.dao.admin.hibernate.SupplierContractDAOHibernate">
+    <bean id="supplierContractDAO" class="net.sourceforge.dao.admin.hibernate.SupplierContractDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
     <!-- hotelContractDAO: Hibernate implementation -->
-    <bean id="hotelContractDAO" class="com.aof.dao.admin.hibernate.HotelContractDAOHibernate">
+    <bean id="hotelContractDAO" class="net.sourceforge.dao.admin.hibernate.HotelContractDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- priceDAO: Hibernate implementation -->
-    <bean id="priceDAO" class="com.aof.dao.admin.hibernate.PriceDAOHibernate">
+    <bean id="priceDAO" class="net.sourceforge.dao.admin.hibernate.PriceDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- travelApplicationDAO: Hibernate implementation -->
-    <bean id="travelApplicationDAO" class="com.aof.dao.business.ta.hibernate.TravelApplicationDAOHibernate">
+    <bean id="travelApplicationDAO" class="net.sourceforge.dao.business.ta.hibernate.TravelApplicationDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
     <!-- supplierHistoryDAO: Hibernate implementation -->
-    <bean id="supplierHistoryDAO" class="com.aof.dao.admin.hibernate.SupplierHistoryDAOHibernate">
+    <bean id="supplierHistoryDAO" class="net.sourceforge.dao.admin.hibernate.SupplierHistoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- supplierItemDAO: Hibernate implementation -->
-    <bean id="supplierItemDAO" class="com.aof.dao.admin.hibernate.SupplierItemDAOHibernate">
+    <bean id="supplierItemDAO" class="net.sourceforge.dao.admin.hibernate.SupplierItemDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- ruleDAO: Hibernate implementation -->
-    <bean id="ruleDAO" class="com.aof.dao.business.rule.hibernate.RuleDAOHibernate">
+    <bean id="ruleDAO" class="net.sourceforge.dao.business.rule.hibernate.RuleDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- flowDAO: Hibernate implementation -->
-    <bean id="flowDAO" class="com.aof.dao.business.rule.hibernate.FlowDAOHibernate">
+    <bean id="flowDAO" class="net.sourceforge.dao.business.rule.hibernate.FlowDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
 
     <!-- approverDelegateDAO: Hibernate implementation -->
-    <bean id="approverDelegateDAO" class="com.aof.dao.business.rule.hibernate.ApproverDelegateDAOHibernate">
+    <bean id="approverDelegateDAO" class="net.sourceforge.dao.business.rule.hibernate.ApproverDelegateDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- travelApplicationApproveRequestDAO: Hibernate implementation -->
-    <bean id="travelApplicationApproveRequestDAO" class="com.aof.dao.business.ta.hibernate.TravelApplicationApproveRequestDAOHibernate">
+    <bean id="travelApplicationApproveRequestDAO" class="net.sourceforge.dao.business.ta.hibernate.TravelApplicationApproveRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- expenseDAO: Hibernate implementation -->
-    <bean id="expenseDAO" class="com.aof.dao.business.expense.hibernate.ExpenseDAOHibernate">
+    <bean id="expenseDAO" class="net.sourceforge.dao.business.expense.hibernate.ExpenseDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- airTicketDAO: Hibernate implementation -->
-    <bean id="airTicketDAO" class="com.aof.dao.business.ta.hibernate.AirTicketDAOHibernate">
+    <bean id="airTicketDAO" class="net.sourceforge.dao.business.ta.hibernate.AirTicketDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
  
     <!-- purchaseOrderDAO: Hibernate implementation -->
-    <bean id="purchaseOrderDAO" class="com.aof.dao.business.po.hibernate.PurchaseOrderDAOHibernate">
+    <bean id="purchaseOrderDAO" class="net.sourceforge.dao.business.po.hibernate.PurchaseOrderDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 
     <!-- CustomerDAO: Hibernate implementation -->
-    <bean id="customerDAO" class="com.aof.dao.admin.hibernate.CustomerDAOHibernate">
+    <bean id="customerDAO" class="net.sourceforge.dao.admin.hibernate.CustomerDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- expenseAttachmentDAO: Hibernate implementation -->
-    <bean id="expenseAttachmentDAO" class="com.aof.dao.business.expense.hibernate.ExpenseAttachmentDAOHibernate">
+    <bean id="expenseAttachmentDAO" class="net.sourceforge.dao.business.expense.hibernate.ExpenseAttachmentDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- expenseApproveRequestDAO: Hibernate implementation -->
-    <bean id="expenseApproveRequestDAO" class="com.aof.dao.business.expense.hibernate.ExpenseApproveRequestDAOHibernate">
+    <bean id="expenseApproveRequestDAO" class="net.sourceforge.dao.business.expense.hibernate.ExpenseApproveRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
-    <bean id="purchaseTypeDAO" class="com.aof.dao.admin.hibernate.PurchaseTypeDAOHibernate">
+    <bean id="purchaseTypeDAO" class="net.sourceforge.dao.admin.hibernate.PurchaseTypeDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- yearlyBudgetDAO: Hibernate implementation -->
-    <bean id="yearlyBudgetDAO" class="com.aof.dao.business.pr.hibernate.YearlyBudgetDAOHibernate">
+    <bean id="yearlyBudgetDAO" class="net.sourceforge.dao.business.pr.hibernate.YearlyBudgetDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
-    <bean id="yearlyBudgetHistoryDAO" class="com.aof.dao.business.pr.hibernate.YearlyBudgetHistoryDAOHibernate">
+    <bean id="yearlyBudgetHistoryDAO" class="net.sourceforge.dao.business.pr.hibernate.YearlyBudgetHistoryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
 
     <!-- yearlyBudgetDepartmentDAO: Hibernate implementation -->
-    <bean id="yearlyBudgetDepartmentDAO" class="com.aof.dao.business.pr.hibernate.YearlyBudgetDepartmentDAOHibernate">
+    <bean id="yearlyBudgetDepartmentDAO" class="net.sourceforge.dao.business.pr.hibernate.YearlyBudgetDepartmentDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- capexDAO: Hibernate implementation -->
-    <bean id="capexDAO" class="com.aof.dao.business.pr.hibernate.CapexDAOHibernate">
+    <bean id="capexDAO" class="net.sourceforge.dao.business.pr.hibernate.CapexDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- capexRequestApproveRequestDAO: Hibernate implementation -->
-    <bean id="capexRequestApproveRequestDAO" class="com.aof.dao.business.pr.hibernate.CapexRequestApproveRequestDAOHibernate">
+    <bean id="capexRequestApproveRequestDAO" class="net.sourceforge.dao.business.pr.hibernate.CapexRequestApproveRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- purchaseRequestDAO: Hibernate implementation -->
-    <bean id="purchaseRequestDAO" class="com.aof.dao.business.pr.hibernate.PurchaseRequestDAOHibernate">
+    <bean id="purchaseRequestDAO" class="net.sourceforge.dao.business.pr.hibernate.PurchaseRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- parameterDAO: Hibernate implementation -->
-    <bean id="parameterDAO" class="com.aof.dao.admin.hibernate.ParameterDAOHibernate">
+    <bean id="parameterDAO" class="net.sourceforge.dao.admin.hibernate.ParameterDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- purchaseRequestApproveRequestDAO: Hibernate implementation -->
-    <bean id="purchaseRequestApproveRequestDAO" class="com.aof.dao.business.pr.hibernate.PurchaseRequestApproveRequestDAOHibernate">
+    <bean id="purchaseRequestApproveRequestDAO" class="net.sourceforge.dao.business.pr.hibernate.PurchaseRequestApproveRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
 	<!-- dataTransferDAO: Hibernate implementation -->
-    <bean id="dataTransferDAO" class="com.aof.dao.admin.hibernate.DataTransferDAOHibernate">
+    <bean id="dataTransferDAO" class="net.sourceforge.dao.admin.hibernate.DataTransferDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- purchaseOrderApproveRequestDAO: Hibernate implementation -->
-    <bean id="purchaseOrderApproveRequestDAO" class="com.aof.dao.business.po.hibernate.PurchaseOrderApproveRequestDAOHibernate">
+    <bean id="purchaseOrderApproveRequestDAO" class="net.sourceforge.dao.business.po.hibernate.PurchaseOrderApproveRequestDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- purchaseOrderItemReceiptDAO: Hibernate implementation -->
-    <bean id="purchaseOrderItemReceiptDAO" class="com.aof.dao.business.po.hibernate.PurchaseOrderItemReceiptDAOHibernate">
+    <bean id="purchaseOrderItemReceiptDAO" class="net.sourceforge.dao.business.po.hibernate.PurchaseOrderItemReceiptDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 
     <!-- systemLogDAO: Hibernate implementation -->
-    <bean id="systemLogDAO" class="com.aof.dao.admin.hibernate.SystemLogDAOHibernate">
+    <bean id="systemLogDAO" class="net.sourceforge.dao.admin.hibernate.SystemLogDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
     <!-- kpiSummaryDAO: Hibernate implementation -->
-    <bean id="kpiSummaryDAO" class="com.aof.dao.kpi.hibernate.KPISummaryDAOHibernate">
+    <bean id="kpiSummaryDAO" class="net.sourceforge.dao.kpi.hibernate.KPISummaryDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
     
     <!-- projectCodeDAO: Hibernate implementation -->
-    <bean id="projectCodeDAO" class="com.aof.dao.admin.hibernate.ProjectCodeDAOHibernate">
+    <bean id="projectCodeDAO" class="net.sourceforge.dao.admin.hibernate.ProjectCodeDAOHibernate">
         <property name="sessionFactory"><ref local="hibernateSessionFactory"/></property>
     </bean>
 </beans>

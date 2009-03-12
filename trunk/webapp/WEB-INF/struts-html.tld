@@ -690,7 +690,7 @@
 </tag>
 <tag>
 <name>form</name>
-<tagclass>com.aof.web.struts.repeatsubmit.PreventRepeatSubmitFormTag</tagclass>
+<tagclass>net.sourceforge.web.struts.repeatsubmit.PreventRepeatSubmitFormTag</tagclass>
 <bodycontent>JSP</bodycontent>
 <attribute>
 <name>action</name>

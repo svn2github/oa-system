@@ -2,7 +2,7 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<%@ page import="com.aof.model.metadata.TravellingMode"%>
+<%@ page import="net.sourceforge.model.metadata.TravellingMode"%>
 
 	<script type="text/javascript">
 <!--

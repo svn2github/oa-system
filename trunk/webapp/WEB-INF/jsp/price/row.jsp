@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<c:set var="x_hotel_promoteStatus_GLOBAL" value="<%=com.aof.model.metadata.HotelPromoteStatus.GLOBAL%>"/>
+<c:set var="x_hotel_promoteStatus_GLOBAL" value="<%=net.sourceforge.model.metadata.HotelPromoteStatus.GLOBAL%>"/>
 <tr id="s${X_OBJECT.id}">
 	<td>
 		<c:choose>

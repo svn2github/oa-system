@@ -1,7 +1,7 @@
 <struts-config>
 	<action-mappings type="org.apache.struts.action.ActionMapping">
 		<action path="/kpiSummary" parameter="report"
-			type="com.aof.web.struts.action.kpi.KPIAction">
+			type="net.sourceforge.web.struts.action.kpi.KPIAction">
 			<forward name="page" path="/WEB-INF/jsp/kpi/report.jsp" />
 		</action>
 	</action-mappings>

@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
-<%@ page import="com.aof.model.metadata.PurchaseOrderStatus"%>
+<%@ page import="net.sourceforge.model.metadata.PurchaseOrderStatus"%>
 <script>
 	function viewSupplier(id) {
 		var url="viewSupplierBaseInfo.do?id=" + id;

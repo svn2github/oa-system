@@ -4,9 +4,9 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
-<c:set var="x_hotel_promoteStatus_GLOBAL" value="<%=com.aof.model.metadata.HotelPromoteStatus.GLOBAL%>"/>
-<c:set var="x_hotel_promoteStatus_SITE" value="<%=com.aof.model.metadata.HotelPromoteStatus.SITE%>"/>
-<c:set var="x_hotel_promoteStatus_REQUEST" value="<%=com.aof.model.metadata.HotelPromoteStatus.REQUEST%>"/>
+<c:set var="x_hotel_promoteStatus_GLOBAL" value="<%=net.sourceforge.model.metadata.HotelPromoteStatus.GLOBAL%>"/>
+<c:set var="x_hotel_promoteStatus_SITE" value="<%=net.sourceforge.model.metadata.HotelPromoteStatus.SITE%>"/>
+<c:set var="x_hotel_promoteStatus_REQUEST" value="<%=net.sourceforge.model.metadata.HotelPromoteStatus.REQUEST%>"/>
 
 <c:set var="modifyable" value="${(x_version=='' && x_hotel.promoteStatus == x_hotel_promoteStatus_GLOBAL) || (x_version!='' && x_hotel.promoteStatus != x_hotel_promoteStatus_GLOBAL)}"/>
 <script type="text/javascript">

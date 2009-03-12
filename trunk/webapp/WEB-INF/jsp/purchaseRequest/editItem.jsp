@@ -3,7 +3,7 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
-<%@ page import="com.aof.model.metadata.YesNo"%>
+<%@ page import="net.sourceforge.model.metadata.YesNo"%>
 <script type="text/javascript">
 <!--
 	function supplier_onChange() {

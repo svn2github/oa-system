@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/fmt.tld" prefix="fmt"%>
 
-<c:set var="x_expense_expenseType_TRAVEL" value="<%=com.aof.model.metadata.ExpenseType.TRAVEL%>"/>
+<c:set var="x_expense_expenseType_TRAVEL" value="<%=net.sourceforge.model.metadata.ExpenseType.TRAVEL%>"/>
 <table width="100%">
 <tr>
 	<td>
