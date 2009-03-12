@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Sep 22 16:44:24 CST 2005                         -->
+<hibernate-mapping package="net.sourceforge.model.admin">
+
+    <class name="Function" table="oa_function">
+        <id name="id" column="func_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="name" column="func_nm" type="string"  not-null="true" />
+        <property name="description" column="func_desc" type="string" />
+ 
+    </class>
+    
+</hibernate-mapping>

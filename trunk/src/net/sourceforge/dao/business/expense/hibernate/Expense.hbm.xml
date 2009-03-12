@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="net.sourceforge.model.business.expense">
+
+    <class name="Expense" table="expense">
+        <id name="id" column="exp_no" type="string">
+            <generator class="assigned"/>
+        </id>
+ 
+        <many-to-one name="travelApplication" column="ta_no" class="net.sourceforge.model.business.ta.TravelApplication" />
+        <many-to-one name="department" column="exp_dep" class="net.sourceforge.model.admin.Department" not-null="true" />
+        <property name="title" column="exp_title" type="string" not-null="true" />
+        <property name="description" column="exp_desc" type="string" />
+        <property name="status" column="exp_status" type="net.sourceforge.model.metadata.ExpenseStatus" not-null="true" />
+        <many-to-one name="expenseCategory" column="exp_ctgy_id" class="net.sourceforge.model.admin.ExpenseCategory" not-null="true" />
+        <many-to-one name="expenseCurrency" column="exp_curr_cd" class="net.sourceforge.model.admin.Currency" not-null="true" />
+        <property name="amount" column="exp_amt" type="big_decimal" not-null="true" />
+        <property name="confirmedAmount" column="exp_confirm_amt" type="big_decimal" />
+        <many-to-one name="baseCurrency" column="base_curr_cd" class="net.sourceforge.model.admin.Currency" not-null="true" />
+        <property name="exchangeRate" column="exchange_rate" type="big_decimal" not-null="true" />
+        <many-to-one name="requestor" column="requestor" class="net.sourceforge.model.admin.User" not-null="true" />
+        <property name="requestDate" column="req_date" type="date"/>
+        <many-to-one name="creator" column="creator" class="net.sourceforge.model.admin.User" not-null="true" />
+        <property name="createDate" column="create_date" type="java.util.Date" not-null="true" />
+        <property name="isRecharge" column="is_recharge" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+        <property name="approveRequestId" column="list_id" type="string" />
+        <property name="exportStatus" column="export_status" type="net.sourceforge.model.metadata.ExportStatus" not-null="true" />
+        <property name="approveDate" column="approve_date" type="date" />
+        <property name="emailDate" column="email_date" type="timestamp" />
+        <property name="emailTimes" column="email_times" type="integer" />
+        <property name="confirmDate" column="confirm_date" type="timestamp" />    
+        <many-to-one name="yearlyBudget" column="exp_budget_id" class="net.sourceforge.model.business.pr.YearlyBudget" />
+    </class>
+    
+    <class name="ExpenseApproveRequest" table="expense_approver">
+        <composite-id>
+            <key-property name="approveRequestId" column="list_id" type="string"/>
+            <key-many-to-one name="approver" column="approver_id" class="net.sourceforge.model.admin.User"/>
+        </composite-id>
+ 
+ 		<many-to-one name="actualApprover" column="actual_approver" class="net.sourceforge.model.admin.User" />
+        <property name="seq" column="approve_seq" type="integer" not-null="true" />
+        <property name="status" column="approve_status" type="net.sourceforge.model.metadata.ApproveStatus" not-null="true" />
+        <property name="approveDate" column="approve_date" type="date" />
+        <property name="comment" column="approve_comment" type="string" />
+        <property name="canModify" column="can_modify" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+ 		<property name="yourTurnDate" column="your_turn_date" type="timestamp" />
+ 		<property name="lastEmailDate" column="email_date" type="timestamp" />
+ 		<property name="sentEmailTimes" column="email_times" type="integer" not-null="true" />
+    </class>
+
+    <class name="ExpenseRecharge" table="expense_recharge">
+        <id name="id" column="exp_recharge_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="expense" column="exp_no" class="Expense" not-null="true" />
+        <many-to-one name="customer" column="cust_cd" class="net.sourceforge.model.admin.Customer" />
+        <many-to-one name="personDepartment" column="person_dep_id" class="net.sourceforge.model.admin.Department" />
+        <many-to-one name="person" column="person_id" class="net.sourceforge.model.admin.User" />
+        <property name="amount" column="amount" type="big_decimal" not-null="true" />
+    </class>
+
+    <class name="ExpenseClaim" table="expense_claim">
+        <id name="id" column="exp_claim_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="expense" column="exp_no" class="Expense" not-null="true" />
+        <many-to-one name="expenseSubCategory" column="exp_subctgy_id" class="net.sourceforge.model.admin.ExpenseSubCategory" not-null="true" />
+ 		<property name="amount" column="exp_amt" type="big_decimal" not-null="true" />
+        <property name="description" column="exp_desc" type="string" not-null="true" />
+        <many-to-one name="projectCode" column="exp_proj_cd" class="net.sourceforge.model.admin.ProjectCode" not-null="false" />
+    </class>
+
+    <class name="ExpenseAttachment" table="expense_attach">
+        <id name="id" column="exp_attach_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="expense" column="exp_no" class="Expense" not-null="true" />
+ 		<property name="fileSize" column="cont_file_size" type="integer" not-null="true" />
+        <property name="fileName" column="file_name" type="string" not-null="true" />
+        <property name="description" column="file_title" type="string" not-null="true" />
+        <property name="uploadDate" column="upload_date" type="java.util.Date"  not-null="true" />
+    </class>
+
+    <class name="ExpenseAttachmentContent" table="expense_attach">
+        <id name="id" column="exp_attach_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="fileContent" column="file_content" type="blob" not-null="true" />
+    </class>
+    
+    <class name="ExpenseRow" table="expense_row_det">
+        <id name="id" column="exp_row_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="expense" column="exp_no" class="Expense" not-null="true" />
+ 		<property name="date" column="exp_date" type="date" not-null="true" />
+ 		<many-to-one name="projectCode" column="proj_id" class="net.sourceforge.model.admin.ProjectCode" not-null="false" />
+    </class>
+
+    <class name="ExpenseCell" table="expense_cell_det">
+        <id name="id" column="exp_cell_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="row" column="exp_row_id" class="ExpenseRow" not-null="true" />
+        <many-to-one name="expenseSubCategory" column="exp_subctgy_id" class="net.sourceforge.model.admin.ExpenseSubCategory" not-null="true" />
+ 		<property name="amount" column="exp_amt" type="big_decimal" not-null="true" />
+        <property name="description" column="exp_desc" type="string" />
+    </class>
+
+    <class name="ExpenseHistory" table="expense_history">
+        <id name="id" column="exp_hist_id" type="integer">
+            <generator class="native"/>
+        </id>
+
+        <many-to-one name="expense" column="exp_no" class="Expense" not-null="true" />
+        <property name="status" column="exp_status" type="net.sourceforge.model.metadata.ExpenseStatus" not-null="true" />
+        <property name="exchangeRate" column="exchange_rate" type="big_decimal" not-null="true" />
+        <property name="approveRequestId" column="list_id" type="string" not-null="true" />
+    </class>
+
+    <class name="ExpenseHistoryRow" table="exp_row_det_hist">
+        <id name="id" column="exp_hist_row_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="expenseHistory" column="exp_hist_id" class="ExpenseHistory" not-null="true" />
+ 		<property name="date" column="exp_date" type="date" not-null="true" />
+ 		<many-to-one name="projectCode" column="proj_id" class="net.sourceforge.model.admin.ProjectCode" not-null="false" />
+    </class>
+
+    <class name="ExpenseHistoryCell" table="exp_cell_det_hist">
+        <id name="id" column="exp_hist_cel_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="row" column="exp_hist_row_id" class="ExpenseHistoryRow" not-null="true" />
+        <many-to-one name="expenseSubCategory" column="exp_subctgy_id" class="net.sourceforge.model.admin.ExpenseSubCategory" not-null="true" />
+ 		<property name="amount" column="exp_amt" type="big_decimal" not-null="true" />
+        <property name="description" column="exp_desc" type="string" />
+    </class>
+
+</hibernate-mapping>

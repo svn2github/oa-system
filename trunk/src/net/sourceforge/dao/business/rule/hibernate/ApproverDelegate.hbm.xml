@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Oct 24 10:51:39 CST 2005                         -->
+<hibernate-mapping package="net.sourceforge.model.business.rule">
+
+    <class name="ApproverDelegate" table="approver_delegate">
+        <id name="id" column="dlgt_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="type" column="dlgt_type" type="net.sourceforge.model.metadata.ApproverDelegateType" not-null="true" />
+        <many-to-one name="originalApprover" column="org_approver" class="net.sourceforge.model.admin.User" not-null="true" />
+        <many-to-one name="delegateApprover" column="dlgt_approver" class="net.sourceforge.model.admin.User" not-null="true" />
+        <property name="fromDate" column="dlgt_fr_date" type="java.util.Date" />
+        <property name="toDate" column="dlgt_to_date" type="java.util.Date" />
+    </class>
+    
+</hibernate-mapping>

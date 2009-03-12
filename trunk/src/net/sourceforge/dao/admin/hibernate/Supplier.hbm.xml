@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 15:38:34 CST 2005                         -->
+<hibernate-mapping package="net.sourceforge.model.admin">
+
+    <class name="Supplier" table="supplier">
+        <id name="id" column="supp_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<property name="code" column="supp_cd" type="string" not-null="true" />
+        <property name="name" column="supp_nm" type="string" />
+        <property name="address1" column="supp_address1" type="string" />
+        <property name="address2" column="supp_address2" type="string" />
+        <property name="address3" column="supp_address3" type="string" />
+        <property name="post" column="supp_post" type="string" />
+        <property name="attention1" column="supp_attention1" type="string" />
+        <property name="attention2" column="supp_attention2" type="string" />
+        <property name="telephone1" column="supp_tele1" type="string" />
+        <property name="telephone2" column="supp_tele2" type="string" />
+        <property name="ext1" column="supp_ext1" type="string" />
+        <property name="ext2" column="supp_ext2" type="string" />
+        <property name="fax1" column="supp_fax1" type="string" />
+        <property name="fax2" column="supp_fax2" type="string" />
+        <property name="purchaseAccount" column="supp_pur_accnt" type="string" />
+        <property name="purchaseSubAccount" column="supp_pur_subant" type="string" />
+        <property name="purchaseCostCenter" column="supp_pur_cstcen" type="string" />
+        <property name="apAccount" column="supp_ap_account" type="string" />
+        <property name="apSubAccount" column="supp_ap_subacnt" type="string" />
+        <property name="apCostCenter" column="supp_ap_cstcen" type="string" />
+        <property name="bank" column="supp_bank" type="string" />
+        <property name="creditTerms" column="supp_cr_terms" type="string" />
+        <property name="contact" column="supp_contact" type="string" />
+        <property name="contractStartDate" column="cont_fr_date" type="java.util.Date"  />
+        <property name="contractExpireDate" column="cont_to_date" type="java.util.Date"  />
+        <property name="enabled" column="is_enabled" type="net.sourceforge.model.metadata.EnabledDisabled"  not-null="true" />
+        <property name="exportStatus" column="export_status" type="net.sourceforge.model.metadata.ExportStatus" />
+        <property name="lastExportFile" column="last_exp_file" type="string" />
+ 		<property name="airTicket" column="is_air_tkt_supp" type="net.sourceforge.model.metadata.YesNo" />
+ 		<property name="confirmed" column="is_confirmed" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+ 		<property name="promoteStatus" column="promote_status" type="net.sourceforge.model.metadata.SupplierPromoteStatus" not-null="true" />
+ 		<property name="promoteMessage" column="promote_msg" type="string" />
+ 		<property name="promoteDate" column="promote_date" type="timestamp" />
+ 		<property name="confirmDate" column="confirm_date" type="java.util.Date" />
+ 		<property name="emailDate" column="email_date" type="timestamp" />
+        <property name="emailTimes" column="email_times" type="integer" />
+	    <property name="confirmStatus" column="supp_cnfm_sta" type="net.sourceforge.model.metadata.SupplierConfirmStatus" not-null="true" />
+ 		<property name="lastModifyDate" column="last_modify_date" type="timestamp" />
+	    
+        <many-to-one name="site" column="supp_site" class="Site" />
+ 
+        <many-to-one name="currency" column="supp_curr_code" class="Currency" />
+		
+		<many-to-one name="city" column="supp_city" class="City" />
+		<many-to-one name="country" column="supp_country" class="Country" />
+		
+		<one-to-one name="history" class="SupplierHistory" />
+        
+    </class>
+    
+    <class name="SupplierHistory" table="supplier_history">
+        <id name="id" column="supp_id" type="integer">
+            <generator class="foreign">
+            	<param name="property">supplier</param>
+			</generator>
+        </id>
+		<one-to-one name="supplier" class="Supplier" constrained="true"/>
+		
+		<property name="code" column="supp_cd" type="string" />
+        <property name="name" column="supp_name" type="string" />
+        <property name="address1" column="supp_address1" type="string" />
+        <property name="address2" column="supp_address2" type="string" />
+        <property name="address3" column="supp_address3" type="string" />
+        <property name="post" column="supp_post" type="string" />
+        <property name="attention1" column="supp_attention1" type="string" />
+        <property name="attention2" column="supp_attention2" type="string" />
+        <property name="telephone1" column="supp_tele1" type="string" />
+        <property name="telephone2" column="supp_tele2" type="string" />
+        <property name="ext1" column="supp_ext1" type="string" />
+        <property name="ext2" column="supp_ext2" type="string" />
+        <property name="fax1" column="supp_fax1" type="string" />
+        <property name="fax2" column="supp_fax2" type="string" />
+        <property name="purchaseAccount" column="supp_pur_accnt" type="string" />
+        <property name="purchaseSubAccount" column="supp_pur_subant" type="string" />
+        <property name="purchaseCostCenter" column="supp_pur_cstcen" type="string" />
+        <property name="apAccount" column="supp_ap_account" type="string" />
+        <property name="apSubAccount" column="supp_ap_subacnt" type="string" />
+        <property name="apCostCenter" column="supp_ap_cstcen" type="string" />
+        <property name="bank" column="supp_bank" type="string" />
+        <property name="creditTerms" column="supp_cr_terms" type="string" />
+        <property name="contact" column="supp_contact" type="string" />
+        <property name="contractStartDate" column="cont_fr_date" type="java.util.Date"  />
+        <property name="contractExpireDate" column="cont_to_date" type="java.util.Date"  />
+        <property name="enabled" column="is_enabled" type="net.sourceforge.model.metadata.EnabledDisabled"  not-null="true" />
+ 		<property name="airTicket" column="is_air_tkt_supp" type="net.sourceforge.model.metadata.YesNo" />
+ 		<property name="promoteStatus" column="promote_status" type="net.sourceforge.model.metadata.SupplierPromoteStatus" not-null="true" />
+ 		<property name="confirmDate" column="confirm_date" type="java.util.Date" not-null="true" />
+ 		
+        <many-to-one name="site" column="supp_site" class="Site" />
+ 
+        <many-to-one name="currency" column="supp_curr_code" class="Currency" />
+		
+		<many-to-one name="city" column="supp_city" class="City" />
+		<many-to-one name="country" column="supp_country" class="Country" />
+    </class>
+    
+    <class name="SupplierContract" table="supplier_contract">
+        <id name="id" column="cont_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<property name="fileSize" column="cont_file_size" type="integer"/>
+        <property name="fileName" column="cont_file_nm" type="string"  not-null="true" />
+        <property name="description" column="cont_file_desc" type="string" />
+        <property name="uploadDate" column="cont_uploaddate" type="java.util.Date"  not-null="true" />
+ 
+        <many-to-one name="Supplier" column="supp_id" class="Supplier"  not-null="true" />
+    </class>
+    
+    <class name="SupplierContractContent" table="supplier_contract">
+        <id name="id" column="cont_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+        <property name="fileContent" column="cont_filecontnt" type="blob"  not-null="true" />
+    </class>
+    
+    <class name="SupplierItem" table="supplier_item">
+        <id name="id" column="item_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="sepc" column="item_sepc" type="string"  not-null="true" />
+        <property name="unitPrice" column="item_unit_price" type="big_decimal"  not-null="true" />
+        <property name="enabled" column="is_enabled" type="net.sourceforge.model.metadata.EnabledDisabled"  not-null="true" />
+        <property name="erpNo" column="ref_erp_no" type="string"  />
+ 
+        <many-to-one name="currency" column="curr_cd" class="Currency" />
+ 
+        <many-to-one name="purchaseSubCategory" column="pur_subctgy_id" class="PurchaseSubCategory" />
+ 
+        <many-to-one name="supplier" column="supp_id" class="Supplier" />
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 11:04:42 CST 2005                         -->
+<hibernate-mapping package="net.sourceforge.model.admin">
+
+    <class name="ExchangeRate" table="exchange_rate">
+        <id name="id" column="exch_rate_id" type="integer">
+            <generator class="native"/>
+        </id>
+
+        <many-to-one name="currency" column="curr_code" class="Currency"/>
+        <many-to-one name="site" column="site_id" class="Site"/>
+        <property name="exchangeRate" column="exchange_rate" type="big_decimal" />
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Fri Sep 23 12:31:33 CST 2005                         -->
+<hibernate-mapping package="net.sourceforge.model.admin">
+
+    <class name="ExpenseCategory" table="expense_ctgy">
+        <id name="id" column="exp_ctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="description" column="exp_ctgy_desc" type="string" />
+        <property name="type" column="exp_ctgy_type" type="net.sourceforge.model.metadata.ExpenseType" />
+        <property name="referenceErpId" column="ref_erp_no" type="string" />
+        <property name="enabled" column="is_enabled" type="net.sourceforge.model.metadata.EnabledDisabled"  not-null="true" />
+ 
+        <many-to-one name="site" column="exp_ctgy_site" class="Site"  not-null="true" />
+ 
+    </class>
+    
+    <class name="ExpenseSubCategory" table="expense_subctgy">
+        <id name="id" column="exp_subctgy_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="description" column="exp_subctgy_des" type="string" />
+        <property name="referenceErpId" column="ref_erp_no" type="string" />
+        <property name="enabled" column="is_enabled" type="net.sourceforge.model.metadata.EnabledDisabled"  not-null="true" />
+        <property name="isHotel" column="is_hotel" type="net.sourceforge.model.metadata.YesNo"  not-null="true" />
+ 
+        <many-to-one name="expenseCategory" column="exp_ctgy_id" class="ExpenseCategory"  not-null="true" />
+ 
+        
+    </class>
+    
+</hibernate-mapping>

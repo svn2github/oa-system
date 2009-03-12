@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="net.sourceforge.model.business.pr">
+
+    <class name="Capex" table="capex">
+        <id name="id" column="capex_no" type="string">
+            <generator class="assigned"/>
+        </id>
+
+ 		<version name="rowVersion" column="row_version" type="integer" />
+ 
+        <many-to-one name="site" column="capex_site" class="net.sourceforge.model.admin.Site" not-null="true" />
+        <many-to-one name="purchaseCategory" column="pur_ctgy_id" class="net.sourceforge.model.admin.PurchaseCategory" />
+        <many-to-one name="purchaseSubCategory" column="pur_subctgy_id" class="net.sourceforge.model.admin.PurchaseSubCategory" />
+        <many-to-one name="currency" column="base_curr_cd" class="net.sourceforge.model.admin.Currency" not-null="true" />
+ 		<many-to-one name="yearlyBudget" column="budget_id" class="YearlyBudget" />
+ 		<many-to-one name="lastApprovedRequest" column="capex_req_id" class="CapexRequest" />
+ 		<property name="actualAmount" column="capex_actualamt" type="big_decimal" not-null="true" />
+ 		<property name="year" column="capex_year" type="integer" not-null="true" />
+    </class>
+    
+    <class name="CapexDepartment" table="capex_department">
+        <id name="id" column="capex_depart_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<many-to-one name="capex" column="capex_no" class="Capex" not-null="true" />
+ 		<many-to-one name="department" column="capex_dep_id" class="net.sourceforge.model.admin.Department" not-null="true" />
+    </class>
+
+    <class name="CapexRequest" table="capex_request">
+        <id name="id" column="capex_req_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+ 		<many-to-one name="capex" column="capex_no" class="Capex" not-null="true" />
+ 		<property name="type" column="cr_type" type="net.sourceforge.model.metadata.CapexRequestType" not-null="true" />
+ 		<property name="title" column="cr_title" type="string" not-null="true" />
+ 		<property name="description" column="cr_desc" type="string" />
+ 		<property name="status" column="cr_status" type="net.sourceforge.model.metadata.CapexRequestStatus" not-null="true" />
+ 		<property name="amount" column="base_amt" type="big_decimal" not-null="true" />
+ 		<many-to-one name="creator" column="creator" class="net.sourceforge.model.admin.User" not-null="true" />
+ 		<property name="createDate" column="create_date" type="date" not-null="true" />
+ 		<many-to-one name="requestor" column="requestor" class="net.sourceforge.model.admin.User" not-null="true" />
+ 		<property name="requestDate" column="req_date" type="timestamp" />
+        <property name="approveRequestId" column="list_id" type="string" />
+        <!--	New fields down add for new capex form	-->
+        <property name="activity" column="ACTIVITY" type="string" />
+        <property name="postAuditDate" column="POST_AUDIT_DATE" type="timestamp" />
+        <property name="firstExpenseDate" column="FIRST_EXP_DATE" type="timestamp" />
+        <property name="lastExpenseDate" column="LAST_EXP_DATE" type="timestamp" />
+        <property name="completionDate" column="COMPLEATION_DATE" type="timestamp" />
+		<many-to-one name="projectLeader" column="PROJ_LEADER_ID" class="net.sourceforge.model.admin.User" />
+		<property name="projectLeaderTitle" column="PROJ_LEADER_TITLE" type="string" />
+        <property name="accountingCode" column="ACCOUNTING_CD" type="string" />
+        <property name="isCapexType" column="IS_CAPEX_TYPE" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+        <property name="isAssetDisposalType" column="IS_ASSET_TYPE" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+    	<property name="otherType" column="OTHER_TYPE" type="string" />
+		<property name="isNewImplantationReason" column="IS_NEW_IMP_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="isCapacityIncreaseReason" column="IS_CPT_INC_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="isCostImprovementReason" column="IS_CST_IMP_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="isNewProductLineReason" column="IS_NEW_PDT_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="isDownsizingReason" column="IS_DOWNSIZ_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="isHSEReason" column="IS_HSE_REASON" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+		<property name="otherReason" column="OTHER_REASON" type="string" />
+		<property name="capexCapitalizedAmount" column="CAPEX_CAPITAL_AMT" type="big_decimal" not-null="true" />
+		<property name="otherExpenseAmount" column="OTHER_EXPENSE_AMT" type="big_decimal" not-null="true" />
+		<property name="assetDisposalAmount" column="ASSET_DISPOSAL_AMT" type="big_decimal" not-null="true" />
+		<property name="grossBookAmount" column="GROSS_BOOK_AMT" type="big_decimal" not-null="true" />
+    	<property name="projectImpactNonOperating1" column="PROJ_IMPCT_NON1" type="string" />
+    	<property name="projectImpactNonOperating2" column="PROJ_IMPCT_NON2" type="string" />
+    	<property name="projectImpactOther1" column="PROJ_IMPCT_OTHER1" type="string" />
+    	<property name="projectImpactOther2" column="PROJ_IMPCT_OTHER2" type="string" />
+    	<property name="projectImpactOther3" column="PROJ_IMPCT_OTHER3" type="string" />
+    	<many-to-one name="referenceCurrency" column="REF_CURR_CD" class="net.sourceforge.model.admin.Currency" not-null="true" />
+		<property name="referenceExchangeRate" column="REF_EXCHANGE_RATE" type="big_decimal" not-null="true" />
+		<property name="lastForecastAmount" column="LST_FORECAST_AMT" type="big_decimal" />
+		<property name="discountedCashFlowPayback" column="DISCOUNT_CASH_FLOW" type="big_decimal" />
+		<property name="internalRateOfReturn" column="INTERNAL_RTN_RATE" type="big_decimal" />
+		<property name="npvAmount" column="NPV_LC" type="big_decimal" />
+		<property name="discountRate" column="DISCOUNT_RATE" type="big_decimal" />
+		<!--	New fields up add for new capex form	-->
+		<property name="approveDate" column="APPROVE_DATE" type="date" />
+    </class>
+
+    <class name="CapexRequestApproveRequest" table="capex_request_approver">
+        <composite-id>
+            <key-property name="approveRequestId" column="list_id" type="string"/>
+            <key-many-to-one name="approver" column="approver_id" class="net.sourceforge.model.admin.User"/>
+        </composite-id>
+ 
+ 		<many-to-one name="actualApprover" column="actual_approver" class="net.sourceforge.model.admin.User" />
+        <property name="seq" column="approve_seq" type="integer" not-null="true" />
+        <property name="status" column="approve_status" type="net.sourceforge.model.metadata.ApproveStatus" not-null="true" />
+        <property name="approveDate" column="approve_date" type="date" />
+        <property name="comment" column="approve_comment" type="string" />
+        <property name="canModify" column="can_modify" type="net.sourceforge.model.metadata.YesNo" not-null="true" />
+ 		<property name="yourTurnDate" column="your_turn_date" type="timestamp" />
+ 		<property name="lastEmailDate" column="email_date" type="timestamp" />
+ 		<property name="sentEmailTimes" column="email_times" type="integer" not-null="true" />
+    </class>
+
+    <class name="CapexRequestAttachment" table="capex_request_attach">
+        <id name="id" column="attach_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="capexRequest" column="capex_req_id" class="CapexRequest" not-null="true" />
+ 		<property name="fileSize" column="cont_file_size" type="integer" not-null="true" />
+        <property name="fileName" column="file_name" type="string" not-null="true" />
+        <property name="description" column="file_title" type="string" not-null="true" />
+        <property name="uploadDate" column="upload_date" type="date"  not-null="true" />
+    </class>
+
+    <class name="CapexRequestAttachmentContent" table="capex_request_attach">
+        <id name="id" column="attach_id" type="integer">
+            <generator class="assigned"/>
+        </id>
+ 
+        <property name="fileContent" column="file_content" type="blob" not-null="true" />
+    </class>
+    
+    <class name="CapexRequestItem" table="capex_request_item">
+        <id name="id" column="cr_item_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="capexRequest" column="capex_req_id" class="CapexRequest" not-null="true" />
+        <many-to-one name="purchaseSubCategory" column="pur_subctgy_id" class="net.sourceforge.model.admin.PurchaseSubCategory" not-null="true" />
+        <many-to-one name="supplier" column="supp_id" class="net.sourceforge.model.admin.Supplier" />
+ 		<property name="supplierName" column="supp_nm" type="string" />
+        <many-to-one name="supplierItem" column="item_id" class="net.sourceforge.model.admin.SupplierItem" />
+        <property name="supplierItemSepc" column="item_sepc" type="string" not-null="true" />
+        <many-to-one name="exchangeRate" column="exch_rate_id" class="net.sourceforge.model.admin.ExchangeRate" not-null="true" />
+        <property name="exchangeRateValue" column="exchange_rate" type="big_decimal" not-null="true" />
+        <property name="price" column="unit_price" type="big_decimal" not-null="true" />
+        <property name="quantity" column="quantity" type="integer" not-null="true" />
+    </class>
+
+    <class name="CapexRequestHistory" table="capex_request_history">
+        <id name="id" column="cr_hist_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="capexRequest" column="capex_req_id" class="CapexRequest" not-null="true" />
+ 		<property name="status" column="capex_status" type="net.sourceforge.model.metadata.CapexRequestStatus" not-null="true" />
+ 		<property name="amount" column="base_amt" type="big_decimal" not-null="true" />
+        <property name="approveRequestId" column="list_id" type="string" not-null="true" />
+    </class>
+
+    <class name="CapexRequestHistoryItem" table="capex_req_item_history">
+        <id name="id" column="cr_item_hist_id" type="integer">
+            <generator class="native"/>
+        </id>
+ 
+        <many-to-one name="capexRequestHistory" column="cr_hist_id" class="CapexRequestHistory" not-null="true" />
+        <many-to-one name="purchaseSubCategory" column="pur_subctgy_id" class="net.sourceforge.model.admin.PurchaseSubCategory" not-null="true" />
+        <many-to-one name="supplier" column="supp_id" class="net.sourceforge.model.admin.Supplier" />
+ 		<property name="supplierName" column="supp_nm" type="string" />
+        <many-to-one name="supplierItem" column="item_id" class="net.sourceforge.model.admin.SupplierItem" />
+        <property name="supplierItemSepc" column="item_sepc" type="string" not-null="true" />
+        <many-to-one name="exchangeRate" column="exch_rate_id" class="net.sourceforge.model.admin.ExchangeRate" not-null="true" />
+        <property name="exchangeRateValue" column="exchange_rate" type="big_decimal" not-null="true" />
+        <property name="price" column="unit_price" type="big_decimal" not-null="true" />
+        <property name="quantity" column="quantity" type="integer" not-null="true" />
+    </class>
+
+</hibernate-mapping>
