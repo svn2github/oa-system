@@ -9,9 +9,14 @@ package net.sourceforge.model.business.expense;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sourceforge.model.Loggable;
 import net.sourceforge.model.admin.Site;
@@ -155,6 +160,30 @@ public class Expense extends AbstractExpense implements Serializable, Rechargeab
             return getExpenseCategory().getId();
         else
             return null;
+    }
+    
+    /**
+     * 返回金额不等于0的expense subcategory id列表(审批用)
+     * 
+     * @return expense subcategory collection
+     */
+    public Collection<Integer> getApproveAmountNotZeroExpenseSubCategory() {
+        Set<Integer> set = new HashSet<Integer>();
+        
+        if (this.getExpenseRowList() != null && this.getExpenseRowList().size() > 0) {        
+            for (Iterator itorRow = this.getExpenseRowList().iterator(); itorRow.hasNext();) {
+                ExpenseRow row = (ExpenseRow) itorRow.next();
+                List cellList = row.getExpenseCellList();
+                for (Iterator itorCell = cellList.iterator(); itorCell.hasNext();) {
+                    ExpenseCell cell = (ExpenseCell) itorCell.next();
+                    if (cell.getAmount().compareTo(new BigDecimal(0)) != 0) {
+                        set.add(cell.getExpenseSubCategory().getId());
+                    }
+                }
+            }
+        }
+        
+        return set;
     }
 
     /**

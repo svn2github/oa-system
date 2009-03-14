@@ -10,6 +10,8 @@ package net.sourceforge.model.business.expense;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import net.sourceforge.model.admin.Currency;
 import net.sourceforge.model.admin.Department;
@@ -100,6 +102,8 @@ public abstract class AbstractExpense implements Serializable {
     private Date confirmDate;
     
     private YearlyBudget yearlyBudget;
+    
+    private List<ExpenseRow> expenseRowList;
     
     /**
      * @return Returns the emailDate.
@@ -507,6 +511,20 @@ public abstract class AbstractExpense implements Serializable {
             this.hashValue = result;
         }
         return this.hashValue;
+    }
+
+    /**
+     * @return Returns the expenseRowList.
+     */
+    public List<ExpenseRow> getExpenseRowList() {
+        return expenseRowList;
+    }
+
+    /**
+     * @param expenseRowList The expenseRowList to set.
+     */
+    public void setExpenseRowList(List<ExpenseRow> expenseRowList) {
+        this.expenseRowList = expenseRowList;
     }
 
 }

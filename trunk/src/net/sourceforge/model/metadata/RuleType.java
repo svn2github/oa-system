@@ -83,6 +83,7 @@ public class RuleType extends MetadataDetailEnum {
         s = new HashSet();
         s.add(ConditionType.DEPARTMENT);
         s.add(ConditionType.EXPENSE_CATEGORY);
+        s.add(ConditionType.EXPENSE_SUBCATEGORY);
         s.add(ConditionType.EXPENSE_ENTERED_AMOUNT);
         s.add(ConditionType.OVER_BUDGET);
         s.add(ConditionType.OVER_BUDGET_PERCENTAGE);
@@ -94,7 +95,7 @@ public class RuleType extends MetadataDetailEnum {
         s = new HashSet();
         s.add(ConditionType.DEPARTMENT);
         s.add(ConditionType.EXPENSE_CATEGORY);
-        //s.add(ConditionType.EXPENSE_SUBCATEGORY);
+        s.add(ConditionType.EXPENSE_SUBCATEGORY);
         s.add(ConditionType.DIFFERENCE_AMOUNT_OF_EXPENSE_CLAIMED_AND_ENTERED);
         s.add(ConditionType.DIFFERENCE_AMOUNT_PERCENTAGE_OF_EXPENSE_CLAIMED_AND_ENTERED);
         s.add(ConditionType.OVER_BUDGET);

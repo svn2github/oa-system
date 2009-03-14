@@ -19,6 +19,7 @@ import org.apache.struts.action.ActionMapping;
 
 import net.sourceforge.model.admin.Department;
 import net.sourceforge.model.admin.ExpenseCategory;
+import net.sourceforge.model.admin.ExpenseSubCategory;
 import net.sourceforge.model.admin.PurchaseCategory;
 import net.sourceforge.model.admin.PurchaseSubCategory;
 import net.sourceforge.model.admin.Site;
@@ -159,6 +160,13 @@ public class BaseRuleConditionAction extends BaseAction {
             ExpenseCategory ec = ServiceLocator.getExpenseCategoryManager(request).getExpenseCategory(id);
             if (ec == null) return null;
             return ec.getDescription();
+        }
+        if (ConditionType.EXPENSE_SUBCATEGORY.equals(ct)) {
+            Integer id = ActionUtils.parseInt(value);
+            if (id == null) return null;
+            ExpenseSubCategory esc = ServiceLocator.getExpenseSubCategoryManager(request).getExpenseSubCategory(id);
+            if (esc == null) return null;
+            return esc.getDescription();
         }
         if (ConditionType.PURCHASE_CATEGORY.equals(ct)) {
             Integer id = ActionUtils.parseInt(value.substring(1));
@@ -313,6 +321,10 @@ public class BaseRuleConditionAction extends BaseAction {
         }
         if (ConditionType.EXPENSE_CATEGORY.equals(ct)) {
             request.setAttribute("X_EXPENSECATEGORYLIST", ServiceLocator.getExpenseCategoryManager(request).getEnabledExpenseCategoryOfSite(s));
+            return;
+        }
+        if (ConditionType.EXPENSE_SUBCATEGORY.equals(ct)) {
+            request.setAttribute("X_EXPENSECATEGORYSUBCATEGORYLIST", ServiceLocator.getExpenseCategoryManager(request).getEnabledExpenseCategorySubCategoryOfSite(s));
             return;
         }
         if (ConditionType.PURCHASE_CATEGORY.equals(ct)) {

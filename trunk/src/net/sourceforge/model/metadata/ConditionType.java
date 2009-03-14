@@ -128,13 +128,9 @@ public class ConditionType extends MetadataDetailEnum {
         EXPENSE_CATEGORY.typeString = "ExpenseCategory";
         
         s = new HashSet();
-        s.add(ConditionCompareType.LESS_THAN);
-        s.add(ConditionCompareType.LESS_OR_EQUAL);
         s.add(ConditionCompareType.EQUAL);
-        s.add(ConditionCompareType.GREATER_OR_EQUAL);
-        s.add(ConditionCompareType.GREATER_THAN);
         EXPENSE_SUBCATEGORY.supportedCompareTypes = s;
-        EXPENSE_SUBCATEGORY.typeString = "Number";
+        EXPENSE_SUBCATEGORY.typeString = "ExpenseSubCategory";
         
         s = new HashSet();
         s.add(ConditionCompareType.LESS_THAN);

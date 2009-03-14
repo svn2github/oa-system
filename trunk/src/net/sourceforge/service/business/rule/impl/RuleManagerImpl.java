@@ -550,7 +550,7 @@ public class RuleManagerImpl extends BaseManager implements RuleManager {
                 compareSource = "approveExpenseCategory";
                 compareTarget = ActionUtils.parseInt(value);
             } else if (ConditionType.EXPENSE_SUBCATEGORY.equals(ct)) {
-                compareSource = "approveExpenseSubCategoryAmount";
+                compareSource = "approveAmountNotZeroExpenseSubCategory";
                 compareTarget = ActionUtils.parseInt(value);
             } else if (ConditionType.PURCHASE_CATEGORY.equals(ct)) {
                 if (value.charAt(0) == 'p') {

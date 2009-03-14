@@ -88,6 +88,9 @@
 	<definition name="site.ruleCondition.newExpenseCategory" extends="dialog.mainLayout">
 		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newExpenseCategory.jsp"/>
 	</definition>
+	<definition name="site.ruleCondition.newExpenseSubCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newExpenseSubCategory.jsp"/>
+	</definition>
 	<definition name="site.ruleCondition.newTravelType" extends="dialog.mainLayout">
 		<put name="body"	value="/WEB-INF/jsp/ruleCondition/newTravelType.jsp"/>
 	</definition>
@@ -111,6 +114,9 @@
 	</definition>
 	<definition name="site.ruleCondition.editExpenseCategory" extends="dialog.mainLayout">
 		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editExpenseCategory.jsp"/>
+	</definition>
+	<definition name="site.ruleCondition.editExpenseSubCategory" extends="dialog.mainLayout">
+		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editExpenseSubCategory.jsp"/>
 	</definition>
 	<definition name="site.ruleCondition.editTravelType" extends="dialog.mainLayout">
 		<put name="body"	value="/WEB-INF/jsp/ruleCondition/editTravelType.jsp"/>

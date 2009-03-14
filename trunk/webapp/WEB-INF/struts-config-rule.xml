@@ -67,6 +67,7 @@
 		<forward name="pageRuleConditionNewBudgetType" path="site.ruleCondition.newBudgetType" />
 		<forward name="pageRuleConditionNewDepartment" path="site.ruleCondition.newDepartment" />
 		<forward name="pageRuleConditionNewExpenseCategory" path="site.ruleCondition.newExpenseCategory" />
+		<forward name="pageRuleConditionNewExpenseSubCategory" path="site.ruleCondition.newExpenseSubCategory" />
 		<forward name="pageRuleConditionNewPurchaseCategory" path="site.ruleCondition.newPurchaseCategory" />
 		<forward name="pageRuleConditionNewTravelType" path="site.ruleCondition.newTravelType" />
 		<forward name="pageRuleConditionNewTravellingMode" path="site.ruleCondition.newTravellingMode" />
@@ -75,6 +76,7 @@
 		<forward name="pageRuleConditionEditBudgetType" path="site.ruleCondition.editBudgetType" />
 		<forward name="pageRuleConditionEditDepartment" path="site.ruleCondition.editDepartment" />
 		<forward name="pageRuleConditionEditExpenseCategory" path="site.ruleCondition.editExpenseCategory" />
+		<forward name="pageRuleConditionEditExpenseSubCategory" path="site.ruleCondition.editExpenseSubCategory" />
 		<forward name="pageRuleConditionEditPurchaseCategory" path="site.ruleCondition.editPurchaseCategory" />
 		<forward name="pageRuleConditionEditTravelType" path="site.ruleCondition.editTravelType" />
 		<forward name="pageRuleConditionEditTravellingMode" path="site.ruleCondition.editTravellingMode" />

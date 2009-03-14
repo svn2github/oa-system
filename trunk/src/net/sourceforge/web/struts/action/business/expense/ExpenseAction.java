@@ -1141,8 +1141,8 @@ public class ExpenseAction extends BaseExpenseAction {
         return false;
     }
 
-    private List executeFlow(Expense expense, HttpServletRequest request) {
-        List eList = ServiceLocator.getExpenseManager(request).viewApprover(expense);
+    private List executeFlow(Expense expense, List expenseRowList, HttpServletRequest request) {
+        List eList = ServiceLocator.getExpenseManager(request).viewApprover(expense, expenseRowList);
         return eList;
     }
     
@@ -1210,7 +1210,7 @@ public class ExpenseAction extends BaseExpenseAction {
         
         if (viewApprover) {
             try {
-                request.setAttribute("X_APPROVELIST", executeFlow(expense, request));
+                request.setAttribute("X_APPROVELIST", executeFlow(expense, expenseRowList, request));
             } catch (ActionException e) {
                 ActionMessage message = new ActionMessage(e.getKey(), e.getValues());
                 ActionMessages messages = new ActionMessages();

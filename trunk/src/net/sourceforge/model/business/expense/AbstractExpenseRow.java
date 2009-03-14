@@ -9,6 +9,7 @@ package net.sourceforge.model.business.expense;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import net.sourceforge.model.admin.ProjectCode;
 
@@ -135,5 +136,4 @@ public abstract class AbstractExpenseRow implements Serializable {
     public void setProjectCode(ProjectCode projectCode) {
         this.projectCode = projectCode;
     }
-
 }

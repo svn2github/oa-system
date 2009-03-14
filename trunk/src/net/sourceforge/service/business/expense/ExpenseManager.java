@@ -200,6 +200,6 @@ public interface ExpenseManager {
 
     public List getExpenseCategoriesAndUserageAmountBySiteId(Integer siteId);
     
-    public List viewApprover(Expense expense);
+    public List viewApprover(Expense expense, List expenseRowList);
 
 }

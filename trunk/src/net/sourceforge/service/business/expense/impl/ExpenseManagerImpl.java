@@ -177,6 +177,7 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
             //占用预算金额
             updateBudgetAmount(expense, new BigDecimal(0D), expense.getAmount());
             try {
+                expense.setExpenseRowList(expenseRowList);
                 approveRequestList = flowManager.executeApproveFlow(expense);                
             } catch (ExecuteFlowEmptyResultException e) {
                 throw new ActionException("flow.execute.notApproverFound");
@@ -534,7 +535,7 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
         return dao.getExpenseCategoriesAndUserageAmountBySiteId(siteId);
     }
 
-    public List viewApprover(Expense expense) {
+    public List viewApprover(Expense expense, List expenseRowList) {
         try {
             //因为是在提交后在扣减预算，所以在view approver的时候，需要先扣预算，然后执行approve flow，然后在把预算加回来
             YearlyBudget yb = null;
@@ -544,6 +545,7 @@ public class ExpenseManagerImpl extends BaseManager implements ExpenseManager {
                 yearlyBudgetManager.updateYearBudget(yb);
                 expense.setYearlyBudget(yb);
             }
+            expense.setExpenseRowList(expenseRowList);
             List eList = flowManager.executeApproveFlow(expense);
             if (expense.getYearlyBudget() != null) {
                 yb.updateActualAmount(expense.getAmount(), new BigDecimal(0d));
