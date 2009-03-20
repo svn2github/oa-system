@@ -30,10 +30,19 @@
 	-->
 	
 	<!-- Microsoft SQLServer 2000 -->
+	<!-- 
 	<bean id="dataSource" 
 	    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName"><value>com.microsoft.jdbc.sqlserver.SQLServerDriver</value></property>
 	    <property name="url"><value>jdbc:microsoft:sqlserver://localhost:1433;databaseName=oa;SelectMethod=Cursor</value></property>
+	    <property name="username"><value>OA</value></property>
+	    <property name="password"><value>OA</value></property>
+	</bean>
+	 -->
+	 <bean id="dataSource" 
+	    class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName"><value>net.sourceforge.jtds.jdbc.Driver</value></property>
+	    <property name="url"><value>jdbc:jtds:sqlserver://localhost:1433/oa</value></property>
 	    <property name="username"><value>OA</value></property>
 	    <property name="password"><value>OA</value></property>
 	</bean>

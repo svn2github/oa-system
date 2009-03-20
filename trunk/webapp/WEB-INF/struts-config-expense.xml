@@ -320,7 +320,7 @@
 			<forward name="page" path="site.expenseAttachment.new" />
 		</action>
 		<action     
-			parameter="insert" path="/insertExpenseAttachment_self" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment.do"
+			parameter="insert" path="/insertExpenseAttachment_self" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment_self.do"
 			type="net.sourceforge.web.struts.action.business.expense.ExpenseAttachmentAction">
 			<set-property property="functionId" value="12230040"/>
 			<set-property property="dialog" value="true"/>				
@@ -335,7 +335,7 @@
 			<forward name="page" path="site.expenseAttachment.new" />
 		</action>
 		<action     
-			parameter="insert" path="/insertExpenseAttachment_other" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment.do"
+			parameter="insert" path="/insertExpenseAttachment_other" scope="request" name="expenseAttachmentForm" input="/newExpenseAttachment_other.do"
 			type="net.sourceforge.web.struts.action.business.expense.ExpenseAttachmentAction">
 			<set-property property="functionId" value="32230040"/>
 			<set-property property="dialog" value="true"/>				

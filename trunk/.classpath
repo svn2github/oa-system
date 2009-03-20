@@ -4,16 +4,11 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_15"/>
 	<classpathentry kind="con" path="com.genuitec.eclipse.j2eedt.core.J2EE14_CONTAINER"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/JAMon.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/antlr.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/c3p0-0.9.0.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-attributes-api.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-attributes-compiler.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-beanutils.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-collections-2.1.1.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-dbcp-1.2.1.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-digester.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-fileupload.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-logging.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-pool-1.2.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/concurrent-1.3.3.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/connector.jar"/>
@@ -32,16 +27,13 @@
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jmxremote_optional.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jmxri.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jotm.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jstl.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jta.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/log4j-1.2.9.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/odmg-3.0.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/oscache-2.0.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/proxool-0.8.3.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/quartz.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/spring.jar" sourcepath="lib-src/spring-1.2.6-src.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/standard.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/struts.jar" sourcepath="lib-src/struts-src-1.2.7.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/spring.jar" sourcepath="C:/Documents and Settings/丁鑫/桌面/spring-framework-1.2.4/spring-framework-1.2.4/src"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/swarmcache-1.0rc2.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/toplink-api.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/xalan-2.4.0.jar"/>
@@ -54,7 +46,6 @@
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/mail.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/shcnc-struts1.2.jar" sourcepath="/SHCNC-LIB-STRUTS-1.2/src"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/cglib-nodep-2.1_3.jar"/>
-	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-validator-1.1.4.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-net-1.4.1.jar" sourcepath="E:/jakarta/commons-net-1.4.1/src"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/iTextAsian.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/itext-1.3.jar"/>
@@ -63,5 +54,14 @@
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/velocity-tools-generic-1.2.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/poi-2.5.1.jar"/>
 	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-digester.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/struts.jar" sourcepath="D:/Project/Eclipse.WorkingFolder4/emma-oa/lib-src/struts-src-1.2.7.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-validator-1.1.4.jar"/>
 	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
 </classpath>

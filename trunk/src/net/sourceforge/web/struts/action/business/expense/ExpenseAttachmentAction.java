@@ -8,15 +8,19 @@ package net.sourceforge.web.struts.action.business.expense;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts.Globals;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 import org.apache.struts.upload.FormFile;
 
 import net.sourceforge.model.business.expense.Expense;
@@ -159,12 +163,18 @@ public class ExpenseAttachmentAction extends BaseAction {
         } else {
             request.setAttribute("x_postfix", "_other");
         }
-        Expense expense=this.getExpenseFromRequest(request);
-        if (!isBack(request)) {
-            ExpenseAttachment expenseAttachment = new ExpenseAttachment();
-            expenseAttachment.setExpense(expense);
-            BeanForm expenseAttachmentForm = (BeanForm) getForm("/insertExpenseAttachment_self", request);
-            expenseAttachmentForm.populateToForm(expenseAttachment);
+        
+        ActionMessages errors = (ActionMessages)request.getAttribute(Globals.ERROR_KEY);
+        if (errors == null) {
+            Expense expense=this.getExpenseFromRequest(request);
+            if (!isBack(request)) {
+                ExpenseAttachment expenseAttachment = new ExpenseAttachment();
+                expenseAttachment.setExpense(expense);
+                BeanForm expenseAttachmentForm = (BeanForm) getForm("/insertExpenseAttachment_self", request);
+                expenseAttachmentForm.populateToForm(expenseAttachment);
+            }
+        } else {            
+            throw new ActionException("errors.filesize.maxLengthExceeded", mapping.getModuleConfig().getControllerConfig().getMaxFileSize());
         }
         return mapping.findForward("page");
     }

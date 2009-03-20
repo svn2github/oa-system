@@ -12,9 +12,11 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts.Globals;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessages;
 import org.apache.struts.upload.FormFile;
 
 import net.sourceforge.model.business.pr.CapexRequest;
@@ -46,14 +48,19 @@ public class CapexRequestAttachmentAction extends BaseAction {
      * @throws Exception
      */
     public ActionForward newObject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        CapexRequest capexRequest = getCapexRequestFromRequest(request);
-        checkRequestor(capexRequest, request);
-        checkEditable(capexRequest);
-        if (!isBack(request)) {
-            CapexRequestAttachment capexRequestAttachment = new CapexRequestAttachment();
-            capexRequestAttachment.setCapexRequest(capexRequest);
-            BeanForm capexRequestAttachmentForm = (BeanForm) getForm("/insertCapexRequestAttachment", request);
-            capexRequestAttachmentForm.populateToForm(capexRequestAttachment);
+        ActionMessages errors = (ActionMessages) request.getAttribute(Globals.ERROR_KEY);
+        if (errors == null) {
+            CapexRequest capexRequest = getCapexRequestFromRequest(request);
+            checkRequestor(capexRequest, request);
+            checkEditable(capexRequest);
+            if (!isBack(request)) {
+                CapexRequestAttachment capexRequestAttachment = new CapexRequestAttachment();
+                capexRequestAttachment.setCapexRequest(capexRequest);
+                BeanForm capexRequestAttachmentForm = (BeanForm) getForm("/insertCapexRequestAttachment", request);
+                capexRequestAttachmentForm.populateToForm(capexRequestAttachment);
+            }
+        } else {
+            throw new ActionException("errors.filesize.maxLengthExceeded", mapping.getModuleConfig().getControllerConfig().getMaxFileSize());
         }
         return mapping.findForward("page");
     }
@@ -139,8 +146,8 @@ public class CapexRequestAttachmentAction extends BaseAction {
                 } finally {
                     in.close();
                 }
-            } 
-        } 
+            }
+        }
         return null;
     }
 

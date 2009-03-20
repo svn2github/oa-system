@@ -2255,7 +2255,7 @@
 		<!-- end of SystemLog -->
 		
 </action-mappings>
-	<controller maxFileSize="2000K" tempDir="/home/jboss-4.0.3SP1/server/default/uploadtmp"/>
+	<controller maxFileSize="2000K" tempDir="D:\\oa-system\\tempupload"/>
 	
 	<message-resources
 		factory="com.shcnc.struts.util.PropertyFileMessageResourcesFactory"

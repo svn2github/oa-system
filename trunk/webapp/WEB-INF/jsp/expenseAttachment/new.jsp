@@ -5,7 +5,11 @@
 <%@ taglib uri="/WEB-INF/c.tld" prefix="c"%>
 <%@ taglib uri="/WEB-INF/page.tld" prefix="page"%>
 <html:javascript formName="expenseAttachmentForm" staticJavascript="false" />
-<html:form action="/insertExpenseAttachment${x_postfix}" enctype="multipart/form-data" onsubmit="return validateExpenseAttachmentForm(this)" >
+<html:messages id="message">
+  <bean:write name="message"/>
+  <br/>
+</html:messages> 
+<html:form action="/insertExpenseAttachment${x_postfix}" method="post" enctype="multipart/form-data" onsubmit="return validateExpenseAttachmentForm(this)" >
 	<html:hidden property="expense_id" />
 	<table width=100% border=0 cellpadding=4 cellspacing=0>
 		<tr>
